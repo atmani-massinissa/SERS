@@ -25,9 +25,28 @@ import = "java.net.URLDecoder"
    		}
 %></textarea>
   <br><br><br>
-  <div style="margin: 0 auto; width: 50%">
+  <div style="margin: 0 auto; width: 70%">
+  <div style="float:left">
+ Prétraitements:<br>
+ Lemmatisation<BR>
+ Mots composés<BR>
+</div>
+<div style="float:right">
+<br>
+<input type="radio" name="id" value="Lemmatisation"><BR>
+<input type="radio" name="id" value=".NET"> <BR>
+  </div>
+  <div style="float:right">
+<br>
+<input type="radio" name="id2" value="Lemmatisation"><BR>
+<input type="radio" name="id2" value=".NET"> <BR>
+  </div>
+   <br><br><br>
+   <br><br><br>
   <input type="submit" style="border:gray; color:black;" value="Extraire relations sémantiques">
   </div>
+  <br><br>
+
   </form> 
   <br><br><br>
   
