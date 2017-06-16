@@ -2,7 +2,7 @@ Page web analysant un article en entrée. Affiche les relations extraites. Voir 
 
 - DOC Installation :
   	- Télécharger et installer [Apache Tomcat 8.0](http://apache.mediamirrors.org/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.zip)
-   	- Configurer Tomcat dans Eclipse. (Ajout serveur).[Doc Eclipse](http://help.eclipse.org/kepler/	index.jsp?topic=%2Forg.eclipse.jst.server.ui.doc.user%2Ftopics%2Ftomcat.html)
+   	- Configurer Tomcat dans Eclipse. (Ajout serveur).[DocEclipse](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.jst.server.ui.doc.user%2Ftopics%2Ftomcat.html)
    	- Télécharger le répertoire du projet [SERSWeb](/SERSWeb).
    	- Importer le projet dans Eclipse.
    	- Fichier des patrons se trouve dans le répertoire "/WebContent/WEB-INF/".
