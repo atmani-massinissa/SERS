@@ -36,11 +36,16 @@ public class MotsComposes extends TextClass {
 	}
 
 	public MotsComposes(TextClass p, String ressourcePath) throws IOException {
+		System.out.println("------------------UNITARY 1-------------------------");
 		this.ressourcePath = ressourcePath;
+		System.out.println("------------------UNITARY 2-------------------------");
 		this.oldText = new String(p.newText);
+		System.out.println("------------------UNITARY 3-------------------------");
 		wordList = new HashSet<String>();
 		nonExistingWords = new HashSet<String>();
+		System.out.println("------------------UNITARY 4-------------------------");
 		createWordList(ressourcePath+"jdm-mc.txt");
+		System.out.println("------------------UNITARY 5-------------------------");
 		motsTrouves = new ArrayList<String>();
 		if (p instanceof Parser) {
 			pr = (Parser) p;
@@ -82,7 +87,7 @@ public class MotsComposes extends TextClass {
 	public void createWordList(String filePath) throws IOException {
 
 		String line;
-		BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
+		BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.ISO_8859_1);
 		while ((line = reader.readLine()) != null) {
 			wordList.add(line.substring(0, line.length() - 1));
 		}

@@ -2,21 +2,22 @@
 import = "org.wikipedia.Wiki"
 import = "java.util.regex.Matcher"
 import = "java.util.regex.Pattern"
+import = "java.net.URLDecoder"
 %>
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@page contentType="text/html; charset=iso-8859-1" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Web Analyser</title>
 </head>
 <body>
 <div style="margin: 0 auto; width: 43%"><h2>Démo du mécanisme d'extraction</h2></div>
 <div style="margin: 0 auto; width: 50%">
   <br><br><br>
-<form action="maPage.jsp">
+<form action="maPage.jsp" accept-charset="UTF-8">
   Entrez page à analyser :<br><br>
-  <textarea rows="1" cols="50" name="inputText"><%if (request.getParameter("inputText")==null){%>
+  <textarea rows="1" cols="50" name="inputText"><%if (request.getParameter("inputText")==null){%>https://fr.wikipedia.org/wiki/Dépression_(psychiatrie)
 <% } 
    else
    		{
@@ -47,12 +48,15 @@ import = "java.util.regex.Pattern"
 			Matcher matcher = ExpReg.matcher(request.getParameter("inputText"));
 			if (matcher.find()) {
 				Analyseur analyseurDeTest=new Analyseur(session.getServletContext().getRealPath("/WEB-INF/"));
-				String text = frWiki.getPageText(""+matcher.group(2));
+				//out.print("1" +matcher.group(2));
+				String text= frWiki.getPageText(""+matcher.group(2));
 				if (text != null) {
 					analyseurDeTest.setText(text);
-					out.print("1" +text);
-					//analyseurDeTest.analyserParMcLem();
- 					//analyseurDeTest.displayResults(out);
+					//analyseurDeTest.setText(text);
+					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
+					//out.print("1" +text);
+					analyseurDeTest.analyserParMcLem();
+ 					analyseurDeTest.displayResults(out);
 				}
 				else 
 				{
@@ -63,7 +67,7 @@ import = "java.util.regex.Pattern"
 			}
 			else 
 			{
-				%>La page <%out.print(request.getParameter("inputText"));%> est introuvable !
+				%>Le nom de l'article n'a pas été séparé du lien : <%out.print(request.getParameter("inputText"));%> 
 				<%
 				
 			}

@@ -156,11 +156,13 @@ public class Analyseur {
 	}
 
 	public void analyserParMcLem() throws Exception {
-		long startTime = System.currentTimeMillis();
+		
+		System.out.println("************************AnalyserParMcLem*****************************");;
+		//long startTime = System.currentTimeMillis();
 		this.pretraitementParMcLem();
-		long stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
-		startTime = System.currentTimeMillis();
+		//long stopTime = System.currentTimeMillis();
+		//System.out.println(stopTime - startTime);
+		//startTime = System.currentTimeMillis();
 		// System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
@@ -206,8 +208,8 @@ public class Analyseur {
 			long stopTimeP = System.currentTimeMillis();
 			System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
 		}
-		stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//stopTime = System.currentTimeMillis();
+		//System.out.println(stopTime - startTime);
 	}
 
 	public void analyserParLemMc() throws Exception {
@@ -440,6 +442,7 @@ public class Analyseur {
 	}
 
 	public void pretraitementParMcLem() throws Exception {
+		System.out.println("*************************prétraitementsParMcLem*****************************");;
 		this.parser();
 		// this.mots_composes(p);
 		// this.lemmatisation(p);
@@ -474,7 +477,9 @@ public class Analyseur {
 		 * Probleme a rï¿½gler : le texte commence par null/n, essayer de
 		 * l'enlver du texte
 		 */
+		System.out.println("*************************DébutParserParMcLem*****************************");;
 		p = new Parser(text);
+		System.out.println("*************************FinParserParMcLem*****************************");;
 		// System.out.println(" Analyser Parser "+p.newText);
 
 	}
@@ -483,8 +488,9 @@ public class Analyseur {
 		/*
 		 * Remplacement des espaces par des underscores.
 		 */
-
+		System.out.println("*************************débutMotCompParMcLem*****************************");;
 		mc = new MotsComposes(TIp,ressourcePath);
+		System.out.println("*************************FinMotCompParMcLem*****************************");;
 	}
 
 	public void lemmatisation(TextClass TIp) throws Exception {
@@ -519,7 +525,7 @@ public class Analyseur {
 		return false;
 
 	}
-
+	
 	public void displayResults(JspWriter out) throws IOException {
 		/*
 		 * Affiche la liste des relations trouvÃ©es.
@@ -527,7 +533,7 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("-" + relation.getType() + "(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte
+			out.println("<br>-" + relation.getType() + "(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// System.out.println(" contexte d e la phrase
