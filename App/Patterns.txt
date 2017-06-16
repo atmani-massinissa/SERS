@@ -1,0 +1,1443 @@
+Hyperonymie :
+$x , qui est un $y --> $x:[Nom],$y:[Nom]
+$x , qui est un des $y --> $x:[Nom],$y:[Nom]
+$x , qui est l'un des $y --> $x:[Nom],$y:[Nom]
+$x , qui est une $y --> $x:[Nom],$y:[Nom]
+$x , qui est une des $y --> $x:[Nom],$y:[Nom]
+$x , qui est l' $y --> $x:[Nom],$y:[Nom]
+$x , qui est la $y --> $x:[Nom],$y:[Nom]
+$x , qui est le $y --> $x:[Nom],$y:[Nom]
+$x , qui sont l' $y --> $x:[Nom],$y:[Nom]
+$x , qui sont la $y --> $x:[Nom],$y:[Nom]
+$x , qui sont le $y --> $x:[Nom],$y:[Nom]
+$x , qui sont des $y --> $x:[Nom],$y:[Nom]
+$x , qui sont les $y --> $x:[Nom],$y:[Nom]
+$x , qui sont un des $y --> $x:[Nom],$y:[Nom]
+$x , qui sont une des $y --> $x:[Nom],$y:[Nom]
+$x c'est-à-dire un $y  --> $x:[Nom],$y:[Nom]
+$x c'est-à-dire une $y  --> $x:[Nom],$y:[Nom]
+$x est aussi un $y  --> $x:[Nom],$y:[Nom]
+$x est aussi une $y   --> $x:[Nom],$y:[Nom]
+$x est de la famille de $y --> $x:[Nom],$y:[Nom]
+$x est de la famille des $y --> $x:[Nom],$y:[Nom]
+$x est de la famille du $y --> $x:[Nom],$y:[Nom]
+$x est un $y --> $x:[Nom],$y:[Nom]
+$x est une $y --> $x:[Nom],$y:[Nom]
+$x est le $y --> $x:[Nom],$y:[Nom]
+$x est la $y --> $x:[Nom],$y:[Nom]
+$x est l' $y --> $x:[Nom],$y:[Nom]
+$x est un des $y --> $x:[Nom],$y:[Nom]
+$x sont des $y --> $x:[Nom],$y:[Nom]
+$x sont les $y --> $x:[Nom],$y:[Nom]
+$x sont une $y --> $x:[Nom],$y:[Nom]
+$x sont un $y --> $x:[Nom],$y:[Nom]
+$x sont le $y --> $x:[Nom],$y:[Nom]
+$x sont la $y --> $x:[Nom],$y:[Nom]
+$x sont l' $y --> $x:[Nom],$y:[Nom]
+$x est une des $y --> $x:[Nom],$y:[Nom]
+$x sont une des $y --> $x:[Nom],$y:[Nom]
+$x est un ensemble de $y --> $x:[Nom],$y:[Nom]
+$x sont un ensemble de $y --> $x:[Nom],$y:[Nom]
+$x sont un ensemble des $y --> $x:[Nom],$y:[Nom]
+$x sont des ensembles de $y --> $x:[Nom],$y:[Nom]
+$x sont des ensembles des $y --> $x:[Nom],$y:[Nom]
+$x est un genre de $y  --> $x:[Nom],$y:[Nom]
+$x sont un genre de $y --> $x:[Nom],$y:[Nom]
+$x sont un genre des $y --> $x:[Nom],$y:[Nom]
+$x sont des genres de $y --> $x:[Nom],$y:[Nom]
+$x sont des genres des $y --> $x:[Nom],$y:[Nom]
+$x est une forme de $y --> $x:[Nom],$y:[Nom]
+$x sont des forme de $y --> $x:[Nom],$y:[Nom]
+$x sont des forme des $y --> $x:[Nom],$y:[Nom]
+$x est une forme des $y --> $x:[Nom],$y:[Nom]
+$x est une forme d'un $y --> $x:[Nom],$y:[Nom]
+$x est une forme d'une $y --> $x:[Nom],$y:[Nom]
+$x est une forme rare et grave de $y --> $x:[Nom],$y:[Nom]
+$x sont des formes rares et graves de $y --> $x:[Nom],$y:[Nom]
+$x sont des formes rares et graves des $y --> $x:[Nom],$y:[Nom]
+$x est une forme rare et grave des $y --> $x:[Nom],$y:[Nom]
+$x est une forme rare et grave d'un $y --> $x:[Nom],$y:[Nom]
+$x est une forme rare et grave d'une $y --> $x:[Nom],$y:[Nom]
+$x est une sorte de $y --> $x:[Nom],$y:[Nom]
+$x sont une sorte de $y --> $x:[Nom],$y:[Nom]
+$x est également un $y --> $x:[Nom],$y:[Nom]
+$x est également une $y --> $x:[Nom],$y:[Nom]
+$x est également l' $y --> $x:[Nom],$y:[Nom]
+$x est également le $y --> $x:[Nom],$y:[Nom]
+$x est également la $y --> $x:[Nom],$y:[Nom]
+$x sont également un $y --> $x:[Nom],$y:[Nom]
+$x sont également une $y --> $x:[Nom],$y:[Nom]
+$x sont également le $y --> $x:[Nom],$y:[Nom]
+$x sont également la $y --> $x:[Nom],$y:[Nom]
+$x sont également l' $y --> $x:[Nom],$y:[Nom]
+$x est éventuellement aussi appelé $y --> $x:[Nom],$y:[Nom]
+$x est éventuellement aussi appelée $y --> $x:[Nom],$y:[Nom]
+$x est éventuellement aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom]
+$x est éventuellement aussi appelée $y , ou $z  --> $x:[Nom],$y:[Nom]
+$x sont éventuellement aussi appelés $y --> $x:[Nom],$y:[Nom]
+$x sont éventuellement aussi appelées $y --> $x:[Nom],$y:[Nom]
+$x sont éventuellement aussi appelés $y , ou $z --> $x:[Nom],$y:[Nom]
+$x sont éventuellement aussi appelées $y , ou $z  --> $x:[Nom],$y:[Nom]
+$x qui est un $y --> $x:[Nom],$y:[Nom]
+$x qui est une $y --> $x:[Nom],$y:[Nom]
+$x qui est le $y --> $x:[Nom],$y:[Nom]
+$x qui est la $y --> $x:[Nom],$y:[Nom]
+$x qui est l' $y --> $x:[Nom],$y:[Nom]
+$x qui est un des $y --> $x:[Nom],$y:[Nom]
+$x qui est l'un des $y --> $x:[Nom],$y:[Nom]
+$x qui est l'une des $y --> $x:[Nom],$y:[Nom]
+$x qui est une des $y  --> $x:[Nom],$y:[Nom]
+$x qui sont un $y --> $x:[Nom],$y:[Nom]
+$x qui sont une $y --> $x:[Nom],$y:[Nom]
+$x qui sont le $y --> $x:[Nom],$y:[Nom]
+$x qui sont la $y --> $x:[Nom],$y:[Nom]
+$x qui sont l' $y --> $x:[Nom],$y:[Nom]
+$x qui sont un des $y --> $x:[Nom],$y:[Nom]
+$x qui sont l'un des $y --> $x:[Nom],$y:[Nom]
+$x qui sont l'une des $y --> $x:[Nom],$y:[Nom]
+$x qui sont une des $y  --> $x:[Nom],$y:[Nom]
+$x sont des $y --> $x:[Nom],$y:[Nom]
+$x sont les $y --> $x:[Nom],$y:[Nom]
+$x éventuellement aussi appelé $y --> $x:[Nom],$y:[Nom]
+$x éventuellement aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom]
+$x éventuellement aussi appelée $y --> $x:[Nom],$y:[Nom]
+$x éventuellement aussi appelée $y , ou $z --> $x:[Nom],$y:[Nom]
+
+
+Holonymie :
+$x a comme partie la $y
+$x a comme partie le $y
+$x a comme partie un $y
+$x a comme partie une $y
+$x a comme partie les $y
+$x a comme partie des $y
+$x a comme partie l' $y
+$x a des $y --> $x:[Nom]
+$x a les $y --> $x:[Nom]
+$x a un $y --> $x:[Nom]
+$x a une $y --> $x:[Nom]
+$x a le $y --> $x:[Nom]
+$x a la $y --> $x:[Nom]
+$x a l' $y --> $x:[Nom]
+$x ont comme partie la $y 
+$x ont comme partie le $y 
+$x ont comme partie un $y 
+$x ont comme partie une $y 
+$x ont comme partie les $y 
+$x ont comme partie des $y 
+$x ont comme partie l' $y 
+$x ont des $y 
+$x ont les $y 
+$x ont un $y
+$x ont une $y
+$x ont le $y
+$x ont la $y
+$x ont l' $y
+$x composé d'un $y
+$x composé des $y
+$x composé d'une $y
+$x composé de $y
+$x composé de $y et de $z
+$x composé de $y et d'un $z
+$x composé de $y et d'une $z
+$x composé de $y et des $z
+$x composé d'un $y et de $z
+$x composé d'un $y et d'un $z
+$x composé d'un $y et d'une $z
+$x composé d'un $y et des $z
+$x composé d'une $y et de $z
+$x composé d'une $y et d'un $z
+$x composé d'une $y et d'une $z
+$x composé d'une $y et des $z
+$x composé des $y et de $z
+$x composé des $y et d'un $z
+$x composé des $y et d'une $z
+$x composé des $y et des $z
+$x composé de la $y
+$x composé du $y
+$x composée d'un $y
+$x composée des $y
+$x composée d'une $y
+$x composée de $y
+$x composée de $y et de $z
+$x composée de $y et d'un $z
+$x composée de $y et d'une $z
+$x composée de $y et des $z
+$x composée d'un $y et de $z
+$x composée d'un $y et d'un $z
+$x composée d'un $y et d'une $z
+$x composée d'un $y et des $z
+$x composée d'une $y et de $z
+$x composée d'une $y et d'un $z
+$x composée d'une $y et d'une $z
+$x composée d'une $y et des $z
+$x composée des $y et de $z
+$x composée des $y et d'un $z
+$x composée des $y et d'une $z
+$x composée des $y et des $z
+$x composée de la $y
+$x composée du $y
+$x composés d'un $y
+$x composés des $y
+$x composés d'une $y
+$x composés de $y
+$x composés de $y et de $z
+$x composés de $y et d'un $z
+$x composés de $y et d'une $z
+$x composés de $y et des $z
+$x composés d'un $y et de $z
+$x composés d'un $y et d'un $z
+$x composés d'un $y et d'une $z
+$x composés d'un $y et des $z
+$x composés d'une $y et de $z
+$x composés d'une $y et d'un $z
+$x composés d'une $y et d'une $z
+$x composés d'une $y et des $z
+$x composés des $y et de $z
+$x composés des $y et d'un $z
+$x composés des $y et d'une $z
+$x composés des $y et des $z
+$x composés de la $y
+$x composés du $y
+$x composées d'un $y
+$x composées des $y
+$x composées d'une $y
+$x composées de $y
+$x composées de $y et de $z
+$x composées de $y et d'un $z
+$x composées de $y et d'une $z
+$x composées de $y et des $z
+$x composées d'un $y et de $z
+$x composées d'un $y et d'un $z
+$x composées d'un $y et d'une $z
+$x composées d'un $y et des $z
+$x composées d'une $y et de $z
+$x composées d'une $y et d'un $z
+$x composées d'une $y et d'une $z
+$x composées d'une $y et des $z
+$x composées des $y et de $z
+$x composées des $y et d'un $z
+$x composées des $y et d'une $z
+$x composées des $y et des $z
+$x composées de la $y
+$x composées du $y
+$x constitué d'un $y
+$x constitué d'une $y
+$x constitué d'une $y et d'un $z
+$x constitué de $y
+$x constitué de la $y
+$x constitué du $y
+$x constituée d'un $y
+$x constituée d'une $y
+$x constituée de $y
+$x constituée de la $y
+$x constituée du $y
+$x constituée des $y
+$x est composé d'un $y
+$x est composé d'une $y
+$x est composé de $y
+$x est composé des $y
+$x est composé de la $y
+$x est composé du $y
+$x est composée d'un $y
+$x est composée d'une $y
+$x est composée de $y
+$x est composée de la $y
+$x est composée du $y
+$x sont composés d'un $y
+$x sont composés d'une $y
+$x sont composés de $y
+$x sont composés des $y
+$x sont composés de la $y
+$x sont composés du $y
+$x sont composées d'un $y
+$x sont composées d'une $y
+$x sont composées de $y
+$x sont composées de la $y
+$x sont composées du $y
+$x est constitué d'un $y
+$x est constitué d'une $y
+$x est constitué de $y
+$x est constitué des $y
+$x est constitué de la $y
+$x est constitué du $y
+$x est constituée d'un $y
+$x est constituée d'une $y
+$x est constituée de $y
+$x est constituée de la $y
+$x est constituée du $y
+$x est constituée des $y
+$x sont constitués d'un $y
+$x sont constitués d'une $y
+$x sont constitués de $y
+$x sont constitués des $y
+$x sont constitués de la $y
+$x sont constitués du $y
+$x sont constituées d'un $y
+$x sont constituées d'une $y
+$x sont constituées de $y
+$x sont constituées de la $y
+$x sont constituées du $y
+$x sont constituées des $y
+$x qui a des $y 
+$x qui a les $y 
+$x qui a un $y
+$x qui a une $y
+$x qui ont des $y 
+$x qui ont les $y 
+$x qui ont un $y
+$x qui ont une $y
+$x se compose de $y
+$x se compose des $y
+$x se compose d'un $y
+$x se compose d'une $y
+$x se compose de la $y
+$x se compose du $y
+$x se compose des $y
+$x se composent de $y
+$x se composent des $y
+$x se composent d'un $y
+$x se composent d'une $y
+$x se composent de la $y
+$x se composent du $y
+$x se composent des $y
+$x est composé de $y
+$x est composé des $y
+$x est composé d'un $y
+$x est composé d'une $y
+$x est composé de la $y
+$x est composé du $y
+$x est composé des $y
+$x est composée de $y
+$x est composée  des $y
+$x est composée d'un $y
+$x est composée d'une $y
+$x est composée de la $y
+$x est composée du $y
+$x est composée des $y
+$x sont composés  de $y
+$x sont composés  des $y
+$x sont composés d'un $y
+$x sont composés d'une $y
+$x sont composés de la $y
+$x sont composés du $y
+$x sont composés des $y
+$x sont composées  de $y
+$x sont composées  des $y
+$x sont composées d'un $y
+$x sont composées d'une $y
+$x sont composées de la $y
+$x sont composées du $y
+$x sont composées des $y
+
+Méronymie :
+$x compose la $y
+$x compose le $y
+$x compose les $y
+$x compose l' $y
+$x composent la $y
+$x composent le $y
+$x composent les $y
+$x composent l' $y
+$x constitue la $y
+$x constitue le $y
+$x constitue les $y
+$x constitue l' $y
+$x constitue un $y
+$x constitue une $y
+$x constituent la $y
+$x constituent le $y
+$x constituent les $y
+$x constituent l' $y
+$x constituent un $y
+$x constituent une $y
+$x est partie de $y
+$x est partie d'un $y
+$x est partie d'une $y
+$x est partie de la $y
+$x est partie du $y
+$x est une partie de $y
+$x est une partie de la $y
+$x est une partie du $y
+$x est une partie d'un $y
+$x est une partie d'une $y
+$x fait partie de $y
+$x fait partie de la $y
+$x fait partie des $y
+$x fait partie du $y
+$x font partie de $y
+$x font partie de la $y
+$x font partie des $y
+$x font partie du $y
+$x forme la $y
+$x forme le $y
+$x forme les $y
+$x forment la $y
+$x forment le $y
+$x forment les $y
+
+Causalité/Cause : 
+$x cause un $y
+$x peut causer un $y
+$x peut causer un bon nombre de $y
+$x peuvent causer un $y
+$x affecte $y
+$x affecte la $y
+$x affecte le $y
+$x affecte les $y
+$x affecte l' $y
+$x affectent $y
+$x affectent la $y
+$x affectent le $y
+$x affectent les $y
+$x affectent l' $y
+$x cause un $y
+$x cause une $y 
+$x cause la $y 
+$x cause les $y 
+$x cause l' $y 
+$x causent un $y
+$x causent une $y 
+$x causent la $y 
+$x causent les $y 
+$x causent l' $y
+$x déclenche des $y 
+$x déclenche la $y 
+$x déclenche les $y 
+$x déclenche un $y 
+$x déclenche une $y
+$x déclenche l' $y
+$x déclenchent des $y 
+$x déclenchent la $y 
+$x déclenchent les $y 
+$x déclenchent un $y 
+$x déclenchent une $y
+$x déclenchent l' $y 
+$x déclenchant des $y 
+$x déclenchant la $y 
+$x déclenchant les $y 
+$x déclenchant un $y 
+$x déclenchant une $y
+$x déclenchant l' $y
+$x peut entraîner des $y
+$x peut entraîner des $y , $z
+$x peut entraîner des $y et des $z
+$x peuvent entraîner des $y
+$x peuvent entraîner des $y , $z
+$x peuvent entraîner des $y et des $z 
+$x entraîne des $y
+$x entraîne des $y , $z
+$x entraîne des $y et des $z
+$x entraînent des $y
+$x entraînent des $y , $z
+$x entraînent des $y et des $z
+$x entraîne un $y
+$x entraîne un $y , $z
+$x entraîne un $y et un $z
+$x entraîne un $y et une $z
+$x entraînent un $y
+$x entraînent un $y , $z
+$x entraînent un $y et un $z
+$x entraînent un $y et une $z
+$x entraîne une $y
+$x entraîne une $y , $z
+$x entraîne une $y et un $z
+$x entraîne une $y et une $z
+$x entraînent une $y
+$x entraînent une $y , $z
+$x entraînent une $y et un $z
+$x entraînent une $y et une $z
+$x génère des $y
+$x génère des $y , des $z
+$x génère des $y et des $z
+$x génèrent des $y
+$x génèrent des $y , des $z
+$x génèrent des $y et des $z
+$x génère un $y
+$x génère un $y , des $z
+$x génère un $y et des $z
+$x génèrent un $y
+$x génèrent un $y , des $z
+$x génèrent un $y et des $z
+$x génère une $y
+$x génère une $y , des $z
+$x génère une $y et des $z
+$x génèrent une $y
+$x génèrent une $y , des $z
+$x génèrent une $y et des $z
+$x menant au $y
+$x menant aux $y
+$x menant à la $y
+$x menant à un $y
+$x menant à une $y
+$x menant à l' $y
+$x menant à des $y
+$x n'affecte que la $y
+$x n'affecte que le $y
+$x n'affecte que les $y
+$x n'affecte que l' $y
+$x n'affectent que la $y
+$x n'affectent que le $y
+$x n'affectent que les $y
+$x n'affectent que l' $y
+$x peut produire des $y
+$x peut produire la $y
+$x peut produire les $y
+$x peut produire un $y
+$x peut produire une $y
+$x peuvent produire de l' $y
+$x peuvent produire des $y
+$x peuvent produire la $y
+$x peuvent produire les $y
+$x peuvent produire un $y
+$x peuvent produire une $y
+$x peuvent produire de l' $y
+$x peut provoquer une $z
+$x peut provoquer la $z
+$x peut provoquer de l' $z
+$x peut provoquer des $z
+$x peut être provoqué par un $y   
+$x peut être provoqué par une $y
+$x peut être provoqué par la $y 
+$x peut être provoqué par les $y 
+$x peut être provoqué par l' $y 
+$x peut être provoqué par des $y
+$x peut être provoquée par un $y 
+$x peut être provoquée par une $y 
+$x peut être provoquée par la $y 
+$x peut être provoquée par les $y 
+$x peut être provoquée par l' $y 
+$x peut être provoquée par des $y 
+$x peuvent provoquer une $z
+$x peuvent provoquer la $z
+$x peuvent provoquer de l' $z
+$x peuvent provoquer des $z
+$x peuvent être provoqués par un $y   
+$x peuvent être provoqués par une $y
+$x peuvent être provoqués par la $y 
+$x peuvent être provoqués par les $y 
+$x peuvent être provoqués par l' $y 
+$x peuvent être provoqués par des $y
+$x peuvent être provoquées par un $y 
+$x peuvent être provoquées par une $y 
+$x peuvent être provoquées par la $y 
+$x peuvent être provoquées par les $y 
+$x peuvent être provoquées par l' $y 
+$x peuvent être provoquées par des $y
+$x provient de la $y
+$x provient de l' $y
+$x provient du $y
+$x provienent de la $y
+$x provienent de l' $y
+$x provienent du $y
+$x provoque la $y 
+$x provoque le $y
+$x provoque un $y
+$x provoque une $y
+$x provoque des $y
+$x provoque de l' $y
+$x provoquent la $y 
+$x provoquent le $y
+$x provoquent un $y
+$x provoquent une $y
+$x provoquent des $y
+$x provoquent de l' $y
+
+Causalité/Effet : 
+$x dû au $y
+$x dû aux $y
+$x dû à $y
+$x dû à des $y
+$x dû à un $y
+$x dû à une $y
+$x dû à la $y
+$x dû à l' $y
+$x dûe au $y
+$x dûe aux $y
+$x dûe à $y
+$x dûe à des $y
+$x dûe à un $y
+$x dûe à une $y
+$x dûe à la $y
+$x dûe à l' $y
+$x dûs au $y
+$x dûs aux $y
+$x dûs à $y
+$x dûs à des $y
+$x dûs à un $y
+$x dûs à une $y
+$x dûs à la $y
+$x dûs à l' $y
+$x est dûe au $y
+$x est dûe aux $y
+$x est dûe à $y
+$x est dûe à des $y
+$x est dûe à un $y
+$x est dûe à une $y
+$x est dûe à la $y
+$x est dûe à l' $y
+$x est dû au $y
+$x est dû aux $y
+$x est dû à $y
+$x est dû à des $y
+$x est dû à un $y
+$x est dû à une $y
+$x est dû à la $y
+$x est dû à l' $y
+$x sont dûs au $y
+$x sont dûs aux $y
+$x sont dûs à $y
+$x sont dûs à des $y
+$x sont dûs à un $y
+$x sont dûs à une $y
+$x sont dûs à la $y
+$x sont dûs à l' $y
+$x est causé par $y 
+$x est causé par des $y 
+$x est causé par la $y 
+$x est causé par le $y 
+$x est causé par les $y 
+$x est causé par un $y 
+$x est causé par une $y 
+$x est causée par $y 
+$x est causée par des $y
+$x est causée par la $y
+$x est causée par le $y
+$x est causée par les $y
+$x est causée par un $y
+$x est causée par une $y
+$x sont causés par $y
+$x sont causés par l' $y
+$x sont causés par des $y 
+$x sont causés par la $y 
+$x sont causés par le $y 
+$x sont causés par les $y 
+$x sont causés par un $y 
+$x sont causés par une $y 
+$x sont causées par $y
+$x sont causées par l' $y 
+$x sont causées par des $y
+$x sont causées par la $y
+$x sont causées par le $y
+$x sont causées par les $y
+$x sont causées par un $y
+$x sont causées par une $y
+$x peut être causé par $y 
+$x peut être causé par des $y 
+$x peut être causé par la $y 
+$x peut être causé par le $y 
+$x peut être causé par les $y 
+$x peut être causé par un $y 
+$x peut être causé par une $y 
+$x peut être causée par $y 
+$x peut être causée par des $y
+$x peut être causée par la $y
+$x peut être causée par le $y
+$x peut être causée par les $y
+$x peut être causée par un $y
+$x peut être causée par une $y
+$x peuvent être causés par $y
+$x peuvent être causés par l' $y
+$x peuvent être causés par des $y 
+$x peuvent être causés par la $y 
+$x peuvent être causés par le $y 
+$x peuvent être causés par les $y 
+$x peuvent être causés par un $y 
+$x peuvent être causés par une $y 
+$x peuvent être causées par $y
+$x peuvent être causées par l' $y 
+$x peuvent être causées par des $y
+$x peuvent être causées par la $y
+$x peuvent être causées par le $y
+$x peuvent être causées par les $y
+$x peuvent être causées par un $y
+$x peuvent être causées par une $y
+$x est provoqué par $y
+$x est provoqué par des $y 
+$x est provoqué par la $y 
+$x est provoqué par le $y 
+$x est provoqué par les $y 
+$x est provoqué par un $y 
+$x est provoqué par une $y 
+$x est provoquée par $y
+$x est provoquée par des $y
+$x est provoquée par la $y
+$x est provoquée par le $y
+$x est provoquée par les $y
+$x est provoquée par un $y
+$x est provoquée par une $y
+$x sont provoqués par $y
+$x sont provoqués par l' $y
+$x sont provoqués par des $y 
+$x sont provoqués par la $y 
+$x sont provoqués par le $y 
+$x sont provoqués par les $y 
+$x sont provoqués par un $y 
+$x sont provoqués par une $y 
+$x sont provoquées par $y
+$x sont provoquées par l' $y
+$x sont provoquées par des $y
+$x sont provoquées par la $y
+$x sont provoquées par le $y
+$x sont provoquées par les $y
+$x sont provoquées par un $y
+$x sont provoquées par une $y
+
+Possession : 
+$x a des $y
+$x a un $y --> $x:[Nom]
+$x a une $y --> $x:[Nom]
+$x possède un $y
+$x possède une $y
+$x possède des $y
+$x possède le $y
+$x possède la $y
+$x possède les $y
+$x possède l' $y
+$x possèdent un $y
+$x possèdent une $y
+$x possèdent des $y
+$x possèdent le $y
+$x possèdent la $y
+$x possèdent les $y
+$x possèdent l' $y
+
+
+Caractérisation :
+$x est $y --> $x:[Nom],$y:[Adj]
+$x sont $y --> $x:[Nom],$y:[Adj]
+$x de type $y --> $y:[Nom]
+$x est de type $y --> $y:[Nom]
+$x peut être un $y --> $x:[Nom]
+$x peut être une $y --> $x:[Nom]
+$x peuvent être un $y --> $x:[Nom]
+$x peuvent être une $y --> $x:[Nom]
+$x est caractérisé par $y -->$y:[Nom]
+$x est caractérisé par un $y
+$x est caractérisé par une $y
+$x est caractérisé par le $y
+$x est caractérisé par les $y
+$x est caractérisé par la $y
+$x est caractérisé par l' $y
+$x est caractérisé par des $y
+$x est caractérisée par $y -->$y:[Nom]
+$x est caractérisée par un $y
+$x est caractérisée par une $y
+$x est caractérisée par le $y
+$x est caractérisée par les $y
+$x est caractérisée par la $y
+$x est caractérisée par l' $y
+$x est caractérisée par des $y
+$x sont caractérisés par $y -->$y:[Nom]
+$x sont caractérisés par un $y
+$x sont caractérisés par une $y
+$x sont caractérisés par le $y
+$x sont caractérisés par les $y
+$x sont caractérisés par la $y
+$x sont caractérisés par l' $y
+$x sont caractérisés par des $y
+$x sont caractérisées par $y -->$y:[Nom]
+$x sont caractérisées par un $y
+$x sont caractérisées par une $y
+$x sont caractérisées par le $y
+$x sont caractérisées par les $y
+$x sont caractérisées par la $y
+$x sont caractérisées par l' $y
+$x sont caractérisées par des $y
+$x se caractérise par $y -->$y:[Nom]
+$x se caractérise par un $y
+$x se caractérise par une $y
+$x se caractérise par le $y
+$x se caractérise par la $y
+$x se caractérise par les $y
+$x se caractérise par l' $y
+$x se caractérise par des $y
+$x se caractérisent par $y -->$y:[Nom]
+$x se caractérisent par un $y
+$x se caractérisent par une $y
+$x se caractérisent par le $y
+$x se caractérisent par la $y
+$x se caractérisent par les $y
+$x se caractérisent par l' $y
+$x se caractérisent par des $y
+$x à base de $y
+$x à base de l' $y
+$x à base du $y
+$x à base de la $y
+$x à base des $y
+$x à base d'un $y
+$x à base d'une $y
+
+
+Opposition :
+$x est l'inverse de $y
+$x est l'opposé de $y
+$x est l'opposée de $y
+$x à est l'opposée de $y
+
+Localisation :
+$x au niveau de $y
+$x au niveau de l' $y
+$x au niveau de la $y
+$x au niveau du $y
+$x au niveau d'un $y
+$x au niveau d'une $y
+$x au niveau des $y
+$x se trouve dans $y
+$x se trouve dans l' $y
+$x se trouve dans la $y
+$x se trouve dans le $y
+$x se trouve dans un $y
+$x se trouve dans une $y
+$x se trouve dans les $y
+$x se trouve dans des $y
+$x se trouvent dans $y
+$x se trouvent dans l' $y
+$x se trouvent dans la $y
+$x se trouvent dans le $y
+$x se trouvent dans un $y
+$x se trouvent dans une $y
+$x se trouvent dans les $y
+$x se trouvent dans des $y
+$x se trouve localisé au niveau de $y
+$x se trouve localisé au niveau de l' $y
+$x se trouve localisé au niveau de la $y
+$x se trouve localisé au niveau du $y
+$x se trouve localisé au niveau d'un $y
+$x se trouve localisé au niveau d'une $y
+$x se trouve localisé au niveau des $y
+$x se trouve localisée au niveau de $y
+$x se trouve localisée au niveau de l' $y
+$x se trouve localisée au niveau de la $y
+$x se trouve localisée au niveau du $y
+$x se trouve localisée au niveau d'un $y
+$x se trouve localisée au niveau d'une $y
+$x se trouve localisée au niveau des $y
+$x se trouvent localisés au niveau de $y
+$x se trouvent localisés au niveau de l' $y
+$x se trouvent localisés au niveau de la $y
+$x se trouvent localisés au niveau du $y
+$x se trouvent localisés au niveau d'un $y
+$x se trouvent localisés au niveau d'une $y
+$x se trouvent localisés au niveau des $y
+$x se trouvent localisées au niveau de $y
+$x se trouvent localisées au niveau de l' $y
+$x se trouvent localisées au niveau de la $y
+$x se trouvent localisées au niveau du $y
+$x se trouvent localisées au niveau d'un $y
+$x se trouvent localisées au niveau d'une $y
+$x se trouvent localisées au niveau des $y
+$x se trouve souvent localisé au niveau de $y
+$x se trouve souvent localisé au niveau de l' $y
+$x se trouve souvent localisé au niveau de la $y
+$x se trouve souvent localisé au niveau du $y
+$x se trouve souvent localisé au niveau d'un $y
+$x se trouve souvent localisé au niveau d'une $y
+$x se trouve souvent localisé au niveau des $y
+$x se trouve souvent localisée au niveau de $y
+$x se trouve souvent localisée au niveau de l' $y
+$x se trouve souvent localisée au niveau de la $y
+$x se trouve souvent localisée au niveau du $y
+$x se trouve souvent localisée au niveau d'un $y
+$x se trouve souvent localisée au niveau d'une $y
+$x se trouve souvent localisée au niveau des $y
+$x se trouvent souvent localisés au niveau de $y
+$x se trouvent souvent localisés au niveau de l' $y
+$x se trouvent souvent localisés au niveau de la $y
+$x se trouvent souvent localisés au niveau du $y
+$x se trouvent souvent localisés au niveau d'un $y
+$x se trouvent souvent localisés au niveau d'une $y
+$x se trouvent souvent localisés au niveau des $y
+$x se trouvent souvent localisées au niveau de $y
+$x se trouvent souvent localisées au niveau de l' $y
+$x se trouvent souvent localisées au niveau de la $y
+$x se trouvent souvent localisées au niveau du $y
+$x se trouvent souvent localisées au niveau d'un $y
+$x se trouvent souvent localisées au niveau d'une $y
+$x se trouvent souvent localisées au niveau des $y
+$x se trouve souvent localisées au niveau de la $y , de la $z
+
+Accompagnement :
+$x accompagné de $y --> $x:[Nom]
+$x accompagné de l' $y --> $x:[Nom]
+$x accompagné d'un $y --> $x:[Nom]
+$x accompagné d'une $y --> $x:[Nom]
+$x accompagné du $y --> $x:[Nom]
+$x accompagné de la $y --> $x:[Nom]
+$x accompagné des $y --> $x:[Nom]
+$x accompagnée de $y --> $x:[Nom]
+$x accompagnée de l' $y --> $x:[Nom]
+$x accompagnée d'un $y --> $x:[Nom]
+$x accompagnée d'une $y --> $x:[Nom]
+$x accompagnée d'une $y et d'une $z --> $x:[Nom]
+$x accompagnée du $y --> $x:[Nom]
+$x accompagnée de la $y --> $x:[Nom]
+$x accompagnée des $y --> $x:[Nom]
+$x accompagnés de $y --> $x:[Nom]
+$x accompagnés de l' $y --> $x:[Nom]
+$x accompagnés d'un $y --> $x:[Nom]
+$x accompagnés d'une $y --> $x:[Nom]
+$x accompagnés du $y --> $x:[Nom]
+$x accompagnés de la $y --> $x:[Nom]
+$x accompagnés des $y --> $x:[Nom]
+$x accompagnées de $y --> $x:[Nom]
+$x accompagnées de l' $y --> $x:[Nom]
+$x accompagnées d'un $y --> $x:[Nom]
+$x accompagnées d'une $y --> $x:[Nom]
+$x accompagnées du $y --> $x:[Nom]
+$x accompagnées de la $y --> $x:[Nom]
+$x accompagnées des $y --> $x:[Nom]
+$x accompagné par $y --> $x:[Nom]
+$x accompagné par l' $y --> $x:[Nom]
+$x accompagné par un $y --> $x:[Nom]
+$x accompagné par une $y --> $x:[Nom]
+$x accompagné par le $y --> $x:[Nom]
+$x accompagné par la $y --> $x:[Nom]
+$x accompagné par les $y --> $x:[Nom]
+$x accompagné par des $y --> $x:[Nom]
+$x accompagnée par $y --> $x:[Nom]
+$x accompagnée par l' $y --> $x:[Nom]
+$x accompagnée par un $y --> $x:[Nom]
+$x accompagnée par une $y --> $x:[Nom]
+$x accompagnée par le $y --> $x:[Nom]
+$x accompagnée par la $y --> $x:[Nom]
+$x accompagnée par les $y --> $x:[Nom]
+$x accompagnée par des $y --> $x:[Nom]
+$x accompagnés par $y --> $x:[Nom]
+$x accompagnés par l' $y --> $x:[Nom]
+$x accompagnés par un $y --> $x:[Nom]
+$x accompagnés par une $y --> $x:[Nom]
+$x accompagnés par le $y --> $x:[Nom]
+$x accompagnés par la $y --> $x:[Nom]
+$x accompagnés par les $y --> $x:[Nom]
+$x accompagnés par des $y --> $x:[Nom]
+$x accompagnées par $y --> $x:[Nom]
+$x accompagnées par l' $y --> $x:[Nom]
+$x accompagnées par un $y --> $x:[Nom]
+$x accompagnées par une $y --> $x:[Nom]
+$x accompagnées par le $y --> $x:[Nom]
+$x accompagnées par la $y --> $x:[Nom]
+$x accompagnées par les $y --> $x:[Nom]
+$x accompagnées par des $y --> $x:[Nom]
+$x associé à l' $y --> $x:[Nom]
+$x associé à la $y --> $x:[Nom]
+$x associé au $y --> $x:[Nom]
+$x associé à un $y --> $x:[Nom]
+$x associé à une $y --> $x:[Nom]
+$x associé aux $y --> $x:[Nom]
+$x associé à des $y --> $x:[Nom]
+$x associée à l' $y --> $x:[Nom]
+$x associée à la $y --> $x:[Nom]
+$x associée au $y --> $x:[Nom]
+$x associée à un $y --> $x:[Nom]
+$x associée à une $y --> $x:[Nom]
+$x associée aux $y --> $x:[Nom]
+$x associée à des $y --> $x:[Nom]
+$x associés à l' $y --> $x:[Nom]
+$x associés à la $y --> $x:[Nom]
+$x associés au $y --> $x:[Nom]
+$x associés à un $y --> $x:[Nom]
+$x associés à une $y --> $x:[Nom]
+$x associés aux $y --> $x:[Nom]
+$x associés à des $y --> $x:[Nom]
+$x associées à l' $y --> $x:[Nom]
+$x associées à la $y --> $x:[Nom]
+$x associées au $y --> $x:[Nom]
+$x associées à un $y --> $x:[Nom]
+$x associées à une $y --> $x:[Nom]
+$x associées aux $y --> $x:[Nom]
+$x associées à des $y --> $x:[Nom]
+$x est associé à l' $y --> $x:[Nom]
+$x est associé à la $y --> $x:[Nom]
+$x est associé au $y --> $x:[Nom]
+$x est associé à un $y --> $x:[Nom]
+$x est associé à une $y --> $x:[Nom]
+$x est associé aux $y --> $x:[Nom]
+$x est associé à des $y --> $x:[Nom]
+$x est associée à l' $y --> $x:[Nom]
+$x est associée à la $y --> $x:[Nom]
+$x est associée au $y --> $x:[Nom]
+$x est associée à un $y --> $x:[Nom]
+$x est associée à une $y --> $x:[Nom]
+$x est associée aux $y --> $x:[Nom]
+$x est associée à des $y --> $x:[Nom]
+$x sont associés à l' $y --> $x:[Nom]
+$x sont associés à la $y --> $x:[Nom]
+$x sont associés au $y --> $x:[Nom]
+$x sont associés à un $y --> $x:[Nom]
+$x sont associés à une $y --> $x:[Nom]
+$x sont associés aux $y --> $x:[Nom]
+$x sont associés à des $y --> $x:[Nom]
+$x sont associées à l' $y --> $x:[Nom]
+$x sont associées à la $y --> $x:[Nom]
+$x sont associées au $y --> $x:[Nom]
+$x sont associées à un $y --> $x:[Nom]
+$x sont associées à une $y --> $x:[Nom]
+$x sont associées aux $y --> $x:[Nom]
+$x sont associées à des $y --> $x:[Nom]
+$x est lié à $y --> $x:[Nom]
+$x est lié à l' $y --> $x:[Nom]
+$x est lié à la $y --> $x:[Nom]
+$x est lié au $y --> $x:[Nom]
+$x est lié à un $y --> $x:[Nom]
+$x est lié à une $y --> $x:[Nom]
+$x est lié aux $y --> $x:[Nom]
+$x est lié à des $y --> $x:[Nom]
+$x est lié à $y --> $x:[Nom]
+$x est liée à l' $y --> $x:[Nom]
+$x est liée à la $y --> $x:[Nom]
+$x est liée au $y --> $x:[Nom]
+$x est liée à un $y --> $x:[Nom]
+$x est liée à une $y --> $x:[Nom]
+$x est liée aux $y --> $x:[Nom]
+$x est liée à des $y --> $x:[Nom]
+$x sont liés à $y --> $x:[Nom]
+$x sont liés à l' $y --> $x:[Nom]
+$x sont liés à la $y --> $x:[Nom]
+$x sont liés au $y --> $x:[Nom]
+$x sont liés à un $y --> $x:[Nom]
+$x sont liés à une $y --> $x:[Nom]
+$x sont liés aux $y --> $x:[Nom]
+$x sont liés à des $y --> $x:[Nom]
+$x sont liées à $y --> $x:[Nom]
+$x sont liées à l' $y --> $x:[Nom]
+$x sont liées à la $y --> $x:[Nom]
+$x sont liées au $y --> $x:[Nom]
+$x sont liées à un $y --> $x:[Nom]
+$x sont liées à une $y --> $x:[Nom]
+$x sont liées aux $y --> $x:[Nom]
+$x sont liées à des $y --> $x:[Nom]
+$x est souvent accompagné de $y --> $x:[Nom]
+$x est souvent accompagné de l' $y --> $x:[Nom]
+$x est souvent accompagné de la $y --> $x:[Nom]
+$x est souvent accompagné du $y --> $x:[Nom]
+$x est souvent accompagné d'un $y --> $x:[Nom]
+$x est souvent accompagné d'une $y --> $x:[Nom]
+$x est souvent accompagné des $y --> $x:[Nom]
+$x est souvent accompagnée de $y --> $x:[Nom]
+$x est souvent accompagnée de l' $y --> $x:[Nom]
+$x est souvent accompagnée de la $y --> $x:[Nom]
+$x est souvent accompagnée du $y --> $x:[Nom]
+$x est souvent accompagnée d'un $y --> $x:[Nom]
+$x est souvent accompagnée d'une $y --> $x:[Nom]
+$x est souvent accompagnée des $y --> $x:[Nom]
+$x sont souvent accompagnés de $y --> $x:[Nom]
+$x sont souvent accompagnés de l' $y --> $x:[Nom]
+$x sont souvent accompagnés de la $y --> $x:[Nom]
+$x sont souvent accompagnés du $y --> $x:[Nom]
+$x sont souvent accompagnés d'un $y --> $x:[Nom]
+$x sont souvent accompagnés d'une $y --> $x:[Nom]
+$x sont souvent accompagnés des $y --> $x:[Nom]
+$x sont souvent accompagnées de $y --> $x:[Nom]
+$x sont souvent accompagnées de l' $y --> $x:[Nom]
+$x sont souvent accompagnées de la $y --> $x:[Nom]
+$x sont souvent accompagnées du $y --> $x:[Nom]
+$x sont souvent accompagnées d'un $y --> $x:[Nom]
+$x sont souvent accompagnées d'une $y --> $x:[Nom]
+$x sont souvent accompagnées des $y --> $x:[Nom]
+$x est souvent accompagné par $y --> $x:[Nom]
+$x est souvent accompagné par l' $y --> $x:[Nom]
+$x est souvent accompagné par la $y --> $x:[Nom]
+$x est souvent accompagné par le $y --> $x:[Nom]
+$x est souvent accompagné par un $y --> $x:[Nom]
+$x est souvent accompagné par une $y --> $x:[Nom]
+$x est souvent accompagné par les $y --> $x:[Nom]
+$x est souvent accompagné par des $y --> $x:[Nom]
+$x est souvent accompagnée par $y --> $x:[Nom]
+$x est souvent accompagnée par l' $y --> $x:[Nom]
+$x est souvent accompagnée par la $y --> $x:[Nom]
+$x est souvent accompagnée par le $y --> $x:[Nom]
+$x est souvent accompagnée par un $y --> $x:[Nom]
+$x est souvent accompagnée par une $y --> $x:[Nom]
+$x est souvent accompagnée par les $y --> $x:[Nom]
+$x est souvent accompagnée par des $y --> $x:[Nom]
+$x sont souvent accompagnés par $y --> $x:[Nom]
+$x sont souvent accompagnés par l' $y --> $x:[Nom]
+$x sont souvent accompagnés par la $y --> $x:[Nom]
+$x sont souvent accompagnés par le $y --> $x:[Nom]
+$x sont souvent accompagnés par un $y --> $x:[Nom]
+$x sont souvent accompagnés par une $y --> $x:[Nom]
+$x sont souvent accompagnés par les $y --> $x:[Nom]
+$x sont souvent accompagnés par des $y --> $x:[Nom]
+$x sont souvent accompagnées par $y --> $x:[Nom]
+$x sont souvent accompagnées par l' $y --> $x:[Nom]
+$x sont souvent accompagnées par la $y --> $x:[Nom]
+$x sont souvent accompagnées par le $y --> $x:[Nom]
+$x sont souvent accompagnées par un $y --> $x:[Nom]
+$x sont souvent accompagnées par une $y --> $x:[Nom]
+$x sont souvent accompagnées par les $y --> $x:[Nom]
+$x sont souvent accompagnées par des $y --> $x:[Nom]
+$x s'accompagne de $y --> $x:[Nom]
+$x s'accompagne de l' $y --> $x:[Nom]
+$x s'accompagne de la$y --> $x:[Nom]
+$x s'accompagne du $y --> $x:[Nom]
+$x s'accompagne d'un $y --> $x:[Nom]
+$x s'accompagne d'une $y --> $x:[Nom]
+$x s'accompagne des $y --> $x:[Nom]
+$x s'accompagnent de $y --> $x:[Nom]
+$x s'accompagnent de l' $y --> $x:[Nom]
+$x s'accompagnent de la$y --> $x:[Nom]
+$x s'accompagnent du $y --> $x:[Nom]
+$x s'accompagnent d'un $y --> $x:[Nom]
+$x s'accompagnent d'une $y --> $x:[Nom]
+$x s'accompagnent des $y --> $x:[Nom]
+$x est lié de manière significative à $y --> $x:[Nom]
+$x est lié de manière significative à l' $y --> $x:[Nom]
+$x est lié de manière significative à la $y --> $x:[Nom]
+$x est lié de manière significative au $y --> $x:[Nom]
+$x est lié de manière significative à un $y --> $x:[Nom]
+$x est lié de manière significative à une $y --> $x:[Nom]
+$x est lié de manière significative aux $y --> $x:[Nom]
+$x est lié de manière significative à des $y --> $x:[Nom]
+$x est lié de manière significative à $y --> $x:[Nom]
+$x est liée de manière significative à l' $y --> $x:[Nom]
+$x est liée de manière significative à la $y --> $x:[Nom]
+$x est liée de manière significative au $y --> $x:[Nom]
+$x est liée de manière significative à un $y --> $x:[Nom]
+$x est liée de manière significative à une $y --> $x:[Nom]
+$x est liée de manière significative aux $y --> $x:[Nom]
+$x est liée de manière significative à des $y --> $x:[Nom]
+$x sont liés de manière significative à $y --> $x:[Nom]
+$x sont liés de manière significative à l' $y --> $x:[Nom]
+$x sont liés de manière significative à la $y --> $x:[Nom]
+$x sont liés de manière significative au $y --> $x:[Nom]
+$x sont liés de manière significative à un $y --> $x:[Nom]
+$x sont liés de manière significative à une $y --> $x:[Nom]
+$x sont liés de manière significative aux $y --> $x:[Nom]
+$x sont liés de manière significative à des $y --> $x:[Nom]
+$x sont liées de manière significative à $y --> $x:[Nom]
+$x sont liées de manière significative à l' $y --> $x:[Nom]
+$x sont liées de manière significative à la $y --> $x:[Nom]
+$x sont liées de manière significative au $y --> $x:[Nom]
+$x sont liées de manière significative à un $y --> $x:[Nom]
+$x sont liées de manière significative à une $y --> $x:[Nom]
+$x sont liées de manière significative aux $y --> $x:[Nom]
+$x sont liées de manière significative à des $y --> $x:[Nom]
+
+Traitement :
+$x a l' $y comme traitement médical $Post
+$x a la $y comme traitement médical $Post
+$x a le $y comme traitement médical $Post
+$x a un $y comme traitement médical $Post
+$x a une $y comme traitement médical $Post
+$x a les $y comme traitements médicaux $Post
+$x a des $y comme traitements médicaux $Post
+$x ont l' $y comme traitement médical $Post
+$x ont la $y comme traitement médical $Post
+$x ont le $y comme traitement médical $Post
+$x ont un $y comme traitement médical $Post
+$x ont une $y comme traitement médical $Post
+$x ont les $y comme traitements médicaux $Post
+$x ont des $y comme traitements médicaux $Post
+$x couramment traité par l' $y
+$x couramment traité par la $y
+$x couramment traité par le $y
+$x couramment traité par un $y
+$x couramment traité par une $y
+$x couramment traité par les $y
+$x couramment traité par des $y
+$x couramment traitée par l' $y
+$x couramment traitée par la $y
+$x couramment traitée par le $y
+$x couramment traitée par un $y
+$x couramment traitée par une $y
+$x couramment traitée par les $y
+$x couramment traitée par des $y
+$x est couramment traité par l' $y
+$x est couramment traité par la $y
+$x est couramment traité par le $y
+$x est couramment traité par un $y
+$x est couramment traité par une $y
+$x est couramment traité par les $y
+$x est couramment traité par des $y
+$x est couramment traitée par l' $y
+$x est couramment traitée par la $y
+$x est couramment traitée par le $y
+$x est couramment traitée par un $y
+$x est couramment traitée par une $y
+$x est couramment traitée par les $y
+$x est couramment traitée par des $y
+$x sont couramment traités par l' $y
+$x sont couramment traités par la $y
+$x sont couramment traités par le $y
+$x sont couramment traités par un $y
+$x sont couramment traités par une $y
+$x sont couramment traités par les $y
+$x sont couramment traités par des $y
+$x sont couramment traitées par l' $y
+$x sont couramment traitées par la $y
+$x sont couramment traitées par le $y
+$x sont couramment traitées par un $y
+$x sont couramment traitées par une $y
+$x sont couramment traitées par les $y
+$x sont couramment traitées par des $y
+$x traité par l' $y
+$x traité par la $y
+$x traité par le $y
+$x traité par un $y
+$x traité par une $y
+$x traité par les $y
+$x traité par des $y
+$x traitée par l' $y
+$x traitée par la $y
+$x traitée par le $y
+$x traitée par un $y
+$x traitée par une $y
+$x traitée par les $y
+$x traitée par des $y
+$x traités par l' $y
+$x traités par la $y
+$x traités par le $y
+$x traités par un $y
+$x traités par une $y
+$x traités par les $y
+$x traités par des $y
+$x traitées par l' $y
+$x traitées par la $y
+$x traitées par le $y
+$x traitées par un $y
+$x traitées par une $y
+$x traitées par les $y
+$x traitées par des $y
+$x est traité par l' $y
+$x est traité par la $y
+$x est traité par le $y
+$x est traité par un $y
+$x est traité par une $y
+$x est traité par les $y
+$x est traité par des $y
+$x est traitée par l' $y
+$x est traitée par la $y
+$x est traitée par le $y
+$x est traitée par un $y
+$x est traitée par une $y
+$x est traitée par les $y
+$x est traitée par des $y
+$x sont traités par l' $y
+$x sont traités par la $y
+$x sont traités par le $y
+$x sont traités par un $y
+$x sont traités par une $y
+$x sont traités par les $y
+$x sont traités par des $y
+$x sont traitées par l' $y
+$x sont traitées par la $y
+$x sont traitées par le $y
+$x sont traitées par un $y
+$x sont traitées par une $y
+$x sont traitées par les $y
+$x sont traitées par des $y
+$x devraient être traités par l' $y
+$x devraient être traités par la $y
+$x devraient être traités par le $y
+$x devraient être traités par un $y
+$x devraient être traités par une $y
+$x devraient être traités par les $y
+$x devraient être traités par des $y
+$x devraient être traitées par un $y
+$x devraient être traitées par une $y
+$x devraient être traitées par l' $y
+$x devraient être traitées par la $y
+$x devraient être traitées par le $y
+$x devraient être traitées par les $y
+$x devraient être traitées par des $y
+$x devrait être traité par l' $y
+$x devrait être traité par la $y
+$x devrait être traité par le $y
+$x devrait être traité par un $y
+$x devrait être traité par une $y
+$x devrait être traité par les $y
+$x devrait être traité par des $y
+$x devrait être traitée par un $y
+$x devrait être traitée par une $y
+$x devrait être traitée par l' $y
+$x devrait être traitée par la $y
+$x devrait être traitée par le $y
+$x devrait être traitée par les $y
+$x devrait être traitée par des $y
+$x devraient être corrigés par l' $y
+$x devraient être corrigés par la $y
+$x devraient être corrigés par le $y
+$x devraient être corrigés par un $y
+$x devraient être corrigés par une $y
+$x devraient être corrigés par les $y
+$x devraient être corrigés par des $y
+$x devraient être corrigées par un $y
+$x devraient être corrigées par une $y
+$x devraient être corrigées par l' $y
+$x devraient être corrigées par la $y
+$x devraient être corrigées par le $y
+$x devraient être corrigées par les $y
+$x devraient être corrigées par des $y
+$x devrait être corrigé par l' $y
+$x devrait être corrigé par la $y
+$x devrait être corrigé par le $y
+$x devrait être corrigé par un $y
+$x devrait être corrigé par une $y
+$x devrait être corrigé par les $y
+$x devrait être corrigé par des $y
+$x devrait être corrigée par un $y
+$x devrait être corrigée par une $y
+$x devrait être corrigée par l' $y
+$x devrait être corrigée par la $y
+$x devrait être corrigée par le $y
+$x devrait être corrigée par les $y
+$x devrait être corrigée par des $y
+$x peut être corrigée par un $y
+$x peut être corrigée par une $y
+$x peut être corrigé par l' $y
+$x peut être corrigé par la $y
+$x peut être corrigé par le $y
+$x peut être corrigé par un $y
+$x peut être corrigé par une $y
+$x peut être corrigé par les $y
+$x peut être corrigé par des $y
+$x peut être corrigée par un $y
+$x peut être corrigée par une $y
+$x peut être corrigée par l' $y
+$x peut être corrigée par la $y
+$x peut être corrigée par le $y
+$x peut être corrigée par les $y
+$x peut être corrigée par des $y
+$x peuvent être corrigés par l' $y
+$x peuvent être corrigés par la $y
+$x peuvent être corrigés par le $y
+$x peuvent être corrigés par un $y
+$x peuvent être corrigés par une $y
+$x peuvent être corrigés par les $y
+$x peuvent être corrigés par des $y
+$x peuvent être corrigées par un $y
+$x peuvent être corrigées par une $y
+$x peuvent être corrigées par un $y
+$x peuvent être corrigées par une $y
+$x peuvent être corrigées par un $y
+$x peuvent être corrigées par un $y
+$x peuvent être corrigées par une $y
+$x soigné par l' $y
+$x soigné par la $y
+$x soigné par le $y
+$x soigné par un $y
+$x soigné par une $y
+$x soigné par les $y
+$x soigné par des $y
+$x soignée par l' $y
+$x soignée par la $y
+$x soignée par le $y
+$x soignée par un $y
+$x soignée par une $y
+$x soignée par les $y
+$x soignée par des $y
+$x est soigné par l' $y
+$x est soigné par la $y
+$x est soigné par le $y
+$x est soigné par un $y
+$x est soigné par une $y
+$x est soigné par les $y
+$x est soigné par des $y
+$x est soignée par l' $y
+$x est soignée par la $y
+$x est soignée par le $y
+$x est soignée par un $y
+$x est soignée par une $y
+$x est soignée par les $y
+$x est soignée par des $y
+$x sont soignés par l' $y
+$x sont soignés par la $y
+$x sont soignés par le $y
+$x sont soignés par un $y
+$x sont soignés par une $y
+$x sont soignés par les $y
+$x sont soignés par des $y
+$x sont soignées par l' $y
+$x sont soignées par la $y
+$x sont soignées par le $y
+$x sont soignées par un $y
+$x sont soignées par une $y
+$x sont soignées par les $y
+$x sont soignées par des $y
+$x soulage la $y
+$x soulage un $y
+$x soulage le $y
+$x soulage l' $y
+$x soulage les $y
+$x soulagent la $y
+$x soulagent un $y
+$x soulagent le $y
+$x soulagent l' $y
+$x soulagent les $y
+
+
+
+
+
+Signe :
+$x a un $y pour signe $Post
+$x a une $y pour signe $Post
+$x a l' $y pour signe $Post
+$x a la $y pour signe $Post
+$x a le $y pour signe $Post
+$x a des $y pour signes $Post
+$x a les $y pour signes $Post
+$x a un $y pour symptôme $Post
+$x a une $y pour symptôme $Post
+$x a l' $y pour symptôme $Post
+$x a la $y pour symptôme $Post
+$x a le $y pour symptôme $Post
+$x a des $y pour symptômes $Post
+$x a les $y pour symptômes $Post
+$x ont un $y pour signe $Post
+$x ont une $y pour signe $Post
+$x ont l' $y pour signe $Post
+$x ont la $y pour signe $Post
+$x ont le $y pour signe $Post
+$x ont des $y pour signes $Post
+$x ont les $y pour signes $Post
+$x ont un $y pour symptôme $Post
+$x ont une $y pour symptôme $Post
+$x ont l' $y pour symptôme $Post
+$x ont la $y pour symptôme $Post
+$x ont le $y pour symptôme $Post
+$x ont des $y pour symptômes $Post
+$x ont les $y pour symptômes $Post
+$x qui se manifeste par l' $y
+$x qui se manifeste par la $y
+$x qui se manifeste par le $y
+$x qui se manifeste par un $y
+$x qui se manifeste par une $y
+$x qui se manifeste par les $y
+$x qui se manifeste par des $y
+$x qui se manifestent par l' $y
+$x qui se manifestent par la $y
+$x qui se manifestent par le $y
+$x qui se manifestent par un $y
+$x qui se manifestent par une $y
+$x qui se manifestent par les $y
+$x qui se manifestent par des $y
+$x se manifeste par l' $y
+$x se manifeste par la $y
+$x se manifeste par le $y
+$x se manifeste par un $y
+$x se manifeste par une $y
+$x se manifeste par les $y
+$x se manifeste par des $y
+$x se manifestent par l' $y
+$x se manifestent par la $y
+$x se manifestent par le $y
+$x se manifestent par un $y
+$x se manifestent par une $y
+$x se manifestent par les $y
+$x se manifestent par des $y
+
+Synonymie :
+$x également appelé $y
+$x également appelé $y ou $z
+$x également appelé $y , $z ou $w
+$x également appelée $y
+$x également appelée $y ou $z
+$x également appelée $y , $z ou $w
+$x également appelés $y
+$x également appelés $y ou $z
+$x également appelés $y , $z ou $w
+$x également appelées $y
+$x également appelées $y ou $z
+$x également appelées $y , $z ou $w

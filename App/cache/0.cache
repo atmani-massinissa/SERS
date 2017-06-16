@@ -1,0 +1,34 @@
+\n
+\n
+918.0
+<def>
+Adjectif numéral cardinal qui correspond à un nombre indéterminé.  Un individu est représenté par l'ensemble des valeurs qu'il prend pour chaque variable. On peut donc les représenter dans un espace à n dimensions, n étant le nombre de variables différentes.     (Fabien Ponchon, Mise en place d'une méthodologie pour la définition d'un réseau écologique, 2006)  
+</def>
+sortant
+r_holo;cinq,,26.0
+r_raff_morpho;n (Adj),,40.0;n (Nom),,40.0
+r_sentiment;bonheur,,119.0;indifférence,,29.0;satisfaction,,7.0;surprise,,3.0;plaisir,,-114.0
+r_data;Langage:euphémisme,,49.0;Morpho:min,,31.0;Morpho:nospace,,29.0
+r_infopot;_POL-POS,,323.0;_POL-NEUTRE,,160.0;_POL-POS_PC,,62.0;_INFO-CNRTL-NO,,52.0;_OCC-IGNORE,,49.0;_INFO-POLYMORPHIC,,47.0;_INFO-COUNTABLE-YES,,41.0;_POL-NEG,,41.0;_INFO-MONOSEMIC,,32.0;_INFO-WIKI-NO,,31.0;_POL-NEUTRE_PC,,31.0;_POL-NEG_PC,,8.0
+r_hypo;n minuscule,,37.0
+r_flpot;_FL:0,,72.0;_FL:9,,27.0;_FL:10,,21.0;_FL:21,,19.0;_FL:13,,17.0
+r_inhib;lettre (police de caractères),,2.0;lettre (courrier),,2.0
+r_link;dbnary:fra:__ws_1_n__adjectif_numéral__1,,1.0
+r_pos;Nom:Mas+InvPL,,52.0;Gender:Mas,,45.0;Number:Inv,,45.0;Number:Plur,,45.0;Number:Sing,,45.0;Nom:,,35.0;Nom:Mas+SG,,29.0;Nom:Mas+PL,,27.0;Adj:,,26.0
+r_associated;c,,260.0;g,,260.0;k,,260.0;lettre,,260.0;m,,260.0;a,,250.0;i,,250.0;l,,220.0;o,,220.0;b,,210.0;d,,210.0;f,,210.0;h,,210.0;j,,210.0;p,,210.0;u,,210.0;q,,200.0;lettre (lettre de l'alphabet),,191.0;consonne,,161.0;r,,150.0;s,,150.0;t,,150.0;consonnes,,140.0;e,,140.0;alphabet,,110.0;lettre de l'alphabet,,90.0;abc,,80.0;chimie,,80.0;cinq,,80.0;z,,58.0;y,,55.0;occlusive,,41.0;M,,38.0;R,,31.0;N,,30.0;MaRaN,,29.0;euphémisme,,29.0;écologiste,,28.0;Chimie,,24.0;n minuscule,,17.0
+r_domain;chimie,,31.0;Chimie,,-20.0
+r_isa;occlusive,,32.0;consonne,,28.0;lettre (lettre de l'alphabet),,18.0
+r_domain-1;écologiste,,23.0
+r_lemma;n,,54.0
+entrant
+r_wiki;ASCII,,10.0;American Standard Code for Information Interchange,,10.0;Archéen,,10.0;Argent,,10.0;Caramany,,10.0;Crimson,,10.0;Cyan,,10.0;Neuf Box,,10.0;Temperature,,10.0;Uus,,10.0;WIMAX,,10.0;Worldwide Interoperability for Microwave Access,,10.0;alphabet arabe,,10.0;alphabet latin,,10.0;alphabet romain,,10.0;aquilain,,10.0;baryon,,10.0;blanc lunaire,,10.0;bleu canard,,10.0;bleu dragée,,10.0;bleu givré,,10.0;bleu marin,,10.0;bleu marine,,10.0;bleu nuit,,10.0;bohrium,,10.0;box de SFR,,10.0;caca d'oie,,10.0;carien,,10.0;chartreuse,,10.0;chaud,,10.0;chiffre romain,,10.0;chiffres romains,,10.0;condensat de Bose-Einstein,,10.0;copernicium,,10.0;coquille d'oeuf,,10.0;cramoisi,,10.0;cyan,,10.0;darmstadtium,,10.0;froid absolu,,10.0;gris de lin,,10.0;gris perle,,10.0;gros bleu,,10.0;jaune chartreuse,,10.0;jaune mimosa,,10.0;jaune olive,,10.0;meitnerium,,10.0;meitnérium,,10.0;neufbox,,10.0;numération romaine,,10.0;oganesson,,10.0;ombre,,10.0;poste à,,10.0;poste à galène,,10.0;pourpre,,10.0;pourpres,,10.0;quôc-ngu,,10.0;radio-actif,,10.0;radio-activité,,10.0;radioactif,,10.0;radioactifs,,10.0;radioactivité,,10.0;radioactivité naturelle,,10.0;radiosensibilit,,10.0;radiosensibilité,,10.0;roentgenium,,10.0;rose Mountbatten,,10.0;rose chaud,,10.0;rouge cochenille,,10.0;rouge écrevisse,,10.0;rouge-violet,,10.0;récepteur à,,10.0;senois,,10.0;smaragdin,,10.0;sonate,,10.0;température,,10.0;températures,,10.0;tennesse,,10.0;tennessine,,10.0;terre d'ombre,,10.0;ununseptium,,10.0;vert caca d'oie,,10.0;vert chartreuse,,10.0;vert citron,,10.0;vert gazon,,10.0;vert lime,,10.0;vert militaire,,10.0;vert mousse,,10.0;vert mélèze,,10.0;vert olive,,10.0;vert opaline,,10.0;vert pomme,,10.0;vert épinard,,10.0;wimax,,10.0;zéro absolu,,10.0;Émeraude,,10.0;écriture arabe,,10.0;étain,,10.0;étain pur,,10.0;lime,,9.0;olive,,9.0;rouge,,9.0;vert,,9.0;blanc,,8.0
+r_associated;consonnes,,890.0;g,,860.0;lettre (lettre de l'alphabet),,801.0;c,,590.0;c.a.c.,,425.0;c.a.s.,,425.0;e,,390.0;lettre de l'alphabet,,250.0;i,,170.0;consonne,,161.0;a,,150.0;k,,150.0;n minuscule,,135.0;abc,,90.0;abcd,,90.0;alphabet,,90.0;m,,90.0;o,,61.0;d,,60.0;lettre,,52.0;J,,51.0;lettres,,51.0;N,,35.0;amphimixie,,35.0;écologiste,,35.0;intervalle de fluctuation,,34.0;cinq,,32.0;chimie,,30.0;chymie,,30.0;R,,29.0;Chimie,,27.0;M,,27.0;MaRaN,,26.0;occlusive,,22.0;mauvais,,8.0
+r_domain;écologiste,,35.0
+r_hypo;occlusive,,91.0;consonne,,76.0;lettre (lettre de l'alphabet),,76.0;lettre,,40.0;consonne (lettre),,1.0
+r_has_part;cinq,,52.0
+r_isa;n minuscule,,42.0
+r_sentiment-1;bonheur,,1.0;plaisir,,1.0
+r_domain-1;chimie,,29.0;chymie,,29.0;Chimie,,22.0
+r_family;g,,91.0;b,,-100.0
+r_antimagn;B.A. BA,,61.0;b,,61.0;b-a ba,,61.0;béaba,,61.0;b-a-ba,,23.0;B.A.-BA,,3.0;b.a.-ba,,2.0
+r_lemma;n,,54.0
