@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -67,12 +68,21 @@ public class Lemmatisation extends TextClass{
 
 	public String lemmatizeText() throws Exception {
 		String str = new String(oldText);
+		//str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.remove(" ");
+		list.removeAll(Arrays.asList("", null));
 		String res = new String();
+		for (int i=0; i<list.size();i++) {
+			if(!isAdv(list.get(i)))
+				str=str+list.get(i)+" ";
+		}
+		str = remSuccVerbs (str); // remove successive verbs
+		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
 			if(!isAdv(s[i]))
 				res=res+lemmatize(s[i])+" ";
-			
 		}
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
@@ -106,16 +116,24 @@ public class Lemmatisation extends TextClass{
 	}
 	
 	public String lemmatizeTextPostMc(String str) throws Exception {
+		//str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.remove(" ");
+		list.removeAll(Arrays.asList("", null));
 		String res = new String();
+		for (int i=0; i<list.size();i++) {
+			if(!isAdv(list.get(i)))
+				str=str+list.get(i)+" ";
+		}
+		str = remSuccVerbs (str);
+		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
 			if(!isAdv(s[i]))
 				res=res+lemmatize(s[i])+" ";
-			
 		}
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
-
 		return res;
 	}
 
@@ -123,7 +141,7 @@ public class Lemmatisation extends TextClass{
 		ArrayList<String> tab = map.get(mot);
 		if (tab!=null){ 
 			if (tab.size()==1){
-				if (tab.get(0).split("	")[1].substring(0, 3).equals("Ver"))
+				if ((tab.get(0).split("	")[1].substring(0, 3).equals("Ver")) && howManyLemmes(mot)==1)
 				return tab.get(0).split("\\s")[0];
 			}
 		}
@@ -243,7 +261,7 @@ public class Lemmatisation extends TextClass{
 
 
 	public boolean isVerb(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) System.out.println("Le mot n'existe pas");
+		if (!map.keySet().contains(mot)) System.out.println("");
 		else {
 			for (String str : map.get(mot)){
 				String[] tab = str.split("	");
@@ -287,6 +305,42 @@ public class Lemmatisation extends TextClass{
 		}
 		return false;
 	}
+	
+	public String remSuccVerbs(String str) throws Exception{
+		String[] s = str.split("\\s|[.?!;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.removeAll(Arrays.asList("", null," "));
+		String res = new String();
+		int i=0;
+		//System.out.println(s[i]);
+		while(i<list.size()){
+			int k=0;
+			//System.out.println("++++++++++++++++++++++++++++++++++++++++++");
+
+			while(isVerb(list.get(i))){
+
+			k++;
+		//	System.out.println(list.get(i));
+			i++;
+			}
+		//	System.out.println("++++++++++++++++++++++++++++++++++++++++++");
+
+			if(k>1){
+				//System.out.println("-------------------------------------");
+				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
+				//System.out.print(j+" + "+list.get(j)+" ");
+				list.remove(j);
+				//System.out.println(j+" + "+list.get(j)+" ");
+				}
+				//if(i<list.size())
+			//	System.out.print(i-1+" + "+list.get(i-1)+" ");
+
+				}
+			i++;
+		}
+		 res = String.join(" ", list);	
+	return res;		
+	}
 
 	public static void main(String[] args) throws Exception{
 
@@ -299,8 +353,11 @@ public class Lemmatisation extends TextClass{
 		fis.close();
 		String str = new String(data, "UTF-8");
 		str=str.replaceAll("'","' ");
+		//System.out.println(lm.map.size());
+		//System.out.println(str);
+		//str = lm.remSuccVerbs(str);
+		System.out.println();
 		System.out.println(lm.lemmatizeTextPostMc(str));
-		
 
 	}
 

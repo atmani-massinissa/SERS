@@ -135,8 +135,8 @@ public class Principale {
 					parMcS.add(mc.findMcLine(tmp)+'\n');
 				if(!parLemS.contains(lm.lemmatizeTextLine(tmp)+'\n'))
 					parLemS.add(lm.lemmatizeTextLine(tmp)+'\n');
-				if(!parMcLemS.contains(lm.lemmatizeTextLine(mc.findMcLine(tmp))+'\n'))
-					parMcLemS.add(lm.lemmatizeTextLine(mc.findMcLine(tmp))+'\n');
+				if(!parMcLemS.contains(lm.lemmatizeTextLine(lm.remSuccVerbs((mc.findMcLine(tmp))))+'\n'))
+					parMcLemS.add(lm.lemmatizeTextLine(lm.remSuccVerbs((mc.findMcLine(tmp))))+'\n');
 				if(!parLemMcS.contains(mc.findMcLine(lm.lemmatizeTextLine(tmp))+'\n'))
 					parLemMcS.add(mc.findMcLine(lm.lemmatizeTextLine(tmp))+'\n');
 			}
