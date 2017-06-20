@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/dico.txt=UTF-8
+encoding//WebContent/WEB-INF/jdm-mc.txt=UTF-8
 encoding//src/Analyseur/Analyseur.java=UTF-8
 encoding//src/Analyseur/Lemmatisation.java=UTF-8
 encoding//src/Analyseur/MotsComposes.java=UTF-8

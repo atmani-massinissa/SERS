@@ -447,6 +447,8 @@ public class Analyseur {
 	public void pretraitementParMcLem() throws Exception {
 		System.out.println("*************************prétraitementsParMcLem*****************************");;
 		this.parser();
+		this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
+				 "");
 		// this.mots_composes(p);
 		// this.lemmatisation(p);
 		this.mots_composes(p);
@@ -454,9 +456,8 @@ public class Analyseur {
 		// System.out.println("Parser + Mots Composés + Lemmatisation :
 		// "+lm.newText);
 		this.text = new String(lm.newText);
-		// this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
-		// "");
-		//System.out.println(this.text);
+		 
+//		System.out.println(this.text);
 	}
 
 	public void pretraitementParLemMc() throws Exception {

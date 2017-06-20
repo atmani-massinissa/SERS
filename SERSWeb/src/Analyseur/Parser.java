@@ -84,7 +84,7 @@ public class Parser extends TextClass {
 		while (matcher.find()) {
 			String group = matcher.group();
 			String group1 = matcher.group(1);
-			System.out.println("Ma citation : "+group1);
+			//System.out.println("Ma citation : "+group1);
 			str = str.replace(group, group1);
 		}
 		pattern = Pattern.compile("\\{\\{Citation \\|(.+?)\\}\\}");
@@ -209,6 +209,7 @@ public class Parser extends TextClass {
 		str = str.replace("’", "'");
 		str = str.replace("(,)+", ",");
 		str = str.replace(" ", " ");
+		str = str.replace(" ", " ");
 		str = str.trim();
 		return str;
 

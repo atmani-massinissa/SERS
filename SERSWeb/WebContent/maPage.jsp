@@ -17,7 +17,7 @@ import = "java.net.URLDecoder"
   <br><br><br>
 <form action="maPage.jsp" accept-charset="UTF-8">
   Entrez page à analyser :<br><br>
-  <textarea rows="1" cols="50" name="inputText"><%if (request.getParameter("inputText")==null){%>https://fr.wikipedia.org/wiki/Dépression_(psychiatrie)
+  <textarea rows="1" cols="60" name="inputText"><%if (request.getParameter("inputText")==null){%>https://fr.wikipedia.org/wiki/Dépression_(psychiatrie)
 <% } 
    else
    		{

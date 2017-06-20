@@ -273,7 +273,7 @@ public class Lemmatisation extends TextClass {
 
 	public boolean isMasculin(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
-			throw new Exception("Le mot n'existe pas");
+			return false;
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
@@ -284,9 +284,9 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 
-	public boolean isNom(String mot) throws Exception {
+	public boolean isNom(String mot) {
 		if (!map.keySet().contains(mot))
-			throw new Exception("Le mot n'existe pas");
+			return false;
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
@@ -296,7 +296,45 @@ public class Lemmatisation extends TextClass {
 		}
 		return false;
 	}
-
+	
+	public boolean isDet(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Det"))
+					return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isPre(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Pre"))
+					return true;
+			}
+		}
+		return false;
+	}
+	public boolean isPro(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Pre"))
+					return true;
+			}
+		}
+		return false;
+	}
+	
 	public boolean isFeminin(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
 			throw new Exception("Le mot n'existe pas");
