@@ -242,5 +242,7 @@ public class MotsComposes extends TextClass {
 	public static void main(String[] args) throws Exception {
 		System.out.println((new MotsComposes()).findMcLine("$x se trouvent souvent localisées au niveau de la $y"));
 		System.out.println();
+		
+		MotsComposes mc = new MotsComposes();
 	}
 }

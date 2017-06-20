@@ -19,6 +19,8 @@ $x c'est-à-dire un $y  --> $x:[Nom],$y:[Nom]
 $x c'est-à-dire une $y  --> $x:[Nom],$y:[Nom]
 $x est aussi un $y  --> $x:[Nom],$y:[Nom]
 $x est aussi une $y   --> $x:[Nom],$y:[Nom]
+$x est un $y  --> $x:[Nom],$y:[Nom]
+$x est une $y   --> $x:[Nom],$y:[Nom]
 $x est de la famille de $y --> $x:[Nom],$y:[Nom]
 $x est de la famille_des $y --> $x:[Nom],$y:[Nom]
 $x est de la famille_du $y --> $x:[Nom],$y:[Nom]
@@ -101,6 +103,14 @@ $x éventuellement aussi appelé $y --> $x:[Nom],$y:[Nom]
 $x éventuellement aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom]
 $x éventuellement aussi appelée $y --> $x:[Nom],$y:[Nom]
 $x éventuellement aussi appelée $y , ou $z --> $x:[Nom],$y:[Nom]
+$x aussi appelé $y --> $x:[Nom],$y:[Nom]
+$x aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom]
+$x aussi appelée $y --> $x:[Nom],$y:[Nom]
+$x aussi appelée $y , ou $z --> $x:[Nom],$y:[Nom]
+$x appelé $y --> $x:[Nom],$y:[Nom]
+$x appelé $y , ou $z --> $x:[Nom],$y:[Nom]
+$x appelée $y --> $x:[Nom],$y:[Nom]
+$x appelée $y , ou $z --> $x:[Nom],$y:[Nom]
 
 Holonymie :
 $x a comme partie la $y
@@ -124,6 +134,13 @@ $x ont comme partie une $y
 $x ont comme partie les $y 
 $x ont comme partie des $y 
 $x ont comme partie l' $y 
+$x ont partie la $y 
+$x ont partie le $y 
+$x ont partie un $y 
+$x ont partie une $y 
+$x ont partie les $y 
+$x ont partie des $y 
+$x ont partie l' $y 
 $x ont des $y 
 $x ont les $y 
 $x ont un $y
@@ -595,6 +612,36 @@ $x sont causées par le $y
 $x sont causées par les $y
 $x sont causées par un $y
 $x sont causées par une $y
+$x causé par $y 
+$x causé par des $y 
+$x causé par la $y 
+$x causé par le $y 
+$x causé par les $y 
+$x causé par un $y 
+$x causé par une $y 
+$x causée par $y 
+$x causée par des $y
+$x causée par la $y
+$x causée par le $y
+$x causée par les $y
+$x causée par un $y
+$x causée par une $y
+$x causés par $y
+$x causés par l' $y
+$x causés par des $y 
+$x causés par la $y 
+$x causés par le $y 
+$x causés par les $y 
+$x causés par un $y 
+$x causés par une $y 
+$x causées par $y
+$x causées par l' $y 
+$x causées par des $y
+$x causées par la $y
+$x causées par le $y
+$x causées par les $y
+$x causées par un $y
+$x causées par une $y
 $x peut être causé par $y 
 $x peut être causé par des $y 
 $x peut être causé par la $y 
@@ -655,6 +702,36 @@ $x sont provoquées par le $y
 $x sont provoquées par les $y
 $x sont provoquées par un $y
 $x sont provoquées par une $y
+$x provoqué par $y
+$x provoqué par des $y 
+$x provoqué par la $y 
+$x provoqué par le $y 
+$x provoqué par les $y 
+$x provoqué par un $y 
+$x provoqué par une $y 
+$x provoquée par $y
+$x provoquée par des $y
+$x provoquée par la $y
+$x provoquée par le $y
+$x provoquée par les $y
+$x provoquée par un $y
+$x provoquée par une $y
+$x provoqués par $y
+$x provoqués par l' $y
+$x provoqués par des $y 
+$x provoqués par la $y 
+$x provoqués par le $y 
+$x provoqués par les $y 
+$x provoqués par un $y 
+$x provoqués par une $y 
+$x provoquées par $y
+$x provoquées par l' $y
+$x provoquées par des $y
+$x provoquées par la $y
+$x provoquées par le $y
+$x provoquées par les $y
+$x provoquées par un $y
+$x provoquées par une $y
 
 Possession : 
 $x a des $y
@@ -714,6 +791,38 @@ $x sont caractérisées par les $y
 $x sont caractérisées par la $y
 $x sont caractérisées par l' $y
 $x sont caractérisées par des $y
+$x caractérisé par $y -->$y:[Nom]
+$x caractérisé par un $y
+$x caractérisé par une $y
+$x caractérisé par le $y
+$x caractérisé par les $y
+$x caractérisé par la $y
+$x caractérisé par l' $y
+$x caractérisé par des $y
+$x caractérisée par $y -->$y:[Nom]
+$x caractérisée par un $y
+$x caractérisée par une $y
+$x caractérisée par le $y
+$x caractérisée par les $y
+$x caractérisée par la $y
+$x caractérisée par l' $y
+$x caractérisée par des $y
+$x caractérisés par $y -->$y:[Nom]
+$x caractérisés par un $y
+$x caractérisés par une $y
+$x caractérisés par le $y
+$x caractérisés par les $y
+$x caractérisés par la $y
+$x caractérisés par l' $y
+$x caractérisés par des $y
+$x caractérisées par $y -->$y:[Nom]
+$x caractérisées par un $y
+$x caractérisées par une $y
+$x caractérisées par le $y
+$x caractérisées par les $y
+$x caractérisées par la $y
+$x caractérisées par l' $y
+$x caractérisées par des $y
 $x se caractérise par $y -->$y:[Nom]
 $x se caractérise par un $y
 $x se caractérise par une $y
@@ -1035,6 +1144,66 @@ $x sont souvent accompagnées par un $y --> $x:[Nom]
 $x sont souvent accompagnées par une $y --> $x:[Nom]
 $x sont souvent accompagnées par les $y --> $x:[Nom]
 $x sont souvent accompagnées par des $y --> $x:[Nom]
+$x souvent accompagné de $y --> $x:[Nom]
+$x souvent accompagné de l' $y --> $x:[Nom]
+$x souvent accompagné de la $y --> $x:[Nom]
+$x souvent accompagné du $y --> $x:[Nom]
+$x souvent accompagné d'un $y --> $x:[Nom]
+$x souvent accompagné d'une $y --> $x:[Nom]
+$x souvent accompagné des $y --> $x:[Nom]
+$x souvent accompagnée de $y --> $x:[Nom]
+$x souvent accompagnée de l' $y --> $x:[Nom]
+$x souvent accompagnée de la $y --> $x:[Nom]
+$x souvent accompagnée du $y --> $x:[Nom]
+$x souvent accompagnée d'un $y --> $x:[Nom]
+$x souvent accompagnée d'une $y --> $x:[Nom]
+$x souvent accompagnée des $y --> $x:[Nom]
+$x souvent accompagnés de $y --> $x:[Nom]
+$x souvent accompagnés de l' $y --> $x:[Nom]
+$x souvent accompagnés de la $y --> $x:[Nom]
+$x souvent accompagnés du $y --> $x:[Nom]
+$x souvent accompagnés d'un $y --> $x:[Nom]
+$x souvent accompagnés d'une $y --> $x:[Nom]
+$x souvent accompagnés des $y --> $x:[Nom]
+$x souvent accompagnées de $y --> $x:[Nom]
+$x souvent accompagnées de l' $y --> $x:[Nom]
+$x souvent accompagnées de la $y --> $x:[Nom]
+$x souvent accompagnées du $y --> $x:[Nom]
+$x souvent accompagnées d'un $y --> $x:[Nom]
+$x souvent accompagnées d'une $y --> $x:[Nom]
+$x souvent accompagnées des $y --> $x:[Nom]
+$x souvent accompagné par $y --> $x:[Nom]
+$x souvent accompagné par l' $y --> $x:[Nom]
+$x souvent accompagné par la $y --> $x:[Nom]
+$x souvent accompagné par le $y --> $x:[Nom]
+$x souvent accompagné par un $y --> $x:[Nom]
+$x souvent accompagné par une $y --> $x:[Nom]
+$x souvent accompagné par les $y --> $x:[Nom]
+$x souvent accompagné par des $y --> $x:[Nom]
+$x souvent accompagnée par $y --> $x:[Nom]
+$x souvent accompagnée par l' $y --> $x:[Nom]
+$x souvent accompagnée par la $y --> $x:[Nom]
+$x souvent accompagnée par le $y --> $x:[Nom]
+$x souvent accompagnée par un $y --> $x:[Nom]
+$x souvent accompagnée par une $y --> $x:[Nom]
+$x souvent accompagnée par les $y --> $x:[Nom]
+$x souvent accompagnée par des $y --> $x:[Nom]
+$x souvent accompagnés par $y --> $x:[Nom]
+$x souvent accompagnés par l' $y --> $x:[Nom]
+$x souvent accompagnés par la $y --> $x:[Nom]
+$x souvent accompagnés par le $y --> $x:[Nom]
+$x souvent accompagnés par un $y --> $x:[Nom]
+$x souvent accompagnés par une $y --> $x:[Nom]
+$x souvent accompagnés par les $y --> $x:[Nom]
+$x souvent accompagnés par des $y --> $x:[Nom]
+$x souvent accompagnées par $y --> $x:[Nom]
+$x souvent accompagnées par l' $y --> $x:[Nom]
+$x souvent accompagnées par la $y --> $x:[Nom]
+$x souvent accompagnées par le $y --> $x:[Nom]
+$x souvent accompagnées par un $y --> $x:[Nom]
+$x souvent accompagnées par une $y --> $x:[Nom]
+$x souvent accompagnées par les $y --> $x:[Nom]
+$x souvent accompagnées par des $y --> $x:[Nom]
 $x s'accompagne de $y --> $x:[Nom]
 $x s'accompagne de l' $y --> $x:[Nom]
 $x s'accompagne de la$y --> $x:[Nom]
@@ -1080,6 +1249,52 @@ $x sont liées de manière significative à un $y --> $x:[Nom]
 $x sont liées de manière significative à une $y --> $x:[Nom]
 $x sont liées de manière significative aux $y --> $x:[Nom]
 $x sont liées de manière significative à des $y --> $x:[Nom]
+$x lié de manière significative à $y --> $x:[Nom]
+$x lié de manière significative à l' $y --> $x:[Nom]
+$x lié de manière significative à la $y --> $x:[Nom]
+$x lié de manière significative au $y --> $x:[Nom]
+$x lié de manière significative à un $y --> $x:[Nom]
+$x lié de manière significative à une $y --> $x:[Nom]
+$x lié de manière significative aux $y --> $x:[Nom]
+$x lié de manière significative à des $y --> $x:[Nom]
+$x liée de manière significative à l' $y --> $x:[Nom]
+$x liée de manière significative à la $y --> $x:[Nom]
+$x liée de manière significative au $y --> $x:[Nom]
+$x liée de manière significative à un $y --> $x:[Nom]
+$x liée de manière significative à une $y --> $x:[Nom]
+$x liée de manière significative aux $y --> $x:[Nom]
+$x liée de manière significative à des $y --> $x:[Nom]
+$x liés de manière significative à $y --> $x:[Nom]
+$x liés de manière significative à l' $y --> $x:[Nom]
+$x liés de manière significative à la $y --> $x:[Nom]
+$x liés de manière significative au $y --> $x:[Nom]
+$x liés de manière significative à un $y --> $x:[Nom]
+$x liés de manière significative à une $y --> $x:[Nom]
+$x liés de manière significative aux $y --> $x:[Nom]
+$x liés de manière significative à des $y --> $x:[Nom]
+$x liées de manière significative à $y --> $x:[Nom]
+$x liées de manière significative à l' $y --> $x:[Nom]
+$x liées de manière significative à la $y --> $x:[Nom]
+$x liées de manière significative au $y --> $x:[Nom]
+$x liées de manière significative à un $y --> $x:[Nom]
+$x liées de manière significative à une $y --> $x:[Nom]
+$x liées de manière significative aux $y --> $x:[Nom]
+$x liées de manière significative à des $y --> $x:[Nom]
+$x lié_à $y --> $x:[Nom] 
+$x lié_à un $y --> $x:[Nom] 
+$x lié au $y --> $x:[Nom] 
+$x lié aux $y --> $x:[Nom] 
+$x liée à un $y --> $x:[Nom] 
+$x liée au $y --> $x:[Nom] 
+$x liée aux $y --> $x:[Nom] 
+$x liés à $y --> $x:[Nom] 
+$x liés à un $y --> $x:[Nom] 
+$x liés au $y --> $x:[Nom] 
+$x liés aux $y --> $x:[Nom] 
+$x liées à $y --> $x:[Nom] 
+$x liées à un $y --> $x:[Nom] 
+$x liées au $y --> $x:[Nom] 
+$x liées aux $y --> $x:[Nom] 
 
 Traitement :
 $x a l' $y comme traitement_médical $Post
@@ -1096,6 +1311,20 @@ $x ont un $y comme traitement_médical $Post
 $x ont une $y comme traitement_médical $Post
 $x ont les $y comme traitements médicaux $Post
 $x ont des $y comme traitements médicaux $Post
+$x a l' $y traitement_médical $Post
+$x a la $y traitement_médical $Post
+$x a le $y traitement_médical $Post
+$x a un $y traitement_médical $Post
+$x a une $y traitement_médical $Post
+$x a les $y traitements médicaux $Post
+$x a des $y traitements médicaux $Post
+$x ont l' $y traitement_médical $Post
+$x ont la $y traitement_médical $Post
+$x ont le $y traitement_médical $Post
+$x ont un $y traitement_médical $Post
+$x ont une $y traitement_médical $Post
+$x ont les $y traitements médicaux $Post
+$x ont des $y traitements médicaux $Post
 $x couramment traité par l' $y
 $x couramment traité par la $y
 $x couramment traité par le $y

@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 public class Analyseur {
-	String carAccentues=",àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+	String carAccentues="œ,àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 	String motFr ="[A-Za-z0-9_"+carAccentues+"']";
 	String filePath;
 	private String text;	
@@ -417,6 +417,9 @@ public class Analyseur {
 		this.lemmatisation(mc);
 		//System.out.println("Parser + Mots Composés + Lemmatisation : "+lm.newText);
 		this.text = new String(lm.newText);
+		
+		//System.out.println(" "+lm.newText);
+
 		//this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]", "");
 	}
 	

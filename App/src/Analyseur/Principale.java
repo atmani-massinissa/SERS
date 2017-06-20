@@ -28,7 +28,8 @@ public class Principale {
 		analyseurDeTest.displayResults();*/
 
 		fetchPatrons ("PatternsParMcLem.txt");
-	    Analyseur analyseurDeTest=new Analyseur("Dépression (psychiatrie).txt");
+	    //Analyseur analyseurDeTest=new Analyseur("Dépression (psychiatrie).txt");
+	    Analyseur analyseurDeTest=new Analyseur("D:\\TER\\Articles\\Articles\\G\\Grossesse.txt");
 		analyseurDeTest.analyserParMcLem();
 		analyseurDeTest.displayResults();
 		
@@ -47,7 +48,7 @@ public class Principale {
 		String type = null;
 		String patron;
 		int nbrTerms = 0;
-		String carAccentues=",àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+		String carAccentues="œ,àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 		Pattern ExpRegPatron = Pattern.compile("\\s([A-Za-z\\s_'$"+carAccentues+"]+)\\s([$].*)");
 		Pattern ExpRegType = Pattern.compile("([A-Za-z/"+carAccentues+"]+) [:]");
 		Pattern ExpRegNbrTerms = Pattern.compile("\\$[A-Za-z]");
@@ -135,8 +136,8 @@ public class Principale {
 					parMcS.add(mc.findMcLine(tmp)+'\n');
 				if(!parLemS.contains(lm.lemmatizeTextLine(tmp)+'\n'))
 					parLemS.add(lm.lemmatizeTextLine(tmp)+'\n');
-				if(!parMcLemS.contains(lm.lemmatizeTextLine(lm.remSuccVerbs((mc.findMcLine(tmp))))+'\n'))
-					parMcLemS.add(lm.lemmatizeTextLine(lm.remSuccVerbs((mc.findMcLine(tmp))))+'\n');
+				if(!parMcLemS.contains(lm.lemmatizeTextLine((mc.findMcLine(tmp)))+'\n'))
+					parMcLemS.add(lm.lemmatizeTextLine((mc.findMcLine(tmp)))+'\n');
 				if(!parLemMcS.contains(mc.findMcLine(lm.lemmatizeTextLine(tmp))+'\n'))
 					parLemMcS.add(mc.findMcLine(lm.lemmatizeTextLine(tmp))+'\n');
 			}
