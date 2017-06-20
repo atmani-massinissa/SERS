@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -62,11 +63,15 @@ public class Lemmatisation extends TextClass {
 		}
 	}
 
-	/*
-	 * public String lemmatizeVerbsOnly() { }
-	 */
 
+
+	/*
+	 * 
+	 * -----------------------------------Lemmatiseurs---------------------------------------------
+	 * 
+	 */
 	public String lemmatizeText() throws Exception {
+		//Lemmatise texte de l'objet en entier
 		String str = new String(oldText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		String res = new String();
@@ -75,12 +80,23 @@ public class Lemmatisation extends TextClass {
 				res = res + lemmatize(s[i]) + " ";
 
 		}
+		res = lemmatizeArticles(res);
+		return res;
+	}
+	public String lemmatizeCOORD(String res){
+		res = res.replaceAll("\\s+", " ");
+		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		return res;
+	}
+	public String lemmatizeArticles(String res){
+		//Remplace les articles par "un"
 		res = res.replaceAll("\\s+", " ");
 		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
 		return res;
 	}
 
 	public String lemmatizeText(String str) throws Exception {
+		//Lemmatise texte en entrée en entier
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		String res = new String();
 		for (int i = 0; i < s.length; i++) {
@@ -88,8 +104,7 @@ public class Lemmatisation extends TextClass {
 				res = res + lemmatize(s[i]) + " ";
 
 		}
-		res = res.replaceAll("\\s+", " ");
-		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		res = lemmatizeArticles(res);
 		return res;
 	}
 
@@ -101,8 +116,7 @@ public class Lemmatisation extends TextClass {
 				res = res + lemmatize(s[i]) + " ";
 
 		}
-		res = res.replaceAll("\\s+", " ");
-		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		res = lemmatizeArticles(res);
 		return res;
 	}
 
@@ -114,13 +128,15 @@ public class Lemmatisation extends TextClass {
 				res = res + lemmatize(s[i]) + " ";
 
 		}
-		res = res.replaceAll("\\s+", " ");
-		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
-
+		res = lemmatizeArticles(res);
 		return res;
 	}
-
+	
 	public String lemmatize(String mot) {
+		//Met les verbes à l'infinitif 
+		if (mot.toLowerCase().startsWith("s'") || mot.toLowerCase().startsWith("m'") || mot.toLowerCase().startsWith("t'")) {
+			mot = mot.substring(2);
+		}
 		ArrayList<String> tab = map.get(mot);
 		if (tab != null) {
 			if (tab.size() == 1) {
@@ -130,7 +146,9 @@ public class Lemmatisation extends TextClass {
 		}
 		return mot;
 	}
-
+	/*
+	 * --------------------------------------Utilitaires-------------------------------------------
+	 */
 	public int howManyLemmes(String mot) {
 		int count = 0;
 		if (map.keySet().contains(mot))
@@ -249,6 +267,7 @@ public class Lemmatisation extends TextClass {
 					return true;
 			}
 		}
+		
 		return false;
 	}
 

@@ -28,12 +28,12 @@ public class Principale {
 		 * Analyseur("Dépression (psychiatrie).txt");
 		 * analyseurDeTest.analyserParLem(); analyseurDeTest.displayResults();
 		 */
-
-		fetchPatrons("PatternsParMcLem.txt");
-		Analyseur analyseurDeTest = new Analyseur("Dépression (psychiatrie).txt");
-		analyseurDeTest.analyserParMcLem();
-		analyseurDeTest.displayResults();
-
+//
+//		fetchPatrons("PatternsParMcLem.txt");
+//		Analyseur analyseurDeTest = new Analyseur("Dépression (psychiatrie).txt");
+//		analyseurDeTest.analyserParMcLem();
+//		analyseurDeTest.displayResults();
+//
 		/*
 		 * fetchPatrons ("PatternsParLemMc.txt"); Analyseur analyseurDeTest=new
 		 * Analyseur("Dépression (psychiatrie).txt");
@@ -50,7 +50,7 @@ public class Principale {
 		String type = null;
 		String patron;
 		int nbrTerms = 0;
-		String carAccentues = ",àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+		String carAccentues = ",àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 		Pattern ExpRegPatron = Pattern.compile("\\s([A-Za-z\\s_'$" + carAccentues + "]+)\\s([$].*)");
 		Pattern ExpRegType = Pattern.compile("([A-Za-z/" + carAccentues + "]+) [:]");
 		Pattern ExpRegNbrTerms = Pattern.compile("\\$[A-Za-z]");
@@ -115,8 +115,8 @@ public class Principale {
 
 	public static void createPatternVersions(String filePath) throws Exception {
 		BufferedReader buffer = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
-		MotsComposes mc = new MotsComposes();
-		Lemmatisation lm = new Lemmatisation();
+		MotsComposes mc = new MotsComposes("");
+		Lemmatisation lm = new Lemmatisation("");
 		String tmp;
 		ArrayList<String> parMcS = new ArrayList<String>();
 		ArrayList<String> parLemS = new ArrayList<String>();

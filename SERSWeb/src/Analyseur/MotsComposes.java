@@ -65,11 +65,31 @@ public class MotsComposes extends TextClass {
 					this.oldText = this.oldText.replace(str, str.replace(" ", "_"));
 				}
 			}
+							
 		}
+		
 		this.newText = findMC();
+		
+//		for (String str : mots_particuliers()) {
+//			if (str.contains(" ")) {
+//				this.newText = this.newText.replace(str, str.replace(" ", "_"));
+//			}
+//		}
 		if (pr != null)
 			addWordsToFile();
 		// System.out.println(" Analyser mot composes "+this.newText);
+	}
+
+	public void addWordsToFile(HashSet<String> nonExisting) throws IOException {
+		FileWriter f = new FileWriter(ressourcePath+"jdm-mc.txt", true);
+		BufferedWriter bw = new BufferedWriter(f);
+		String outS = new String();
+		for (String s : nonExisting) {
+			outS = outS + "\n" + s + ";";
+		}
+		bw.write(outS);
+		bw.close();
+		f.close();
 	}
 
 	public void addWordsToFile() throws IOException {
@@ -183,6 +203,40 @@ public class MotsComposes extends TextClass {
 		 * System.out.println("***************"+s5);
 		 */
 		return str;
+	}
+	public HashSet<String> mots_particuliers() throws FileNotFoundException {
+		HashSet<String> mots_composes = new HashSet<String>();
+		String str = new String(this.oldText);
+		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		String res = new String();
+		for (int i = 0; i < s.length; i++) {
+			
+				if (Arrays.asList(new String[] {"degré","insuffisance","gain","carence","manque","excès","baisse","taux","diminution","perte","niveaux","augmentation","absence","montée","déficience"}).contains(s[i].toLowerCase())) {
+					if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+1].toLowerCase())) {
+						if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+3].toLowerCase())) {
+							mots_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]+" "+s[i+3]+" "+s[i+4]);
+						}
+						else {
+							mots_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]);
+						}
+					}
+				}
+				
+			}
+		System.out.println("TEST NOUVELLE FONCTION : "+mots_composes);
+		return mots_composes;
+//		HashSet<String> nonExisting = new HashSet<String>();
+//		for (String mot : mots_composes) {
+//			if (!lookUp(mot)) {
+//				nonExisting.add(mot);
+//			}
+//		}
+//		try {
+//			addWordsToFile(nonExisting);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	public String findMcLine(String str) throws FileNotFoundException {

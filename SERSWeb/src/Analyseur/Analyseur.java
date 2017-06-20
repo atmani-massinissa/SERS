@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import javax.servlet.jsp.JspWriter;
 
 public class Analyseur {
-	String carAccentues = ",àâäçèéêëîïôöùûüÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+	String carAccentues = ",àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 	String motFr = "[A-Za-z0-9_" + carAccentues + "']";
 	String filePath;
 	private String text;
@@ -32,6 +32,9 @@ public class Analyseur {
 	}
 	public void setRessourcePath(String ressourcePath) {
 		this.ressourcePath = ressourcePath;
+	}
+	public String getText() {
+		return text;
 	}
 //	public Analyseur(String filePath) throws IOException {
 //		this.filePath = filePath;
@@ -453,6 +456,7 @@ public class Analyseur {
 		this.text = new String(lm.newText);
 		// this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
 		// "");
+		//System.out.println(this.text);
 	}
 
 	public void pretraitementParLemMc() throws Exception {

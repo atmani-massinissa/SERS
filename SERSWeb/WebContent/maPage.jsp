@@ -73,9 +73,10 @@ import = "java.net.URLDecoder"
 					analyseurDeTest.setText(text);
 					//analyseurDeTest.setText(text);
 					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
-					//out.print("1" +text);
+					//out.print(""Texte en wikiCode"+" +text);
 					analyseurDeTest.analyserParMcLem();
  					analyseurDeTest.displayResults(out);
+ 					out.print("Texte prétraité"+analyseurDeTest.getText());
 				}
 				else 
 				{
