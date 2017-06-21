@@ -1,6 +1,5 @@
 package Analyseur;
 
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -11,48 +10,48 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
+public class Lemmatisation extends TextClass {
 
-public class Lemmatisation extends TextClass{
-
-	//String oldText;
-	//String newText;
+	// String oldText;
+	// String newText;
+	String ressourcePath;
 	static HashMap<String, ArrayList<String>> map;
 
-	public Lemmatisation () throws IOException {
+	public Lemmatisation() throws IOException {
+		this.ressourcePath=ressourcePath;
 		createDico("dico.txt");
-		oldText=new String();
-		newText=new String();
+		oldText = new String();
+		newText = new String();
+		
 	}
 
-	public Lemmatisation (TextClass tc) throws Exception {
-		oldText=new String(tc.newText);
+	public Lemmatisation(TextClass tc) throws Exception {
+		this.ressourcePath=ressourcePath;
+		oldText = new String(tc.newText);
 		try {
 			createDico("dico.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		newText=lemmatizeText();
-		System.out.println("----------------------"+newText+"----------------------");
+		newText = lemmatizeText();
 	}
 
-	public static void createDico (String filePath) throws IOException {
+	public static void createDico(String filePath) throws IOException {
 		map = new HashMap<String, ArrayList<String>>();
 		String line;
 		BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
-		while ((line = reader.readLine()) != null)
-		{
+		while ((line = reader.readLine()) != null) {
 			String[] parts = line.split("	");
-			if (parts.length >= 2)
-			{
+			if (parts.length >= 2) {
 				String key = parts[0];
 				String value = parts[1];
 
-				String deux = parts[1]+"	"+parts[2];
+				String deux = parts[1] + "	" + parts[2];
 
 				if (map.keySet().contains(parts[0])) {
 					map.get(parts[0]).add(deux);
-				}else {
+				} else {
 					ArrayList<String> values = new ArrayList<String>();
 					values.add(deux);
 					map.put(key, values);
@@ -64,28 +63,36 @@ public class Lemmatisation extends TextClass{
 		}
 	}
 
-	/*public String lemmatizeVerbsOnly() {
-	}*/
 
+
+	/*
+	 * 
+	 * -----------------------------------Lemmatiseurs---------------------------------------------
+	 * 
+	 */
 	public String lemmatizeText() throws Exception {
+		//Lemmatise texte de l'objet en entier
 		String str = new String(oldText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
-		list.remove(" ");
-		list.removeAll(Arrays.asList("", null));
+		list.removeAll(Arrays.asList("", null," "));
 		String res = new String();
 		for (int i=0; i<list.size();i++) {
-			if(!isAdv(list.get(i)) )
+		/*	if (list.get(i).equalsIgnoreCase("déjà")){
+				System.out.println("1  déjà");
+				System.out.println("1  déjà is adverb"+!isAdv(list.get(i)));
+			}*/
+			if(!isAdv(list.get(i)) ){
 				str=str+list.get(i)+" ";
+				/*if (list.get(i).equalsIgnoreCase("déjà"))
+					System.out.println("2  déjà");*/
+			}
 		}
-
-		
 		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		list = new ArrayList<String>(Arrays.asList(s));
 		str = new String();
 		for ( int i=0; i<list.size();i++) {
 			if(iscON(list.get(i))){
-				//System.out.println("con  "+list.get(i));
 					if(list.get(i).equalsIgnoreCase("ou") || list.get(i).equalsIgnoreCase("et") )
 						str=str+list.get(i)+" ";
 			}
@@ -94,132 +101,126 @@ public class Lemmatisation extends TextClass{
 			}
 		}
 		str = remSuccVerbs (str); // remove successive verbs
-
 		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
 				res=res+lemmatize(s[i])+" ";
 		}
+
+		res = lemmatizeArticles(res);
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
-		//System.out.println("texte		"+res);
-
+		return res;
+	}
+	public String lemmatizeCOORD(String res){
+		res = res.replaceAll("\\s+", " ");
+		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		return res;
+	}
+	public String lemmatizeArticles(String res){
+		//Remplace les articles par "un"
+		res = res.replaceAll("\\s+", " ");
+		res = res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
 		return res;
 	}
 
 	public String lemmatizeText(String str) throws Exception {
+		//Lemmatise texte en entrée en entier
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		String res = new String();
-		for (int i=0; i<s.length;i++) {
-			if(!isAdv(s[i]))
-				res=res+lemmatize(s[i])+" ";
-			
+		for (int i = 0; i < s.length; i++) {
+			if (!isAdv(s[i]))
+				res = res + lemmatize(s[i]) + " ";
+
 		}
-		res=res.replaceAll("\\s+", " ");
-		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
-		System.out.println(res);
+		res = lemmatizeArticles(res);
 		return res;
 	}
-	
+
 	public String lemmatizeTextLine(String str) throws Exception {
 		str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[.?!;\\(\\)]+");
 		String res = new String();
-		
-		for (int i=0; i<s.length;i++) {
-			if(!isAdv(s[i]))
-				res=res+lemmatize(s[i])+" ";
-			
-		}
-		
+		for (int i = 0; i < s.length; i++) {
+			if (!isAdv(s[i]))
+				res = res + lemmatize(s[i]) + " ";
 
-		res=res.replaceAll("\\s+", " ");
-		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		}
+		res = lemmatizeArticles(res);
+		return res;
+	}
+
+	public String lemmatizeTextPostMc(String str) throws Exception {
+		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		String res = new String();
+		for (int i = 0; i < s.length; i++) {
+			if (!isAdv(s[i]))
+				res = res + lemmatize(s[i]) + " ";
+
+		}
+		res = lemmatizeArticles(res);
 		return res;
 	}
 	
-	public String lemmatizeTextPostMc(String str) throws Exception {
-		//str = remSuccVerbs (str);
-		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
-		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
-		list.remove(" ");
-		list.removeAll(Arrays.asList("", null));
-		String res = new String();
-		for (int i=0; i<list.size();i++) {
-			if(!isAdv(list.get(i)))
-				str=str+list.get(i)+" ";
+	public String lemmatize(String mot) {
+		//Met les verbes à l'infinitif 
+		if (mot.toLowerCase().startsWith("s'") || mot.toLowerCase().startsWith("m'") || mot.toLowerCase().startsWith("t'")) {
+			mot = mot.substring(2);
 		}
-		str = remSuccVerbs (str);
-		s = str.split("\\s|[,.?!:;\\(\\)]+");
-		for (int i=0; i<s.length;i++) {
-			if(!isAdv(s[i]) )
-				res=res+lemmatize(s[i])+" ";
-		}
-		res=res.replaceAll("\\s+", " ");
-		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
-		return res;
-	}
-
-	public String  lemmatize (String mot) {
 		ArrayList<String> tab = map.get(mot);
-		if (tab!=null){ 
-			if (tab.size()==1){
-				if ((tab.get(0).split("	")[1].substring(0, 3).equals("Ver")) && howManyLemmes(mot)==1)
-				return tab.get(0).split("\\s")[0];
+		if (tab != null) {
+			if (tab.size() == 1) {
+				if (tab.get(0).split("	")[1].substring(0, 3).equals("Ver"))
+					return tab.get(0).split("\\s")[0];
 			}
 		}
 		return mot;
 	}
-
-	public int howManyLemmes (String mot) {
-		int count=0;
+	/*
+	 * --------------------------------------Utilitaires-------------------------------------------
+	 */
+	public int howManyLemmes(String mot) {
+		int count = 0;
 		if (map.keySet().contains(mot))
-			for (String key : map.keySet()){
-				if(key.equals(mot))
-					for (String str : map.get(mot)){
+			for (String key : map.keySet()) {
+				if (key.equals(mot))
+					for (String str : map.get(mot)) {
 						count++;
 					}
 			}
 		return count;
 	}
 
-
-
-	public String  getLemme (String mot) {
+	public String getLemme(String mot) {
 		return ((map.get(mot).get(0)).split("\\s"))[0];
 	}
 
+	/*
+	 * public void getLemmes(String mot) { if (!map.keySet().contains(mot))
+	 * String res = mot;ystem.out.println("Le mot n'existe pas"); else { for
+	 * (String key : map.keySet()){ if(key.equals(mot)) for (String str :
+	 * map.get(mot)){ String[] tab = str.split("	"); //return tab[0];
+	 * System.out.println("La source du mot "+mot+" est "+tab[0]); } } } }
+	 */
 
+	// isPluriel isMasculin isFeminin isNom isVerb isAdj isAmbigu (plus d'une
+	// correspondance)
+	// getLemme("bois") ==> boire
+	// getPos("bois") ==> verb ou nom ou adj pro det
+	// getLemme("tapis","Nom") ==> tapis getLemme("tapis","Ver") ==> tapir
+	// penser Ã dÃ©clencher des exceptions dans les cas ambigus
+	// pour spliter sur plusieurs caractÃ¨res split(":|+") "Nom:Mas+SG" ==>
+	// [0]="Nom" [1]="Mas" [2]="SG"
 
-	/*public void  getLemmes(String mot) {
-		if (!map.keySet().contains(mot)) String res = mot;ystem.out.println("Le mot n'existe pas");
+	public String detecter(String mot, String s) throws Exception {
+		if (!map.keySet().contains(mot))
+			throw new Exception("Le mot n'existe pas");
 		else {
-			for (String key : map.keySet()){
-				if(key.equals(mot))
-					for (String str : map.get(mot)){
+			for (String key : map.keySet()) {
+				if (key.equals(mot))
+					for (String str : map.get(mot)) {
 						String[] tab = str.split("	");
-						//return tab[0];
-						System.out.println("La source du mot "+mot+" est "+tab[0]);
-					}
-			}
-		}
-	}*/
-
-
-	//isPluriel isMasculin isFeminin isNom isVerb isAdj isAmbigu (plus d'une correspondance)
-	//getLemme("bois") ==> boire
-	//getPos("bois") ==> verb ou nom ou adj pro det 
-	//getLemme("tapis","Nom") ==> tapis         getLemme("tapis","Ver") ==> tapir
-	// penser Ã  dÃ©clencher des exceptions dans les cas ambigus 
-	// pour spliter sur plusieurs caractÃ¨res split(":|+")   "Nom:Mas+SG"  ==>   [0]="Nom" [1]="Mas" [2]="SG"
-
-	public String  detecter(String mot,String s) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
-		else {
-			for (String key : map.keySet()){
-				if(key.equals(mot))
-					for (String str : map.get(mot)){
-						String[] tab = str.split("	");
-						if (tab[1].contains(s)) return tab[0];
+						if (tab[1].contains(s))
+							return tab[0];
 					}
 			}
 		}
@@ -227,8 +228,8 @@ public class Lemmatisation extends TextClass{
 	}
 
 	public String getPos(String mot) {
-		if (map.keySet().contains(mot)){
-			for (String str : map.get(mot)){
+		if (map.keySet().contains(mot)) {
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
 				return tab[1].substring(0, 3);
 			}
@@ -236,104 +237,156 @@ public class Lemmatisation extends TextClass{
 		return null;
 	}
 
-	public boolean isPluriel(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
+	public boolean isPluriel(String mot) throws Exception {
+		if (!map.keySet().contains(mot))
+			throw new Exception("Le mot n'existe pas");
 		else {
-			for (String str : map.get(mot)){
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("PL")) return true;
+				if (tab[1].contains("PL"))
+					return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean isAdj(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
+	public boolean isAdj(String mot) throws Exception {
+		if (!map.keySet().contains(mot))
+			throw new Exception("Le mot n'existe pas");
 		else {
-			for (String str : map.get(mot)){
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Adj")) return true;
+				if (tab[1].contains("Adj"))
+					return true;
 			}
 		}
 		return false;
 	}
-	
-	public boolean isAdv(String mot) throws Exception{
+
+	public boolean isAdv(String mot) throws Exception {
+
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Adv"))
+					return true;
+			}
+		}
+		return false;
+	}
+
+	public String remAdv(String mot) throws Exception {
+
+		String[] tab = mot.split(" ");
+		for (String str : tab) {
+			if (isAdv(str))
+				mot = mot.replace(str, "");
+		}
+
+		return mot;
+	}
+
+	public boolean isVerb(String mot) throws Exception {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Ver"))
+					return true;
+			}
+		}
 		
-		ArrayList<String> tab = map.get(mot);
-		if (tab!=null){ 
-			if (tab.size()==1){
-				if (tab.get(0).split("	")[1].substring(0, 3).equals("Adv"))
+		return false;
+	}
+
+	public boolean isMasculin(String mot) throws Exception {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Mas"))
+					return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean isNom(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Nom"))
 					return true;
 			}
 		}
 		return false;
 	}
 	
-	public String remAdv(String mot) throws Exception{
-		
-		String[] tab = mot.split(" ");
-			for (String str : tab ){
-					if(isAdv(str))
-					mot = mot.replace(str,"");
-			}
-			
-			return mot;
-	}
-
-
-	public boolean isVerb(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) return false/*System.out.println("")*/;
+	public boolean isDet(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
 		else {
-			for (String str : map.get(mot)){
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Ver")) return true;
+				if (tab[1].contains("Det"))
+					return true;
 			}
 		}
 		return false;
 	}
 	
 	public boolean iscON(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) return false/*System.out.println("")*/;
+		if (!map.keySet().contains(mot)) 
+			return false/*System.out.println("")*/;
 		else {
 			for (String str : map.get(mot)){
 				String[] tab = str.split("	");
-				if (tab[1].contains("Con")) return true;
+				if (tab[1].contains("Con")) 
+					return true;
+			}
+		}
+		return false;
+}
+	
+	public boolean isPre(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Pre"))
+					return true;
 			}
 		}
 		return false;
 	}
-
-	public boolean isMasculin(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
+	public boolean isPro(String mot) {
+		if (!map.keySet().contains(mot))
+			return false;
 		else {
-			for (String str : map.get(mot)){
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Mas")) return true;
+				if (tab[1].contains("Pre"))
+					return true;
 			}
 		}
 		return false;
 	}
-
-
-	public boolean isNom(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) return false/*throw new Exception ("Le mot n'existe pas")*/;
+	
+	public boolean isFeminin(String mot) throws Exception {
+		if (!map.keySet().contains(mot))
+			throw new Exception("Le mot n'existe pas");
 		else {
-			for (String str : map.get(mot)){
+			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Nom")) return true;
-			}
-		}
-		return false;
-	}
-
-
-	public boolean isFeminin(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
-		else {
-			for (String str : map.get(mot)){
-				String[] tab = str.split("	");
-				if (tab[1].contains("Fem")) return true;
+				if (tab[1].contains("Fem"))
+					return true;
 			}
 		}
 		return false;
@@ -345,7 +398,6 @@ public class Lemmatisation extends TextClass{
 		list.removeAll(Arrays.asList("", null," "));
 		String res = new String();
 		int i=0;
-		//System.out.println(s[i]);
 		while(i<list.size()){
 			int k=0;
 			if(howManyLemmes(list.get(i))==1){
@@ -358,23 +410,19 @@ public class Lemmatisation extends TextClass{
 				i++;
 			}
 			if(k>1){
-				//System.out.println("-------------------------------------");
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
-				//	System.out.println(j+" + "+list.get(j)+" "+ howManyLemmes(list.get(j)));
 					list.remove(j);
-				}
-				/*if(i<list.size()){
-					System.out.print(i-1+" + "+list.get(i-1)+" "+howManyLemmes(list.get(i-1)));
-					System.out.println("-------------------------------------");
-				}*/
+					}
 				}
 			i++;
-		}
-		 res = String.join(" ", list);	
-	return res;		
+			}
+		 	res = String.join(" ", list);	
+		 	return res;		
 	}
+	
+	
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 
 		Lemmatisation lm = new Lemmatisation();
 
@@ -384,11 +432,7 @@ public class Lemmatisation extends TextClass{
 		fis.read(data);
 		fis.close();
 		String str = new String(data, "UTF-8");
-		str=str.replaceAll("'","' ");
-		//System.out.println(lm.map.size());
-		//System.out.println(str);
-		//str = lm.remSuccVerbs(str);
-		System.out.println();
+		str = str.replaceAll("'", "' ");
 		System.out.println(lm.lemmatizeTextPostMc(str));
 
 	}
