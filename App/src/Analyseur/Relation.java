@@ -11,6 +11,8 @@ public class Relation {
 	private String term1;//Premier terme liÃ© par la relation.
 	private String term2;//DeuxiÃ¨me terme liÃ© par la relation.
 	private String contexte;//Contexte (Ligne/texte) dans lequel la relation a Ã©tÃ© trouvÃ©e.
+	private String patron;//Patron linguistique
+
 	//Potentiellement : Ajouter contexte ou se trouve la relation.
 	 
 	public static ArrayList<String> getTypes_de_relations() {
@@ -19,11 +21,12 @@ public class Relation {
 
 	
 	
-	public Relation(String type, String term1, String term2, String contexte) {
+	public Relation(String type, String term1, String term2, String contexte, String patron) {
 		this.type = type;
 		this.term1 = term1;
 		this.term2 = term2;
 		this.contexte = contexte;
+		this.patron = patron;
 		if (!types_de_relations.contains(type)) {
 			types_de_relations.add(type);
 		}
@@ -43,7 +46,9 @@ public class Relation {
 	public String getContexte() {
 		return contexte;
 	}
-	
+	public String getPatron() {
+		return patron;
+	}
 	//Setters
 	public void setTerm1(String term1) {
 		this.term1 = term1;

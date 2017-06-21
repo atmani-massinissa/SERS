@@ -77,15 +77,10 @@ public class Lemmatisation extends TextClass {
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		list.removeAll(Arrays.asList("", null," "));
 		String res = new String();
+		str = new String();
 		for (int i=0; i<list.size();i++) {
-		/*	if (list.get(i).equalsIgnoreCase("déjà")){
-				System.out.println("1  déjà");
-				System.out.println("1  déjà is adverb"+!isAdv(list.get(i)));
-			}*/
 			if(!isAdv(list.get(i)) ){
 				str=str+list.get(i)+" ";
-				/*if (list.get(i).equalsIgnoreCase("déjà"))
-					System.out.println("2  déjà");*/
 			}
 		}
 		s = str.split("\\s|[,.?!:;\\(\\)]+");
@@ -269,9 +264,12 @@ public class Lemmatisation extends TextClass {
 			return false;
 		else {
 			for (String str : map.get(mot)) {
+				//System.out.println("is Adv "+str);
 				String[] tab = str.split("	");
-				if (tab[1].contains("Adv"))
+				if (tab[1].contains("Adv")){
+					//System.out.println("tab[1] "+tab[1]);
 					return true;
+					}
 			}
 		}
 		return false;
@@ -401,13 +399,24 @@ public class Lemmatisation extends TextClass {
 		while(i<list.size()){
 			int k=0;
 			if(howManyLemmes(list.get(i))==1){
-				while(isVerb(list.get(i))){
-					k++;
-					i++;
-				}
+					while(isVerb(list.get(i))){
+						k++;
+						i++;
+					}
 			}
 			else {
-				i++;
+				if(Arrays.asList(new String[]{"peut","peuvent","pouvoir","être","doivent"}).contains(list.get(i))){
+					k++;
+					i++;
+					while(isVerb(list.get(i))){
+						k++;
+						i++;
+					}
+				}
+				else{
+					i++;
+					
+				}
 			}
 			if(k>1){
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
