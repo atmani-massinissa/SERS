@@ -222,17 +222,28 @@ public class MotsComposes extends TextClass {
 	public HashSet<String> mots_particuliers() throws IOException {
 		HashSet<String> mots_composes = new HashSet<String>();
 		String str = new String(this.newText);
+		str = str.replace("d'", "d' ");
+		str = str.replace("l'", "l' ");
+		str = str.replace("s'", "s' ");
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
-		String res = new String();
+		String res = new String();	
 		for (int i = 0; i < s.length; i++) {
 			
 				if (Arrays.asList(new String[] {"degré","insuffisance","gain","carence","manque","excès","baisse","taux","diminution","perte","niveaux","augmentation","absence","montée","déficience"}).contains(s[i].toLowerCase())) {
 					if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+1].toLowerCase())) {
-						if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+3].toLowerCase())) {
+						if (Arrays.asList(new String[] {"du","en","de"}).contains(s[i+3].toLowerCase())) {
 							mots_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]+" "+s[i+3]+" "+s[i+4]);
 						}
 						else {
 							mots_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]);
+						}
+					}
+					else if (s[i].startsWith("d'")){
+						if (Arrays.asList(new String[] {"du","en","de"}).contains(s[i+2].toLowerCase())) {
+							mots_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]+" "+s[i+3]);
+						}
+						else {
+							mots_composes.add(s[i]+" "+s[i+1]);
 						}
 					}
 				}
@@ -244,12 +255,19 @@ public class MotsComposes extends TextClass {
 		
 		for (int i = 0; i < s.length; i++) {
 			if (abu.isNom(s[i].toLowerCase()) || s[i].contains("_")) {
-				if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+1].toLowerCase())) {
-					if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+3].toLowerCase())) {
-						noms_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]+" "+s[i+3]+" "+s[i+4]);
-					}
-					else {
-						noms_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]);
+				if (i+1 < s.length) {
+					if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+1].toLowerCase())) {
+						if (i+3 < s.length) {
+							if (Arrays.asList(new String[] {"du","en","de","d'"}).contains(s[i+3].toLowerCase())) {
+								if (i+4 < s.length) {
+									noms_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]+" "+s[i+3]+" "+s[i+4]);
+								}
+								
+							}
+						}
+						else {
+							noms_composes.add(s[i]+" "+s[i+1]+" "+s[i+2]);
+						}
 					}
 				}
 			}
