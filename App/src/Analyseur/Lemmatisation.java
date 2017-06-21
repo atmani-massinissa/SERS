@@ -33,6 +33,7 @@ public class Lemmatisation extends TextClass{
 			e.printStackTrace();
 		}
 		newText=lemmatizeText();
+		System.out.println("----------------------"+newText+"----------------------");
 	}
 
 	public static void createDico (String filePath) throws IOException {
@@ -58,7 +59,7 @@ public class Lemmatisation extends TextClass{
 				}
 
 			} else {
-				System.out.println(line);
+				//System.out.println(line);
 			}
 		}
 	}
@@ -68,24 +69,40 @@ public class Lemmatisation extends TextClass{
 
 	public String lemmatizeText() throws Exception {
 		String str = new String(oldText);
-		//str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		list.remove(" ");
 		list.removeAll(Arrays.asList("", null));
 		String res = new String();
 		for (int i=0; i<list.size();i++) {
-			if(!isAdv(list.get(i)))
+			if(!isAdv(list.get(i)) )
 				str=str+list.get(i)+" ";
 		}
+
+		
+		s = str.split("\\s|[,.?!:;\\(\\)]+");
+		list = new ArrayList<String>(Arrays.asList(s));
+		str = new String();
+		for ( int i=0; i<list.size();i++) {
+			if(iscON(list.get(i))){
+				//System.out.println("con  "+list.get(i));
+					if(list.get(i).equalsIgnoreCase("ou") || list.get(i).equalsIgnoreCase("et") )
+						str=str+list.get(i)+" ";
+			}
+			else {
+				str=str+list.get(i)+" ";
+			}
+		}
 		str = remSuccVerbs (str); // remove successive verbs
+
 		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
-			if(!isAdv(s[i]))
 				res=res+lemmatize(s[i])+" ";
 		}
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		//System.out.println("texte		"+res);
+
 		return res;
 	}
 
@@ -99,17 +116,22 @@ public class Lemmatisation extends TextClass{
 		}
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
+		System.out.println(res);
 		return res;
 	}
 	
 	public String lemmatizeTextLine(String str) throws Exception {
+		str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[.?!;\\(\\)]+");
 		String res = new String();
+		
 		for (int i=0; i<s.length;i++) {
 			if(!isAdv(s[i]))
 				res=res+lemmatize(s[i])+" ";
 			
 		}
+		
+
 		res=res.replaceAll("\\s+", " ");
 		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
 		return res;
@@ -129,7 +151,7 @@ public class Lemmatisation extends TextClass{
 		str = remSuccVerbs (str);
 		s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
-			if(!isAdv(s[i]))
+			if(!isAdv(s[i]) )
 				res=res+lemmatize(s[i])+" ";
 		}
 		res=res.replaceAll("\\s+", " ");
@@ -261,11 +283,22 @@ public class Lemmatisation extends TextClass{
 
 
 	public boolean isVerb(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) System.out.println("");
+		if (!map.keySet().contains(mot)) return false/*System.out.println("")*/;
 		else {
 			for (String str : map.get(mot)){
 				String[] tab = str.split("	");
 				if (tab[1].contains("Ver")) return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean iscON(String mot) throws Exception{
+		if (!map.keySet().contains(mot)) return false/*System.out.println("")*/;
+		else {
+			for (String str : map.get(mot)){
+				String[] tab = str.split("	");
+				if (tab[1].contains("Con")) return true;
 			}
 		}
 		return false;
@@ -284,7 +317,7 @@ public class Lemmatisation extends TextClass{
 
 
 	public boolean isNom(String mot) throws Exception{
-		if (!map.keySet().contains(mot)) throw new Exception ("Le mot n'existe pas");
+		if (!map.keySet().contains(mot)) return false/*throw new Exception ("Le mot n'existe pas")*/;
 		else {
 			for (String str : map.get(mot)){
 				String[] tab = str.split("	");
@@ -315,26 +348,25 @@ public class Lemmatisation extends TextClass{
 		//System.out.println(s[i]);
 		while(i<list.size()){
 			int k=0;
-			//System.out.println("++++++++++++++++++++++++++++++++++++++++++");
-
-			while(isVerb(list.get(i))){
-
-			k++;
-		//	System.out.println(list.get(i));
-			i++;
+			if(howManyLemmes(list.get(i))==1){
+				while(isVerb(list.get(i))){
+					k++;
+					i++;
+				}
 			}
-		//	System.out.println("++++++++++++++++++++++++++++++++++++++++++");
-
+			else {
+				i++;
+			}
 			if(k>1){
 				//System.out.println("-------------------------------------");
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
-				//System.out.print(j+" + "+list.get(j)+" ");
-				list.remove(j);
-				//System.out.println(j+" + "+list.get(j)+" ");
+				//	System.out.println(j+" + "+list.get(j)+" "+ howManyLemmes(list.get(j)));
+					list.remove(j);
 				}
-				//if(i<list.size())
-			//	System.out.print(i-1+" + "+list.get(i-1)+" ");
-
+				/*if(i<list.size()){
+					System.out.print(i-1+" + "+list.get(i-1)+" "+howManyLemmes(list.get(i-1)));
+					System.out.println("-------------------------------------");
+				}*/
 				}
 			i++;
 		}

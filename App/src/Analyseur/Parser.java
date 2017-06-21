@@ -202,6 +202,7 @@ public class Parser extends TextClass {
 		str=str.replace("’","'");
 		str=str.replace("(,)+",",");
 		str=str.replace(" "," ");
+		//str=str.replaceAll("pour"," ");
 		str=str.trim();
 		return str;
 
@@ -358,6 +359,7 @@ public class Parser extends TextClass {
 		str=str.replace("’","'");
 		str=str.replace("(,)+",",");
 		str=str.replace(" "," ");
+
 		str=str.trim();
 		return str;
 
