@@ -58,7 +58,7 @@ public class Lemmatisation extends TextClass {
 				}
 
 			} else {
-				System.out.println(line);
+				//System.out.println(line);
 			}
 		}
 	}
@@ -74,13 +74,36 @@ public class Lemmatisation extends TextClass {
 		//Lemmatise texte de l'objet en entier
 		String str = new String(oldText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.removeAll(Arrays.asList("", null," "));
 		String res = new String();
-		for (int i = 0; i < s.length; i++) {
-			if (!isAdv(s[i]))
-				res = res + lemmatize(s[i]) + " ";
-
+		str = new String();
+		for (int i=0; i<list.size();i++) {
+			if(!isAdv(list.get(i)) ){
+				str=str+list.get(i)+" ";
+			}
 		}
+		s = str.split("\\s|[,.?!:;\\(\\)]+");
+		list = new ArrayList<String>(Arrays.asList(s));
+		str = new String();
+		for ( int i=0; i<list.size();i++) {
+			if(iscON(list.get(i))){
+					if(list.get(i).equalsIgnoreCase("ou") || list.get(i).equalsIgnoreCase("et") )
+						str=str+list.get(i)+" ";
+			}
+			else {
+				str=str+list.get(i)+" ";
+			}
+		}
+		str = remSuccVerbs (str); // remove successive verbs
+		s = str.split("\\s|[,.?!:;\\(\\)]+");
+		for (int i=0; i<s.length;i++) {
+				res=res+lemmatize(s[i])+" ";
+		}
+
 		res = lemmatizeArticles(res);
+		res=res.replaceAll("\\s+", " ");
+		res=res.replaceAll(" une | des | le | la | les | l' | du ", " un ");
 		return res;
 	}
 	public String lemmatizeCOORD(String res){
@@ -109,6 +132,7 @@ public class Lemmatisation extends TextClass {
 	}
 
 	public String lemmatizeTextLine(String str) throws Exception {
+		str = remSuccVerbs (str);
 		String[] s = str.split("\\s|[.?!;\\(\\)]+");
 		String res = new String();
 		for (int i = 0; i < s.length; i++) {
@@ -236,11 +260,16 @@ public class Lemmatisation extends TextClass {
 
 	public boolean isAdv(String mot) throws Exception {
 
-		ArrayList<String> tab = map.get(mot);
-		if (tab != null) {
-			if (tab.size() == 1) {
-				if (tab.get(0).split("	")[1].substring(0, 3).equals("Adv"))
+		if (!map.keySet().contains(mot))
+			return false;
+		else {
+			for (String str : map.get(mot)) {
+				//System.out.println("is Adv "+str);
+				String[] tab = str.split("	");
+				if (tab[1].contains("Adv")){
+					//System.out.println("tab[1] "+tab[1]);
 					return true;
+					}
 			}
 		}
 		return false;
@@ -259,7 +288,7 @@ public class Lemmatisation extends TextClass {
 
 	public boolean isVerb(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
-			System.out.println("Le mot n'existe pas");
+			return false;
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
@@ -310,6 +339,19 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	
+	public boolean iscON(String mot) throws Exception{
+		if (!map.keySet().contains(mot)) 
+			return false/*System.out.println("")*/;
+		else {
+			for (String str : map.get(mot)){
+				String[] tab = str.split("	");
+				if (tab[1].contains("Con")) 
+					return true;
+			}
+		}
+		return false;
+}
+	
 	public boolean isPre(String mot) {
 		if (!map.keySet().contains(mot))
 			return false;
@@ -347,6 +389,47 @@ public class Lemmatisation extends TextClass {
 		}
 		return false;
 	}
+	
+	public String remSuccVerbs(String str) throws Exception{
+		String[] s = str.split("\\s|[.?!;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.removeAll(Arrays.asList("", null," "));
+		String res = new String();
+		int i=0;
+		while(i<list.size()){
+			int k=0;
+			if(howManyLemmes(list.get(i))==1){
+					while(isVerb(list.get(i))){
+						k++;
+						i++;
+					}
+			}
+			else {
+				if(Arrays.asList(new String[]{"peut","peuvent","pouvoir","être","doivent"}).contains(list.get(i))){
+					k++;
+					i++;
+					while(isVerb(list.get(i))){
+						k++;
+						i++;
+					}
+				}
+				else{
+					i++;
+					
+				}
+			}
+			if(k>1){
+				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
+					list.remove(j);
+					}
+				}
+			i++;
+			}
+		 	res = String.join(" ", list);	
+		 	return res;		
+	}
+	
+	
 
 	public static void main(String[] args) throws Exception {
 

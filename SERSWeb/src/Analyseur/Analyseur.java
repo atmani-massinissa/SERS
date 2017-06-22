@@ -88,7 +88,7 @@ public class Analyseur {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group()));
+											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -143,7 +143,7 @@ public class Analyseur {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group()));
+											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -200,7 +200,7 @@ public class Analyseur {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group()));
+											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -255,7 +255,7 @@ public class Analyseur {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group()));
+											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 							}
 						}
@@ -359,7 +359,7 @@ public class Analyseur {
 			for (String pattern : Set) {
 				// Cas 1 : Patron inclut dans un autre --> Interdire la
 				// duplicaion.
-				if (!patron.equals(pattern) && this.foundRelation(new Relation(type, term1, term2, contexte))) {
+				if (!patron.equals(pattern) && this.foundRelation(new Relation(type, term1, term2, contexte,patron))) {
 					return false;
 				}
 				// Cas 2 : [(Terme1+Patron) ou (Patron+Terme2)] est un patron
@@ -457,7 +457,7 @@ public class Analyseur {
 		// "+lm.newText);
 		this.text = new String(lm.newText);
 		 
-//		System.out.println(this.text);
+		//System.out.println(this.text);
 	}
 
 	public void pretraitementParLemMc() throws Exception {
@@ -538,7 +538,7 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br>-" + relation.getType() + "(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte
+			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// System.out.println(" contexte d e la phrase

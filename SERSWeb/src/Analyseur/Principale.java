@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class Principale {
 	public static void main(String[] args) throws Exception {
-		createPatternVersions("Patterns.txt");
+		//createPatternVersions("Patterns.txt");
 
 		/*
 		 * fetchPatrons ("PatternsParMc.txt"); Analyseur analyseurDeTest=new
@@ -28,12 +28,12 @@ public class Principale {
 		 * Analyseur("Dépression (psychiatrie).txt");
 		 * analyseurDeTest.analyserParLem(); analyseurDeTest.displayResults();
 		 */
-//
-//		fetchPatrons("PatternsParMcLem.txt");
-//		Analyseur analyseurDeTest = new Analyseur("Dépression (psychiatrie).txt");
-//		analyseurDeTest.analyserParMcLem();
-//		analyseurDeTest.displayResults();
-//
+
+		fetchPatrons("PatternsParMcLem.txt");
+		Analyseur analyseurDeTest = new Analyseur("Dépression (psychiatrie).txt");
+		analyseurDeTest.analyserParMcLem();
+		//analyseurDeTest.displayResults();
+
 		/*
 		 * fetchPatrons ("PatternsParLemMc.txt"); Analyseur analyseurDeTest=new
 		 * Analyseur("Dépression (psychiatrie).txt");
@@ -50,7 +50,7 @@ public class Principale {
 		String type = null;
 		String patron;
 		int nbrTerms = 0;
-		String carAccentues = ",àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+		String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 		Pattern ExpRegPatron = Pattern.compile("\\s([A-Za-z\\s_'$" + carAccentues + "]+)\\s([$].*)");
 		Pattern ExpRegType = Pattern.compile("([A-Za-z/" + carAccentues + "]+) [:]");
 		Pattern ExpRegNbrTerms = Pattern.compile("\\$[A-Za-z]");
