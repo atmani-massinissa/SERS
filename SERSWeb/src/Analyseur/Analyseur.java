@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -24,6 +25,7 @@ public class Analyseur {
 	Lemmatisation lm;
 	Lemmatisation abu;
 	MotsComposes mc;
+	private Object title;
 
 	public Analyseur(String ressourcePath) throws IOException {
 		this.ressourcePath = ressourcePath;
@@ -48,7 +50,7 @@ public class Analyseur {
 //
 //	}
 
-	public void analyserParMc() throws IOException {
+	public void analyserParMc() throws Exception {
 		long startTime = System.currentTimeMillis();
 		this.pretraitementParMc();
 		long stopTime = System.currentTimeMillis();
@@ -423,7 +425,7 @@ public class Analyseur {
 		}
 	}
 
-	public void pretraitementParMc() throws IOException {
+	public void pretraitementParMc() throws Exception {
 		this.parser();
 		// this.mots_composes(p);
 		// this.lemmatisation(p);
@@ -489,7 +491,7 @@ public class Analyseur {
 
 	}
 
-	public void mots_composes(TextClass TIp) throws IOException {
+	public void mots_composes(TextClass TIp) throws Exception {
 		/*
 		 * Remplacement des espaces par des underscores.
 		 */
@@ -518,6 +520,10 @@ public class Analyseur {
 		this.text = text;
 	}
 
+	public void setTitle(Object title) {
+		this.title = title;
+	}
+	
 	public boolean foundRelation(Relation relation) {
 		/*
 		 * VÃ©rifie si une relation a dÃ©jÃ Ã©tÃ© trouvÃ©e.
@@ -530,10 +536,22 @@ public class Analyseur {
 		return false;
 
 	}
+
+	public void writeResults() throws FileNotFoundException
+	{
+		PrintWriter out = new PrintWriter("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
+			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
+			out.println("Relations extraites :");
+			for (Relation relation : this.getRelations_trouvees()) {
+				out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte 	
+			}
+			out.flush();
+			out.close();
+	}
 	
 	public void displayResults(JspWriter out) throws IOException {
 		/*
-		 * Affiche la liste des relations trouvÃ©es.
+		 * Affiche la liste des relations trouvées.
 		 */
 		
 		out.println("Relations extraites :");

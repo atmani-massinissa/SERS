@@ -1,0 +1,265 @@
+// Résultats de l'analyse de l'article : Dépression_(psychiatrie)
+
+Relations extraites :
+
+- Hyperonymie[c'est-à-dire un] (héritabilité_de_la_dépression,degré) 
+
+- Hyperonymie[est un] (dépression_majeure,trouble_mental) 
+
+- Hyperonymie[est un] (dépression,condition_handicapante) 
+
+- Hyperonymie[est un] (niveau_de_sérotonine,mesure) 
+
+- Hyperonymie[est un] (nègre_littéraire,rédaction) 
+
+- Hyperonymie[est un] (responsable_de_la_neurogenèse,facteur_neurotrophique_dérivé_du_cerveau) 
+
+- Hyperonymie[est un] (dépression,état_handicapant) 
+
+- Hyperonymie[est un] (trouble_de_l'_adaptation_avec_humeur_dépressive,trouble_de_l'_humeur) 
+
+- Hyperonymie[est un] (trouble_maniaco-dépressif,maladie) 
+
+- Hyperonymie[est un] (substance,cause) 
+
+- Hyperonymie[est un] (psychothérapie,traitement) 
+
+- Hyperonymie[est un] (débat_sur_la_dépression,question_de_langage) 
+
+- Hyperonymie[est un] (dépression,maladie) 
+
+- Hyperonymie[être un] (systèmes,baisse) 
+
+- Hyperonymie[est un forme de] (dépression_saisonnière,dépression) 
+
+- Hyperonymie[appelée] (dépression,dépression_caractérisée) 
+
+- Hyperonymie[appelée] (trouble_unipolaire,dépression_unipolaire) 
+
+- Holonymie[a un] (industrie_pharmaceutique,intérêt) 
+
+- Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie) 
+
+- Holonymie[avoir un] (personnes_en_dépression,excès_de_sérotonine) 
+
+- Holonymie[avoir un] (développement,partie_intégrante) 
+
+- Holonymie[avoir un] (régime_méditerranéen,effet_protecteur) 
+
+- Holonymie[avoir un] (individus_dépressifs,espérance_de_vie) 
+
+- Holonymie[avoir un] (pouvoir,autre_antidépresseur) 
+
+- Holonymie[avoir un] (antidépresseurs,effet) 
+
+- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique) 
+
+- Holonymie[avoir un] (exposition_au_soleil,effet) 
+
+- Holonymie[qui a un] (syndrome_de_discontinuation_associé_aux_antidépresseurs,symptômes) 
+
+- Méronymie[constituer un] (pouvoir,pression) 
+
+- Causalité/Cause[pouvoir causer un] (immunologiques,excès_de_production_de_prostagmandine) 
+
+- Causalité/Cause[affecter un] (5-HTT,risques_de_dépression) 
+
+- Causalité/Cause[affecter un] (sévères,fonctionnement_social) 
+
+- Causalité/Cause[affecter un] (ISRS,tendances_suicidaires) 
+
+- Causalité/Cause[causer un] (négatives,inflammation) 
+
+- Causalité/Cause[causer un] (facteurs,dépression) 
+
+- Causalité/Cause[causer un] (dépression,bon_nombre_de_symptômes_physiques) 
+
+- Causalité/Cause[causer un] (dépressif,guérison) 
+
+- Causalité/Cause[causer un] (dépression,dysfonctions) 
+
+- Causalité/Cause[pouvoir entraîner un] (métabolisme_de_tryptophane-kynurenine,métabolisme_excessif_de_tryptophane-kynurénine) 
+
+- Causalité/Cause[entraîner un] (diminution_de_l'_activité_de_la_sérotonine,désorganisation) 
+
+- Causalité/Cause[entraîner un] (niveaux_bas_de_sérotonine,niveaux_bas_de_noradrénaline) 
+
+- Causalité/Cause[entraîner un] (manque_de_sérotonine,anxiété) 
+
+- Causalité/Cause[entraîner un] (prévention,diminution_du_risque_de_développer_une_dépression) 
+
+- Causalité/Cause[entraîner un] (antidépresseur,diminution_du_taux_de_sodium) 
+
+- Causalité/Cause[mener à un] (activation_du_NMDA,excès_de_la_neurotransmission_glutamatergique) 
+
+- Causalité/Cause[mener à un] (pression,dépression) 
+
+- Causalité/Cause[mener à un] (rupture_amoureuse,perte_subjective) 
+
+- Causalité/Effet[est causer par un] (dépression,ingestion) 
+
+- Causalité/Effet[être causer par un] (syndrome_dépressif_majeur,consommation_de_drogues) 
+
+- Causalité/Effet[causer par] (humeur_dépressive,d'autres) 
+
+- Causalité/Effet[causer par un] (dépression,lésions) 
+
+- Causalité/Effet[causer par un] (n'est_pas_uniquement,simple) 
+
+- Causalité/Effet[causer par un] (maladie,anomalies) 
+
+- Causalité/Effet[causer par un] (psychiatriques,ingestion) 
+
+- Causalité/Effet[causer par un] (amis,événements) 
+
+- Causalité/Effet[causer par un] (dépression,préjudice) 
+
+- Causalité/Effet[causer par un] (stigmatisation,appartenance_à_un_groupe) 
+
+- Causalité/Effet[causer par un] (auto-stigmatisation,enfance) 
+
+- Causalité/Effet[causer par un] (dépression,équilibre_chimique) 
+
+- Causalité/Effet[causer par un] (détresse,dépression) 
+
+- Possession[a un] (industrie_pharmaceutique,intérêt) 
+
+- Possession[posséder un] (dépression,système_sérotoninergique) 
+
+- Possession[posséder un] (patient,antécédents) 
+
+- Caractérisation[est] (dépression,ambigu) 
+
+- Caractérisation[est] (maladie,fréquente) 
+
+- Caractérisation[est] (dépression,variable) 
+
+- Caractérisation[est] (taux,élevé) 
+
+- Caractérisation[est] (tendance,caractéristique) 
+
+- Caractérisation[est] (relation_causale,difficile) 
+
+- Caractérisation[est] (pression_barométrique,basse) 
+
+- Caractérisation[est] (lumière_du_soleil,faible) 
+
+- Caractérisation[est] (bien-être,comparé_à) 
+
+- Caractérisation[est] (insomnie,fréquente) 
+
+- Caractérisation[est] (dépression,présente) 
+
+- Caractérisation[est] (problème,marqué) 
+
+- Caractérisation[est] (diagnostic,insuffisant) 
+
+- Caractérisation[est] (condition,déterminée) 
+
+- Caractérisation[est] (prévalence,faible) 
+
+- Caractérisation[est] (dépression,inexistant) 
+
+- Caractérisation[est] (risque,en_particulier) 
+
+- Caractérisation[est] (compétences,efficace) 
+
+- Caractérisation[est] (amélioration,avérée) 
+
+- Caractérisation[est] (effet,significatif) 
+
+- Caractérisation[est] (diminution,rapportée) 
+
+- Caractérisation[est] (profil_de_sécurité,différent) 
+
+- Caractérisation[est] (régime_alimentaire,négligeable) 
+
+- Caractérisation[est] (étude,concentrée) 
+
+- Caractérisation[est] (relation,incertaine) 
+
+- Caractérisation[est] (indication,appliquée) 
+
+- Caractérisation[est] (risque_suicidaire,élevé) 
+
+- Caractérisation[est] (rechute,élevé) 
+
+- Caractérisation[est] (dépression,médicalisée) 
+
+- Caractérisation[être] (dopamine,étudiés) 
+
+- Caractérisation[être] (syndrome_dépressif_majeur,proches) 
+
+- Caractérisation[être] (recherches,nécessaires) 
+
+- Caractérisation[être] (dépression,présents) 
+
+- Caractérisation[être] (psychothérapie_cognitivo-comportementale,efficaces) 
+
+- Caractérisation[être] (aide_sociale,bénéfique) 
+
+- Caractérisation[être] (consommation_d'alcool,recommandés) 
+
+- Caractérisation[être] (dépression,bonne) 
+
+- Caractérisation[pouvoir être un] (transformées,facteurs) 
+
+- Caractérisation[est caractérisée par un] (mélancolie,perte_de_plaisir) 
+
+- Caractérisation[est caractérisée par un] (dépression_atypique,humeur_réactive) 
+
+- Caractérisation[caractérisé par un] (trouble_mental,épisodes) 
+
+- Caractérisation[caractérisé par un] (trouble_de_l'_humeur,réponse) 
+
+- Caractérisation[se caractériser par un] (majeur,présence) 
+
+- Caractérisation[à base de] (traitement_substitutif,testostérone) 
+
+- Accompagnement[accompagné de] (épisode,caractéristiques_psychotiques) 
+
+- Accompagnement[accompagner d'une] (tristesse,faible) 
+
+- Accompagnement[accompagner un] (type_de_psychose_maniaco-dépressive,troubles) 
+
+- Accompagnement[associé à un] (vide_existentiel,sentiments) 
+
+- Accompagnement[associé au] (taux_de_suicide,diagnostic) 
+
+- Accompagnement[associés au] (vie,rejet) 
+
+- Accompagnement[est associée à un] (négligence,risque) 
+
+- Accompagnement[est associée à un] (dépression,risque) 
+
+- Accompagnement[est associée aux] (mélancolie,hommes) 
+
+- Accompagnement[être associés à un] (isolement_social,risque) 
+
+- Accompagnement[être associés à un] (guérison,traitement) 
+
+- Accompagnement[être liés à un] (troubles_de_l'_humeur,créativité) 
+
+- Accompagnement[liée à un] (mélancolie,perte) 
+
+- Accompagnement[liée à un] (stigmatisation,dépression) 
+
+- Accompagnement[liés à un] (ont_été,diminution) 
+
+- Accompagnement[liés à un] (facteurs,problèmes_de_santé) 
+
+- Accompagnement[liés à un] (époux,éducation_des_enfants) 
+
+- Accompagnement[liés à un] (lors_de_troubles_neurologiques,conditions) 
+
+- Accompagnement[liées au] (maladies,statut) 
+
+- Accompagnement[liées au] (diagnostic,développement) 
+
+- Traitement[soulager un] (sérotonine,dépression) 
+
+- Synonymie[appelée] (dépression,dépression_caractérisée) 
+
+- Synonymie[appelée] (trouble_unipolaire,dépression_unipolaire) 
+
+- Synonymie[appelés] (dépression,déterminants) 

@@ -176,11 +176,8 @@ public class Lemmatisation extends TextClass {
 	public int howManyLemmes(String mot) {
 		int count = 0;
 		if (map.keySet().contains(mot))
-			for (String key : map.keySet()) {
-				if (key.equals(mot))
-					for (String str : map.get(mot)) {
-						count++;
-					}
+			for (String str : map.get(mot)) {
+				count++;
 			}
 		return count;
 	}
@@ -247,7 +244,7 @@ public class Lemmatisation extends TextClass {
 
 	public boolean isAdj(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
-			throw new Exception("Le mot n'existe pas");
+			return false;
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
