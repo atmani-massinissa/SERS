@@ -77,7 +77,7 @@ import = "java.net.URLDecoder"
 					//out.print(""Texte en wikiCode"+" +text);
 					analyseurDeTest.analyserParMcLem();
  					analyseurDeTest.displayResults(out);
- 					//out.print("Texte prétraité"+analyseurDeTest.getText());
+ 					out.print("Texte prétraité"+analyseurDeTest.getText());
  					analyseurDeTest.writeResults();
 				}
 				else 
