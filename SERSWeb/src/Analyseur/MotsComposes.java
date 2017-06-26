@@ -475,7 +475,9 @@ public class MotsComposes extends TextClass {
 							System.out.println("+- mot null"+mot);
 							mot =null;
 						}
-						if(l[1].toLowerCase().equals(new String("dans")))
+						if(l[1].toLowerCase().equals(new String("dans")) ||l[1].toLowerCase().equals(new String("le"))
+								||l[1].toLowerCase().equals(new String("la"))||l[1].toLowerCase().equals(new String("les"))
+								|| l[1].toLowerCase().equals(new String("l'")))
 							
 							mot = null;
 				}
