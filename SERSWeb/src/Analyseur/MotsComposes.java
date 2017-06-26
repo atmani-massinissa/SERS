@@ -330,16 +330,21 @@ public class MotsComposes extends TextClass {
 	public HashSet<String> noms_particuliers() throws Exception {
 		HashSet<String> noms_composes = new HashSet<String>();
 		String str = new String(this.newText);
-		str = str.replace("L' ", "L'");
-		str = str.replace("S' ", "S'");
-		str = str.replace("D' ", "D'");
-		str = str.replace("l' ", "l'");
-		str = str.replace("s' ", "s'");
-		str = str.replace("d' ", "d'");
+		/*str = str.replace("L'", "L' ");
+		//str = str.replace("S'", "S'");
+		str = str.replace("D'", "D' ");
+		str = str.replace("l'", "l'");
+		//str = str.replace("s' ", "s'");
+		str = str.replace("d'", "d' ");*/
+		
+		System.out.println("#####################################################");
+		System.out.println("#####################################################"+str);
+		System.out.println("#####################################################");
+
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		Lemmatisation abu = new Lemmatisation(this.ressourcePath);
 		for (int i = 0; i < s.length; i++) {
-			if ((abu.isNom(s[i].toLowerCase())) || s[i].contains("_")){
+			if (abu.isNom(s[i].toLowerCase()) || s[i].contains("_")){
 				if (!s[i].equals("partie") && !(Arrays.asList(new String[] {
 						"bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","pas","être","but","quelque",
 						"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa"}).
@@ -352,6 +357,10 @@ public class MotsComposes extends TextClass {
 						&&(!s[i].startsWith("ont_"))
 						&&(!s[i].startsWith("a_"))
 						&&(!s[i].startsWith("au_"))
+						&&(!s[i].startsWith("en "))
+						&&(!s[i].startsWith("ont "))
+						&&(!s[i].startsWith("a "))
+						&&(!s[i].startsWith("au "))
 						) {
 					String mot= new String();
 					int k=0;
@@ -362,15 +371,22 @@ public class MotsComposes extends TextClass {
 								i =i +2;
 								k = k+2;
 						}
+					
+					/*if(mot.startsWith("cons"))
+						System.out.println("consome " + mot);
+					System.out.println("consome + s[i] " + s[i]);*/
+
 					mot = mot.trim();
 					String[] l = mot.split(" ");
 					if(l.length>1){
+						
 						if(Arrays.asList(new String[] {"le","une","un","leurs","cette","ce","sa","les","eux","tels","ces","cette"})
 								.contains(l[k-1].toLowerCase())){
 							mot = null;
 						}
-						else if(Arrays.asList(new String[] {"du","de","dans","l'","la"}).contains(l[k-1].toLowerCase())) {
-							
+						else if(Arrays.asList(new String[] {"du","d'","de","dans","l'","la"}).contains(l[k-1].toLowerCase())) {
+							System.out.println("le mot c'est "+mot);
+
 							//System.out.println("le mot "+mot);
 							//System.out.println("next "+s[i]);
 
@@ -381,7 +397,9 @@ public class MotsComposes extends TextClass {
 								mot = null;
 							}
 							else if(Arrays.asList(new String[] {"les","d'","du","de","dans","l'","la","le"}).
-									contains(s[i].toLowerCase())){			
+									contains(s[i].toLowerCase())){	
+								System.out.println("le mot particuliers est "+mot);
+
 							 if(l[k-1].toLowerCase().equals(new String("de"))){						
 									if(abu.isVerb(s[i+1].toLowerCase()))
 										mot = null;
@@ -402,7 +420,28 @@ public class MotsComposes extends TextClass {
 								mot = mot + " "+s[i]+ " "+ s[i+1];
 							}
 							 else if(!s[i].toLowerCase().equals(new String("son")) && !s[i].toLowerCase().equals(new String("d'autres")) )
-									{mot = mot + " "+ s[i];}
+									{
+								 System.out.println(" test alcool "+mot);
+								 System.out.println(" test print s [i] +++++++++" + s[i]+"++++++++++");
+								 System.out.println(" test print s [i+1] +++++++++" + s[i+1]+"++++++++++");
+								 
+								 if( s[i].equals(new String(" ")))
+										 System.out.println("viiide");
+								 
+								 if( s[i].equals(" "))
+									 System.out.println("viiide2");
+
+								 if (s[i].isEmpty() || s[i].equals(new String(" "))){
+									 System.out.println(" empty ");
+									 mot = mot + " "+ s[i+1];
+									 System.out.println(" am  "+mot);
+
+								 }
+									 else {
+										 mot = mot + " "+ s[i];
+
+								 }
+								 }
 						
 						
 					}
