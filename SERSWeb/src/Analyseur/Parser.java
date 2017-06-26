@@ -52,6 +52,16 @@ public class Parser extends TextClass {
 			group = group.replace(group1, "");
 			deleted.add(group);
 		}
+		
+		pattern = Pattern.compile("\\{\\{lang\\|\\w\\w\\|((.)+?)\\}\\}");
+		matcher = pattern.matcher(str);
+		while (matcher.find()) {
+			String group = matcher.group(0);
+			String group1 = matcher.group(1);
+			str = str.replace(group, group1);
+			group = group.replace(group1, "");
+			deleted.add(group);
+		}
 
 		pattern = Pattern.compile("\\{\\{\\w\\w\\}\\}");
 		matcher = pattern.matcher(str);
@@ -157,17 +167,16 @@ public class Parser extends TextClass {
 		matcher = pattern.matcher(str);
 		while (matcher.find()) {
 			String group = matcher.group(1);
-			if (group.charAt(0) != '\'') {
-				if (group.length() > 1)
+			if (group.length() > 1){
+				if (group.charAt(0) != '\'') {
 					italic.add(group);
-			} else if (group.charAt(1) != '\'') {
-				group = group.substring(1, group.length());
-				if (group.length() > 1)
+				} else if (group.charAt(1) != '\'') {
+					group = group.substring(1, group.length());
 					bold.add(group.trim());
-			} else if (group.charAt(2) == '\'') {
-				group = group.substring(3, group.length() - 3);
-				if (group.length() > 1)
+				} else if (group.charAt(2) == '\'') {
+					group = group.substring(3, group.length() - 3);
 					boldItalic.add(group);
+				}
 			}
 		}
 		str = str.replaceAll("('){2,}", "");
@@ -315,17 +324,16 @@ public class Parser extends TextClass {
 		matcher = pattern.matcher(str);
 		while (matcher.find()) {
 			String group = matcher.group(1);
-			if (group.charAt(0) != '\'') {
-				if (group.length() > 1)
+			if (group.length() > 1){
+				if (group.charAt(0) != '\'') {
 					italic.add(group);
-			} else if (group.charAt(1) != '\'') {
-				group = group.substring(1, group.length());
-				if (group.length() > 1)
+				} else if (group.charAt(1) != '\'') {
+					group = group.substring(1, group.length());
 					bold.add(group);
-			} else if (group.charAt(2) == '\'') {
-				group = group.substring(3, group.length() - 3);
-				if (group.length() > 1)
+				} else if (group.charAt(2) == '\'') {
+					group = group.substring(3, group.length() - 3);
 					boldItalic.add(group);
+				}
 			}
 		}
 		str = str.replaceAll("('){2,}", "");

@@ -73,6 +73,9 @@ public class Lemmatisation extends TextClass {
 	public String lemmatizeText() throws Exception {
 		//Lemmatise texte de l'objet en entier
 		String str = new String(oldText);
+		str = str.replace("peut ", " ");
+		str = str.replace("peuvent ", " ");
+		str = str.replace("d'autres ", " ");
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		list.removeAll(Arrays.asList("", null," "));
@@ -323,6 +326,19 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	
+	public int isNomBis(String mot) {
+		if (!map.keySet().contains(mot))
+			return -1;
+		else {
+			for (String str : map.get(mot)) {
+				String[] tab = str.split("	");
+				if (tab[1].contains("Nom"))
+					return 1;
+			}
+		}
+		return 0;
+	}
+	
 	public boolean isDet(String mot) {
 		if (!map.keySet().contains(mot))
 			return false;
@@ -367,7 +383,7 @@ public class Lemmatisation extends TextClass {
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Pre"))
+				if (tab[1].contains("Pro"))
 					return true;
 			}
 		}
@@ -402,7 +418,7 @@ public class Lemmatisation extends TextClass {
 					}
 			}
 			else {
-				if(Arrays.asList(new String[]{"peut","peuvent","pouvoir","être","doivent"}).contains(list.get(i))){
+				/*if(list.get(i).toLowerCase().equals(new String("est"))||list.get(i).toLowerCase().equals(new String("sont"))){
 					k++;
 					i++;
 					while(isVerb(list.get(i))){
@@ -412,8 +428,8 @@ public class Lemmatisation extends TextClass {
 				}
 				else{
 					i++;
-					
-				}
+				}*/
+				i++;
 			}
 			if(k>1){
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
