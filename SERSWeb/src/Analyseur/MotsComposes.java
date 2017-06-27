@@ -91,9 +91,9 @@ public class MotsComposes extends TextClass {
 	public void addWordsToFile() throws IOException 
 	{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
 		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
 			outS = outS + ";  Source :  "+analyseur.getTitle()+ ";\n" + s;
@@ -420,7 +420,7 @@ public class MotsComposes extends TextClass {
 					int k=0;
 					
 					while (s[i].equals(new String(""))){
-						System.out.println("yabenaamiiiiiiiiiiiiiii "+i);
+						//System.out.println("yabenaamiiiiiiiiiiiiiii "+i);
 						i++;
 					}
 					while(i+1<s.length && 
@@ -434,14 +434,14 @@ public class MotsComposes extends TextClass {
 
 
 								if (s[i].equals(new String("")))
-									System.out.println("yabenaamiiiiiiiiiiiiiii");
+									//System.out.println("yabenaamiiiiiiiiiiiiiii");
 								i =i +2;
 								k = k+2;
 						}
 					mot = mot.trim();
 					String[] l = mot.split(" ");
 					if(l.length>1 ){
-						System.out.println(" le mot " +mot);
+						//System.out.println(" le mot " +mot);
 
 						if(Arrays.asList(new String[] {"le","une","un","leurs","cette","ce","sa","les","eux","tels","ces","cette"})
 								.contains(l[k-1].toLowerCase())){
@@ -508,7 +508,7 @@ public class MotsComposes extends TextClass {
 							mot = null;
 				}
 			
-					if (mot != null) {
+					if (mot != null && !mot.equals("")) {
 						apostrFj(mot);
 						noms_composes.add(mot.trim());
 					}

@@ -4,31 +4,23 @@ Relations extraites :
 
 - Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie_raccourcie) 
 
-- Holonymie[avoir un] (personnes_en_dépression,excès_de_sérotonine) 
-
-- Holonymie[avoir un] (base_de_testostérone,effet_antidépresseur) 
+- Holonymie[avoir un] (en_dépression,excès_de_sérotonine) 
 
 - Holonymie[avoir un] (régime_méditerranéen,effet_protecteur) 
 
 - Holonymie[avoir un] (individus_dépressifs,espérance_de_vie_raccourcie) 
 
-- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique) 
-
-- Holonymie[avoir un] (vitamine_D,effet_bénéfique) 
+- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique_sur) 
 
 - Holonymie[qui a un] (syndrome_de_discontinuation_associé_aux_antidépresseurs,symptômes_ressemblants) 
 
 - Causalité/Cause[pouvoir entraîner un] (efforts_de_prévention,diminution_du_risque) 
 
-- Causalité/Cause[entraîner un] (diminution_de_l'activité_de_la_sérotonine,désorganisation_de_ces) 
-
 - Causalité/Cause[entraîner un] (niveaux_bas_de_sérotonine,niveaux_bas_de_noradrénaline) 
 
-- Causalité/Cause[entraîner un] (bien_le_métabolisme_de_tryptophane-kynurenine,métabolisme_excessif_de_tryptophane-kynurénine) 
+- Causalité/Cause[mener à un] (activation_du_NMDA,excès_de_la_neurotransmission_glutamatergique) 
 
 - Causalité/Cause[mener à un] (rupture_amoureuse,perte_subjective) 
-
-- Causalité/Effet[causer par un] (comportement_de_maladie,anomalies_dans_les_cytokines) 
 
 - Possession[posséder un] (atteintes_de_dépression,système_sérotoninergique) 
 
@@ -36,6 +28,8 @@ Relations extraites :
 
 - Accompagnement[associé au] (taux_de_suicide,diagnostic_de_la_dépression) 
 
-- Accompagnement[liée au] (région_promotrice,transporteur_de_la_sérotonine) 
+- Accompagnement[être associées à un] (taux_d'_œstrogènes,augmentation_du_risque) 
+
+- Accompagnement[liée au] (variation_allélique_de_la_région_promotrice,transporteur_de_la_sérotonine) 
 
 - Synonymie[appelée] (trouble_unipolaire,dépression_unipolaire) 

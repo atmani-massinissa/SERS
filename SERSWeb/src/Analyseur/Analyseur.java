@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 import javax.servlet.jsp.JspWriter;
 
 public class Analyseur {
-	String carAccentues = ",àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+	String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
 	String motFr = "[A-Za-z0-9_" + carAccentues + "']";
 	String filePath;
 	private String text;
@@ -26,6 +26,7 @@ public class Analyseur {
 	Lemmatisation abu;
 	MotsComposes mc;
 	private Object title;
+
 
 	public Analyseur(String ressourcePath) throws IOException {
 		this.ressourcePath = ressourcePath;
@@ -571,7 +572,7 @@ public class Analyseur {
 
 	public void writeResults() throws FileNotFoundException
 	{
-		PrintWriter out = new PrintWriter("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
+		PrintWriter out = new PrintWriter("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
 			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 			out.println("Relations extraites :");
 			for (Relation relation : this.getRelations_trouvees()) {
@@ -582,7 +583,7 @@ public class Analyseur {
 	}
 	public boolean evaluate(Relation R) {
 		if (R.getTerm1().contains("_") && R.getTerm2().contains("_")) {
-			System.out.println(R.getTerm1()+" ---- "+R.getTerm2());
+			//System.out.println(R.getTerm1()+" ---- "+R.getTerm2());
 			return true;
 			
 		}
