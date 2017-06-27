@@ -76,8 +76,9 @@ public class MotsComposes extends TextClass {
 		//Création de nouveaux mots composés
 		apostrFs();
 		nomAdj();
+		apostrFs();
 		noms_particuliers();
-		nomS_particuliers();
+		//nomS_particuliers();
 		mots_particuliers();
 
 		if (pr != null)
@@ -204,12 +205,6 @@ public class MotsComposes extends TextClass {
 						}
 						i = i + (chaine_mots_compose.split("\\s")).length;
 						decalage = Math.min(8, mindecalage);
-						str = str.replace("L' ", "L'");
-						str = str.replace("S' ", "S'");
-						str = str.replace("D' ", "D'");
-						str = str.replace("l' ", "l'");
-						str = str.replace("s' ", "s'");
-						str = str.replace("d' ", "d'");
 						compound_word_underscore = compound_word_underscore.replace("L' ", "L'");
 						compound_word_underscore = compound_word_underscore.replace("S' ", "S'");
 						compound_word_underscore = compound_word_underscore.replace("D' ", "D'");
@@ -396,17 +391,26 @@ public class MotsComposes extends TextClass {
 		for (int i = 0; i < s.length; i++) {
 			if ((abu.isNom(s[i].toLowerCase())) || s[i].contains("_")){
 				if (!s[i].equals("partie") && !(Arrays.asList(new String[] {
-						"bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","pas","être","but","quelque",
+	"chez","bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","pas","être","but","quelque",
 						"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa"}).
-						contains(s[i].toLowerCase()))
+						contains(s[i].toLowerCase())
 						&&(!abu.isPro(s[i].toLowerCase()))
 						&&(!abu.isPre(s[i].toLowerCase())) 
 						&&(!abu.iscON(s[i].toLowerCase()))
 						&&(!s[i].contains(new String("que")))
 						&&(!s[i].startsWith("en_"))
+						&&(!s[i].startsWith("en "))
 						&&(!s[i].startsWith("ont_"))
 						&&(!s[i].startsWith("a_"))
+						&&(!s[i].startsWith("chez_"))
 						&&(!s[i].startsWith("au_"))
+						&&(!s[i].startsWith("pour_"))
+						&&(!s[i].startsWith("en "))
+						&&(!s[i].startsWith("ont "))
+						&&(!s[i].startsWith("a "))
+						&&(!s[i].startsWith("au "))
+						&&(!s[i].startsWith("chez "))
+						&&(!s[i].startsWith("pour "))
 						) {
 					String mot= new String();
 					int k=0;
@@ -425,10 +429,6 @@ public class MotsComposes extends TextClass {
 							mot = null;
 						}
 						else if(Arrays.asList(new String[] {"du","de","dans","l'","la"}).contains(l[k-1].toLowerCase())) {
-							
-							//System.out.println("le mot "+mot);
-							//System.out.println("next "+s[i]);
-
 							if(isNumeric(s[i])){
 								mot = null;
 							}
@@ -452,7 +452,7 @@ public class MotsComposes extends TextClass {
 									contains(s[i].toLowerCase())){
 								mot = null;
 							}
-							else if(s[i].toLowerCase().equals(new String("certains"))){
+							else if(s[i].toLowerCase().equals(new String("certains"))||s[i].toLowerCase().equals(new String("certaines"))){
 								//System.out.println("certains "+s[i]);
 								mot = mot + " "+s[i]+ " "+ s[i+1];
 							}
@@ -460,39 +460,28 @@ public class MotsComposes extends TextClass {
 									{mot = mot + " "+ s[i];}
 						
 						
-					}
-						
+					}						
 						else if(l[k-1].toLowerCase().equals(new String("en"))){
-							//System.out.println("+en");
-							//System.out.println("+mot "+mot);
 							if(s[i].toLowerCase().contains("_")|| abu.isNomBis(s[i].toLowerCase())!=0){
-								//System.out.println("+mot "+mot);
-								//System.out.println("+- take it"+s[i]);									
+																	
 								if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-même","quelques","eux"
 								,"janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"}).contains(s[i].toLowerCase())
 								){
-								//	System.out.println("+mot "+mot);
-									//System.out.println("+- dump1"+s[i]);
 									mot =null;
 								}
 								
 								else mot = mot + " "+s[i];
-							//	System.out.println("+mot "+mot);
 							}
 							else{
-								//System.out.println("+mot "+mot);
-								//System.out.println("+- dump2"+s[i]);
 								mot = null;
-								//System.out.println("+mot "+mot);
 							}
 						}
-						
 						else{ 
-							//System.out.println("+- mot null"+mot);
 							mot =null;
 						}
-						if(l[1].toLowerCase().equals(new String("dans")))
-							
+						if(l[1].toLowerCase().equals(new String("dans"))||l[1].toLowerCase().equals(new String("le"))
+								||l[1].toLowerCase().equals(new String("la"))||l[1].toLowerCase().equals(new String("les"))
+								|| l[1].toLowerCase().equals(new String("l'")))
 							mot = null;
 				}
 			
@@ -612,7 +601,7 @@ public class MotsComposes extends TextClass {
 	}
 	public String replace_article(HashSet<String> mots_composes, String str){
 		for (String compound_word: mots_composes) {
-			if (compound_word.endsWith("_d'") || compound_word.endsWith("_un") || compound_word.endsWith("_une") || compound_word.endsWith("_sur") || compound_word.endsWith("_aucun") || compound_word.endsWith("_aucune")) {
+			if (compound_word.endsWith("_du") || compound_word.endsWith("_de") || compound_word.endsWith("_l'") || compound_word.endsWith("_d'") || compound_word.endsWith("_un") || compound_word.endsWith("_une") || compound_word.endsWith("_sur") || compound_word.endsWith("_aucun") || compound_word.endsWith("_aucune")) {
 				String regexp = compound_word+"(\\s)(.{3})"; 
 				Pattern ExpReg = Pattern.compile(regexp);
 				Matcher matcher = ExpReg.matcher(str);
@@ -621,17 +610,15 @@ public class MotsComposes extends TextClass {
 					if (matcher.group(2).startsWith("la ")) { 
 						str = str.replace(matcher.group().replace(" ", "_"),matcher.group().replace(" ", "_").replace(matcher.group(2), matcher.group(2).replaceFirst("\\s", "_")));
 					}
-				}
-				
+				}			
 			}
-		}
-		
+		}	
 		return str;
 	}
 	
 	public String replace_article(String compound_word_underscore, String str){
 
-		if (compound_word_underscore.endsWith("_d'") || compound_word_underscore.endsWith("_un") || compound_word_underscore.endsWith("_une") || compound_word_underscore.endsWith("_sur") || compound_word_underscore.endsWith("_aucun") || compound_word_underscore.endsWith("_aucune")) {
+		if (compound_word_underscore.endsWith("_de") || compound_word_underscore.endsWith("_du") || compound_word_underscore.endsWith("_l'") ||compound_word_underscore.endsWith("_d'") || compound_word_underscore.endsWith("_un") || compound_word_underscore.endsWith("_une") || compound_word_underscore.endsWith("_sur") || compound_word_underscore.endsWith("_aucun") || compound_word_underscore.endsWith("_aucune")) {
 			String regexp = compound_word_underscore+"(\\s)(.{3})"; 
 			Pattern ExpReg = Pattern.compile(regexp);
 			Matcher matcher = ExpReg.matcher(str);
