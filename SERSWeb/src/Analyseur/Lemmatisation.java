@@ -16,6 +16,7 @@ public class Lemmatisation extends TextClass {
 	// String newText;
 	String ressourcePath;
 	static HashMap<String, ArrayList<String>> map;
+	static HashMap<String, String> mapComp;
 
 	public Lemmatisation(String ressourcePath) throws IOException {
 		this.ressourcePath=ressourcePath;
@@ -28,6 +29,13 @@ public class Lemmatisation extends TextClass {
 	public Lemmatisation(TextClass tc, String ressourcePath) throws Exception {
 		this.ressourcePath=ressourcePath;
 		oldText = new String(tc.newText);
+		MotsComposes mc = null;
+		if (tc instanceof MotsComposes) {
+			mc = (MotsComposes) tc;
+		}
+		if (mc!=null) {
+			mapComp = new HashMap<String,String>(mc.wordListMap);
+		}
 		try {
 			createDico(ressourcePath+"dico.txt");
 		} catch (IOException e) {
@@ -312,15 +320,40 @@ public class Lemmatisation extends TextClass {
 		}
 		return false;
 	}
-
+	public boolean isPosComp(String mot, String pos) {
+		if (!mapComp.keySet().contains(mot))
+			return false;
+		else {
+				if (mapComp.get(mot).contains(pos)){
+					System.out.println("XXXXXXXXXXXXXXX"+mapComp.get(mot));
+					return true;
+				}
+			}
+		
+		return false;
+	}
+	public boolean isNomComp(String mot) {
+		if (!mapComp.keySet().contains(mot))
+			return false;
+		else {
+				if (mapComp.get(mot).contains("Nom") || mapComp.get(mot).contains("GN")){
+					System.out.println("XXXXXXXXXXXXXXX"+mapComp.get(mot));
+					return true;
+				}
+			}
+		
+		return false;
+	}
 	public boolean isNom(String mot) {
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
-				if (tab[1].contains("Nom"))
+				if (tab[1].contains("Nom")){
+					System.out.println("XXXXXXXXXXXXXXX"+tab[1]);
 					return true;
+				}
 			}
 		}
 		return false;

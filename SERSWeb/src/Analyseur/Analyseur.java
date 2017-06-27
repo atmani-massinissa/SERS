@@ -89,8 +89,12 @@ public class Analyseur {
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
-									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
+									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
+									if (evaluate(R)) {
+										Relations_trouvees.add(R);
+									}
+//									Relations_trouvees.add(
+//											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -144,8 +148,12 @@ public class Analyseur {
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
-									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
+									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
+									if (evaluate(R)) {
+										Relations_trouvees.add(R);
+									}
+//									Relations_trouvees.add(
+//											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -201,8 +209,12 @@ public class Analyseur {
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
-									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
+									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
+									if (evaluate(R)) {
+										Relations_trouvees.add(R);
+									}
+//									Relations_trouvees.add(
+//											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 
 							}
@@ -256,8 +268,12 @@ public class Analyseur {
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
-									Relations_trouvees.add(
-											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
+									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
+									if (evaluate(R)) {
+										Relations_trouvees.add(R);
+									}
+//									Relations_trouvees.add(
+//											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
 								}
 							}
 						}
@@ -295,22 +311,38 @@ public class Analyseur {
 					Matcher matcher = ExpReg.matcher(constraint);
 					if (matcher.find()) {
 						if (matcher.group(1).equals("x")) {
-							if (!term1.contains("_") && abu.getPos(term1) == null)
-								return false;
-							if (abu.getPos(term1) != null) {
+							if (abu.getPos(term1) != null  ) {
 								if (!abu.getPos(term1).equals(matcher.group(2))) {
 									return false;
 								}
 							}
+							else{
+								if (term1.contains("_")){
+									if (!abu.isPosComp(term1,matcher.group(2))) {
+										return false;
+									}
+								}
+								else {
+									return false;
+								}
+							}
 						} else if (matcher.group(1).equals("y")) {
-							if (!term2.contains("_") && abu.getPos(term2) == null)
-								return false;
 							if (abu.getPos(term2) != null) {
 								if (!abu.getPos(term2).equals(matcher.group(2))) {
 									return false;
 								}
 							}
-						}
+							else{
+								if (term2.contains("_")){
+									if (!abu.isPosComp(term2,matcher.group(2))) {
+										return false;
+									}
+								}
+								else {
+									return false;
+								}
+							}
+							}
 
 					}
 					/*
@@ -496,7 +528,7 @@ public class Analyseur {
 		 * Remplacement des espaces par des underscores.
 		 */
 		System.out.println("*************************débutMotCompParMcLem*****************************");;
-		mc = new MotsComposes(TIp,ressourcePath);
+		mc = new MotsComposes(TIp,ressourcePath,this);
 		System.out.println("*************************FinMotCompParMcLem*****************************");;
 	}
 
@@ -539,7 +571,7 @@ public class Analyseur {
 
 	public void writeResults() throws FileNotFoundException
 	{
-		PrintWriter out = new PrintWriter("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
+		PrintWriter out = new PrintWriter("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
 			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 			out.println("Relations extraites :");
 			for (Relation relation : this.getRelations_trouvees()) {
@@ -547,6 +579,16 @@ public class Analyseur {
 			}
 			out.flush();
 			out.close();
+	}
+	public boolean evaluate(Relation R) {
+		if (R.getTerm1().contains("_") && R.getTerm2().contains("_")) {
+			System.out.println(R.getTerm1()+" ---- "+R.getTerm2());
+			return true;
+			
+		}
+		
+	return false;
+		
 	}
 	
 	public void displayResults(JspWriter out) throws IOException {
@@ -562,5 +604,8 @@ public class Analyseur {
 			// System.out.println(" contexte d e la phrase
 			// "+relation.getContexte());
 		}
+	}
+	public Object getTitle() {
+		return title;
 	}
 }

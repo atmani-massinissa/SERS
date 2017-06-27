@@ -1,0 +1,29 @@
+// Résultats de l'analyse de l'article : Grossesse
+
+Relations extraites :
+
+- Hyperonymie[est un] (le_plus_spectaculaire,diminution_de_la_matière_grise) 
+
+- Hyperonymie[est un] (parler_de_semaines_d'aménorrhée,convention_internationale) 
+
+- Hyperonymie[est un] (surveillance_régulière,dépistage_précoce_de_pathologies_obstétricales) 
+
+- Hyperonymie[est un] (femme_enceinte,objet_de_désir) 
+
+- Hyperonymie[est un] (femme_enceinte,objet_sacré) 
+
+- Holonymie[avoir un] (en_dehors_de_la_grossesse,retentissement_important_sur) 
+
+- Caractérisation[est] (durée_de_la_grossesse,indiquée_en_semaines_d'aménorrhée) 
+
+- Caractérisation[est] (en_France,l'hémorragie_post-partum) 
+
+- Caractérisation[est] (pays_en_développement,nettement_supérieure) 
+
+- Caractérisation[est] (mortalité_maternelle,en_décroissance_régulière) 
+
+- Caractérisation[être] (cellules_sanguines,en_production) 
+
+- Caractérisation[être] (lors_de_la_grossesse,fortement_activées) 
+
+- Caractérisation[être] (début_de_la_grossesse,prises_en_compte) 
