@@ -91,9 +91,9 @@ public class MotsComposes extends TextClass {
 	public void addWordsToFile() throws IOException 
 	{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
 		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
 			outS = outS + ";  Source :  "+analyseur.getTitle()+ ";\n" + s;
@@ -110,13 +110,13 @@ public class MotsComposes extends TextClass {
 		//BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"utf-8"));
 		while ((line = reader.readLine()) != null) {
-			wordList.add(line.substring(0, line.length() - 1).toLowerCase());
+			wordList.add(line.split(";")[0]);
 			if (line.contains(";")) {
 				String[] tab = line.split(";");
 				String categorie="";
 				for (int i = 1; i < tab.length; i++) {
 					if (tab[i].contains(":")) {
-						categorie=tab[i]+" / ";
+						categorie= categorie+tab[i]+" / ";
 					}				
 				}
 				wordListMap.put(tab[0],categorie);
@@ -314,7 +314,7 @@ public class MotsComposes extends TextClass {
 		}
 		return mots_composes;
 	}
-	public HashSet<String> nomS_particuliers() throws Exception {
+	public HashSet<String> backupnomS_particuliers() throws Exception {
 		HashSet<String> mots_composes = new HashSet<String>();
 		Lemmatisation abu = new Lemmatisation(this.ressourcePath);
 		String str = new String(this.newText);
@@ -386,6 +386,7 @@ public class MotsComposes extends TextClass {
 		HashSet<String> noms_composes = new HashSet<String>();
 		apostrFj();
 		String str = new String(this.newText);
+		str = str.trim();
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		Lemmatisation abu = new Lemmatisation(this.ressourcePath);
 		for (int i = 0; i < s.length; i++) {
@@ -411,24 +412,42 @@ public class MotsComposes extends TextClass {
 						&&(!s[i].startsWith("au "))
 						&&(!s[i].startsWith("chez "))
 						&&(!s[i].startsWith("pour "))
-						) {
+						&&(!s[i].equals(new String(" ")))
+						&&(!s[i].equals(new String("")))
+
+						)) {
 					String mot= new String();
 					int k=0;
+					
+					while (s[i].equals(new String(""))){
+						System.out.println("yabenaamiiiiiiiiiiiiiii "+i);
+						i++;
+					}
 					while(i+1<s.length && 
 							Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un"})
 							.contains(s[i+1].toLowerCase())){
 								mot = mot + s[i] + " " +s[i+1]+ " ";
+								System.out.println(" s[i+1] +++++++++"+s[i+1]+"++++++++++++++");
+								System.out.println(" s[i] +++++++++++"+s[i]+"++++++++++++++++");
+								System.out.println(" s[i-1] +++++++++++"+s[i-1]+"++++++++++++++++");
+
+
+
+								if (s[i].equals(new String("")))
+									System.out.println("yabenaamiiiiiiiiiiiiiii");
 								i =i +2;
 								k = k+2;
 						}
 					mot = mot.trim();
 					String[] l = mot.split(" ");
-					if(l.length>1){
+					if(l.length>1 ){
+						System.out.println(" le mot " +mot);
+
 						if(Arrays.asList(new String[] {"le","une","un","leurs","cette","ce","sa","les","eux","tels","ces","cette"})
 								.contains(l[k-1].toLowerCase())){
 							mot = null;
 						}
-						else if(Arrays.asList(new String[] {"du","de","dans","l'","la"}).contains(l[k-1].toLowerCase())) {
+						else if(Arrays.asList(new String[] {"d'","du","de","dans","l'","la"}).contains(l[k-1].toLowerCase())) {
 							if(isNumeric(s[i])){
 								mot = null;
 							}
@@ -436,7 +455,8 @@ public class MotsComposes extends TextClass {
 								mot = null;
 							}
 							else if(Arrays.asList(new String[] {"les","d'","du","de","dans","l'","la","le"}).
-									contains(s[i].toLowerCase())){			
+									contains(s[i].toLowerCase())){	
+								
 							 if(l[k-1].toLowerCase().equals(new String("de"))){						
 									if(abu.isVerb(s[i+1].toLowerCase()))
 										mot = null;
@@ -457,7 +477,10 @@ public class MotsComposes extends TextClass {
 								mot = mot + " "+s[i]+ " "+ s[i+1];
 							}
 							 else if(!s[i].toLowerCase().equals(new String("son")) && !s[i].toLowerCase().equals(new String("d'autres")) )
-									{mot = mot + " "+ s[i];}
+									{
+								 
+									System.out.println(" le mot2 " +mot);
+									mot = mot + " "+ s[i];}
 						
 						
 					}						

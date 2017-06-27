@@ -571,7 +571,7 @@ public class Analyseur {
 
 	public void writeResults() throws FileNotFoundException
 	{
-		PrintWriter out = new PrintWriter("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
+		PrintWriter out = new PrintWriter("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
 			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 			out.println("Relations extraites :");
 			for (Relation relation : this.getRelations_trouvees()) {
