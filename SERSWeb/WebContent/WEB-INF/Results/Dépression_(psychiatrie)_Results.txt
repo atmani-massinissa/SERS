@@ -14,9 +14,9 @@ Relations extraites :
 
 - Holonymie[a un] (industrie_pharmaceutique,intérêt) 
 
-- Holonymie[a un] (quelqu'un,a_priori_sur_un_groupe) 
+- Holonymie[a un] (quelqu'un,a_priori) 
 
-- Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie) 
+- Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie_raccourcie) 
 
 - Holonymie[avoir un] (en_dépression,excès_de_sérotonine) 
 
@@ -24,19 +24,19 @@ Relations extraites :
 
 - Holonymie[avoir un] (régime_méditerranéen,effet_protecteur) 
 
-- Holonymie[avoir un] (individus_dépressifs,espérance_de_vie) 
+- Holonymie[avoir un] (individus_dépressifs,espérance_de_vie_raccourcie) 
 
 - Holonymie[avoir un] (ISRS,autre_antidépresseur) 
 
 - Holonymie[avoir un] (antidépresseurs,effet) 
 
-- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique_sur_la_dépression_majeure) 
+- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique) 
 
 - Holonymie[avoir un] (exposition_au_soleil,effet) 
 
 - Holonymie[qui a un] (syndrome_de_discontinuation_associé_aux_antidépresseurs,symptômes_ressemblants) 
 
-- Méronymie[constituer un] (social,pression) 
+- Méronymie[constituer un] (manque_de_support_social,pression) 
 
 - Causalité/Cause[pouvoir causer un] (immunologiques,excès_de_production_de_prostagmandine) 
 
@@ -50,15 +50,15 @@ Relations extraites :
 
 - Causalité/Cause[causer un] (facteurs,dépression) 
 
-- Causalité/Cause[causer un] (dépression,nombre_de_symptômes_physiques) 
+- Causalité/Cause[causer un] (dépression,bon_nombre_de_symptômes_physiques_psychosomatiques) 
 
-- Causalité/Cause[causer un] (avoir_un_impact_sur_le_trouble_dépressif,guérison_tardive) 
+- Causalité/Cause[causer un] (dépressif,guérison_tardive) 
 
 - Causalité/Cause[causer un] (dépression,dysfonctions) 
 
 - Causalité/Cause[pouvoir entraîner un] (efforts_de_prévention,diminution_du_risque) 
 
-- Causalité/Cause[entraîner un] (_activité_de_la_sérotonine,désorganisation) 
+- Causalité/Cause[entraîner un] (activité_de_la_sérotonine,désorganisation) 
 
 - Causalité/Cause[entraîner un] (niveaux_bas_de_sérotonine,niveaux_bas_de_noradrénaline) 
 
@@ -100,11 +100,11 @@ Relations extraites :
 
 - Possession[a un] (industrie_pharmaceutique,intérêt) 
 
-- Possession[a un] (quelqu'un,a_priori_sur_un_groupe) 
+- Possession[a un] (quelqu'un,a_priori) 
 
 - Possession[posséder un] (atteintes_de_dépression,système_sérotoninergique) 
 
-- Possession[posséder un] (patient,antécédents_d'_épisodes) 
+- Possession[posséder un] (patient,antécédents_d'_épisodes_maniaques) 
 
 - Caractérisation[est] (dépression,ambigu) 
 
@@ -156,7 +156,7 @@ Relations extraites :
 
 - Caractérisation[est caractérisée par un] (mélancolie,perte_de_plaisir_dans_presque) 
 
-- Caractérisation[caractérisé par un] (trouble_mental,épisodes) 
+- Caractérisation[est caractérisée par un] (dépression_atypique,humeur_réactive) 
 
 - Caractérisation[caractérisé par un] (humeur,réponse) 
 
@@ -164,7 +164,9 @@ Relations extraites :
 
 - Accompagnement[accompagner un] (type_de_psychose_maniaco-dépressive,troubles) 
 
-- Accompagnement[associé à un] (base_sur_le_vide_existentiel,sentiments_de_futilité) 
+- Accompagnement[associé à un] (comportement_léger,grossesse) 
+
+- Accompagnement[associé à un] (vide_existentiel,sentiments_de_futilité) 
 
 - Accompagnement[associé au] (taux_de_suicide,diagnostic_de_la_dépression) 
 
@@ -183,8 +185,6 @@ Relations extraites :
 - Accompagnement[liés à un] (facteurs,problèmes_de_santé) 
 
 - Accompagnement[liés à un] (époux,éducation_des_enfants) 
-
-- Accompagnement[liés à un] (lors_de_troubles_neurologiques,conditions_telles) 
 
 - Accompagnement[liés à un] (humeur,créativité) 
 

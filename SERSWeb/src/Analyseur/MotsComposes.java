@@ -252,7 +252,7 @@ public class MotsComposes extends TextClass {
 //					if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].trim().toLowerCase())) || s[i+1].endsWith("ique") ) {
 //						mot=s[i]+" "+s[i+1];
 //					}
-					for (int j = 1; i+j < s.length-1 &&	abu.howManyLemmes(s[i+j].toLowerCase()) == 1 && (s[i+j].endsWith("ique") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
+					for (int j = 1; i+j < s.length-1 &&	!Arrays.asList(new String[] {"caracterisé","composé","est","lié","associé","sur"}).contains(s[i+j].toLowerCase()) && (s[i+j].trim().toLowerCase().endsWith("ique") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
 						mot=mot+s[i+j]+" ";
 					}
 					
