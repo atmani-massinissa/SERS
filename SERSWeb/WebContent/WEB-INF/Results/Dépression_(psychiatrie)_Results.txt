@@ -10,9 +10,11 @@ Relations extraites :
 
 - Holonymie[avoir un] (individus_dépressifs,espérance_de_vie_raccourcie) 
 
-- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique_sur) 
+- Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique_sur_la_dépression_majeure) 
 
 - Holonymie[qui a un] (syndrome_de_discontinuation_associé_aux_antidépresseurs,symptômes_ressemblants) 
+
+- Causalité/Cause[causer un] (avoir_un_impact_sur_le_trouble_dépressif,guérison_tardive) 
 
 - Causalité/Cause[pouvoir entraîner un] (efforts_de_prévention,diminution_du_risque) 
 
@@ -29,7 +31,5 @@ Relations extraites :
 - Accompagnement[associé au] (taux_de_suicide,diagnostic_de_la_dépression) 
 
 - Accompagnement[être associées à un] (taux_d'_œstrogènes,augmentation_du_risque) 
-
-- Accompagnement[liée au] (variation_allélique_de_la_région_promotrice,transporteur_de_la_sérotonine) 
 
 - Synonymie[appelée] (trouble_unipolaire,dépression_unipolaire) 

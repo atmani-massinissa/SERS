@@ -1,0 +1,7 @@
+// Résultats de l'analyse de l'article : Blues
+
+Relations extraites :
+
+- Causalité/Cause[provenir un] (formes_de_blues,Sud_des_États-Unis) 
+
+- Accompagnement[accompagnées par un] (le_plus_souvent_orales,rythme_donné) 

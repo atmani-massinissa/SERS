@@ -54,7 +54,7 @@ public class MotsComposes extends TextClass {
 			for (String str : pr.linksWiki) {
 				//////system.out.println("LinkWiki : "+str);
 				if (str.contains(" ")) {
-					motsTrouves.add(str);
+					motsTrouves.add(str.trim().toLowerCase());
 					if (!lookUp(str))
 						nonExistingWords.add(str);
 					this.oldText = this.oldText.replace(str, str.replace(" ", "_"));
@@ -63,9 +63,9 @@ public class MotsComposes extends TextClass {
 			for (String str : pr.bold) {
 				//system.out.println("BoldWiki : "+str);
 				if (str.contains(" ")) {
-					motsTrouves.add(str);
-					if (!lookUp(str))
-						nonExistingWords.add(str);
+					motsTrouves.add(str.trim().toLowerCase());
+					if (!lookUp(str.trim().toLowerCase()))
+						nonExistingWords.add(str.trim().toLowerCase());
 					this.oldText = this.oldText.replace(str, str.replace(" ", "_"));
 				}
 			}
@@ -76,7 +76,7 @@ public class MotsComposes extends TextClass {
 		//Création de nouveaux mots composés
 		apostrFs();
 		nomAdj();
-		apostrFs();
+		//apostrFs();
 		noms_particuliers();
 		//nomS_particuliers();
 		mots_particuliers();
@@ -91,13 +91,13 @@ public class MotsComposes extends TextClass {
 	public void addWordsToFile() throws IOException 
 	{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
 		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
 			if(!lookUp(s)){
-							outS = outS + ";  Source :  "+analyseur.getTitle()+ ";\n" + s;
+							outS = outS +s+ ";  Source :  "+analyseur.getTitle()+ ";\n";
 			}
 		}
 		bw.append(outS);
@@ -112,7 +112,7 @@ public class MotsComposes extends TextClass {
 		//BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"utf-8"));
 		while ((line = reader.readLine()) != null) {
-			wordList.add(line.split(";")[0]);
+			wordList.add(line.split(";")[0].trim().toLowerCase());
 			if (line.contains(";")) {
 				String[] tab = line.split(";");
 				String categorie="";
@@ -121,7 +121,7 @@ public class MotsComposes extends TextClass {
 						categorie= categorie+tab[i]+" / ";
 					}				
 				}
-				wordListMap.put(tab[0],categorie);
+				wordListMap.put(tab[0].trim().toLowerCase(),categorie);
 			}
 		}
 	}
@@ -147,7 +147,7 @@ public class MotsComposes extends TextClass {
 	}
 
 	public Boolean lookUp(String word) throws FileNotFoundException {
-		return (wordList.equals(word.toLowerCase()));
+		return wordList.contains(word.toLowerCase());
 	}	
 	
 	public Boolean lookUpBis(String word) throws FileNotFoundException {
@@ -243,14 +243,15 @@ public class MotsComposes extends TextClass {
 	public HashSet<String> nomAdj() throws Exception {
 		HashSet<String> noms_adj_composes = new HashSet<String>();
 		Lemmatisation abu = new Lemmatisation(ressourcePath);
-		String str = new String(this.newText);
-		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
 		
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
 			if (s[i].contains("_")||(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {
-				if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].toLowerCase())) || s[i+1].endsWith("ique") ) {
-					mot=s[i]+" "+s[i+1];
+				if (i+1 < s.length) {
+					if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].toLowerCase())) || s[i+1].endsWith("ique") ) {
+						mot=s[i]+" "+s[i+1];
+					}
 				}
 				if (mot.matches(".+\\s.+")) {
 					apostrFj(mot);
@@ -261,8 +262,8 @@ public class MotsComposes extends TextClass {
 		System.out.println("TEST noms_adj: "+noms_adj_composes);
 		for (String mot : noms_adj_composes) {		
 			this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
-			if (!lookUp(mot.replace("_", " ").trim())) {
-				nonExistingWords.add(mot.replace("_", " "));
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
+				nonExistingWords.add(mot.trim().replace("_", " "));
 				if (mot.contains(" ")) {
 					this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
 				}
@@ -309,12 +310,12 @@ public class MotsComposes extends TextClass {
 			if (mot.contains(" ")) {
 				this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
 			}
-			if (!lookUp(mot.trim())) {
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				if (mot.contains("_")) {
-					nonExistingWords.add(mot.replace("_", " "));
+					nonExistingWords.add(mot.trim().replace("_", " "));
 				}
 				else{
-					nonExistingWords.add(mot);
+					nonExistingWords.add(mot.trim());
 				}
 			}
 		}
@@ -390,7 +391,6 @@ public class MotsComposes extends TextClass {
 	
 	public HashSet<String> noms_particuliers() throws Exception {
 		HashSet<String> noms_composes = new HashSet<String>();
-		apostrFj();
 		String str = new String(this.newText);
 		str = str.trim();
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
@@ -546,7 +546,7 @@ public class MotsComposes extends TextClass {
 			if (mot.contains(" ")) {
 				this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
 			}
-			if (!lookUp(mot.trim())) {
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				if (mot.contains("_")) {
 					nonExistingWords.add(mot.replace("_", " "));
 				}
