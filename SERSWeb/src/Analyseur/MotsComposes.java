@@ -91,12 +91,14 @@ public class MotsComposes extends TextClass {
 	public void addWordsToFile() throws IOException 
 	{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
 		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
-		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
+		 new FileOutputStream("C:\\Users\\TOSHIBA\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
-			outS = outS + ";  Source :  "+analyseur.getTitle()+ ";\n" + s;
+			if(!lookUp(s)){
+							outS = outS + ";  Source :  "+analyseur.getTitle()+ ";\n" + s;
+			}
 		}
 		bw.append(outS);
 		bw2.write(outS);
@@ -145,8 +147,12 @@ public class MotsComposes extends TextClass {
 	}
 
 	public Boolean lookUp(String word) throws FileNotFoundException {
-		return (wordList.contains(word.toLowerCase()));
+		return (wordList.equals(word.toLowerCase()));
 	}	
+	
+	public Boolean lookUpBis(String word) throws FileNotFoundException {
+		return (wordList.contains(word.toLowerCase()));
+	}
 	public String findMC() throws FileNotFoundException {
 		try {
 			createWordList(ressourcePath+"jdm-mc.txt");
@@ -390,35 +396,49 @@ public class MotsComposes extends TextClass {
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		Lemmatisation abu = new Lemmatisation(this.ressourcePath);
 		for (int i = 0; i < s.length; i++) {
+			s[i] = s[i].trim();
 			if ((abu.isNom(s[i].toLowerCase())) || s[i].contains("_")){
-				if (!s[i].equals("partie") && !(Arrays.asList(new String[] {
-	"chez","bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","pas","être","but","quelque",
-						"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa"}).
+				if (!s[i].equals(new String("partie")) && !(Arrays.asList(new String[] {
+						"chez","bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","fois","celui",
+						"celle","celui-ci","celle-ci","terme","travers","sein",
+						"pas","être","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier",
+						"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa","au"}).
 						contains(s[i].toLowerCase())
 						&&(!abu.isPro(s[i].toLowerCase()))
 						&&(!abu.isPre(s[i].toLowerCase())) 
 						&&(!abu.iscON(s[i].toLowerCase()))
 						&&(!s[i].contains(new String("que")))
-						&&(!s[i].startsWith("en_"))
-						&&(!s[i].startsWith("en "))
-						&&(!s[i].startsWith("ont_"))
-						&&(!s[i].startsWith("a_"))
-						&&(!s[i].startsWith("chez_"))
-						&&(!s[i].startsWith("au_"))
-						&&(!s[i].startsWith("pour_"))
-						&&(!s[i].startsWith("en "))
-						&&(!s[i].startsWith("ont "))
-						&&(!s[i].startsWith("a "))
-						&&(!s[i].startsWith("au "))
-						&&(!s[i].startsWith("chez "))
-						&&(!s[i].startsWith("pour "))
+						&&(!s[i].startsWith(new String("en_")))
+						&&(!s[i].startsWith(new String("en ")))
+						&&(!s[i].startsWith(new String("ont_")))
+						&&(!s[i].startsWith(new String("a_")))
+						&&(!s[i].startsWith(new String("chez_")))
+						&&(!s[i].startsWith(new String("au_")))
+						&&(!s[i].startsWith(new String("pour_")))
+						&&(!s[i].startsWith(new String("en ")))
+						&&(!s[i].startsWith(new String("ont ")))
+						&&(!s[i].startsWith(new String("a ")))
+						&&(!s[i].startsWith(new String("au ")))
+						&&(!s[i].startsWith(new String("chez ")))
+						&&(!s[i].startsWith(new String("pour ")))
+						&&(!s[i].endsWith(new String("_que")))
 						&&(!s[i].equals(new String(" ")))
 						&&(!s[i].equals(new String("")))
+						&&(!s[i].equals(new String("pour")))
+						&&(!s[i].equals(new String("par")))
 
 						)) {
 					String mot= new String();
 					int k=0;
+					if(abu.isVerb(s[i])){
+						System.out.println("s[i] is verb ="+s[i]);
+
+					}
+					else {System.out.println("s[i] ="+s[i]);}
 					
+					if(s[i].equals(new String("pour"))){
+						System.out.println(" equals ");
+					}
 					while (s[i].equals(new String(""))){
 						//System.out.println("yabenaamiiiiiiiiiiiiiii "+i);
 						i++;
@@ -427,22 +447,12 @@ public class MotsComposes extends TextClass {
 							Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un"})
 							.contains(s[i+1].toLowerCase())){
 								mot = mot + s[i] + " " +s[i+1]+ " ";
-								System.out.println(" s[i+1] +++++++++"+s[i+1]+"++++++++++++++");
-								System.out.println(" s[i] +++++++++++"+s[i]+"++++++++++++++++");
-								System.out.println(" s[i-1] +++++++++++"+s[i-1]+"++++++++++++++++");
-
-
-
-								if (s[i].equals(new String("")))
-									//System.out.println("yabenaamiiiiiiiiiiiiiii");
 								i =i +2;
 								k = k+2;
 						}
 					mot = mot.trim();
 					String[] l = mot.split(" ");
 					if(l.length>1 ){
-						//System.out.println(" le mot " +mot);
-
 						if(Arrays.asList(new String[] {"le","une","un","leurs","cette","ce","sa","les","eux","tels","ces","cette"})
 								.contains(l[k-1].toLowerCase())){
 							mot = null;
@@ -454,14 +464,16 @@ public class MotsComposes extends TextClass {
 							else if(Arrays.asList(new String[] {"tels"}).contains(s[i].toLowerCase())){
 								mot = null;
 							}
-							else if(Arrays.asList(new String[] {"les","d'","du","de","dans","l'","la","le"}).
+							else if(Arrays.asList(new String[] {"les","d'","du","de","dans","l'","la","le","en"}).
 									contains(s[i].toLowerCase())){	
 								
 							 if(l[k-1].toLowerCase().equals(new String("de"))){						
-									if(abu.isVerb(s[i+1].toLowerCase()))
+									if(abu.isVerb(s[i+1].toLowerCase())){
 										mot = null;
-									else	
+									}
+									else{
 										mot = mot +" "+ s[i]+ " "+ s[i+1];
+									}
 								}
 								else {
 									mot = mot +" "+ s[i]+ " "+ s[i+1];
@@ -473,41 +485,54 @@ public class MotsComposes extends TextClass {
 								mot = null;
 							}
 							else if(s[i].toLowerCase().equals(new String("certains"))||s[i].toLowerCase().equals(new String("certaines"))){
-								//System.out.println("certains "+s[i]);
 								mot = mot + " "+s[i]+ " "+ s[i+1];
 							}
-							 else if(!s[i].toLowerCase().equals(new String("son")) && !s[i].toLowerCase().equals(new String("d'autres")) )
+							else if(!s[i].toLowerCase().equals(new String("son")) && !s[i].toLowerCase().equals(new String("d'autres")) )
 									{
-								 
-									System.out.println(" le mot2 " +mot);
 									mot = mot + " "+ s[i];}
-						
-						
-					}						
-						else if(l[k-1].toLowerCase().equals(new String("en"))){
-							if(s[i].toLowerCase().contains("_")|| abu.isNomBis(s[i].toLowerCase())!=0){
-																	
-								if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-même","quelques","eux"
-								,"janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"}).contains(s[i].toLowerCase())
-								){
-									mot =null;
+	
+							}						
+							else if(l[k-1].toLowerCase().equals(new String("en"))){
+								if(s[i].toLowerCase().contains("_")|| abu.isNomBis(s[i].toLowerCase())!=0){									
+									if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-même","quelques","eux"
+											,"janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"}).contains(s[i].toLowerCase())
+											){
+										mot =null;
+									}							
+									else mot = mot + " "+s[i];
 								}
-								
-								else mot = mot + " "+s[i];
+								else{
+									mot = null;
+								}
 							}
-							else{
-								mot = null;
+							else{ 
+								mot =null;
 							}
-						}
-						else{ 
-							mot =null;
-						}
-						if(l[1].toLowerCase().equals(new String("dans"))||l[1].toLowerCase().equals(new String("le"))
-								||l[1].toLowerCase().equals(new String("la"))||l[1].toLowerCase().equals(new String("les"))
-								|| l[1].toLowerCase().equals(new String("l'")))
+							if(mot!=null){
+								if(mot.endsWith(new String("d' au"))){
+								mot.replace("d' au", "");
+							}
+							
+							}
+							if(	l[1].toLowerCase().equals(new String("dans") )
+								||l[1].toLowerCase().equals(new String("le") )
+								||l[1].toLowerCase().equals(new String("la") )
+								||l[1].toLowerCase().equals(new String("les"))
+								||l[1].toLowerCase().equals(new String("l'") )
+								||l[1].toLowerCase().equals(new String("un") )
+								||l[1].toLowerCase().equals(new String("une"))
+								||l[1].toLowerCase().equals(new String("sur"))
+								)
 							mot = null;
-				}
-			
+							
+							/*if(l.length>2){
+								if(l[2].toLowerCase().equals(new String("un"))
+								|| l[2].toLowerCase().equals(new String("une"))){
+									mot = null;
+
+								}
+							}*/
+					}		
 					if (mot != null && !mot.equals("")) {
 						apostrFj(mot);
 						noms_composes.add(mot.trim());

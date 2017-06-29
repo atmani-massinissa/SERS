@@ -451,17 +451,6 @@ public class Lemmatisation extends TextClass {
 					}
 			}
 			else {
-				/*if(list.get(i).toLowerCase().equals(new String("est"))||list.get(i).toLowerCase().equals(new String("sont"))){
-					k++;
-					i++;
-					while(isVerb(list.get(i))){
-						k++;
-						i++;
-					}
-				}
-				else{
-					i++;
-				}*/
 				i++;
 			}
 			if(k>1){
