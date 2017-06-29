@@ -248,11 +248,15 @@ public class MotsComposes extends TextClass {
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
 			if (s[i].contains("_")||(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {
-				if (i+1 < s.length) {
-					if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].toLowerCase())) || s[i+1].endsWith("ique") ) {
-						mot=s[i]+" "+s[i+1];
+					mot +=s[i]+" ";
+//					if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].trim().toLowerCase())) || s[i+1].endsWith("ique") ) {
+//						mot=s[i]+" "+s[i+1];
+//					}
+					for (int j = 1; i+j < s.length-1 &&	abu.howManyLemmes(s[i+j].toLowerCase()) == 1 && (s[i+j].endsWith("ique") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
+						mot=mot+s[i+j]+" ";
 					}
-				}
+					
+				
 				if (mot.matches(".+\\s.+")) {
 					apostrFj(mot);
 					noms_adj_composes.add(mot.trim());
@@ -431,13 +435,15 @@ public class MotsComposes extends TextClass {
 					String mot= new String();
 					int k=0;
 					if(abu.isVerb(s[i])){
-						System.out.println("s[i] is verb ="+s[i]);
+						//System.out.println("s[i] is verb ="+s[i]);
 
 					}
-					else {System.out.println("s[i] ="+s[i]);}
+					else {
+						//System.out.println("s[i] ="+s[i]);
+						}
 					
 					if(s[i].equals(new String("pour"))){
-						System.out.println(" equals ");
+						//System.out.println(" equals ");
 					}
 					while (s[i].equals(new String(""))){
 						//System.out.println("yabenaamiiiiiiiiiiiiiii "+i);

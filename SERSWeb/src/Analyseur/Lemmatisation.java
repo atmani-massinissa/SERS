@@ -16,7 +16,7 @@ public class Lemmatisation extends TextClass {
 	// String newText;
 	String ressourcePath;
 	static HashMap<String, ArrayList<String>> map;
-	static HashMap<String, String> mapComp;
+	MotsComposes mc ;
 
 	public Lemmatisation(String ressourcePath) throws IOException {
 		this.ressourcePath=ressourcePath;
@@ -29,12 +29,9 @@ public class Lemmatisation extends TextClass {
 	public Lemmatisation(TextClass tc, String ressourcePath) throws Exception {
 		this.ressourcePath=ressourcePath;
 		oldText = new String(tc.newText);
-		MotsComposes mc = null;
+		mc = null;
 		if (tc instanceof MotsComposes) {
-			mc = (MotsComposes) tc;
-		}
-		if (mc!=null) {
-			mapComp = new HashMap<String,String>(mc.wordListMap);
+			this.mc = (MotsComposes) tc;
 		}
 		try {
 			createDico(ressourcePath+"dico.txt");
@@ -78,8 +75,20 @@ public class Lemmatisation extends TextClass {
 	 * -----------------------------------Lemmatiseurs---------------------------------------------
 	 * 
 	 */
+	public void advSupp() {
+		for (String mot : this.mc.motsTrouves) {
+			if (this.mc.wordListMap.keySet().contains(mot)) {
+				String categorie = this.mc.wordListMap.get(mot);
+				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Modifier")) {
+					this.oldText = this.oldText.replace(mot, "");
+					//System.out.println("MON MOT "+mot);
+				}
+			}
+		}
+	}
 	public String lemmatizeText() throws Exception {
 		//Lemmatise texte de l'objet en entier
+		advSupp();
 		String str = new String(oldText);
 		str = str.replace("peut ", " ");
 		str = str.replace("peuvent ", " ");
@@ -321,11 +330,11 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	public boolean isPosComp(String mot, String pos) {
-		if (!mapComp.keySet().contains(mot))
+		if (!this.mc.wordListMap.keySet().contains(mot))
 			return false;
 		else {
-				if (mapComp.get(mot).contains(pos)){
-					System.out.println("XXXXXXXXXXXXXXX"+mapComp.get(mot));
+				if (this.mc.wordListMap.get(mot).contains(pos)){
+					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}
 			}
@@ -333,11 +342,11 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	public boolean isNomComp(String mot) {
-		if (!mapComp.keySet().contains(mot))
+		if (!this.mc.wordListMap.keySet().contains(mot))
 			return false;
 		else {
-				if (mapComp.get(mot).contains("Nom") || mapComp.get(mot).contains("GN")){
-					System.out.println("XXXXXXXXXXXXXXX"+mapComp.get(mot));
+				if (this.mc.wordListMap.get(mot).contains("Nom") || this.mc.wordListMap.get(mot).contains("GN")){
+					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}
 			}
@@ -351,7 +360,7 @@ public class Lemmatisation extends TextClass {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
 				if (tab[1].contains("Nom")){
-					System.out.println("XXXXXXXXXXXXXXX"+tab[1]);
+					//System.out.println("XXXXXXXXXXXXXXX"+tab[1]);
 					return true;
 				}
 			}

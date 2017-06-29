@@ -18,10 +18,10 @@ public class MesTests {
 				String categorie="";
 				for (int i = 1; i < tab.length; i++) {
 					if (tab[i].contains(":")) {
-						categorie=tab[i]+" / ";
+						categorie=categorie + tab[i]+" / ";
 					}
 				}
-				if (!categorie.contains("Nom") && categorie.contains("Adv")) {
+				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Ver")) {
 					motsSupprimes.add(tab[0]+" --> "+categorie);
 				}
 				

@@ -30,7 +30,7 @@ public class Analyseur {
 
 	public Analyseur(String ressourcePath) throws IOException {
 		this.ressourcePath = ressourcePath;
-		abu = new Lemmatisation(ressourcePath);
+		//abu = new Lemmatisation(ressourcePath);
 		
 	}
 	public void setRessourcePath(String ressourcePath) {
@@ -211,7 +211,7 @@ public class Analyseur {
 								if (!underConstraint(type, patron)
 										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
-									if (evaluate(R)) {
+									if (true) {
 										Relations_trouvees.add(R);
 									}
 //									Relations_trouvees.add(
@@ -490,7 +490,7 @@ public class Analyseur {
 		this.lemmatisation(mc);
 		// System.out.println("Parser + Mots Composés + Lemmatisation :
 		// "+lm.newText);
-		this.text = new String(lm.newText);
+		this.text = new String(abu.newText);
 		 
 		//System.out.println(this.text);
 	}
@@ -529,7 +529,7 @@ public class Analyseur {
 		 * Remplacement des espaces par des underscores.
 		 */
 		System.out.println("*************************débutMotCompParMcLem*****************************");;
-		mc = new MotsComposes(TIp,ressourcePath,this);
+		this.mc = new MotsComposes(TIp,ressourcePath,this);
 		System.out.println("*************************FinMotCompParMcLem*****************************");;
 	}
 
@@ -538,7 +538,7 @@ public class Analyseur {
 		 * Mise des verbes conjuguÃ©s Ã l'infinitif...
 		 */
 
-		lm = new Lemmatisation(TIp,ressourcePath);
+		abu = new Lemmatisation(this.mc, ressourcePath);
 		// System.out.println(" Analyser Lemmatisation "+lm.newText);
 
 	}
