@@ -21,7 +21,7 @@ public class MesTests {
 						categorie=categorie + tab[i]+" / ";
 					}
 				}
-				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Ver")) {
+				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Adj")) {
 					motsSupprimes.add(tab[0]+" --> "+categorie);
 				}
 				

@@ -329,11 +329,31 @@ public class Lemmatisation extends TextClass {
 		}
 		return false;
 	}
-	public boolean isPosComp(String mot, String pos) {
-		if (!this.mc.wordListMap.keySet().contains(mot))
+
+	public boolean isPos(String mot, String pos) {
+		if (!map.keySet().contains(mot))
 			return false;
 		else {
-				if (this.mc.wordListMap.get(mot).contains(pos)){
+				for (String str : map.get(mot)) {
+					String[] tab = str.split("	");
+						if (tab[1].contains(pos))
+						{
+							return true;
+						}
+				}
+			}
+		
+		return false;
+	}
+	public boolean isPosComp(String mot, String pos) {
+		if (!this.mc.wordListMap.keySet().contains(mot.trim().toLowerCase().replace("_", " ")))
+			return false;
+		else {
+			if (mot.trim().toLowerCase().equals("système_sérotoninergique")) {
+				System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
+				System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
+			}	
+			if (this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos)){
 					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}

@@ -337,8 +337,10 @@ public class Analyseur {
 							}
 							else{
 								if (term2.contains("_")){
-									if (!abu.isPosComp(term2,matcher.group(2))) {
-										return false;
+									if (!abu.isPosComp(term1,"Source")) {
+										if (!abu.isPosComp(term2,matcher.group(2))) {
+											return false;
+										}
 									}
 								}
 								else {
