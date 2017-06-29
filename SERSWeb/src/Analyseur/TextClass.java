@@ -13,13 +13,14 @@ public abstract class TextClass {
 		newText = newText.replace("L'", "L' ");
 		newText = newText.replace("S'", "S' ");
 	}
-	public void apostrFj(String mot){
+	public String apostrFj(String mot){
 		mot = mot.replace("L' ", "L'");
 		mot = mot.replace("S' ", "S'");
 		mot = mot.replace("D' ", "D'");
 		mot = mot.replace("l' ", "l'");
 		mot = mot.replace("s' ", "s'");
 		mot = mot.replace("d' ", "d'");
+		return mot;
 	}
 	public void apostrFj(){
 		newText = newText.replace("L' ", "L'");

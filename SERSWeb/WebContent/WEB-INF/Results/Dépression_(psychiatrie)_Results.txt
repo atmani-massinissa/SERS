@@ -2,29 +2,35 @@
 
 Relations extraites :
 
-- Hyperonymie[est un] (dépression,condition) 
-
-- Hyperonymie[est un] (dépression,état) 
-
 - Hyperonymie[est un] (substance,cause) 
 
 - Hyperonymie[est un] (psychothérapie,traitement) 
+
+- Hyperonymie[est un] (dépression,question) 
 
 - Hyperonymie[être un] (systèmes,baisse) 
 
 - Holonymie[a un] (industrie_pharmaceutique,intérêt) 
 
-- Holonymie[a un] (quelqu'un,a_priori) 
+- Holonymie[a un] (tête,carence_en_aspirine_dans_le_cerveau) 
 
-- Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie_raccourcie) 
+- Holonymie[a un] (quelqu'un,a) 
 
-- Holonymie[avoir un] (en_dépression,excès_de_sérotonine) 
+- Holonymie[avoir un] (individus_souffrant_de_dépression,espérance_de_vie) 
 
-- Holonymie[avoir un] (développement,partie_intégrante) 
+- Holonymie[avoir un] (personnes_en_dépression,excès_de_sérotonine) 
+
+- Holonymie[avoir un] (base_de_testostérone,effet_antidépresseur) 
+
+- Holonymie[avoir un] (développement,partie) 
 
 - Holonymie[avoir un] (régime_méditerranéen,effet_protecteur) 
 
-- Holonymie[avoir un] (individus_dépressifs,espérance_de_vie_raccourcie) 
+- Holonymie[avoir un] (domaine_psychologique,difficultés) 
+
+- Holonymie[avoir un] (symptômes_anxieux,impact) 
+
+- Holonymie[avoir un] (individus_dépressifs,espérance_de_vie) 
 
 - Holonymie[avoir un] (ISRS,autre_antidépresseur) 
 
@@ -32,13 +38,19 @@ Relations extraites :
 
 - Holonymie[avoir un] (inhibiteurs_COX-2_sélectifs,effet_bénéfique) 
 
-- Holonymie[avoir un] (exposition_au_soleil,effet) 
+- Holonymie[avoir un] (vitamine_D,effet_bénéfique) 
+
+- Holonymie[avoir un] (pouvoir,effet_protecteur) 
+
+- Holonymie[avoir un] (produits,effet) 
+
+- Holonymie[avoir un] (pouvoir,effet_bénéfique) 
+
+- Holonymie[avoir un] (soleil,effet) 
 
 - Holonymie[qui a un] (syndrome_de_discontinuation_associé_aux_antidépresseurs,symptômes_ressemblants) 
 
 - Méronymie[constituer un] (manque_de_support_social,pression) 
-
-- Causalité/Cause[pouvoir causer un] (immunologiques,excès_de_production_de_prostagmandine) 
 
 - Causalité/Cause[affecter un] (5-HTT,risques_de_dépression) 
 
@@ -46,11 +58,13 @@ Relations extraites :
 
 - Causalité/Cause[affecter un] (ISRS,tendances_suicidaires) 
 
+- Causalité/Cause[causer un] (anomalies_immunologiques,excès_de_production_de_prostagmandine) 
+
 - Causalité/Cause[causer un] (conditions_négatives,inflammation) 
 
 - Causalité/Cause[causer un] (facteurs,dépression) 
 
-- Causalité/Cause[causer un] (dépression,bon_nombre_de_symptômes_physiques_psychosomatiques) 
+- Causalité/Cause[causer un] (dépression,nombre_de_symptômes_physiques) 
 
 - Causalité/Cause[causer un] (dépressif,guérison_tardive) 
 
@@ -70,6 +84,10 @@ Relations extraites :
 
 - Causalité/Cause[mener à un] (activation_du_NMDA,excès_de_la_neurotransmission_glutamatergique) 
 
+- Causalité/Cause[mener à un] (retour,dépression) 
+
+- Causalité/Cause[mener à un] (cas,modèles) 
+
 - Causalité/Cause[mener à un] (pression,dépression) 
 
 - Causalité/Cause[mener à un] (rupture_amoureuse,perte_subjective) 
@@ -86,7 +104,9 @@ Relations extraites :
 
 - Causalité/Effet[être causer par un] (stigmatisation,appartenance) 
 
-- Causalité/Effet[causer par un] (n'est_pas_uniquement,simple) 
+- Causalité/Effet[causer par] (humeur_dépressive,d') 
+
+- Causalité/Effet[causer par un] (n'est,simple) 
 
 - Causalité/Effet[causer par un] (comportement_de_maladie,anomalies) 
 
@@ -94,17 +114,19 @@ Relations extraites :
 
 - Causalité/Effet[causer par un] (auto-stigmatisation,enfance) 
 
-- Causalité/Effet[causer par un] (dépression,équilibre_chimique) 
+- Causalité/Effet[causer par un] (dépression,équilibre) 
 
 - Causalité/Effet[causer par un] (détresse,dépression) 
 
 - Possession[a un] (industrie_pharmaceutique,intérêt) 
 
-- Possession[a un] (quelqu'un,a_priori) 
+- Possession[a un] (tête,carence_en_aspirine_dans_le_cerveau) 
+
+- Possession[a un] (quelqu'un,a) 
 
 - Possession[posséder un] (atteintes_de_dépression,système_sérotoninergique) 
 
-- Possession[posséder un] (patient,antécédents_d'_épisodes_maniaques) 
+- Possession[posséder un] (patient,antécédents) 
 
 - Caractérisation[est] (dépression,ambigu) 
 
@@ -113,6 +135,8 @@ Relations extraites :
 - Caractérisation[est] (taux,élevé) 
 
 - Caractérisation[est] (tendance,caractéristique) 
+
+- Caractérisation[est] (bien-être,comparé) 
 
 - Caractérisation[est] (insomnie,fréquente) 
 
@@ -123,8 +147,6 @@ Relations extraites :
 - Caractérisation[est] (diagnostic,insuffisant) 
 
 - Caractérisation[est] (condition,déterminée) 
-
-- Caractérisation[est] (prévalence,faible) 
 
 - Caractérisation[est] (compétences,efficace) 
 
@@ -148,6 +170,8 @@ Relations extraites :
 
 - Caractérisation[être] (épisodes,isolés) 
 
+- Caractérisation[être] (hospitalisation,nécessaire) 
+
 - Caractérisation[être] (dosages,ajustés) 
 
 - Caractérisation[être] (dépression,bonne) 
@@ -158,11 +182,11 @@ Relations extraites :
 
 - Caractérisation[est caractérisée par un] (dépression_atypique,humeur_réactive) 
 
+- Caractérisation[caractérisé par un] (trouble_mental,épisodes) 
+
 - Caractérisation[caractérisé par un] (humeur,réponse) 
 
-- Caractérisation[se caractériser par un] (épisode_dépressif_majeur,présence) 
-
-- Accompagnement[accompagner un] (type_de_psychose_maniaco-dépressive,troubles) 
+- Caractérisation[se caractériser par un] (majeur,présence) 
 
 - Accompagnement[associé à un] (comportement_léger,grossesse) 
 
@@ -176,17 +200,19 @@ Relations extraites :
 
 - Accompagnement[est associée à un] (dépression,risque) 
 
+- Accompagnement[est associée au] (dépression,chômage) 
+
 - Accompagnement[est associée aux] (mélancolie,hommes) 
 
 - Accompagnement[être associés à un] (isolement_social,risque) 
 
-- Accompagnement[être associées à un] (taux_d'_œstrogènes,augmentation_du_risque) 
-
 - Accompagnement[liés à un] (facteurs,problèmes_de_santé) 
 
-- Accompagnement[liés à un] (époux,éducation_des_enfants) 
+- Accompagnement[liés à un] (époux,éducation) 
 
 - Accompagnement[liés à un] (humeur,créativité) 
+
+- Accompagnement[liés au] (stimuli,plaisir) 
 
 - Accompagnement[liés aux] (épisodes_dépressifs,évènements) 
 
@@ -199,3 +225,5 @@ Relations extraites :
 - Synonymie[appelée] (dépression,dépression_caractérisée) 
 
 - Synonymie[appelée] (trouble_unipolaire,dépression_unipolaire) 
+
+- Synonymie[appelés] (dépression,déterminants) 

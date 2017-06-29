@@ -147,7 +147,7 @@ public class MotsComposes extends TextClass {
 	}
 
 	public Boolean lookUp(String word) throws FileNotFoundException {
-		return wordList.contains(word.toLowerCase());
+		return wordList.contains(word.trim().toLowerCase());
 	}	
 	
 	public Boolean lookUpBis(String word) throws FileNotFoundException {
@@ -242,23 +242,23 @@ public class MotsComposes extends TextClass {
 	}
 	public HashSet<String> nomAdj() throws Exception {
 		HashSet<String> noms_adj_composes = new HashSet<String>();
-		Lemmatisation abu = new Lemmatisation(ressourcePath);
+		Lemmatisation abu = new Lemmatisation(this,ressourcePath);
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
 		
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
-			if (s[i].contains("_")||(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {
+			if (abu.isPosComp(s[i],"Nom")||(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {
 					mot +=s[i]+" ";
 //					if (!s[i+1].equals("est") && (abu.isAdj(s[i+1].trim().toLowerCase())) || s[i+1].endsWith("ique") ) {
 //						mot=s[i]+" "+s[i+1];
 //					}
-					for (int j = 1; i+j < s.length-1 &&	!Arrays.asList(new String[] {"caracterisé","composé","est","lié","associé","sur"}).contains(s[i+j].toLowerCase()) && (s[i+j].trim().toLowerCase().endsWith("ique") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
+					for (int j = 1; i+j < s.length-1 &&	!Arrays.asList(new String[] {"localisée","appelé","appelée","appelés","appelées","caracterisé","composé","est","lié","associé","sur","liés"}).contains(s[i+j].toLowerCase()) && (s[i+j].trim().toLowerCase().endsWith("ique") || s[i+j].trim().toLowerCase().endsWith("iques") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
 						mot=mot+s[i+j]+" ";
 					}
 					
 				
 				if (mot.matches(".+\\s.+")) {
-					apostrFj(mot);
+					mot = apostrFj(mot);
 					noms_adj_composes.add(mot.trim());
 				}
 			}
@@ -286,22 +286,22 @@ public class MotsComposes extends TextClass {
 			
 				if (Arrays.asList(new String[] {"père","mère","sœur","soeur","frère","fils","fille","complément","capable","capables","degré","insuffisance","gain","carence","manque","excès","baisse","taux","diminution","perte","niveaux","niveau","augmentation","absence","montée","déficience"}).contains(s[i].toLowerCase())) {
 					String mot="";
-					if (Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+1].toLowerCase())) {
+					if (Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+1].trim().toLowerCase())) {
 						int k = 2;
 						int p = 0;
 						for (int j = 0; j <= k; j++) {
 							mot = mot+s[i+j]+" ";
-							if (Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+k+1].toLowerCase())) {
+							if (Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+k+1].trim().toLowerCase())) {
 								k=k+2;
 							}
-							if (j==k && Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+j].toLowerCase()))  {
+							if (j==k && Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+j].trim().toLowerCase()))  {
 								k++;
 							}
 						}
 					
 						if (mot != null) {
-							apostrFj(mot);
-							mots_composes.add(mot.trim());
+							mot = apostrFj(mot);
+							mots_composes.add(mot.trim().toLowerCase());
 						}
 		
 					}
@@ -364,7 +364,7 @@ public class MotsComposes extends TextClass {
 								limite++;
 							}
 							if (mot != null && mot.split(" ").length < limite) {
-								apostrFj(mot);
+								mot = apostrFj(mot);
 								mots_composes.add(mot.trim());
 							}
 			
@@ -540,7 +540,7 @@ public class MotsComposes extends TextClass {
 							}*/
 					}		
 					if (mot != null && !mot.equals("")) {
-						apostrFj(mot);
+						mot = apostrFj(mot);
 						noms_composes.add(mot.trim());
 					}
 				}
