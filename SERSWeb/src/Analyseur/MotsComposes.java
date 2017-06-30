@@ -1,7 +1,7 @@
 package Analyseur;
 
-// ajouter la m√É¬©thode qui trouve les mots compos√É¬©s √É¬† l'aide des tableaux de l'objet parser s'ils ne sont pas trouv√É¬©s
-//avec findMC() et appeler cette m√É¬©thode dans le constructeur
+// ajouter la m√©thode qui trouve les mots compos√©s √† l'aide des tableaux de l'objet parser s'ils ne sont pas trouv√©s
+//avec findMC() et appeler cette m√©thode dans le constructeur
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -73,8 +73,10 @@ public class MotsComposes extends TextClass {
 		}
 		
 		this.newText = findMC();
-		//Cr√©ation de nouveaux mots compos√©s
+		//CrÈation de nouveaux mots composÈs
 		apostrFs();
+		quantifAdj();
+		AdjNom();
 		nomAdj();
 		//apostrFs();
 		noms_particuliers();
@@ -82,7 +84,7 @@ public class MotsComposes extends TextClass {
 		mots_particuliers();
 
 		if (pr != null)
-			System.out.println("mots ajout√©s "+nonExistingWords);
+			System.out.println("mots ajoutÈs "+nonExistingWords);
 			addWordsToFile();
 		// //system.out.println(" Analyser mot composes "+this.newText);
 	}
@@ -96,6 +98,23 @@ public class MotsComposes extends TextClass {
 		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
+			if(!lookUp(s)){
+							outS = outS +s+ ";  Source :  "+analyseur.getTitle()+ ";\n";
+			}
+		}
+		bw.append(outS);
+		bw2.write(outS);
+		bw.close();
+		bw2.close();	
+	}
+	public void addWordsToFile(HashSet<String> nonExisting) throws IOException 
+	{
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt",true), "UTF-8"));
+		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
+		 new FileOutputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"OurJdm-mc.txt",true), "UTF-8"));
+		String outS = new String();
+		for (String s : nonExisting){
 			if(!lookUp(s)){
 							outS = outS +s+ ";  Source :  "+analyseur.getTitle()+ ";\n";
 			}
@@ -162,8 +181,8 @@ public class MotsComposes extends TextClass {
 		}
 		String str = (new String(oldText));
 		String[] avoid = { "du", "la", "des", "les", "un", "une", "par", "elle", "il", "mais", "ou", "est", "et",
-				"donc", "or", "ni", "car", "", "_", "de", " ", "√†", "dans", "dont" };
-		String[] phrase = str.split("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|¬´|¬ª|‚Äú|‚Äù|\"]+");
+				"donc", "or", "ni", "car", "", "_", "de", " ", "‡", "dans", "dont" };
+		String[] phrase = str.split("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|´|ª|ì|î|\"]+");
 		for (int j = 0; j < phrase.length; j++) {
 			int i = 0;
 			// if (phrase[j].charAt(phrase[j].length())==" ";
@@ -219,10 +238,10 @@ public class MotsComposes extends TextClass {
 						compound_word_underscore = compound_word_underscore.replace("d' ", "d'");
 						compound_word_underscore = compound_word_underscore.replaceAll("\\s", "_");
 //						//system.out.println("Mot avant remplacement: "+chaine_mots_compose);
-//						//system.out.println("Mot apr√®s remplacement: "+compound_word_underscore);
+//						//system.out.println("Mot aprËs remplacement: "+compound_word_underscore);
 						str = str.replace(chaine_mots_compose, compound_word_underscore);
 
-						//Mots compos√©s se terminant par des articles sont rallong√©s
+						//Mots composÈs se terminant par des articles sont rallongÈs
 
 						str = new String(replace_article(compound_word_underscore, str));
 						
@@ -240,9 +259,88 @@ public class MotsComposes extends TextClass {
 		 */
 		return str;
 	}
+	public HashSet<String > AdjNom() throws Exception{
+		HashSet<String> adj_nom_composes = new HashSet<String>();
+		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
+		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
+		
+		for (int i = 0; i < s.length; i++) {
+			String mot="";
+			int j =0;
+			for (j = 0; i+j < s.length-1 &&	(Arrays.asList(new String[]{
+					  "faible","petit","petite"
+					 ,"autre", "beau", "bonne","bon", "bel", "belle"
+					 ,"grand", "gros", "grosses", "haut", "jeune", "mauvais", "mauvaise"
+					 ,"petit", "vieux", "vilain","premier","premiere", "nouveau",
+					 "faibles","petits","petites"
+					 ,"autres", "beaux", "bonnes","bons", "bels", "belles"
+					 ,"grands", "gros", "grosses", "hauts", "jeunes", "mauvais", "mauvaises"
+					 ,"petits", "vieux", "vilains","premiers","premieres", "nouveaux"}).contains(s[i+j]))
+					 || s[i+j].endsWith("iËme"); j++) {
+				mot=mot+s[i+j]+" ";
+			}
+			if (abu.isPosComp(s[i+j].trim().toLowerCase(),"Nom")||(abu.isNom(s[i+j].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {		
+				mot +=s[i+j]+" ";
+				if (mot.matches(".+\\s.+")) {
+					mot = apostrFj(mot);
+					adj_nom_composes.add(mot.trim());
+				}
+			}
+		}
+		System.out.println("TEST adj_noms: "+adj_nom_composes);
+		for (String mot : adj_nom_composes) {		
+			this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
+				nonExistingWords.add(mot.trim().replace("_", " "));
+				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:AjoutÈ ");
+				if (mot.contains(" ")) {
+					this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
+				}
+			}
+		}
+		
+		this.newText =  new String(replace_article(adj_nom_composes, this.newText));
+		return adj_nom_composes;
+	
+	}
+	public HashSet<String > quantifAdj() throws Exception{
+		HashSet<String> quantifAdj = new HashSet<String>();
+		Lemmatisation abu = new Lemmatisation(this, this.ressourcePath);
+		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
+		for (int i = 0; i < s.length; i++) 
+			{
+				String mot="";
+				if (Arrays.asList(new String[] {"non","trËs","extrÍmement","hautement","sensiblement","peu","moyennement","moins", "plus"}).contains(s[i].trim().toLowerCase())) {
+					mot = s[i]+" ";
+					if( i+1 < s.length-1 &&	(!abu.isPos(s[i+1].toLowerCase(),"PP") || (abu.isPos((s[i+1].trim().toLowerCase()),"Adj") && s[i+1].trim().toLowerCase().endsWith("ie")) ) && (s[i+1].trim().toLowerCase().endsWith("ique") || s[i+1].trim().toLowerCase().endsWith("iques") || abu.isPosComp((s[i+1].trim().toLowerCase()),"Adj") || abu.isAdj(s[i+1].trim().toLowerCase())) ) {
+						mot=mot+s[i+1]+" ";
+					}
+				}
+				if (mot.matches(".+\\s.+")) {
+					mot = apostrFj(mot);
+					quantifAdj.add(mot.trim().toLowerCase());
+				}
+				
+		
+			}
+		System.out.println("TEST quantif_adj: "+quantifAdj);
+		for (String mot : quantifAdj) {		
+			this.newText = this.newText.replace(mot, mot.replace(" ", "_"));
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
+				nonExistingWords.add(mot.trim().toLowerCase());
+				this.wordListMap.put(mot.trim().replace("_", " ")," Adj:AjoutÈ ");
+				if (mot.trim().contains(" ")) {
+					this.newText = this.newText.replace(mot.trim(), mot.trim().replace(" ", "_"));
+				}
+			}
+		}
+		
+		this.newText =  new String(replace_article(quantifAdj, this.newText));
+		return quantifAdj;
+	}
 	public HashSet<String> nomAdj() throws Exception {
 		HashSet<String> noms_adj_composes = new HashSet<String>();
-		Lemmatisation abu = new Lemmatisation(this,ressourcePath);
+		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
 		
 		for (int i = 0; i < s.length; i++) {
@@ -250,8 +348,10 @@ public class MotsComposes extends TextClass {
 			if (abu.isPosComp(s[i].trim().toLowerCase(),"Nom")||/*s[i].contains("_")||*/(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {
 			//if (s[i].contains("_")||(abu.isNom(s[i].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {		
 				mot +=s[i]+" ";
-				if (s[i].equals("syst√®me_s√©rotoninergique")) {
-						System.out.println("mot : "+s[i+1]+" condition : "+(/*!abu.isPos(s[i+1].toLowerCase(),"PP"))); ||*/(abu.isPosComp((s[i+1].trim().toLowerCase()),"Adj")))); //&&s[i+1].trim().toLowerCase().endsWith("ie")));
+				if (s[i].equals("systËme_sÈrotoninergique")) {
+						System.out.println("mot : "+s[i+1]+" condition : "+(/*!abu.isPos(s[i+1].toLowerCase(),"PP"))); ||*/(abu.isPos((s[i+1].trim().toLowerCase()),"Adj")))); //&&s[i+1].trim().toLowerCase().endsWith("ie")));
+						System.out.println("mot : "+s[i+2]+" condition : "+(/*!abu.isPos(s[i+1].toLowerCase(),"PP"))); ||*/(abu.isPos((s[i+1].trim().toLowerCase()),"Adj")))); //&&s[i+1].trim().toLowerCase().endsWith("ie")));
+						System.out.println("mot : "+s[i+3]+" condition : "+(/*!abu.isPos(s[i+1].toLowerCase(),"PP"))); ||*/(abu.isPos((s[i+1].trim().toLowerCase()),"Adj")))); //&&s[i+1].trim().toLowerCase().endsWith("ie")));
 				}
 					for (int j = 1; i+j < s.length-1 &&	(!abu.isPos(s[i+j].toLowerCase(),"PP") || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ie")) ) && (s[i+j].trim().toLowerCase().endsWith("ique") || s[i+j].trim().toLowerCase().endsWith("iques") || abu.isPosComp((s[i+j].trim().toLowerCase()),"Adj") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
 						mot=mot+s[i+j]+" ";
@@ -285,7 +385,7 @@ public class MotsComposes extends TextClass {
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i = 0; i < s.length; i++) {
 			
-				if (Arrays.asList(new String[] {"mesure","abus","risque","pr√©sence","p√®re","m√®re","s≈ìur","soeur","fr√®re","fils","fille","compl√©ment","capable","capables","degr√©","insuffisance","gain","carence","manque","exc√®s","baisse","taux","diminution","perte","niveaux","niveau","augmentation","absence","mont√©e","d√©ficience"}).contains(s[i].trim().toLowerCase())) {
+				if (Arrays.asList(new String[] {"mesure","abus","risque","prÈsence","pËre","mËre","súur","soeur","frËre","fils","fille","complÈment","capable","capables","degrÈ","insuffisance","gain","carence","manque","excËs","baisse","taux","diminution","perte","niveaux","niveau","augmentation","absence","montÈe","dÈficience"}).contains(s[i].trim().toLowerCase())) {
 					String mot="";
 					if (Arrays.asList(new String[] {"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette"}).contains(s[i+1].trim().toLowerCase())) {
 						int k = 2;
@@ -406,7 +506,7 @@ public class MotsComposes extends TextClass {
 				if (!s[i].equals(new String("partie")) && !(Arrays.asList(new String[] {
 						"chez","bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","fois","celui",
 						"celle","celui-ci","celle-ci","terme","travers","sein",
-						"pas","√™tre","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier",
+						"pas","Ítre","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier",
 						"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa","au"}).
 						contains(s[i].toLowerCase())
 						&&(!abu.isPro(s[i].toLowerCase()))
@@ -501,7 +601,7 @@ public class MotsComposes extends TextClass {
 							}						
 							else if(l[k-1].toLowerCase().equals(new String("en"))){
 								if(s[i].toLowerCase().contains("_")|| abu.isNomBis(s[i].toLowerCase())!=0){									
-									if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-m√™me","quelques","eux"
+									if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-mÍme","quelques","eux"
 											,"janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"}).contains(s[i].toLowerCase())
 											){
 										mot =null;
@@ -691,7 +791,7 @@ public class MotsComposes extends TextClass {
 	public String findMcLine(String str) throws FileNotFoundException {
 
 		String[] avoid = { "du", "la", "des", "les", "un", "une", "par", "elle", "il", "mais", "ou", "est", "et",
-				"donc", "or", "ni", "car", "", "_", "de", " ", "√†", "dans", "dont", "celui", "que", "ce", "qui" };
+				"donc", "or", "ni", "car", "", "_", "de", " ", "‡", "dans", "dont", "celui", "que", "ce", "qui" };
 		int i = 0;
 		String[] s = str.split(" ");
 		int mindecalage = Math.max(s.length, 2);
@@ -716,11 +816,11 @@ public class MotsComposes extends TextClass {
 				chaine_mots_compose = chaine_mots_compose.substring(0, chaine_mots_compose.length() - 1);
 			// chaine_mots_compose = chaine_mots_compose.trim();
 			found = lookUp(chaine_mots_compose.replace("l' ", "l'").replace("s' ", "s'"));
-			if (chaine_mots_compose.contains("esp√©rance de vie")) {
+			if (chaine_mots_compose.contains("espÈrance de vie")) {
 				System.out.println("MOT : "+chaine_mots_compose+" LOOKUP VALUE "+found);
 			}
 			if (found) {
-				if (chaine_mots_compose.contains("esp√©rance de vie")) {
+				if (chaine_mots_compose.contains("espÈrance de vie")) {
 					
 				}
 				motsTrouves.add(chaine_mots_compose.trim());
@@ -751,7 +851,7 @@ public class MotsComposes extends TextClass {
 	}
 
 	public static void main(String[] args) throws Exception {
-		//system.out.println((new MotsComposes("")).findMcLine("$x se trouvent souvent localis√©es au niveau de la $y"));
+		//system.out.println((new MotsComposes("")).findMcLine("$x se trouvent souvent localisÈes au niveau de la $y"));
 		//system.out.println();
 	}
 }

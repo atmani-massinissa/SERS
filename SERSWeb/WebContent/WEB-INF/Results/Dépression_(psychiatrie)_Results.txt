@@ -104,7 +104,7 @@ Relations extraites :
 
 - Causalité/Effet[causer par un] (auto-stigmatisation,enfance) 
 
-- Causalité/Effet[causer par un] (dépression,équilibre_chimique) 
+- Causalité/Effet[causer par un] (dépression,mauvais_équilibre_chimique) 
 
 - Causalité/Effet[causer par un] (détresse,dépression) 
 
@@ -112,13 +112,13 @@ Relations extraites :
 
 - Possession[a un] (quelqu'un,a_priori) 
 
-- Possession[posséder un] (atteintes_de_dépression,système_sérotoninergique) 
+- Possession[posséder un] (atteintes_de_dépression,système_sérotoninergique_moins_efficace) 
 
 - Possession[posséder un] (patient,antécédents) 
 
 - Caractérisation[est] (dépression,ambigu) 
 
-- Caractérisation[est] (maladie,fréquente) 
+- Caractérisation[est] (maladie,plus_fréquente) 
 
 - Caractérisation[est] (taux,élevé) 
 
@@ -140,9 +140,9 @@ Relations extraites :
 
 - Caractérisation[est] (condition,déterminée) 
 
-- Caractérisation[est] (prévalence,faible) 
+- Caractérisation[est] (prévalence,plus_faible) 
 
-- Caractérisation[est] (compétences,efficace) 
+- Caractérisation[est] (compétences,plus_efficace) 
 
 - Caractérisation[est] (amélioration,avérée) 
 

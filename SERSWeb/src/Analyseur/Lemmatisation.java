@@ -81,7 +81,6 @@ public class Lemmatisation extends TextClass {
 				String categorie = this.mc.wordListMap.get(mot);
 				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Modifier")) {
 					this.oldText = this.oldText.replace(mot, "");
-					//System.out.println("MON MOT "+mot);
 				}
 			}
 		}
