@@ -2,28 +2,92 @@
 
 Relations extraites :
 
-- Hyperonymie[est un] (le_plus_spectaculaire,diminution_de_la_matière_grise) 
+- Hyperonymie[est un] (gestation,état) 
 
-- Hyperonymie[est un] (parler_de_semaines_d'aménorrhée,convention_internationale) 
+- Hyperonymie[est un] (aménorrhée,convention_internationale) 
 
-- Hyperonymie[est un] (surveillance_régulière,dépistage_précoce_de_pathologies_obstétricales) 
+- Hyperonymie[est un] (grossesse,période) 
 
 - Hyperonymie[est un] (femme_enceinte,objet_de_désir) 
 
-- Hyperonymie[est un] (femme_enceinte,objet_sacré) 
+- Hyperonymie[est un] (femme_enceinte,objet) 
 
-- Holonymie[avoir un] (en_dehors_de_la_grossesse,retentissement_important_sur) 
+- Hyperonymie[est un] (mortalité_périnatale,somme) 
 
-- Caractérisation[est] (durée_de_la_grossesse,indiquée_en_semaines_d'aménorrhée) 
+- Hyperonymie[être un] (cellules_germinales,cellules) 
 
-- Caractérisation[est] (en_France,l'hémorragie_post-partum) 
+- Hyperonymie[être un] (passe,alimentation) 
 
-- Caractérisation[est] (pays_en_développement,nettement_supérieure) 
+- Holonymie[a un] (définition,incidence_appréciable) 
 
-- Caractérisation[est] (mortalité_maternelle,en_décroissance_régulière) 
+- Holonymie[avoir un] (en_dehors_de_la_grossesse,retentissement) 
 
-- Caractérisation[être] (cellules_sanguines,en_production) 
+- Holonymie[avoir un] (femmes,nausées_fréquentes) 
 
-- Caractérisation[être] (lors_de_la_grossesse,fortement_activées) 
+- Holonymie[constituée de] (glycoprotéine,deux) 
 
-- Caractérisation[être] (début_de_la_grossesse,prises_en_compte) 
+- Causalité/Cause[déclencher un] (fluctuations_hormonales_du_cycle_menstruel,ovulation) 
+
+- Causalité/Cause[pouvoir entraîner un] (maladies_infectieuses,embryopathie) 
+
+- Causalité/Cause[entraîner un] (Cela,plus_grande) 
+
+- Causalité/Cause[provenir de un] (changements,grossesse) 
+
+- Causalité/Cause[provoquer un] (urine,ovulation) 
+
+- Possession[a un] (fœtus,besoins) 
+
+- Possession[a un] (définition,incidence_appréciable) 
+
+- Caractérisation[est] (méthodes,variable) 
+
+- Caractérisation[est] (grossesse,défini) 
+
+- Caractérisation[est] (ovocyte,libéré) 
+
+- Caractérisation[est] (durée_de_la_grossesse,indiquée) 
+
+- Caractérisation[est] (surveillance,marquée) 
+
+- Caractérisation[est] (éléments,porteur) 
+
+- Caractérisation[est] (méthode,possible) 
+
+- Caractérisation[est] (test,possible) 
+
+- Caractérisation[est] (test,positif) 
+
+- Caractérisation[est] (taux,supérieur_ou_égal) 
+
+- Caractérisation[est] (prescription,contestable) 
+
+- Caractérisation[est] (pays_en_développement,supérieure) 
+
+- Caractérisation[est] (insémination,programmée) 
+
+- Caractérisation[être] (changements,cohérents) 
+
+- Caractérisation[être] (méthodes,plus_performantes) 
+
+- Caractérisation[être] (grossesse,hautement_souhaitable) 
+
+- Caractérisation[être] (embryon,porteur) 
+
+- Caractérisation[être] (congés,pris_en_charge) 
+
+- Caractérisation[être] (accouchement,plus_rapide) 
+
+- Caractérisation[être] (radiographies,réservées) 
+
+- Caractérisation[être] (chaîne,indispensables) 
+
+- Caractérisation[se caractériser par un] (SAF,malformations) 
+
+- Accompagnement[accompagner de] (grossesse,modifications_importantes) 
+
+- Accompagnement[accompagner un] (fait_pour,parents) 
+
+- Accompagnement[liées aux] (risque_de_complications_psychologiques,bouleversements_de_tous_les) 
+
+- Synonymie[appelée] (totipotente,cellule-œuf) 
