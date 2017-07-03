@@ -4,9 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +28,7 @@ public class Analyseur {
 	Lemmatisation abu;
 	MotsComposes mc;
 	private Object title;
+	Path  titlePath;
 
 
 	public Analyseur(String ressourcePath) throws IOException {
@@ -575,8 +578,16 @@ public class Analyseur {
 	}
 
 	public void writeResults() throws FileNotFoundException
-	{
-		PrintWriter out = new PrintWriter("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\Results\\"+this.title+"_Results.txt");
+	{	
+			titlePath = null;
+			try {
+				titlePath = Paths.get(Analyseur.class.getResource("/results/"+this.title+"_Results.txt").toURI());
+
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			PrintWriter out = new PrintWriter(titlePath.toString());
 			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 			out.println("Relations extraites :");
 			for (Relation relation : this.getRelations_trouvees()) {
