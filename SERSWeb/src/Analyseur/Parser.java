@@ -102,7 +102,7 @@ public class Parser extends TextClass {
 		while (matcher.find()) {
 			String group = matcher.group();
 			String group1 = matcher.group(1);
-			System.out.println("Ma citation : "+group1);
+			//System.out.println("Ma citation : "+group1);
 			str = str.replace(group, group1);
 		}
 
@@ -220,7 +220,7 @@ public class Parser extends TextClass {
 		str = str.replace(" ", " ");
 		str = str.replace(" ", " ");
 		str = str.trim();
-		System.out.println("article "+str);
+		//System.out.println("article "+str);
 		return str;
 
 	}
@@ -375,7 +375,7 @@ public class Parser extends TextClass {
 		str = str.replace("(,)+", ",");
 		str = str.replace(" ", " ");
 		str = str.trim();
-		System.out.println("article "+str);
+		//System.out.println("article "+str);
 
 		return str;
 
@@ -408,7 +408,7 @@ public class Parser extends TextClass {
 		 * !wordList.contains(s)) co++; }
 		 */
 
-		System.out.println(str);
+		//System.out.println(str);
 		// System.out.println(c.linksWiki.size());
 
 		/*

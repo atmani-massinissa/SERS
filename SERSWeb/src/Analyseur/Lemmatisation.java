@@ -406,8 +406,8 @@ public class Lemmatisation extends TextClass {
 			return false;
 		else {
 			if (mot.trim().toLowerCase().equals("système_sérotoninergique")) {
-				System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
-				System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
+				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
+				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
 			}	
 			if (this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos)){
 					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
