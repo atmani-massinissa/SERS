@@ -214,6 +214,8 @@ public class Parser extends TextClass {
 		str = str.replace("L'", "L' ");
 		str = str.replace("s'", "s' ");
 		str = str.replace("S'", "S' ");
+		str = str.replace("d'", "d' ");
+		str = str.replace("D'", "D' ");
 		str = str.replace(",", " ,");
 		str = str.replace("’", "'");
 		str = str.replace("(,)+", ",");
