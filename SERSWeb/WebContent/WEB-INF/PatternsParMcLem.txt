@@ -316,7 +316,7 @@ $x provoquer par $y
 $x provoquer par un $y 
 
 Possession : 
-$x a un $y 
+$x a un $y -*-> $x:[Personne] 
 $x posséder un $y 
 
 Caractérisation :

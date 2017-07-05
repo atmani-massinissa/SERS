@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Syst√®me de requ√™tes sur le r√©seau lexical Rezo avec cache g√©rant les fichiers
+ * SystËme de requËtes sur le rËseau lexical Rezo avec cache g√©rant les fichiers
  * ainsi que deux index : les fichiers contenus dans le cache ainsi que les mots
  * rencontr√©s mais dont l'importance ne justifie pas encore l'entr√©e dans le
  * cache.
@@ -287,6 +287,7 @@ public class RequeterRezo {
             while ((ligne = lecteur.readLine()) != null && !(ligne.startsWith("<def>"))) {
                 if (ligne.contains("poids=")) {
                     pdivisions = ligne.split("\\\"");
+                    System.out.println(ligne);
                     mot.setPoids_general(Double.parseDouble(pdivisions[1]));
                 } else if (ligne.startsWith("<mot-formate>:")) {
                     mot.setMotFormate(ligne.substring(13, ligne.length() - 14));
@@ -780,4 +781,27 @@ public class RequeterRezo {
             return this.terme;
         }
     }
+    public boolean containsClasse(String relation, String mot, String classe) {
+    	try {
+			for (Terme rel : requete(mot).getRelations_sortantes().get(relation)) {
+				if (rel.getTerme().startsWith(classe)) {
+					return true;
+				}
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Une erreur s'est produite lors de l'accËs ‡ jeuxdemots");
+			return true;
+		}catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return false;
+		
+	}
 }

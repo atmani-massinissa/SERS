@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -15,6 +15,8 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.jsp.JspWriter;
+
+import RequeterRezo.RequeterRezo;
 
 public class Analyseur {
 	String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
@@ -28,7 +30,7 @@ public class Analyseur {
 	Lemmatisation abu;
 	MotsComposes mc;
 	private Object title;
-	Path  titlePath;
+	Path titlePath;
 
 
 	public Analyseur(String ressourcePath) throws IOException {
@@ -89,10 +91,10 @@ public class Analyseur {
 						if (unique(type, matcher.group(1), patron, matcher.group(i), matcher.group())) {
 							// Test d'ambiguitï¿½ et dï¿½sambiguation (par
 							// contraintes sï¿½mantiques)
-							if (!isAmbigu(patron) || type
+							if (!isAmbigu(type,patron) || type
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
-								if (!underConstraint(type, patron)
-										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
+								if (!underGrammaticalConstraint(type, patron)
+										|| grammaticalConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
 									if (evaluate(R)) {
 										Relations_trouvees.add(R);
@@ -148,10 +150,10 @@ public class Analyseur {
 						if (unique(type, matcher.group(1), patron, matcher.group(i), matcher.group())) {
 							// Test d'ambiguitï¿½ et dï¿½sambiguation (par
 							// contraintes sï¿½mantiques)
-							if (!isAmbigu(patron) || type
+							if (!isAmbigu(type,patron) || type
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
-								if (!underConstraint(type, patron)
-										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
+								if (!underGrammaticalConstraint(type, patron)
+										|| grammaticalConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
 									if (evaluate(R)) {
 										Relations_trouvees.add(R);
@@ -207,21 +209,28 @@ public class Analyseur {
 					for (int i = 2; i <= Relation.patronNbrTerms.get(patron); i++) {
 						// Test si il n'y a pas confusion entre patrons
 						if (unique(type, matcher.group(1), patron, matcher.group(i), matcher.group())) {
-							// Test d'ambiguitï¿½ et dï¿½sambiguation (par
-							// contraintes sï¿½mantiques)
-							if (!isAmbigu(patron) || type
-									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
-								if (!underConstraint(type, patron)
-										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
+							// Test d'ambiguitïé et désambiguation (par
+							// contraintes sémantiques)
+//							if (!isAmbigu(type,patron) || type
+//									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
+								if (!underGrammaticalConstraint(type, patron)
+										|| grammaticalConstraint(type, matcher.group(1), patron, matcher.group(i))) {
+									if (type.equals("Possession") && patron.equals("a un")) {
+										System.out.println("ENTREE BOUCLE "+semanticConstraint(type, matcher.group(1), patron, matcher.group(i)));
+									}
+									if (!underSemanticConstraint(type, patron)
+											|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
 									if (true) {
 										Relations_trouvees.add(R);
 									}
 //									Relations_trouvees.add(
 //											new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron));
+									}
+									
 								}
 
-							}
+//							}
 						}
 					}
 				}
@@ -268,10 +277,10 @@ public class Analyseur {
 						if (unique(type, matcher.group(1), patron, matcher.group(i), matcher.group())) {
 							// Test d'ambiguitï¿½ et dï¿½sambiguation (par
 							// contraintes sï¿½mantiques)
-							if (!isAmbigu(patron) || type
+							if (!isAmbigu(type,patron) || type
 									.equals(this.desambiguation(type, patron, matcher.group(1), matcher.group(i)))) {
-								if (!underConstraint(type, patron)
-										|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
+								if (!underGrammaticalConstraint(type, patron)
+										|| grammaticalConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
 									if (evaluate(R)) {
 										Relations_trouvees.add(R);
@@ -291,26 +300,140 @@ public class Analyseur {
 		System.out.println(stopTime - startTime);
 	}
 
-	private boolean underConstraint(String type, String patron) {
-		// Méthode vérifiant si le patron définit une contrainte sémantique
+	private boolean underGrammaticalConstraint(String type, String patron) {
+		// Méthode vérifiant si le patron définit une contrainte grammaticale
 
-		if (Relation.patronConstraint.containsKey(type + " : " + patron)) {
+		if (Relation.patronGrammaticalConstraint.containsKey(type + " : " + patron)) {
 			return true;
 		} else
 			return false;
 
 	}
+	private boolean underSemanticConstraint(String type, String patron) {
+		// Méthode vérifiant si le patron définit une contrainte grammaticale
 
-	private boolean semanticConstraint(String type, String term1, String patron, String term2) throws IOException {
+		if (Relation.patronSemanticConstraint.containsKey(type + " : " + patron)) {
+			{
+				System.out.println("******* "+type + " : " + patron);
+				return true;
+			}
+		} else
+			return false;
+
+	}
+
+	private boolean semanticConstraint(String type, String term1, String patron, String term2) throws IOException, InterruptedException {
 		/*
 		 * Méthode vérifiant la satisfiabilité des contraintes sémantiques.
 		 */
 
 		boolean satisfaction = true;
+		RequeterRezo jeuxDeMots = new RequeterRezo();
 		String strExpReg = "\\$([xy]):\\[(.+)\\]";
 		Pattern ExpReg = Pattern.compile(strExpReg);
-		if (Relation.patronConstraint.get(type + " : " + patron).contains(",")) {
-			for (String constraint : Relation.patronConstraint.get(type + " : " + patron).split(",")) {
+		if (Relation.patronSemanticConstraint.get(type + " : " + patron).contains(",")) {
+			for (String constraint : Relation.patronGrammaticalConstraint.get(type + " : " + patron).split(",")) {
+				if (constraint.contains("$")) {
+					Matcher matcher = ExpReg.matcher(constraint);
+					if (matcher.find()) {
+						if (matcher.group(1).equals("x")) {
+							if (jeuxDeMots.requete(term1.replace("_", " ")) != null  ) {
+								System.out.println(term1);
+								System.out.println(matcher.group(2));
+								System.out.println(!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2)));
+								if (!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2))) {
+									return false;
+								}
+							}
+							else{
+								if (term1.contains("_")){
+									if (!abu.isPosComp(term1,"Source")) {
+										if (!abu.isPosComp(term1,matcher.group(2))) {
+											return false;
+										}
+									}
+								}
+								else {
+									return false;
+								}
+							}
+						} else if (matcher.group(1).equals("y")) {
+							if (jeuxDeMots.requete(term2) != null  ) {
+								if (!jeuxDeMots.containsClasse("r_isa",term2,matcher.group(2))) {									
+									return false;
+								}
+							}
+							else{
+								if (term2.contains("_")){
+									if (!abu.isPosComp(term1,"Source")) {
+										if (!abu.isPosComp(term2,matcher.group(2))) {
+											return false;
+										}
+									}
+								}
+								else {
+									return false;
+								}
+							}
+							}
+
+					}
+					/*
+					 * else { System.out.println(
+					 * "!!!!!! EXPRESSION REGULIERE N'A PAS FONCTIONNE !!!!!! AVEC VIRGULE"
+					 * ); }
+					 */
+				}
+			}
+		} else {
+//			System.out.println(type + " : " + patron);
+//			System.out.println(Relation.patronGrammaticalConstraint);
+			if (Relation.patronSemanticConstraint.get(type + " : " + patron).contains("$")) {
+				Matcher matcher = ExpReg.matcher(Relation.patronSemanticConstraint.get(type + " : " + patron));
+				if (matcher.find()) {
+					if (matcher.group(1).equals("x")) {
+						if (jeuxDeMots.requete(term1.replace("_", " ")) == null)
+							return false;
+						if (jeuxDeMots.requete(term1.replace("_", " ")) != null  ) {
+							System.out.println(term1.replace("_", " "));
+							System.out.println(matcher.group(2));
+							System.out.println(jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2).toLowerCase()));
+							if (!jeuxDeMots.containsClasse("r_isa",term1,matcher.group(2).toLowerCase())) {
+								return false;
+							}
+						}
+					} else if (matcher.group(1).equals("y")) {
+						if (!term2.contains("_") && jeuxDeMots.requete(term2) == null)
+							return false;
+						if (jeuxDeMots.requete(term2) != null  ) {
+							if (!jeuxDeMots.containsClasse("r_isa",term2,matcher.group(2))) {
+								return false;
+							}
+						}
+					}
+
+				}
+				/*
+				 * else { System.out.println(
+				 * "!!!!!! EXPRESSION REGULIERE N'A RIEN TROUVE !!!!!!"); }
+				 */
+			}
+		}
+		return satisfaction;
+
+	}
+
+
+	private boolean grammaticalConstraint(String type, String term1, String patron, String term2) throws IOException {
+		/*
+		 * Méthode vérifiant la satisfiabilité des contraintes grammaticales.
+		 */
+
+		boolean satisfaction = true;
+		String strExpReg = "\\$([xy]):\\[(.+)\\]";
+		Pattern ExpReg = Pattern.compile(strExpReg);
+		if (Relation.patronGrammaticalConstraint.get(type + " : " + patron).contains(",")) {
+			for (String constraint : Relation.patronGrammaticalConstraint.get(type + " : " + patron).split(",")) {
 				if (constraint.contains("$")) {
 					Matcher matcher = ExpReg.matcher(constraint);
 					if (matcher.find()) {
@@ -361,8 +484,8 @@ public class Analyseur {
 				}
 			}
 		} else {
-			if (Relation.patronConstraint.get(type + " : " + patron).contains("$")) {
-				Matcher matcher = ExpReg.matcher(Relation.patronConstraint.get(type + " : " + patron));
+			if (Relation.patronGrammaticalConstraint.get(type + " : " + patron).contains("$")) {
+				Matcher matcher = ExpReg.matcher(Relation.patronGrammaticalConstraint.get(type + " : " + patron));
 				if (matcher.find()) {
 					if (matcher.group(1).equals("x")) {
 						if (!term1.contains("_") && abu.getPos(term1) == null)
@@ -453,16 +576,20 @@ public class Analyseur {
 
 	}
 
-	private boolean isAmbigu(String patron) {
+	private boolean isAmbigu(String type, String patron) {
 		/*
-		 * Liste de patrons qui crï¿½ent une ambiguitï¿½ / prï¿½tent ï¿½
+		 * Liste de patrons qui créent une ambiguité / prêtent à
 		 * confusion.
 		 */
-		if (Arrays.asList(new String[] { "a des" }).contains(patron)) {
-			return true;
-		} else {
-			return false;
+		for (String Type : Relation.typePatrons.keySet()) {
+			if (Relation.typePatrons.get(Type).contains(patron)) {
+				if ((!Type.equals(type)) && (underSemanticConstraint(Type, patron) || underSemanticConstraint(type, patron))) {
+					return true;
+				}
+			}
 		}
+		
+		return false;
 	}
 
 	public void pretraitementParMc() throws Exception {
@@ -578,24 +705,25 @@ public class Analyseur {
 	}
 
 	public void writeResults() throws FileNotFoundException
-	{	
-			titlePath = null;
-			try {
-				titlePath = Paths.get(Analyseur.class.getResource("/results/"+this.title+"_Results.txt").toURI());
+	{
+		titlePath = null;
+		try {
+			titlePath = Paths.get(Analyseur.class.getResource("/results/").toURI());
 
-			} catch (URISyntaxException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			PrintWriter out = new PrintWriter(titlePath.toString());
-			out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
-			out.println("Relations extraites :");
-			for (Relation relation : this.getRelations_trouvees()) {
-				out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte 	
-			}
-			out.flush();
-			out.close();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		PrintWriter out = new PrintWriter(titlePath.toString()+this.title+"Results.txt");
+		out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
+		out.println("Relations extraites :");
+		for (Relation relation : this.getRelations_trouvees()) {
+			out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte 	
+		}
+		out.flush();
+		out.close();
 	}
+
 	public boolean evaluate(Relation R) {
 		if (R.getTerm1().contains("_") && R.getTerm2().contains("_")) {
 			//System.out.println(R.getTerm1()+" ---- "+R.getTerm2());

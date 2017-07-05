@@ -48,6 +48,7 @@ public class Principale {
 		String tmc = "none";
 		String tmpComp;
 		String type = null;
+		String ConstraintNature = "";
 		String patron;
 		int nbrTerms = 0;
 		String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
@@ -59,9 +60,15 @@ public class Principale {
 		Matcher matcherNbrTerms;
 		while ((tmpComp = buffer.readLine()) != null) {
 			if (tmpComp.contains("-->")) {
+				ConstraintNature = "Grammatical";
 				tmp = tmpComp.split("-->")[0].trim();
 				tmc = tmpComp.split("-->")[1].trim();
-			} else {
+			} else if (tmpComp.contains("-*->")) {
+				ConstraintNature = "Semantic";
+				System.out.println("La ligne qui pose problème : "+tmpComp.split("-*->").toString());
+				tmp = tmpComp.split("-*->")[0].trim();
+				tmc = tmpComp.split("-*->")[1].trim();
+			}else {
 				tmp = tmpComp;
 				tmc = "none";
 			}
@@ -93,7 +100,14 @@ public class Principale {
 					Relation.typePatrons.get(type).add(patron);
 					Relation.patronNbrTerms.put(patron, new Integer(nbrTerms));
 					if (!tmc.equals("none")) {
-						Relation.patronConstraint.put(type + " : " + patron, tmc);
+						if (ConstraintNature.equals("Grammatical")) {
+							Relation.patronGrammaticalConstraint.put(type + " : " + patron, tmc);
+						}
+						else if (ConstraintNature.equals("Semantic")) {
+							Relation.patronSemanticConstraint.put(type + " : " + patron, tmc);
+						} 
+							
+						}
 					}
 
 				} else {
@@ -109,9 +123,9 @@ public class Principale {
 		// System.out.println("Patrons définis:
 		// "+Relation.typePatrons.values());
 		// System.out.println("Patrons avec contraintes:
-		// "+Relation.patronConstraint);
+		// "+Relation.patronGrammaticalConstraint);
 
-	}
+	
 
 	public static void createPatternVersions(String filePath) throws Exception {
 		BufferedReader buffer = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
