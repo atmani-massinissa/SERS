@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +20,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  * Syst�me de requ�tes sur le r�seau lexical Rezo avec cache gérant les fichiers
@@ -33,7 +36,7 @@ public class RequeterRezo {
      * Mots en attentes.
      */
     private Index index;
-
+   
     /**
      * Mots stockés dans le cache.
      */
@@ -42,28 +45,28 @@ public class RequeterRezo {
     /**
      * Temps par défaut à partir duquel un fichier est considéré comme obsolète.
      */
-    private final static String PEREMPTION_DEFAUT = "7j";
+    private static final String PEREMPTION_DEFAUT = "7j";
 
     /**
      * Chemin par défaut du dossier contenant le cache.
      */
-    private final static String CHEMIN_CACHE = "cache";
+    private static String CHEMIN_CACHE ;
 
     /**
      * Nom par défaut du fichier contenant l'index des mots en attentes.
      */
-    private final static String FICHIER_INDEX = CHEMIN_CACHE + File.separator + "indexAttente";
+    private static String FICHIER_INDEX ;
 
     /**
      * Nom par défaut du fichier contenant l'index des mots contenus dans le
      * cache.
      */
-    private final static String FICHIER_CACHE = CHEMIN_CACHE + File.separator + "indexCache";
+    private static String FICHIER_CACHE ;
 
     /**
      * Taille maximale du cache par défaut (en nombre d'entrées).
      */
-    private final static int TAILLE_MAX_DEFAUT = 1000;
+    private static int TAILLE_MAX_DEFAUT = 1000;
 
     /**
      * Taille maximale du cache (en nombre d'entrées).
@@ -79,7 +82,32 @@ public class RequeterRezo {
      * Constructeur par défaut (utilise les valeurs par défaut).
      */
     public RequeterRezo() {
-        this(PEREMPTION_DEFAUT, TAILLE_MAX_DEFAUT);
+    	this(PEREMPTION_DEFAUT, TAILLE_MAX_DEFAUT);
+ 
+        /**
+         * Chemin par défaut du dossier contenant le cache.
+         */
+        try {
+			CHEMIN_CACHE = Paths.get(RequeterRezo.class.getResource("/").toURI())+File.separator+"cache";
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        /**
+         * Nom par défaut du fichier contenant l'index des mots en attentes.
+         */
+        FICHIER_INDEX = CHEMIN_CACHE + File.separator + "indexAttente";
+
+        /**
+         * Nom par défaut du fichier contenant l'index des mots contenus dans le
+         * cache.
+         */
+        FICHIER_CACHE = CHEMIN_CACHE + File.separator + "indexCache";
+
+
+       
+        
     }
 
     /**
@@ -178,6 +206,7 @@ public class RequeterRezo {
                 break;
             }
             default: {
+            	System.out.println("avisCache : "+avisCache);
                 return Mot.lire(avisCache);
             }
         }
@@ -215,9 +244,10 @@ public class RequeterRezo {
 
     /**
      * Vide le cache (supprime le dossier ainsi que tous ses sous-éléments).
+     * @throws URISyntaxException 
      */
-    public void viderCache() {
-        File racine = new File(CHEMIN_CACHE);
+    public void viderCache() throws URISyntaxException {
+        File racine = new File(Paths.get(RequeterRezo.class.getResource("/").toURI())+File.separator+CHEMIN_CACHE);
         supprimerRepertoire(racine);
         initialisation();
     }
@@ -408,9 +438,7 @@ public class RequeterRezo {
             cache.get(mot).incrementeOccurrences();
             //Et que la version du mot dans le cache est à jour
             if (!cache.estPerime(mot)) {
-                //On retourne la valeur du cache                
-                return construireChemin(mot).getAbsolutePath();
-                //Mais si la valeur du mot dans le cache n'est pas à jour 
+                return construireChemin(mot).getPath();
             } else if (demande(mot)) {
                 //Si le mot est intéressant (il y a de la place 
                 //ou il est récurrent), on le demande pour le stocker en cache
@@ -480,7 +508,28 @@ public class RequeterRezo {
      * créé.
      */
     private void initialisation() {
-        File dossier = new File(CHEMIN_CACHE);
+    	 /**
+         * Chemin par défaut du dossier contenant le cache.
+         */
+        try {
+			CHEMIN_CACHE = Paths.get(RequeterRezo.class.getResource("/").toURI())+File.separator+"cache";
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        /**
+         * Nom par défaut du fichier contenant l'index des mots en attentes.
+         */
+        FICHIER_INDEX = CHEMIN_CACHE + File.separator + "indexAttente";
+
+        /**
+         * Nom par défaut du fichier contenant l'index des mots contenus dans le
+         * cache.
+         */
+        FICHIER_CACHE = CHEMIN_CACHE + File.separator + "indexCache";
+
+    	File dossier = new File(CHEMIN_CACHE);
         if (dossier.exists() && dossier.isDirectory()) {
             try {
                 this.index = Index.chargerIndex(FICHIER_INDEX, this.taille_max);

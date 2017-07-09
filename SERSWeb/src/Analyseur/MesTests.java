@@ -20,7 +20,7 @@ public class MesTests {
 		RequeterRezo test = new RequeterRezo();
 		//System.out.println(test.requete("industrie pharmaceutique").getRelations_sortantes().get("r_isa"));
 		//System.out.println(test.requete("quelqu'un").getRelations_sortantes().get("r_isa").contains(new String().matches(".+")))	;
-		System.out.println(test.requete("homme").getRelations_sortantes().get("r_isa"));
+		System.out.println(test.requete("pharmaceutique").getRelations_sortantes().get("r_isa"));
 		//[r_patient-1, r_carac-1, r_aki, r_holo, r_meaning, r_lieu-1, r_domain_subst, r_is_smaller_than, r_syn, r_hypo, r_raff_sem, r_predecesseur-time, r_antimagn, r_link, r_descend_de, r_agent-1, r_associated, r_domain, r_has_part, r_isa, r_quantificateur, r_magn, r_color, r_family, r_lemma, r_isa-incompatible, r_data, r_sentiment, r_infopot, r_wiki, r_carac, r_causatif, r_make, r_lieu, r_flpot, r_instance, r_inhib, r_pos, r_locution, r_is_bigger_than, r_domain-1, r_conseq]
 //		for (Terme rel : test.requete("quelqu'un").getRelations_sortantes().get("r_isa")) {
 //			if (rel.getTerme().startsWith("personne")) {
@@ -32,6 +32,7 @@ public class MesTests {
 
 	public static void essaiSupp() throws IOException{
 		ArrayList<String> motsSupprimes = new ArrayList<String>();
+		@SuppressWarnings("resource")
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\user\\workspace\\SERSWeb\\WebContent\\WEB-INF\\"+"jdm-mc.txt"),"utf-8"));
 		String line;
 		while ((line = reader.readLine()) != null) {
@@ -43,7 +44,7 @@ public class MesTests {
 						categorie=categorie + tab[i]+" / ";
 					}
 				}
-				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Adj")) {
+				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Ver") /*&& categorie.contains("Pro") && categorie.contains("ver")*/) {
 					motsSupprimes.add(tab[0]+" --> "+categorie);
 				}
 				

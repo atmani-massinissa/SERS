@@ -59,6 +59,7 @@ public class Principale {
 		Matcher matcherType;
 		Matcher matcherNbrTerms;
 		while ((tmpComp = buffer.readLine()) != null) {
+			Relation.PatternsTexte = Relation.PatternsTexte+tmpComp+"\n";
 			if (tmpComp.contains("-->")) {
 				ConstraintNature = "Grammatical";
 				tmp = tmpComp.split("-->")[0].trim();

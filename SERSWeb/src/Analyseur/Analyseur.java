@@ -314,7 +314,7 @@ public class Analyseur {
 
 		if (Relation.patronSemanticConstraint.containsKey(type + " : " + patron)) {
 			{
-				System.out.println("******* "+type + " : " + patron);
+				//System.out.println("******* "+type + " : " + patron);
 				return true;
 			}
 		} else
@@ -338,9 +338,9 @@ public class Analyseur {
 					if (matcher.find()) {
 						if (matcher.group(1).equals("x")) {
 							if (jeuxDeMots.requete(term1.replace("_", " ")) != null  ) {
-								System.out.println(term1);
-								System.out.println(matcher.group(2));
-								System.out.println(!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2)));
+//								System.out.println(term1);
+//								System.out.println(matcher.group(2));
+//								System.out.println(!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2)));
 								if (!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2))) {
 									return false;
 								}
@@ -392,12 +392,13 @@ public class Analyseur {
 				Matcher matcher = ExpReg.matcher(Relation.patronSemanticConstraint.get(type + " : " + patron));
 				if (matcher.find()) {
 					if (matcher.group(1).equals("x")) {
+						//System.out.println("MOT "+term1.replace("_", " "));
 						if (jeuxDeMots.requete(term1.replace("_", " ")) == null)
 							return false;
-						if (jeuxDeMots.requete(term1.replace("_", " ")) != null  ) {
-							System.out.println(term1.replace("_", " "));
-							System.out.println(matcher.group(2));
-							System.out.println(jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2).toLowerCase()));
+						else {
+//							System.out.println(term1.replace("_", " "));
+//							System.out.println(matcher.group(2));
+//							System.out.println(jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2).toLowerCase()));
 							if (!jeuxDeMots.containsClasse("r_isa",term1,matcher.group(2).toLowerCase())) {
 								return false;
 							}
@@ -708,13 +709,13 @@ public class Analyseur {
 	{
 		titlePath = null;
 		try {
-			titlePath = Paths.get(Analyseur.class.getResource("/results/").toURI());
+			titlePath = Paths.get(Analyseur.class.getResource("/").toURI());
 
 		} catch (URISyntaxException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		PrintWriter out = new PrintWriter(titlePath.toString()+this.title+"Results.txt");
+		PrintWriter out = new PrintWriter(titlePath.toString()+"/results/"+this.title+"_Results.txt");
 		out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {

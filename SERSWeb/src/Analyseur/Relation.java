@@ -7,7 +7,8 @@ public class Relation {
 	public static HashMap<String, ArrayList<String>> typePatrons = new HashMap<String, ArrayList<String>>();
 	public static HashMap<String, Integer> patronNbrTerms = new HashMap<String, Integer>(); 
 	public static HashMap<String, String> patronGrammaticalConstraint = new HashMap<String, String>();
-	public static HashMap<String, String> patronSemanticConstraint = new HashMap<String, String>(); 
+	public static HashMap<String, String> patronSemanticConstraint = new HashMap<String, String>();
+	public static String PatternsTexte; 
 	private String type;//Partitative,mÃ©ronymie...
 	private String term1;//Premier terme liÃ© par la relation.
 	private String term2;//DeuxiÃ¨me terme liÃ© par la relation.

@@ -367,11 +367,11 @@ public class Parser extends TextClass {
 		str = str.replaceAll("(\n){3,}", "\n\n");
 		str = str.replace(".", " .");
 		str = str.replace(",", " ,");
-		str = str.replace("l'", "l' ");
-		str = str.replace("L'", "L' ");
-		str = str.replace("s'", "s' ");
-		str = str.replace("S'", "S' ");
-		str = str.replace("’", "'");
+//		str = str.replace("l'", "l' ");
+//		str = str.replace("L'", "L' ");
+//		str = str.replace("s'", "s' ");
+//		str = str.replace("S'", "S' ");
+//		str = str.replace("’", "'");
 		str = str.replace("(,)+", ",");
 		str = str.replace(" ", " ");
 		str = str.trim();

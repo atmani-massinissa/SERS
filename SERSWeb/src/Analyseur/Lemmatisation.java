@@ -40,6 +40,7 @@ public class Lemmatisation extends TextClass {
 			e.printStackTrace();
 		}
 		newText = lemmatizeText();
+		
 	}
 
 	public static void createDico(String filePath) throws IOException {

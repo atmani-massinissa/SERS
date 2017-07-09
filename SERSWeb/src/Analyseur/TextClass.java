@@ -6,12 +6,12 @@ public abstract class TextClass {
 	String newText;
 
 	public void apostrFs(){
-		newText = newText.replace("d'", "d' ");
-		newText = newText.replace("l'", "l' ");
-		newText = newText.replace("s'", "s' ");
-		newText = newText.replace("D'", "D' ");
-		newText = newText.replace("L'", "L' ");
-		newText = newText.replace("S'", "S' ");
+		newText = newText.replace(" d'", " d' ");
+		newText = newText.replace(" l'", " l' ");
+		newText = newText.replace(" s'", " s' ");
+		newText = newText.replace(" D'", " D' ");
+		newText = newText.replace(" L'", " L' ");
+		newText = newText.replace(" S'", " S' ");
 	}
 	public String apostrFj(String mot){
 		mot = mot.replace("L' ", "L'");
