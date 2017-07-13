@@ -12,8 +12,8 @@ import RequeterRezo.Terme;
 
 public class MesTests {
 	public static void main(String[] args) throws IOException, InterruptedException {
-		//essaiSupp();
-		essaiCntrntSemantic();
+		essaiSupp();
+		//essaiCntrntSemantic();
 		
 	}
 	public static void essaiCntrntSemantic() throws MalformedURLException, IOException, InterruptedException{
@@ -44,7 +44,7 @@ public class MesTests {
 						categorie=categorie + tab[i]+" / ";
 					}
 				}
-				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Ver") /*&& categorie.contains("Pro") && categorie.contains("ver")*/) {
+				if (!categorie.contains("Nom") && !categorie.contains("GN") && !categorie.contains("Adj") && (categorie.contains("Con") || categorie.contains("Ver") || categorie.contains("Pro") || categorie.contains("Adv") || categorie.contains("Modifier"))) {
 					motsSupprimes.add(tab[0]+" --> "+categorie);
 				}
 				
