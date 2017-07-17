@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.jsp.JspWriter;
@@ -31,6 +32,7 @@ public class Analyseur {
 	MotsComposes mc;
 	private Object title;
 	Path titlePath;
+	HashMap<String,Integer> nbOfTermsUnderConstraintByPattern;
 
 
 	public Analyseur(String ressourcePath) throws IOException {
@@ -176,7 +178,9 @@ public class Analyseur {
 
 	public void analyserParMcLem() throws Exception {
 		
-		System.out.println("************************AnalyserParMcLem*****************************");;
+		System.out.println("************************AnalyserParMcLem*****************************");
+		this.nbOfTermsUnderConstraintByPattern = new HashMap<String,Integer>();
+
 		//long startTime = System.currentTimeMillis();
 		this.pretraitementParMcLem();
 		//long stopTime = System.currentTimeMillis();
@@ -218,9 +222,42 @@ public class Analyseur {
 									if (type.equals("Possession") && patron.equals("a un")) {
 										System.out.println("ENTREE BOUCLE "+semanticConstraint(type, matcher.group(1), patron, matcher.group(i)));
 									}
+								
 									if (!underSemanticConstraint(type, patron)
 											|| semanticConstraint(type, matcher.group(1), patron, matcher.group(i))) {
-									Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron);
+										
+										 Integer term1Exists	=	0;
+										 Integer term2Exists	=	0;
+										 Integer nbOfTermsUnderGrammaticalConstraint	=	0;
+										 Integer underSemanticConstraint	=	0;
+										 
+										if(mc.wordList.contains(matcher.group(1)))
+											term1Exists		=	1;
+										else
+											term1Exists		=	0;
+										if(mc.wordList.contains(matcher.group(i)))
+											term2Exists		=	1;	
+										else
+											term2Exists		=	0;
+										if(this.nbOfTermsUnderConstraintByPattern.containsKey(patron))
+											nbOfTermsUnderGrammaticalConstraint		=	this.nbOfTermsUnderConstraintByPattern.get(patron);
+										else
+											nbOfTermsUnderGrammaticalConstraint		=	0;
+										if(underSemanticConstraint(type, patron))
+											underSemanticConstraint	=	1;
+										else
+											underSemanticConstraint	=	0;
+										
+										Integer nbLemmaTerm1,nbLemmaTerm2;
+										nbLemmaTerm1 = Math.max(this.abu.howManyLemmes(matcher.group(1)),this.abu.howManyLemmesComp(matcher.group(1)));
+										nbLemmaTerm1 = Math.max(nbLemmaTerm1, 1);
+										nbLemmaTerm2 = Math.max(this.abu.howManyLemmes(matcher.group(i)),this.abu.howManyLemmesComp(matcher.group(i)));
+										nbLemmaTerm2 = Math.max(nbLemmaTerm2, 1);
+
+										Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron,nbOfTermsUnderGrammaticalConstraint,underSemanticConstraint,
+																	term1Exists,term2Exists,nbLemmaTerm1,nbLemmaTerm2);
+										
+
 									if (true) {
 										Relations_trouvees.add(R);
 									}
@@ -432,10 +469,12 @@ public class Analyseur {
 
 		boolean satisfaction = true;
 		String strExpReg = "\\$([xy]):\\[(.+)\\]";
+		int count =0;
 		Pattern ExpReg = Pattern.compile(strExpReg);
 		if (Relation.patronGrammaticalConstraint.get(type + " : " + patron).contains(",")) {
 			for (String constraint : Relation.patronGrammaticalConstraint.get(type + " : " + patron).split(",")) {
 				if (constraint.contains("$")) {
+					count++;
 					Matcher matcher = ExpReg.matcher(constraint);
 					if (matcher.find()) {
 						if (matcher.group(1).equals("x")) {
@@ -486,6 +525,7 @@ public class Analyseur {
 			}
 		} else {
 			if (Relation.patronGrammaticalConstraint.get(type + " : " + patron).contains("$")) {
+				count=1;
 				Matcher matcher = ExpReg.matcher(Relation.patronGrammaticalConstraint.get(type + " : " + patron));
 				if (matcher.find()) {
 					if (matcher.group(1).equals("x")) {
@@ -513,6 +553,7 @@ public class Analyseur {
 				 */
 			}
 		}
+		this.nbOfTermsUnderConstraintByPattern.put(patron, count);
 		return satisfaction;
 
 	}
@@ -538,7 +579,7 @@ public class Analyseur {
 								"qu'un", "qu'une", "que", "ce", "au", "aux", "sur", "le", "en", "qu'il", "qu'elle",
 								"ceci", "plus", "sous", "très", "lui", "de", "un", "être", "est", "qui", "elle",
 								"celle-ci", "il", "ils", "elles", "celui-ci", "la", "qu'il", "y", "et", "autre", ",",
-								"s'", "l'", "ce_qui", "au_moins", "être" })
+								"s'", "l'", "ce_qui", "au_moins", "être","n'a" })
 						.contains(term1.toLowerCase())
 						|| Arrays
 								.asList(new String[] { "ne", "celui", "ceux", "pour", "se", "ou", "qu'elles", "à",
@@ -719,7 +760,7 @@ public class Analyseur {
 		out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte 	
+			out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ("+relation.getScore()+")");//// Contexte 	
 		}
 		out.flush();
 		out.close();

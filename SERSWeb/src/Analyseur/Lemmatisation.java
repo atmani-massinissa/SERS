@@ -53,6 +53,21 @@ public class Lemmatisation extends TextClass {
 		}
 		newText = lemmatizeText();
 	}
+	
+	public Lemmatisation(TextClass tc, String ressourcePath,TextClass tc2) throws Exception {
+		this.ressourcePath=ressourcePath;
+		oldText = new String(tc.newText);
+		mc = null;
+		if (tc instanceof MotsComposes) {
+			this.mc = (MotsComposes) tc;
+		}
+		try {
+			createDico(ressourcePath+"dico.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void createDico(String filePath) throws IOException {
 		map = new HashMap<String, ArrayList<String>>();
@@ -92,7 +107,7 @@ public class Lemmatisation extends TextClass {
 			if (this.mc.wordListMap.keySet().contains(mot)) {
 				String categorie = this.mc.wordListMap.get(mot);
 				if (!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Modifier")) {
-					this.oldText = this.oldText.replace(" "+mot+" ", " ");
+					this.oldText = this.oldText.replace(" "+mot.replace(" ","_")+" ", " ");
 				}
 			}
 		}
@@ -102,18 +117,34 @@ public class Lemmatisation extends TextClass {
 			if (this.mc.wordListMap.keySet().contains(mot)) {
 				String categorie = this.mc.wordListMap.get(mot);
 				if ( !categorie.contains("Adj") &&!categorie.contains("Nom") && !categorie.contains("GN") && categorie.contains("Adv")) {
-					this.oldText = this.oldText.replace(" "+mot+" ", " ");
+					this.oldText = this.oldText.replace(" "+mot.replace(" ","_")+" ", " ");
+				}		
+			}
+		}
+	}
+	public void removeCompCon() {
+		for (String mot : this.mc.motsTrouves) {
+			if(mot.contains("tand"))
+				//System.out.println("//////"+mot);
+			if (this.mc.wordListMap.keySet().contains(mot)) {
+				//System.out.println("\\\\\\"+mot);
+
+				String categorie = this.mc.wordListMap.get(mot);
+				if ( categorie.contains("Con")) {
+					//System.out.println("-------------------\\\\\\"+mot);
+
+					this.oldText = this.oldText.replace(" "+mot.replace(" ","_")+" ", " ");
 				}		
 			}
 		}
 	}
 	
 	public void remBothAdv() throws Exception{
+		removeCompAdv();
 		String str = new String(oldText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		String res = new String();
-		removeCompAdv();
 		for (int i=0; i<list.size();i++) {
 				if(isAdv(list.get(i))){
 					this.oldText = this.oldText.replace(" "+list.get(i)+" ", " ");
@@ -122,37 +153,31 @@ public class Lemmatisation extends TextClass {
 	}
 	
 	public void remCon() throws Exception{
+		removeCompCon();
 		String str = new String(oldText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		String res = new String();
 		for (int i=0; i<list.size();i++) {
-				if(!iscON(list.get(i)) ){
-					res=res+list.get(i)+" ";
+				if(iscON(list.get(i)) && !list.get(i).equalsIgnoreCase("ou") && !list.get(i).equalsIgnoreCase("et") ){
+					this.oldText = this.oldText.replace(" "+list.get(i)+" ", " ");
 				}
-				else if(list.get(i).equalsIgnoreCase("ou") || list.get(i).equalsIgnoreCase("et") ){
-							res=res+list.get(i)+" ";
-				}
-
 			}
-		oldText = new String(res);
 	}
 	public String lemmatizeText() throws Exception {
-		//Lemmatise texte de l'objet en entier
 		advSupp();
 		remBothAdv();
 		remCon();
-
 		String str = new String(oldText);
-		String[] s ;
-		String res = new String();
 		str = str.replace(" peut ", " ");
 		str = str.replace(" peuvent ", " ");
 		str = str.replace(" d'autres ", " ");
+		str = str.replace(" par ", " ");
+		str = str.replace(" qu'", " ");
+		str = str.replace(" que ", " ");
+		str = str.replace(" au_quotidien ", " ");
 
-		/*advSupp();
-		String str = new String(oldText);
-		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		/*String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
 		list.removeAll(Arrays.asList("", null," "));
 		String res = new String();
@@ -174,8 +199,9 @@ public class Lemmatisation extends TextClass {
 				str=str+list.get(i)+" ";
 			}
 		}*/
+		String res = new String();
 		str = remSuccVerbs (str); // remove successive verbs
-		s = str.split("\\s|[,.?!:;\\(\\)]+");
+		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
 				res=res+lemmatize(s[i])+" ";
 		}
@@ -258,6 +284,16 @@ public class Lemmatisation extends TextClass {
 			for (String str : map.get(mot)) {
 				count++;
 			}
+		return count;
+	}
+	
+	public int howManyLemmesComp(String mot) {
+		int count = 0;
+		mot = mot.replace("_", " ").trim();
+		if (this.mc.wordListMap.keySet().contains(mot)) {
+			String categorie = this.mc.wordListMap.get(mot);
+			count = categorie.length();
+		}
 		return count;
 	}
 
@@ -358,6 +394,16 @@ public class Lemmatisation extends TextClass {
 
 		return mot;
 	}
+	
+	public String remAdv() throws Exception {
+
+		String[] tab = this.oldText.split(" ");
+		for (String str : tab) {
+			if (isAdv(str))
+				this.oldText = this.oldText.replace(" "+str+" ", " ");
+		}
+		return this.oldText;
+	}
 
 	public boolean isVerb(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
@@ -405,12 +451,36 @@ public class Lemmatisation extends TextClass {
 		if (!this.mc.wordListMap.keySet().contains(mot.trim().toLowerCase().replace("_", " ")))
 			return false;
 		else {
-			if (mot.trim().toLowerCase().equals("systÃ¨me_sÃ©rotoninergique")) {
+			if (mot.trim().toLowerCase().equals("système_sérotoninergique")) {
 				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
 				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
 			}	
 			if (this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos)){
 					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
+					return true;
+				}
+			}
+		
+		return false;
+	}
+	
+	public boolean isAdvComp(String mot) {
+		if (!this.mc.wordListMap.keySet().contains(mot))
+			return false;
+		else {
+				if (this.mc.wordListMap.get(mot).contains("Adv") ){
+					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
+					return true;
+				}
+			}
+		
+		return false;
+	}
+	public boolean isVerComp(String mot) {
+		if (!this.mc.wordListMap.keySet().contains(mot))
+			return false;
+		else {
+				if (this.mc.wordListMap.get(mot).contains("Ver") ){
 					return true;
 				}
 			}
@@ -430,6 +500,10 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	public boolean isNom(String mot) {
+		if(mot.startsWith("l'")){
+			System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
@@ -445,6 +519,10 @@ public class Lemmatisation extends TextClass {
 	}
 	
 	public int isNomBis(String mot) {
+		if(mot.startsWith("l'")){
+			System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return -1;
 		else {
@@ -529,17 +607,31 @@ public class Lemmatisation extends TextClass {
 		int i=0;
 		while(i<list.size()){
 			int k=0;
-			if(howManyLemmes(list.get(i))==1){
-					while(isVerb(list.get(i))){
+			String v = new String(list.get(i));
+			v = v.replace("_", " ").trim();
+			//System.out.println("v ="+v);
+			if(howManyLemmes(v)==1 || v.equals(new String("a")) || isVerComp(v)){
+				//System.out.println("v =+"+v);
+
+					while(isVerb(v) || isVerComp(v) ||  v.equals(new String("a"))){
+					//	System.out.println("v =++"+v);
+
 						k++;
 						i++;
+						v = new String(list.get(i));
+						v = v.replace("_", " ");
 					}
 			}
-			else {
-				i++;
+			else if(i+1<list.size()) {
+				System.out.println("v =++*"+v);
+			//	i++;
+			//	v = new String(list.get(i));
+			//	v = v.replace("_", " ");
 			}
 			if(k>1){
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
+				//	System.out.println("remove =++*"+list.get(j));
+
 					list.remove(j);
 					}
 				}

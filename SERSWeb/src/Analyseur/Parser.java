@@ -203,7 +203,7 @@ public class Parser extends TextClass {
 		}
 		str = matcher.replaceAll("");
 
-		str = str.replaceAll("\\(|\\)", "");
+		str = str.replaceAll("\\((.*?)\\)", "");
 		// str=str.replaceAll("\\s\\((.)+?\\)","");
 
 		str = str.replaceAll("(\\h){2,}", " ");
@@ -371,9 +371,10 @@ public class Parser extends TextClass {
 //		str = str.replace("L'", "L' ");
 //		str = str.replace("s'", "s' ");
 //		str = str.replace("S'", "S' ");
-//		str = str.replace("’", "'");
+		str = str.replace("’", "'");
 		str = str.replace("(,)+", ",");
 		str = str.replace(" ", " ");
+		str = str.replaceAll(" - ", " ");
 		str = str.trim();
 		System.out.println("article "+str);
 
