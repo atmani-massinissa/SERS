@@ -497,7 +497,7 @@ public class MotsComposes extends TextClass {
 				"celle","celui-ci","celle-ci","terme","travers","sein","celui","celle","leur","moins","a","le_fait","suite",
 				"pas","être","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier",
 				"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa","au","chez_","bien_que_","est_",
-				"la_","les_","le_","un_","une_","en_","pour_","si_","plus_","avoir_","fois_","celui_","type","même",
+				"la_","les_","le_","un_","une_","en_","pour_","si_","plus_","avoir_","fois_","celui_","type","même","cas",
 				"celle_","celui-ci_","celle-ci_","terme_","travers_","sein_","celui_","celle_","leur_","moins_","lors",
 				"pas_","être_","but_","quelque_","quelques_","par_","dans_","soit_","autres_","sur_","a_","autres_","particulier_",
 				"d'_","l'_","du_","en_","de_","dans_","le_","la_","une_","un_","leurs_","cette_","ce_","sa_","au_","à","lors"});
@@ -712,6 +712,7 @@ public class MotsComposes extends TextClass {
 								}
 						//System.out.println("mot5 ="+mot);
 						//apostrFj(mot);
+						mot = mot.replace("_", " ");
 						noms_composes.add(mot.trim());
 					}
 				}
