@@ -90,7 +90,7 @@ public class Lemmatisation extends TextClass {
 				}
 
 			} else {
-				//System.out.println(line);
+				////System.out.println(line);
 			}
 		}
 	}
@@ -125,13 +125,13 @@ public class Lemmatisation extends TextClass {
 	public void removeCompCon() {
 		for (String mot : this.mc.motsTrouves) {
 			if(mot.contains("tand"))
-				//System.out.println("//////"+mot);
+				////System.out.println("//////"+mot);
 			if (this.mc.wordListMap.keySet().contains(mot)) {
-				//System.out.println("\\\\\\"+mot);
+				////System.out.println("\\\\\\"+mot);
 
 				String categorie = this.mc.wordListMap.get(mot);
 				if ( categorie.contains("Con")) {
-					//System.out.println("-------------------\\\\\\"+mot);
+					////System.out.println("-------------------\\\\\\"+mot);
 
 					this.oldText = this.oldText.replace(" "+mot.replace(" ","_")+" ", " ");
 				}		
@@ -306,7 +306,7 @@ public class Lemmatisation extends TextClass {
 	 * String res = mot;ystem.out.println("Le mot n'existe pas"); else { for
 	 * (String key : map.keySet()){ if(key.equals(mot)) for (String str :
 	 * map.get(mot)){ String[] tab = str.split("	"); //return tab[0];
-	 * System.out.println("La source du mot "+mot+" est "+tab[0]); } } } }
+	 * //System.out.println("La source du mot "+mot+" est "+tab[0]); } } } }
 	 */
 
 	// isPluriel isMasculin isFeminin isNom isVerb isAdj isAmbigu (plus d'une
@@ -452,11 +452,11 @@ public class Lemmatisation extends TextClass {
 			return false;
 		else {
 			if (mot.trim().toLowerCase().equals("système_sérotoninergique")) {
-				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
-				//System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
+				////System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")));
+				////System.out.println("BZZZZZZZZZZ "+this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos));
 			}	
 			if (this.mc.wordListMap.get(mot.trim().toLowerCase().replace("_", " ")).contains(pos)){
-					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
+					////System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}
 			}
@@ -469,7 +469,7 @@ public class Lemmatisation extends TextClass {
 			return false;
 		else {
 				if (this.mc.wordListMap.get(mot).contains("Adv") ){
-					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
+					////System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}
 			}
@@ -492,7 +492,7 @@ public class Lemmatisation extends TextClass {
 			return false;
 		else {
 				if (this.mc.wordListMap.get(mot).contains("Nom") || this.mc.wordListMap.get(mot).contains("GN")){
-					//System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
+					////System.out.println("XXXXXXXXXXXXXXX"+this.mc.wordListMap.get(mot));
 					return true;
 				}
 			}
@@ -501,7 +501,7 @@ public class Lemmatisation extends TextClass {
 	}
 	public boolean isNom(String mot) {
 		if(mot.startsWith("l'")){
-			System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
 			mot = mot.substring(2, mot.length());
 		}
 		if (!map.keySet().contains(mot))
@@ -510,7 +510,7 @@ public class Lemmatisation extends TextClass {
 			for (String str : map.get(mot)) {
 				String[] tab = str.split("	");
 				if (tab[1].contains("Nom")){
-					//System.out.println("XXXXXXXXXXXXXXX"+tab[1]);
+					////System.out.println("XXXXXXXXXXXXXXX"+tab[1]);
 					return true;
 				}
 			}
@@ -520,7 +520,7 @@ public class Lemmatisation extends TextClass {
 	
 	public int isNomBis(String mot) {
 		if(mot.startsWith("l'")){
-			System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
 			mot = mot.substring(2, mot.length());
 		}
 		if (!map.keySet().contains(mot))
@@ -550,7 +550,7 @@ public class Lemmatisation extends TextClass {
 	
 	public boolean iscON(String mot) throws Exception{
 		if (!map.keySet().contains(mot)) 
-			return false/*System.out.println("")*/;
+			return false/*//System.out.println("")*/;
 		else {
 			for (String str : map.get(mot)){
 				String[] tab = str.split("	");
@@ -609,12 +609,12 @@ public class Lemmatisation extends TextClass {
 			int k=0;
 			String v = new String(list.get(i));
 			v = v.replace("_", " ").trim();
-			//System.out.println("v ="+v);
+			////System.out.println("v ="+v);
 			if(howManyLemmes(v)==1 || v.equals(new String("a")) || isVerComp(v)){
-				//System.out.println("v =+"+v);
+				////System.out.println("v =+"+v);
 
 					while(isVerb(v) || isVerComp(v) ||  v.equals(new String("a"))){
-					//	System.out.println("v =++"+v);
+					//	//System.out.println("v =++"+v);
 
 						k++;
 						i++;
@@ -623,14 +623,14 @@ public class Lemmatisation extends TextClass {
 					}
 			}
 			else if(i+1<list.size()) {
-				System.out.println("v =++*"+v);
+				//System.out.println("v =++*"+v);
 			//	i++;
 			//	v = new String(list.get(i));
 			//	v = v.replace("_", " ");
 			}
 			if(k>1){
 				for(int j=(i-2); (j>=(i-k)) && (j<list.size());j--){
-				//	System.out.println("remove =++*"+list.get(j));
+				//	//System.out.println("remove =++*"+list.get(j));
 
 					list.remove(j);
 					}
@@ -654,7 +654,7 @@ public class Lemmatisation extends TextClass {
 		fis.close();
 		String str = new String(data, "UTF-8");
 		str = str.replaceAll("'", "' ");
-		System.out.println(lm.lemmatizeTextPostMc(str));
+		//System.out.println(lm.lemmatizeTextPostMc(str));
 
 	}
 

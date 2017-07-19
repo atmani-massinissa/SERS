@@ -31,7 +31,7 @@ public class Principale {
 
 		fetchPatrons("PatternsParMcLem.txt");
 		Analyseur analyseurDeTest = new Analyseur("Dépression (psychiatrie).txt");
-		analyseurDeTest.analyserParMcLem();
+		analyseurDeTest.analyserParMcLem(new Double(""));
 		//analyseurDeTest.displayResults();
 
 		/*

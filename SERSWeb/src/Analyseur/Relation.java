@@ -66,29 +66,29 @@ public class Relation {
 		}
 
 		setValueOfPattern();
-		System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]");
+		//System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]");
 
-		System.out.println("evaluatePattern equals "+this.evaluatePattern());
-		System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
-		System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
-		System.out.println("evaluateHowManyTerm1 equals "+this.getNbLemmaTerm1());
-		System.out.println("evaluateHowManyTerm2 equals "+this.getNbLemmaTerm2());
-		System.out.println("divt1 equals "+ (1/this.getNbLemmaTerm1()));
-		System.out.println("divt2 equals "+ (1/this.getNbLemmaTerm2()));
+		//System.out.println("evaluatePattern equals "+this.evaluatePattern());
+		//System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
+		//System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
+		//System.out.println("evaluateHowManyTerm1 equals "+this.getNbLemmaTerm1());
+		//System.out.println("evaluateHowManyTerm2 equals "+this.getNbLemmaTerm2());
+		//System.out.println("divt1 equals "+ (1/this.getNbLemmaTerm1()));
+		//System.out.println("divt2 equals "+ (1/this.getNbLemmaTerm2()));
 
-		System.out.println("getValueOfPattern equals "+this.getValueOfPattern());
-		System.out.println("getUnderSemanticConstraint equals "+this.getUnderSemanticConstraint());
-		System.out.println("getNbOfTermsUnderGrammaticalConstraint equals "+this.getNbOfTermsUnderGrammaticalConstraint());
+		//System.out.println("getValueOfPattern equals "+this.getValueOfPattern());
+		//System.out.println("getUnderSemanticConstraint equals "+this.getUnderSemanticConstraint());
+		//System.out.println("getNbOfTermsUnderGrammaticalConstraint equals "+this.getNbOfTermsUnderGrammaticalConstraint());
 		double p = evaluateTerm1()*evaluateTerm2();
 		double q = 1+ evaluateTerm1() + evaluateTerm2();
-		System.out.println("evaluateTerm1()*evaluateTerm2() equals "+(evaluateTerm1()*evaluateTerm2()));
-		System.out.println("1+ evaluateTerm1() + evaluateTerm2() equals "+(1+ evaluateTerm1() + evaluateTerm2()));
-		//System.out.println("(p/q)+1 equals "+((p/q)+1));
-		//System.out.println("((p/q)+1)/100 equals "+(((p/q)+1)/100));
-		System.out.println("p equals "+(p));
-		//System.out.println("((p)/100 equals "+(((p/q)+1)/100));
-		System.out.println("final equals "+(this.evaluatePattern())*((p)/100));
-		System.out.println("score equals "+this.evaluate());
+		//System.out.println("evaluateTerm1()*evaluateTerm2() equals "+(evaluateTerm1()*evaluateTerm2()));
+		//System.out.println("1+ evaluateTerm1() + evaluateTerm2() equals "+(1+ evaluateTerm1() + evaluateTerm2()));
+		////System.out.println("(p/q)+1 equals "+((p/q)+1));
+		////System.out.println("((p/q)+1)/100 equals "+(((p/q)+1)/100));
+		//System.out.println("p equals "+(p));
+		////System.out.println("((p)/100 equals "+(((p/q)+1)/100));
+		//System.out.println("final equals "+(this.evaluatePattern())*((p)/100));
+		//System.out.println("score equals "+this.evaluate());
 		setScore(this.evaluate());
 	}
 	

@@ -24,6 +24,14 @@ import = "java.net.URLDecoder"
 	   		out.println(request.getParameter("inputText"));
    		}
 %></textarea>
+ Veuillez saisir le seul minimal des relation a éxtraire :<br><br>
+<input name="threshold"><%if (request.getParameter("threshold")==null){%>0.0
+<% } 
+   else
+   		{
+	   		out.println(request.getParameter("threshold"));
+   		}
+%></input>
   <br><br><br>
   <div style="margin: 0 auto; width: 70%">
   <div style="float:left">
@@ -75,7 +83,7 @@ import = "java.net.URLDecoder"
 					//analyseurDeTest.setText(text);
 					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
 					//out.print(""Texte en wikiCode"+" +text);
-					analyseurDeTest.analyserParMcLem();
+					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
  					analyseurDeTest.displayResults(out);
  					out.print("Texte prétraité"+analyseurDeTest.getText());
  					analyseurDeTest.writeResults();

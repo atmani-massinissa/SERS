@@ -62,9 +62,9 @@ public class Analyseur {
 		long startTime = System.currentTimeMillis();
 		this.pretraitementParMc();
 		long stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 		startTime = System.currentTimeMillis();
-		// System.out.println(this.text);
+		// //System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
 			for (String patron : Relation.typePatrons.get(type)) {
@@ -111,19 +111,19 @@ public class Analyseur {
 				}
 			}
 			long stopTimeP = System.currentTimeMillis();
-			System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
+			//System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
 		}
 		stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 	}
 
 	public void analyserParLem() throws Exception {
 		long startTime = System.currentTimeMillis();
 		this.pretraitementParLem();
 		long stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 		startTime = System.currentTimeMillis();
-		// System.out.println(this.text);
+		// //System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
 			for (String patron : Relation.typePatrons.get(type)) {
@@ -170,23 +170,23 @@ public class Analyseur {
 				}
 			}
 			long stopTimeP = System.currentTimeMillis();
-			System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
+			//System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
 		}
 		stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 	}
 
-	public void analyserParMcLem() throws Exception {
+	public void analyserParMcLem(Double threshold) throws Exception {
 		
-		System.out.println("************************AnalyserParMcLem*****************************");
+		//System.out.println("************************AnalyserParMcLem*****************************");
 		this.nbOfTermsUnderConstraintByPattern = new HashMap<String,Integer>();
 
 		//long startTime = System.currentTimeMillis();
 		this.pretraitementParMcLem();
 		//long stopTime = System.currentTimeMillis();
-		//System.out.println(stopTime - startTime);
+		////System.out.println(stopTime - startTime);
 		//startTime = System.currentTimeMillis();
-		// System.out.println(this.text);
+		// //System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
 			for (String patron : Relation.typePatrons.get(type)) {
@@ -220,7 +220,7 @@ public class Analyseur {
 								if (!underGrammaticalConstraint(type, patron)
 										|| grammaticalConstraint(type, matcher.group(1), patron, matcher.group(i))) {
 									if (type.equals("Possession") && patron.equals("a un")) {
-										System.out.println("ENTREE BOUCLE "+semanticConstraint(type, matcher.group(1), patron, matcher.group(i)));
+										//System.out.println("ENTREE BOUCLE "+semanticConstraint(type, matcher.group(1), patron, matcher.group(i)));
 									}
 								
 									if (!underSemanticConstraint(type, patron)
@@ -258,7 +258,7 @@ public class Analyseur {
 																	term1Exists,term2Exists,nbLemmaTerm1,nbLemmaTerm2);
 										
 
-									if (true) {
+									if (R.getScore() >= threshold ) {
 										Relations_trouvees.add(R);
 									}
 //									Relations_trouvees.add(
@@ -273,19 +273,19 @@ public class Analyseur {
 				}
 			}
 			long stopTimeP = System.currentTimeMillis();
-			System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
+			//System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
 		}
 		//stopTime = System.currentTimeMillis();
-		//System.out.println(stopTime - startTime);
+		////System.out.println(stopTime - startTime);
 	}
 
 	public void analyserParLemMc() throws Exception {
 		long startTime = System.currentTimeMillis();
 		this.pretraitementParLemMc();
 		long stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 		startTime = System.currentTimeMillis();
-		// System.out.println(this.text);
+		// //System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
 			for (String patron : Relation.typePatrons.get(type)) {
@@ -331,10 +331,10 @@ public class Analyseur {
 				}
 			}
 			long stopTimeP = System.currentTimeMillis();
-			System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
+			//System.out.println("Temps d'éxécution pour " + type + " : " + (stopTimeP - startTimeP));
 		}
 		stopTime = System.currentTimeMillis();
-		System.out.println(stopTime - startTime);
+		//System.out.println(stopTime - startTime);
 	}
 
 	private boolean underGrammaticalConstraint(String type, String patron) {
@@ -351,7 +351,7 @@ public class Analyseur {
 
 		if (Relation.patronSemanticConstraint.containsKey(type + " : " + patron)) {
 			{
-				//System.out.println("******* "+type + " : " + patron);
+				////System.out.println("******* "+type + " : " + patron);
 				return true;
 			}
 		} else
@@ -375,9 +375,9 @@ public class Analyseur {
 					if (matcher.find()) {
 						if (matcher.group(1).equals("x")) {
 							if (jeuxDeMots.requete(term1.replace("_", " ")) != null  ) {
-//								System.out.println(term1);
-//								System.out.println(matcher.group(2));
-//								System.out.println(!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2)));
+//								//System.out.println(term1);
+//								//System.out.println(matcher.group(2));
+//								//System.out.println(!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2)));
 								if (!jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2))) {
 									return false;
 								}
@@ -416,26 +416,26 @@ public class Analyseur {
 
 					}
 					/*
-					 * else { System.out.println(
+					 * else { //System.out.println(
 					 * "!!!!!! EXPRESSION REGULIERE N'A PAS FONCTIONNE !!!!!! AVEC VIRGULE"
 					 * ); }
 					 */
 				}
 			}
 		} else {
-//			System.out.println(type + " : " + patron);
-//			System.out.println(Relation.patronGrammaticalConstraint);
+//			//System.out.println(type + " : " + patron);
+//			//System.out.println(Relation.patronGrammaticalConstraint);
 			if (Relation.patronSemanticConstraint.get(type + " : " + patron).contains("$")) {
 				Matcher matcher = ExpReg.matcher(Relation.patronSemanticConstraint.get(type + " : " + patron));
 				if (matcher.find()) {
 					if (matcher.group(1).equals("x")) {
-						//System.out.println("MOT "+term1.replace("_", " "));
+						////System.out.println("MOT "+term1.replace("_", " "));
 						if (jeuxDeMots.requete(term1.replace("_", " ")) == null)
 							return false;
 						else {
-//							System.out.println(term1.replace("_", " "));
-//							System.out.println(matcher.group(2));
-//							System.out.println(jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2).toLowerCase()));
+//							//System.out.println(term1.replace("_", " "));
+//							//System.out.println(matcher.group(2));
+//							//System.out.println(jeuxDeMots.containsClasse("r_isa",term1.replace("_", " "),matcher.group(2).toLowerCase()));
 							if (!jeuxDeMots.containsClasse("r_isa",term1,matcher.group(2).toLowerCase())) {
 								return false;
 							}
@@ -452,7 +452,7 @@ public class Analyseur {
 
 				}
 				/*
-				 * else { System.out.println(
+				 * else { //System.out.println(
 				 * "!!!!!! EXPRESSION REGULIERE N'A RIEN TROUVE !!!!!!"); }
 				 */
 			}
@@ -517,7 +517,7 @@ public class Analyseur {
 
 					}
 					/*
-					 * else { System.out.println(
+					 * else { //System.out.println(
 					 * "!!!!!! EXPRESSION REGULIERE N'A PAS FONCTIONNE !!!!!! AVEC VIRGULE"
 					 * ); }
 					 */
@@ -548,7 +548,7 @@ public class Analyseur {
 
 				}
 				/*
-				 * else { System.out.println(
+				 * else { //System.out.println(
 				 * "!!!!!! EXPRESSION REGULIERE N'A RIEN TROUVE !!!!!!"); }
 				 */
 			}
@@ -639,7 +639,7 @@ public class Analyseur {
 		// this.mots_composes(p);
 		// this.lemmatisation(p);
 		this.mots_composes(p);
-		// System.out.println("Parser + Mots Composés : "+mc.newText);
+		// //System.out.println("Parser + Mots Composés : "+mc.newText);
 		this.text = new String(mc.newText);
 	}
 
@@ -649,14 +649,14 @@ public class Analyseur {
 		// this.mots_composes(p);
 		// this.lemmatisation(p);
 		this.lemmatisation(p);
-		// System.out.println("Parser + Lemmatisation "+lm.newText);
+		// //System.out.println("Parser + Lemmatisation "+lm.newText);
 		this.text = new String(lm.newText);
 		// this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
 		// "");
 	}
 
 	public void pretraitementParMcLem() throws Exception {
-		System.out.println("*************************prétraitementsParMcLem*****************************");;
+		//System.out.println("*************************prétraitementsParMcLem*****************************");;
 		this.parser();
 		this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
 				 "");
@@ -664,11 +664,11 @@ public class Analyseur {
 		// this.lemmatisation(p);
 		this.mots_composes(p);
 		this.lemmatisation(mc);
-		// System.out.println("Parser + Mots Composés + Lemmatisation :
+		// //System.out.println("Parser + Mots Composés + Lemmatisation :
 		// "+lm.newText);
 		this.text = new String(abu.newText);
 		 
-		//System.out.println(this.text);
+		////System.out.println(this.text);
 	}
 
 	public void pretraitementParLemMc() throws Exception {
@@ -677,7 +677,7 @@ public class Analyseur {
 		// this.lemmatisation(p);
 		this.lemmatisation(p);
 		this.mots_composes(lm);
-		// System.out.println("Parser + Lemmatisation + Mots Composés :
+		// //System.out.println("Parser + Lemmatisation + Mots Composés :
 		// "+mc.newText);
 		this.text = new String(mc.newText);
 		// this.text=this.text.replaceAll("[.|;|,|==|\\n|?|!|:|(|)|\\[|\\]|«|»|“|”]",
@@ -693,10 +693,10 @@ public class Analyseur {
 		 * Probleme a rï¿½gler : le texte commence par null/n, essayer de
 		 * l'enlver du texte
 		 */
-		System.out.println("*************************DébutParserParMcLem*****************************");;
+		//System.out.println("*************************DébutParserParMcLem*****************************");;
 		p = new Parser(text);
-		System.out.println("*************************FinParserParMcLem*****************************");;
-		// System.out.println(" Analyser Parser "+p.newText);
+		//System.out.println("*************************FinParserParMcLem*****************************");;
+		// //System.out.println(" Analyser Parser "+p.newText);
 
 	}
 
@@ -704,9 +704,9 @@ public class Analyseur {
 		/*
 		 * Remplacement des espaces par des underscores.
 		 */
-		System.out.println("*************************débutMotCompParMcLem*****************************");;
+		//System.out.println("*************************débutMotCompParMcLem*****************************");;
 		this.mc = new MotsComposes(TIp,ressourcePath,this);
-		System.out.println("*************************FinMotCompParMcLem*****************************");;
+		//System.out.println("*************************FinMotCompParMcLem*****************************");;
 	}
 
 	public void lemmatisation(TextClass TIp) throws Exception {
@@ -715,7 +715,7 @@ public class Analyseur {
 		 */
 
 		abu = new Lemmatisation(this.mc, ressourcePath);
-		// System.out.println(" Analyser Lemmatisation "+lm.newText);
+		// //System.out.println(" Analyser Lemmatisation "+lm.newText);
 
 	}
 
@@ -768,7 +768,7 @@ public class Analyseur {
 
 	public boolean evaluate(Relation R) {
 		if (R.getTerm1().contains("_") && R.getTerm2().contains("_")) {
-			//System.out.println(R.getTerm1()+" ---- "+R.getTerm2());
+			////System.out.println(R.getTerm1()+" ---- "+R.getTerm2());
 			return true;
 			
 		}
@@ -784,10 +784,10 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ");//// Contexte
+			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() +") ("+relation.getScore()+")");//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
-			// System.out.println(" contexte d e la phrase
+			// //System.out.println(" contexte d e la phrase
 			// "+relation.getContexte());
 		}
 	}
