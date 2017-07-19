@@ -172,7 +172,7 @@ public class Lemmatisation extends TextClass {
 		str = str.replace(" peut ", " ");
 		str = str.replace(" peuvent ", " ");
 		str = str.replace(" d'autres ", " ");
-		str = str.replace(" par ", " ");
+		//str = str.replace(" par ", " ");
 		str = str.replace(" qu'", " ");
 		str = str.replace(" que ", " ");
 		str = str.replace(" au_quotidien ", " ");

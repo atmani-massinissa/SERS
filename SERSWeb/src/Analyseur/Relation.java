@@ -316,7 +316,12 @@ public class Relation {
 		    }
 	    case "Causalité/Conséquance":
 	    	{
-	      			setValueOfPattern(5);
+		    	  if(patron.contains(new String(" par "))){
+		    		  setValueOfPattern(7);
+		    	  }
+		    	  else{
+		    		  setValueOfPattern(5); 
+		    	  }
 	    			break;
 	    	}
 	    case "Possession":

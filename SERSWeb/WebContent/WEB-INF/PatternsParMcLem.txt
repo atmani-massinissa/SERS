@@ -275,7 +275,9 @@ $x provenir un $y --> $x:[Nom],$y:[Nom]
 $x provienent de un $y --> $x:[Nom],$y:[Nom] 
 $x provienent un $y --> $x:[Nom],$y:[Nom] 
 $x provoquer un $y --> $x:[Nom],$y:[Nom] 
-$x provoquer de un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer de un $y --> $x:[Nom],$y:[Nom]
+
+
 
 Effet :
 $x accroître un $y --> $x:[Nom]
@@ -331,6 +333,9 @@ $x être provoquer par $y --> $x:[Nom],$y:[Nom]
 $x être provoquer par un $y --> $x:[Nom],$y:[Nom] 
 $x provoquer par $y --> $x:[Nom],$y:[Nom] 
 $x provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x causer par un $y --> $x:[Nom],$y:[Nom] 
+
 
 Possession : 
 $x a un $y -*-> $x:[Personne] 

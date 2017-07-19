@@ -115,6 +115,8 @@ public class MotsComposes extends TextClass {
 		//this.newText = replace_article2(this.newText);
 
 		this.newText =  new String(replace_article(nonExistingWords, this.newText));
+		this.newText =  new String(incomplete_words(this.newText));
+
 		
 		//System.out.println("le text3 est "+this.newText);
 
@@ -308,8 +310,8 @@ public class MotsComposes extends TextClass {
 					  "faible","petit","petite"
 					 ,"autre", "beau", "bonne","bon", "bel", "belle"
 					 ,"grand", "gros", "grosses", "haut", "jeune", "mauvais", "mauvaise"
-					 ,"petit", "vieux", "vilain","premier","premi�re", "nouveau",
-					 "faibles","petits","petites"
+					 ,"petit", "vieux", "vilain","premier","première", "nouveau"
+					 ,"faibles","petits","petites"
 					 ,"autres", "beaux", "bonnes","bons", "bels", "belles"
 					 ,"grands", "gros", "grosses", "hauts", "jeunes", "mauvais", "mauvaises"
 					 ,"petits", "vieux", "vilains","premiers","premieres", "nouveaux"}).contains(s[i+j]) || abu.isPosComp(s[i+j], "Adj:Ajout�"))
@@ -328,7 +330,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : adj_nom_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajout� ");
+				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
 			}
 		}
 		
@@ -505,10 +507,10 @@ public class MotsComposes extends TextClass {
 		List<String> list =  Arrays.asList(new String[] {
 				"chez","bien_que","est","la","les","le","un","une","en","pour","si","plus","avoir","fois","celui","celui_",
 				"celle","celui-ci","celle-ci","terme","travers","sein","celui","celle","leur","moins","a","le_fait","suite",
-				"pas","être","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier",
+				"pas","être","but","quelque","quelques","par","dans","soit","autres","sur","a","autres","particulier","cause",
 				"d'","l'","du","en","de","dans","le","la","une","un","leurs","cette","ce","sa","au","chez_","bien_que_","est_",
 				"la_","les_","le_","un_","une_","en_","pour_","si_","plus_","avoir_","fois_","celui_","type","même","cas",
-				"celle_","celui-ci_","celle-ci_","terme_","travers_","sein_","celui_","celle_","leur_","moins_","lors",
+				"celle_","celui-ci_","celle-ci_","terme_","travers_","sein_","celui_","celle_","leur_","moins_","lors","synonyme",
 				"pas_","être_","but_","quelque_","quelques_","par_","dans_","soit_","autres_","sur_","a_","autres_","particulier_",
 				"d'_","l'_","du_","en_","de_","dans_","le_","la_","une_","un_","leurs_","cette_","ce_","sa_","au_","à","lors"});
 		str = str.trim();
@@ -775,10 +777,21 @@ public class MotsComposes extends TextClass {
 	  }  
 	  return true;  
 	}
-	public String replace_article(HashSet<String> mots_composes, String str){
+	public String replace_article(Set<String> mots_composes, String str){
 		for (String compound_word: mots_composes) {
 			//System.out.println("WWWAAAAAAAAAA "+compound_word);
-			if (compound_word.replace("_", " ").endsWith(" à") || compound_word.replace("_", " ").endsWith(" toute") || compound_word.replace("_", " ").endsWith(" du") || compound_word.replace("_", " ").endsWith(" de") || compound_word.replace("_", " ").endsWith(" l'") || compound_word.replace("_", " ").endsWith(" d'") || compound_word.replace("_", " ").endsWith(" un") || compound_word.replace("_", " ").endsWith(" une") || compound_word.replace("_", " ").endsWith(" sur") || compound_word.replace("_", " ").endsWith(" aucun") || compound_word.replace("_", " ").endsWith(" aucune")) {
+			if (compound_word.replace("_", " ").endsWith(" à") || 
+					compound_word.replace("_", " ").endsWith(" toute") || 
+					compound_word.replace("_", " ").endsWith(" du") ||
+					compound_word.replace("_", " ").endsWith(" de") || 
+					compound_word.replace("_", " ").endsWith(" l'") || 
+					compound_word.replace("_", " ").endsWith(" d'") || 
+					compound_word.replace("_", " ").endsWith(" un") || 
+					compound_word.replace("_", " ").endsWith(" une") || 
+					compound_word.replace("_", " ").endsWith(" sur") || 
+					compound_word.replace("_", " ").endsWith(" aucun") || 
+					compound_word.replace("_", " ").endsWith(" aucune")) {
+				System.out.println("compound word "+compound_word);
 				String regexp = compound_word+"(\\s)(.{3})"; 
 				Pattern ExpReg = Pattern.compile(regexp);
 				Matcher matcher = ExpReg.matcher(str);
@@ -813,20 +826,26 @@ public class MotsComposes extends TextClass {
 		return str;
 	}
 	
-	public String replace_article2(String str){
+	public String incomplete_words(String str){
 		String[] s = str.split(" ");
        
 		for (int i=0;i+1<s.length;i++) {
 			String compound_word = new String(s[i].toString());
-			if(compound_word.contains("_")){
-				if (compound_word.endsWith("_du") || compound_word.endsWith("_de") || compound_word.endsWith("l'") || compound_word.endsWith("d'") || 
-						compound_word.endsWith("_un") || compound_word.endsWith("_une") || compound_word.endsWith("_sur") || 
-					compound_word.endsWith("_aucun") || compound_word.endsWith("_aucune")) {
+				if ((compound_word.endsWith("_du") || compound_word.endsWith("_de")) 
+						&& (!compound_word.startsWith("cause")) 
+						&& (!compound_word.startsWith("synonyme")) ) {
+					if(!s[i+1].toString().equals(new String("la")) && !s[i+1].toString().equals(new String("le"))
+							&& !s[i+1].toString().equals(new String("un")) && !s[i+1].toString().equals(new String("une"))
+							&& !s[i+1].toString().equals(new String("leurs")) && !s[i+1].toString().equals(new String("leur"))
+							&& !s[i+1].toString().equals(new String("ces"))){
 					  compound_word = compound_word + " "+ s[i+1].toString();
+					  this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
+					  nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
 					  String newcompound_word = new String(compound_word.replace(" ", "_").trim());
 					  str = str.replace(compound_word, newcompound_word);
+					}
+					 
 				}
-			}
 		}
 		return str;	
 	}
