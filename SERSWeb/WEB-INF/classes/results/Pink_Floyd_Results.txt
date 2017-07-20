@@ -1,5 +1,0 @@
-// Résultats de l'analyse de l'article : Pink_Floyd
-
-Relations extraites :
-
-- Méronymie[former un] (ensemble_musical,membres_du_groupe) 

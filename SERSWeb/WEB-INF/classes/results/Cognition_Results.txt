@@ -1,7 +1,0 @@
-// Résultats de l'analyse de l'article : Cognition
-
-Relations extraites :
-
-- Caractérisation[être] (apprentissage,efficaces) 
-
-- Caractérisation[être] (cortex_préfrontal,incapables) 

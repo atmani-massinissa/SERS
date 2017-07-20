@@ -1,5 +1,0 @@
-// Résultats de l'analyse de l'article : Latin
-
-Relations extraites :
-
-- Caractérisation[est] (langue_officielle_de_la_diplomatie_du_Vatican,quant_à) 

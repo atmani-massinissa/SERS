@@ -1,0 +1,71 @@
+// Résultats de l'analyse de l'article : Radiographie
+
+Relations extraites :
+
+- Hyperonymie[être un] (rayons_X,ondes_électromagnétiques) 
+
+- Hyperonymie[appelé] (phénomène,effet) 
+
+- Holonymie[a un] (foyer,avantage) 
+
+- Holonymie[avoir un] (pénétrants,propriété) 
+
+- Holonymie[avoir un] (cible,plus_grande_distance) 
+
+- Causalité/Cause[provenir de un] (dont,exposition_naturelle) 
+
+- Causalité/Cause[provenir un] (exposition_naturelle,examens_médicaux) 
+
+- Causalité/Effet[dû au] (certain,rayonnement_diffusé) 
+
+- Possession[a un] (foyer,avantage) 
+
+- Possession[posséder un] (organisme_humain,tissus) 
+
+- Possession[posséder un] (écran-film,courbe_sensitométrique) 
+
+- Possession[posséder un] (radiographie,grand_nombre) 
+
+- Caractérisation[est] (haute_tension,nécessaire) 
+
+- Caractérisation[est] (haute_tension,appliquée) 
+
+- Caractérisation[est] (électrons,convertie) 
+
+- Caractérisation[est] (tube,blindé) 
+
+- Caractérisation[est] (corps,composé_de_tissus_mous) 
+
+- Caractérisation[est] (atténuation,faible) 
+
+- Caractérisation[est] (image,idéal) 
+
+- Caractérisation[est] (film,disposé_à) 
+
+- Caractérisation[est] (brillance,placé) 
+
+- Caractérisation[est] (contraste,affecté) 
+
+- Caractérisation[est] (contraste,détérioré) 
+
+- Caractérisation[est] (rayonnement_diffusé,possible) 
+
+- Caractérisation[est] (flou_cinétique,dépendant) 
+
+- Caractérisation[être] (paramètres,réglables) 
+
+- Caractérisation[être] (énergies,encombrantes) 
+
+- Caractérisation[être] (film_photographique,le_premier_détecteur) 
+
+- Caractérisation[être] (film,transparentes) 
+
+- Caractérisation[être] (supports,nommés) 
+
+- Caractérisation[à base de] (baryte,baryum) 
+
+- Localisation[au niveau un] (produits,foyer) 
+
+- Synonymie[appelé] (phénomène,effet) 
+
+- Synonymie[appelées] (radiographies,images) 
