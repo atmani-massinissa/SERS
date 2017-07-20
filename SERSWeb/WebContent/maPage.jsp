@@ -24,36 +24,15 @@ import = "java.net.URLDecoder"
 	   		out.println(request.getParameter("inputText"));
    		}
 %></textarea>
- Veuillez saisir le seul minimal des relation a éxtraire :<br><br>
-<input name="threshold" value="0.0"><%if (request.getParameter("threshold")==null){%>0.0
-<% } 
-   else
-   		{
-	   		out.println(request.getParameter("threshold"));
-   		}
-%></input>
+ <br><br>------------------------------------------------Paramétrage-----------------------------------------------<br><br>
+ <br><br>Saisir le seuil confiance minimal :<br><br>
+<input name="threshold" value="0.2">
   <br><br><br>
-  <div style="margin: 0 auto; width: 70%">
-  <div style="float:left">
- Prétraitements:<br>
- Lemmatisation<BR>
- Mots composés<BR>
-</div>
-<div style="float:right">
-<br>
-<input type="radio" name="id" value="Lemmatisation"><BR>
-<input type="radio" name="id" value=".NET"> <BR>
-  </div>
-  <div style="float:right">
-<br>
-<input type="radio" name="id2" value="Lemmatisation"><BR>
-<input type="radio" name="id2" value=".NET"> <BR>
-  </div>
-   <br><br><br>
-   <br><br><br>
+  <br><br><br>
   <input type="submit" style="border:gray; color:black;" value="Extraire relations sémantiques">
-  </div>
   <br><br>
+ <br><br>-------------------------------------------------------------------------------------------------------------<br><br>
+
 
   </form> 
   <br><br><br>
@@ -85,8 +64,10 @@ import = "java.net.URLDecoder"
 					//out.print(""Texte en wikiCode"+" +text);
 					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
  					analyseurDeTest.displayResults(out);
- 					out.print("Texte prétraité"+analyseurDeTest.getText());
- 					analyseurDeTest.writeResults();
+ 					%> <br><br>------------------------------------------------Texte-----------------------------------------------<br><br>
+ 					<%out.print("Texte prétraité"+analyseurDeTest.getText());
+ 					%><br><br>-----------------------------------------------------------------------------------------------------<br><br>
+ 					<%analyseurDeTest.writeResults();
 				}
 				else 
 				{
