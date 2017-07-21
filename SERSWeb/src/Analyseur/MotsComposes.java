@@ -5,21 +5,14 @@ package Analyseur;
 
 import java.io.*;
 import java.net.MalformedURLException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.net.URISyntaxException;
-import java.net.URLDecoder;
 import java.util.*;
 import java.util.regex.*;
-import javax.servlet.jsp.PageContext;
-import org.wikiutils.StringUtils;
-
 import RequeterRezo.RequeterRezo;
 import RequeterRezo.Mot;
-import RequeterRezo.RequeterRezo.TupleRelationTerme;
+
 
 public class MotsComposes extends TextClass {
 
@@ -92,7 +85,7 @@ public class MotsComposes extends TextClass {
 		NumericSentence();
 		
 		quantifAdj();
-		
+		quantifNom();
 		AdjNom();
 		
 		nomAdj();
@@ -369,7 +362,7 @@ public class MotsComposes extends TextClass {
 			j=j+mot.length();
 			NumericPhrase.add(mot.trim());
 		}
-		//System.out.println("TEST NumericSentence: "+NumericPhrase);
+		System.out.println("TEST NumericSentence: "+NumericPhrase);
 		for (String mot : NumericPhrase) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -411,6 +404,37 @@ public class MotsComposes extends TextClass {
 		
 		this.newText =  new String(replace_article(quantifAdj, this.newText));
 		return quantifAdj;
+	}
+	public HashSet<String > quantifNom() throws Exception{
+		HashSet<String> quantifNom = new HashSet<String>();
+		Lemmatisation abu = new Lemmatisation(this, this.ressourcePath);
+		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
+		for (int i = 0; i < s.length; i++) 
+			{
+				String mot="";
+				if (abu.isPosComp(s[i], "quantif") ) {
+					mot = s[i]+" ";
+					if(abu.isPosComp(s[i+1].trim().toLowerCase(),"Nom") || (abu.isPos(s[i+1].toLowerCase(),"Nom") && !s[i+1].toLowerCase().equals("est") && !abu.isPos(s[i+1].toLowerCase(),"Det")))  {
+						mot=mot+s[i+1]+" ";
+					}
+				}
+				if (mot.matches(".+\\s.+")) {
+					mot = apostrFj(mot);
+					quantifNom.add(mot.trim().toLowerCase());
+				}
+				
+		
+			}
+		System.out.println("TEST quantif_nom: "+quantifNom);
+		for (String mot : quantifNom) {		
+			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
+				nonExistingWords.add(mot.trim().toLowerCase());
+				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
+			}
+		}
+		
+		this.newText =  new String(replace_article(quantifNom, this.newText));
+		return quantifNom;
 	}
 	public HashSet<String> nomAdj() throws Exception {
 		String[] PPas = new String[] {"élevé","sacré"};
@@ -470,7 +494,7 @@ public class MotsComposes extends TextClass {
 							if (Arrays.asList(new String[] {"les","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette"}).contains(s[i+k+1].trim().toLowerCase())) {
 								k=k+2;
 							}
-							if (j==k && Arrays.asList(new String[] {"les","leur","presque","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette","ces"}).contains(s[i+j].trim().toLowerCase()))  {
+							if (j==k && Arrays.asList(new String[] {"plusieurs","ce","les","leur","presque","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette","ces"}).contains(s[i+j].trim().toLowerCase()))  {
 								k++;
 							}
 						}
@@ -584,7 +608,7 @@ public class MotsComposes extends TextClass {
 
 					while(!s[i].equals(new String("accompagnée")) && i+1<s.length && 
 							(
-							Arrays.asList(new String[] {"des","d'","l'","du","en","de","le","la","une","un","des","d'une","d'un"})
+							Arrays.asList(new String[] {"d'","l'","du","en","de","le","la","une","un","des","d'une","d'un"})
 							.contains(s[i+1].toLowerCase())
 							||
 							s[i+1].startsWith(new String("d'"))
@@ -608,7 +632,7 @@ public class MotsComposes extends TextClass {
 								.contains(l[k-1].toLowerCase())){
 							mot = null;
 						}
-						else if(Arrays.asList(new String[] {"des","un","une","du","de","dans","la","d'une","d'un","en"}).contains(l[k-1].toLowerCase())
+						else if(Arrays.asList(new String[] {"un","une","du","de","dans","la","d'une","d'un","en"}).contains(l[k-1].toLowerCase())
 								 ) {
 							//System.out.println("inside d' ="+mot);
 
@@ -618,7 +642,7 @@ public class MotsComposes extends TextClass {
 							else if(Arrays.asList(new String[] {"tels"}).contains(s[i].toLowerCase())){
 								mot = null;
 							}
-							else if(Arrays.asList(new String[] {"des","d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
+							else if(Arrays.asList(new String[] {"d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
 									contains(s[i].toLowerCase()) 
 									|| s[i].endsWith(new String("_l'"))
 									|| s[i].endsWith(new String("_d'"))
@@ -626,7 +650,7 @@ public class MotsComposes extends TextClass {
 									|| s[i].endsWith(new String("_du"))
 									|| s[i].endsWith(new String("_dans"))){	
 
-							 if(l[k-1].toLowerCase().equals(new String("de")) || l[k-1].toLowerCase().equals(new String("des"))){	
+							 if(l[k-1].toLowerCase().equals(new String("de"))){	
 									if(abu.isVerb(s[i+1].toLowerCase())){
 										if(!abu.isNom(s[i+1].toLowerCase())){
 												mot = null;
@@ -872,8 +896,7 @@ public class MotsComposes extends TextClass {
        
 		for (int i=0;i+1<s.length;i++) {
 			String compound_word = new String(s[i].toString());
-				if ((compound_word.endsWith("_du") || compound_word.endsWith("_de")
-				||compound_word.endsWith("_l")) 
+				if ((compound_word.endsWith("_du") || compound_word.endsWith("_de")) 
 						&& (!compound_word.startsWith("cause")) 
 						&& (!compound_word.startsWith("synonyme")) ) {
 					if(!s[i+1].toString().equals(new String("la")) && !s[i+1].toString().equals(new String("le"))
@@ -960,7 +983,7 @@ public class MotsComposes extends TextClass {
 	}
 
 	public static void main(String[] args) throws Exception {
-		////System.out.println((new MotsComposes("")).findMcLine("$x se trouvent souvent localisées au niveau de la $y"));
+		////System.out.println((new MotsComposes("")).findMcLine("$x se trouvent souvent localis�es au niveau de la $y"));
 		////System.out.println();
 		
 	}

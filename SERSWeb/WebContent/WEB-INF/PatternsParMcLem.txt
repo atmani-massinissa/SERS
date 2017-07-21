@@ -69,6 +69,7 @@ $x appelée $y --> $x:[Nom],$y:[Nom]
 $x appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
 
 Holonymie :
+$x contenir $y --> $x:[Nom],$y:[Nom] 
 $x a comme partie un $y --> $x:[Nom],$y:[Nom] 
 $x a un $y --> $x:[Nom] --> $x:[Nom],$y:[Nom] 
 $x avoir comme partie un $y --> $x:[Nom],$y:[Nom] 
@@ -219,6 +220,9 @@ $x se composer d'une $y --> $x:[Nom],$y:[Nom]
 $x se composer de un $y --> $x:[Nom],$y:[Nom] 
 
 Méronymie :
+$x inclus dans un $y --> $x:[Nom],$y:[Nom]
+$x incluse dans un $y --> $x:[Nom],$y:[Nom]
+$x incluses dans un $y --> $x:[Nom],$y:[Nom]
 $x composer un $y --> $x:[Nom],$y:[Nom] 
 $x constituer un $y --> $x:[Nom],$y:[Nom] 
 $x est partie_de $y --> $x:[Nom],$y:[Nom] 
