@@ -608,7 +608,7 @@ public class MotsComposes extends TextClass {
 
 					while(!s[i].equals(new String("accompagnée")) && i+1<s.length && 
 							(
-							Arrays.asList(new String[] {"d'","l'","du","en","de","le","la","une","un","des","d'une","d'un"})
+							Arrays.asList(new String[] {"des","d'","l'","du","en","de","le","la","une","un","des","d'une","d'un"})
 							.contains(s[i+1].toLowerCase())
 							||
 							s[i+1].startsWith(new String("d'"))
@@ -632,7 +632,7 @@ public class MotsComposes extends TextClass {
 								.contains(l[k-1].toLowerCase())){
 							mot = null;
 						}
-						else if(Arrays.asList(new String[] {"un","une","du","de","dans","la","d'une","d'un","en"}).contains(l[k-1].toLowerCase())
+						else if(Arrays.asList(new String[] {"des","un","une","du","de","dans","la","d'une","d'un","en"}).contains(l[k-1].toLowerCase())
 								 ) {
 							//System.out.println("inside d' ="+mot);
 
@@ -642,7 +642,7 @@ public class MotsComposes extends TextClass {
 							else if(Arrays.asList(new String[] {"tels"}).contains(s[i].toLowerCase())){
 								mot = null;
 							}
-							else if(Arrays.asList(new String[] {"d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
+							else if(Arrays.asList(new String[] {"des","d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
 									contains(s[i].toLowerCase()) 
 									|| s[i].endsWith(new String("_l'"))
 									|| s[i].endsWith(new String("_d'"))
@@ -650,7 +650,7 @@ public class MotsComposes extends TextClass {
 									|| s[i].endsWith(new String("_du"))
 									|| s[i].endsWith(new String("_dans"))){	
 
-							 if(l[k-1].toLowerCase().equals(new String("de"))){	
+							 if(l[k-1].toLowerCase().equals(new String("de")) || l[k-1].toLowerCase().equals(new String("des"))){	
 									if(abu.isVerb(s[i+1].toLowerCase())){
 										if(!abu.isNom(s[i+1].toLowerCase())){
 												mot = null;
@@ -896,7 +896,7 @@ public class MotsComposes extends TextClass {
        
 		for (int i=0;i+1<s.length;i++) {
 			String compound_word = new String(s[i].toString());
-				if ((compound_word.endsWith("_du") || compound_word.endsWith("_de")) 
+				if ((compound_word.endsWith("_du") || compound_word.endsWith("_de") || compound_word.endsWith("_l")) 
 						&& (!compound_word.startsWith("cause")) 
 						&& (!compound_word.startsWith("synonyme")) ) {
 					if(!s[i+1].toString().equals(new String("la")) && !s[i+1].toString().equals(new String("le"))
