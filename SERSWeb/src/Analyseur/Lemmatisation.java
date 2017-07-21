@@ -173,6 +173,12 @@ public class Lemmatisation extends TextClass {
 		str = str.replace(" peuvent ", " ");
 		str = str.replace(" d 'autres ", " d'autres  ");
 		str = str.replace(" d' autres ", " d'autres ");
+		str = str.replace(" d'autres ", " ");
+		str = str.replace(" autre ", " ");
+		str = str.replace(" tandis ", " ");
+
+
+
 		//str = str.replace(" par ", " ");
 		str = str.replace(" qu'", " ");
 		str = str.replace(" que ", " ");

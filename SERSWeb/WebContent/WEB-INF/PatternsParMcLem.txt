@@ -297,6 +297,8 @@ $x qui augmenter un $y --> $x:[Nom],$y:[Nom]
 $x stimuler un $y --> $x:[Nom],$y:[Nom]
 $x stimuler un $y stimuler un $z --> $x:[Nom],$y:[Nom]
 $x qui stimuler un $y --> $x:[Nom],$y:[Nom]
+$x agir sur un $y --> $x:[Nom],$y:[Nom]
+
 
 Causalite/Consequence : 
 $x dû au $y --> $x:[Nom],$y:[Nom]  
