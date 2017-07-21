@@ -1,14 +1,14 @@
 
 Hyperonymie :
-$x , qui est un $y --> $x:[Nom],$y:[Nom] 
-$x , qui est un un $y --> $x:[Nom],$y:[Nom] 
-$x , qui est l'un un $y --> $x:[Nom],$y:[Nom] 
-$x , qui est un des $y --> $x:[Nom],$y:[Nom] 
-$x , qui être un $y --> $x:[Nom],$y:[Nom] 
-$x , qui être un un $y --> $x:[Nom],$y:[Nom] 
-$x , qui être un des $y --> $x:[Nom],$y:[Nom] 
+$x qui est un $y --> $x:[Nom],$y:[Nom] 
+$x qui est un un $y --> $x:[Nom],$y:[Nom] 
+$x qui est l'un un $y --> $x:[Nom],$y:[Nom] 
+$x qui est un des $y --> $x:[Nom],$y:[Nom] 
+$x qui être un $y --> $x:[Nom],$y:[Nom] 
+$x qui être un un $y --> $x:[Nom],$y:[Nom] 
+$x qui être un des $y --> $x:[Nom],$y:[Nom] 
 $x c'est-à-dire un $y --> $x:[Nom],$y:[Nom] 
-$x est aussi un $y --> $x:[Nom],$y:[Nom] 
+$x est un $y --> $x:[Nom],$y:[Nom] 
 $x est un $y --> $x:[Nom],$y:[Nom] 
 $x est de un famille de $y --> $x:[Nom],$y:[Nom] 
 $x est de un famille_des $y --> $x:[Nom],$y:[Nom] 
@@ -41,14 +41,14 @@ $x est un forme rare et grave d'un $y --> $x:[Nom],$y:[Nom]
 $x est un forme rare et grave d'une $y --> $x:[Nom],$y:[Nom] 
 $x est un sorte_de $y --> $x:[Nom],$y:[Nom] 
 $x être un sorte_de $y --> $x:[Nom],$y:[Nom] 
-$x est aussi appelé $y --> $x:[Nom],$y:[Nom] 
-$x est aussi appelée $y --> $x:[Nom],$y:[Nom] 
-$x est aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom] 
-$x est aussi appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
-$x être aussi appelés $y --> $x:[Nom],$y:[Nom] 
-$x être aussi appelées $y --> $x:[Nom],$y:[Nom] 
-$x être aussi appelés $y , ou $z --> $x:[Nom],$y:[Nom] 
-$x être aussi appelées $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x est appelé $y --> $x:[Nom],$y:[Nom] 
+$x est appelée $y --> $x:[Nom],$y:[Nom] 
+$x est appelé $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x est appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x être appelés $y --> $x:[Nom],$y:[Nom] 
+$x être appelées $y --> $x:[Nom],$y:[Nom] 
+$x être appelés $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x être appelées $y , ou $z --> $x:[Nom],$y:[Nom] 
 $x qui est un $y --> $x:[Nom],$y:[Nom] 
 $x qui est un un $y --> $x:[Nom],$y:[Nom] 
 $x qui est l'un un $y --> $x:[Nom],$y:[Nom] 
@@ -59,261 +59,283 @@ $x qui être un un $y --> $x:[Nom],$y:[Nom]
 $x qui être l'un un $y --> $x:[Nom],$y:[Nom] 
 $x qui être l'une un $y --> $x:[Nom],$y:[Nom] 
 $x qui être un des $y --> $x:[Nom],$y:[Nom] 
-$x aussi appelé $y --> $x:[Nom],$y:[Nom] 
-$x aussi appelé $y , ou $z --> $x:[Nom],$y:[Nom] 
-$x aussi appelée $y --> $x:[Nom],$y:[Nom] 
-$x aussi appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x appelé $y --> $x:[Nom],$y:[Nom] 
+$x appelé $y , ou $z --> $x:[Nom],$y:[Nom] 
+$x appelée $y --> $x:[Nom],$y:[Nom] 
+$x appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
 $x appelé $y --> $x:[Nom],$y:[Nom] 
 $x appelé $y , ou $z --> $x:[Nom],$y:[Nom] 
 $x appelée $y --> $x:[Nom],$y:[Nom] 
 $x appelée $y , ou $z --> $x:[Nom],$y:[Nom] 
 
 Holonymie :
-$x a comme partie un $y 
-$x a un $y --> $x:[Nom] 
-$x avoir comme partie un $y 
-$x avoir partie un $y 
-$x avoir un $y 
-$x composé d'un $y 
-$x composé un $y 
-$x composé d'une $y 
-$x composé_de $y 
-$x composé_de $y et de $z 
-$x composé_de $y et d'un $z 
-$x composé_de $y et d'une $z 
-$x composé_de $y et un $z 
-$x composé d'un $y et de $z 
-$x composé d'un $y et d'un $z 
-$x composé d'un $y et d'une $z 
-$x composé d'un $y et un $z 
-$x composé d'une $y et de $z 
-$x composé d'une $y et d'un $z 
-$x composé d'une $y et d'une $z 
-$x composé d'une $y et un $z 
-$x composé un $y et de $z 
-$x composé un $y et d'un $z 
-$x composé un $y et d'une $z 
-$x composé un $y et un $z 
-$x composé_de un $y 
-$x composée d'un $y 
-$x composée un $y 
-$x composée d'une $y 
-$x composée de $y 
-$x composée de $y et de $z 
-$x composée de $y et d'un $z 
-$x composée de $y et d'une $z 
-$x composée de $y et un $z 
-$x composée d'un $y et de $z 
-$x composée d'un $y et d'un $z 
-$x composée d'un $y et d'une $z 
-$x composée d'un $y et un $z 
-$x composée d'une $y et de $z 
-$x composée d'une $y et d'un $z 
-$x composée d'une $y et d'une $z 
-$x composée d'une $y et un $z 
-$x composée un $y et de $z 
-$x composée un $y et d'un $z 
-$x composée un $y et d'une $z 
-$x composée un $y et un $z 
-$x composée de un $y 
-$x composés d'un $y 
-$x composés un $y 
-$x composés d'une $y 
-$x composés de $y 
-$x composés de $y et de $z 
-$x composés de $y et d'un $z 
-$x composés de $y et d'une $z 
-$x composés de $y et un $z 
-$x composés d'un $y et de $z 
-$x composés d'un $y et d'un $z 
-$x composés d'un $y et d'une $z 
-$x composés d'un $y et un $z 
-$x composés d'une $y et de $z 
-$x composés d'une $y et d'un $z 
-$x composés d'une $y et d'une $z 
-$x composés d'une $y et un $z 
-$x composés un $y et de $z 
-$x composés un $y et d'un $z 
-$x composés un $y et d'une $z 
-$x composés un $y et un $z 
-$x composés de un $y 
-$x composées d'un $y 
-$x composées un $y 
-$x composées d'une $y 
-$x composées de $y 
-$x composées de $y et de $z 
-$x composées de $y et d'un $z 
-$x composées de $y et d'une $z 
-$x composées de $y et un $z 
-$x composées d'un $y et de $z 
-$x composées d'un $y et d'un $z 
-$x composées d'un $y et d'une $z 
-$x composées d'un $y et un $z 
-$x composées d'une $y et de $z 
-$x composées d'une $y et d'un $z 
-$x composées d'une $y et d'une $z 
-$x composées d'une $y et un $z 
-$x composées un $y et de $z 
-$x composées un $y et d'un $z 
-$x composées un $y et d'une $z 
-$x composées un $y et un $z 
-$x composées de un $y 
-$x constitué d'un $y 
-$x constitué d'une $y 
-$x constitué d'une $y et d'un $z 
-$x constitué_de $y 
-$x constitué_de un $y 
-$x constitué un $y 
-$x constituée d'un $y 
-$x constituée d'une $y 
-$x constituée de $y 
-$x constituée de un $y 
-$x constituée un $y 
-$x est composé d'un $y 
-$x est composé d'une $y 
-$x est composé_de $y 
-$x est composé un $y 
-$x est composé_de un $y 
-$x est composée d'un $y 
-$x est composée d'une $y 
-$x est composée de $y 
-$x est composée de un $y 
-$x est composée un $y 
-$x être composés d'un $y 
-$x être composés d'une $y 
-$x être composés de $y 
-$x être composés un $y 
-$x être composés de un $y 
-$x être composées d'un $y 
-$x être composées d'une $y 
-$x être composées de $y 
-$x être composées de un $y 
-$x être composées un $y 
-$x est constitué d'un $y 
-$x est constitué d'une $y 
-$x est constitué_de $y 
-$x est constitué un $y 
-$x est constitué_de un $y 
-$x est constituée d'un $y 
-$x est constituée d'une $y 
-$x est constituée de $y 
-$x est constituée de un $y 
-$x est constituée un $y 
-$x être constitués d'un $y 
-$x être constitués d'une $y 
-$x être constitués de $y 
-$x être constitués un $y 
-$x être constitués de un $y 
-$x être constituées d'un $y 
-$x être constituées d'une $y 
-$x être constituées de $y 
-$x être constituées de un $y 
-$x être constituées un $y 
-$x qui a un $y 
-$x qui avoir un $y 
-$x se composer de $y 
-$x se composer un $y 
-$x se composer d'un $y 
-$x se composer d'une $y 
-$x se composer de un $y 
+$x a comme partie un $y --> $x:[Nom],$y:[Nom] 
+$x a un $y --> $x:[Nom] --> $x:[Nom],$y:[Nom] 
+$x avoir comme partie un $y --> $x:[Nom],$y:[Nom] 
+$x avoir partie un $y --> $x:[Nom],$y:[Nom] 
+$x avoir un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir avoir un $y --> $x:[Nom],$y:[Nom] 
+$x composé d'un $y --> $x:[Nom],$y:[Nom] 
+$x composé un $y --> $x:[Nom],$y:[Nom] 
+$x composé d'une $y --> $x:[Nom],$y:[Nom] 
+$x composé_de $y --> $x:[Nom],$y:[Nom] 
+$x composé_de $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composé_de $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composé_de $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composé_de $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composé d'un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composé d'un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composé d'un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composé d'un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composé d'une $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composé d'une $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composé d'une $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composé d'une $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composé un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composé un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composé un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composé un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composé_de un $y --> $x:[Nom],$y:[Nom] 
+$x composée d'un $y --> $x:[Nom],$y:[Nom] 
+$x composée un $y --> $x:[Nom],$y:[Nom] 
+$x composée d'une $y --> $x:[Nom],$y:[Nom] 
+$x composée de $y --> $x:[Nom],$y:[Nom] 
+$x composée de $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composée de $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composée de $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composée de $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composée d'un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composée d'un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composée d'un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composée d'un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composée d'une $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composée d'une $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composée d'une $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composée d'une $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composée un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composée un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composée un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composée un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composée de un $y --> $x:[Nom],$y:[Nom] 
+$x composés d'un $y --> $x:[Nom],$y:[Nom] 
+$x composés un $y --> $x:[Nom],$y:[Nom] 
+$x composés d'une $y --> $x:[Nom],$y:[Nom] 
+$x composés de $y --> $x:[Nom],$y:[Nom] 
+$x composés de $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composés de $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composés de $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composés de $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composés d'un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composés d'un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composés d'un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composés d'un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composés d'une $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composés d'une $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composés d'une $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composés d'une $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composés un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composés un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composés un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composés un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composés de un $y --> $x:[Nom],$y:[Nom] 
+$x composées d'un $y --> $x:[Nom],$y:[Nom] 
+$x composées un $y --> $x:[Nom],$y:[Nom] 
+$x composées d'une $y --> $x:[Nom],$y:[Nom] 
+$x composées de $y --> $x:[Nom],$y:[Nom] 
+$x composées de $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composées de $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composées de $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composées de $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composées d'un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composées d'un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composées d'un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composées d'un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composées d'une $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composées d'une $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composées d'une $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composées d'une $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composées un $y et de $z --> $x:[Nom],$y:[Nom] 
+$x composées un $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x composées un $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x composées un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x composées de un $y --> $x:[Nom],$y:[Nom] 
+$x constitué d'un $y --> $x:[Nom],$y:[Nom] 
+$x constitué d'une $y --> $x:[Nom],$y:[Nom] 
+$x constitué d'une $y et d'un $z --> $x:[Nom],$y:[Nom] 
+$x constitué_de $y --> $x:[Nom],$y:[Nom] 
+$x constitué_de un $y --> $x:[Nom],$y:[Nom] 
+$x constitué un $y --> $x:[Nom],$y:[Nom] 
+$x constituée d'un $y --> $x:[Nom],$y:[Nom] 
+$x constituée d'une $y --> $x:[Nom],$y:[Nom] 
+$x constituée de $y --> $x:[Nom],$y:[Nom] 
+$x constituée de un $y --> $x:[Nom],$y:[Nom] 
+$x constituée un $y --> $x:[Nom],$y:[Nom] 
+$x est composé d'un $y --> $x:[Nom],$y:[Nom]  
+$x est composé d'une $y --> $x:[Nom],$y:[Nom] 
+$x est composé_de $y --> $x:[Nom],$y:[Nom] 
+$x est composé un $y --> $x:[Nom],$y:[Nom] 
+$x est composé_de un $y --> $x:[Nom],$y:[Nom] 
+$x est composée d'un $y --> $x:[Nom],$y:[Nom] 
+$x est composée d'une $y --> $x:[Nom],$y:[Nom] 
+$x est composée de $y --> $x:[Nom],$y:[Nom] 
+$x est composée de un $y --> $x:[Nom],$y:[Nom] 
+$x est composée un $y --> $x:[Nom],$y:[Nom] 
+$x être composés d'un $y --> $x:[Nom],$y:[Nom] 
+$x être composés d'une $y --> $x:[Nom],$y:[Nom] 
+$x être composés de $y --> $x:[Nom],$y:[Nom] 
+$x être composés un $y --> $x:[Nom],$y:[Nom] 
+$x être composés de un $y --> $x:[Nom],$y:[Nom] 
+$x être composées d'un $y --> $x:[Nom],$y:[Nom] 
+$x être composées d'une $y --> $x:[Nom],$y:[Nom] 
+$x être composées de $y --> $x:[Nom],$y:[Nom] 
+$x être composées de un $y --> $x:[Nom],$y:[Nom] 
+$x être composées un $y --> $x:[Nom],$y:[Nom] 
+$x est constitué d'un $y --> $x:[Nom],$y:[Nom] 
+$x est constitué d'une $y --> $x:[Nom],$y:[Nom] 
+$x est constitué_de $y --> $x:[Nom],$y:[Nom] 
+$x est constitué un $y --> $x:[Nom],$y:[Nom] 
+$x est constitué_de un $y --> $x:[Nom],$y:[Nom] 
+$x est constituée d'un $y --> $x:[Nom],$y:[Nom] 
+$x est constituée d'une $y --> $x:[Nom],$y:[Nom] 
+$x est constituée de $y --> $x:[Nom],$y:[Nom] 
+$x est constituée de un $y --> $x:[Nom],$y:[Nom] 
+$x est constituée un $y --> $x:[Nom],$y:[Nom] 
+$x être constitués d'un $y --> $x:[Nom],$y:[Nom] 
+$x être constitués d'une $y --> $x:[Nom],$y:[Nom] 
+$x être constitués de $y --> $x:[Nom],$y:[Nom] 
+$x être constitués un $y --> $x:[Nom],$y:[Nom] 
+$x être constitués de un $y --> $x:[Nom],$y:[Nom] 
+$x être constituées d'un $y --> $x:[Nom],$y:[Nom] 
+$x être constituées d'une $y --> $x:[Nom],$y:[Nom] 
+$x être constituées de $y --> $x:[Nom],$y:[Nom] 
+$x être constituées de un $y --> $x:[Nom],$y:[Nom] 
+$x être constituées un $y --> $x:[Nom],$y:[Nom] 
+$x qui a un $y --> $x:[Nom],$y:[Nom] 
+$x qui avoir un $y --> $x:[Nom],$y:[Nom] 
+$x se composer de $y --> $x:[Nom],$y:[Nom] 
+$x se composer un $y --> $x:[Nom],$y:[Nom] 
+$x se composer d'un $y --> $x:[Nom],$y:[Nom] 
+$x se composer d'une $y --> $x:[Nom],$y:[Nom] 
+$x se composer de un $y --> $x:[Nom],$y:[Nom] 
 
 Méronymie :
-$x composer un $y 
-$x constituer un $y 
-$x est partie_de $y 
-$x est partie d'un $y 
-$x est partie d'une $y 
-$x est partie_de un $y 
-$x est partie un $y 
-$x est un partie_de $y 
-$x est un partie_de un $y 
-$x est un partie un $y 
-$x est un partie d'un $y 
-$x est un partie d'une $y 
-$x fait partie de $y 
-$x fait partie de un $y 
-$x fait partie un $y 
-$x faire partie_de $y 
-$x faire partie_de un $y 
-$x faire partie un $y 
-$x forme un $y 
-$x former un $y 
+$x composer un $y --> $x:[Nom],$y:[Nom] 
+$x constituer un $y --> $x:[Nom],$y:[Nom] 
+$x est partie_de $y --> $x:[Nom],$y:[Nom] 
+$x est partie d'un $y --> $x:[Nom],$y:[Nom] 
+$x est partie d'une $y --> $x:[Nom],$y:[Nom] 
+$x est partie_de un $y --> $x:[Nom],$y:[Nom] 
+$x est partie un $y --> $x:[Nom],$y:[Nom] 
+$x est un partie_de $y --> $x:[Nom],$y:[Nom] 
+$x est un partie_de un $y --> $x:[Nom],$y:[Nom] 
+$x est un partie un $y --> $x:[Nom],$y:[Nom] 
+$x est un partie d'un $y --> $x:[Nom],$y:[Nom] 
+$x est un partie d'une $y --> $x:[Nom],$y:[Nom] 
+$x fait partie de $y --> $x:[Nom],$y:[Nom] 
+$x fait partie de un $y --> $x:[Nom],$y:[Nom] 
+$x fait partie un $y --> $x:[Nom],$y:[Nom] 
+$x faire partie_de $y --> $x:[Nom],$y:[Nom] 
+$x faire partie_de un $y --> $x:[Nom],$y:[Nom] 
+$x faire partie un $y --> $x:[Nom],$y:[Nom] 
+$x forme un $y --> $x:[Nom],$y:[Nom] 
+$x former un $y --> $x:[Nom],$y:[Nom] 
 
 Causalité/Cause : 
-$x cause un $y 
-$x pouvoir causer un $y 
-$x pouvoir causer un bon_nombre_de $y 
-$x affecter $y 
-$x affecter un $y 
-$x causer un $y 
-$x déclenche un $y 
-$x déclencher un $y 
-$x déclenchant un $y 
-$x pouvoir entraîner un $y 
-$x pouvoir entraîner un $y , $z 
-$x pouvoir entraîner un $y et un $z 
-$x entraîner un $y 
-$x entraîner un $y , $z 
-$x entraîner un $y et un $z 
-$x générer un $y 
-$x générer un $y , un $z 
-$x générer un $y et un $z 
-$x mener au $y 
-$x mener aux $y 
-$x mener à un $y 
-$x n'affecte que un $y 
-$x n'affectent que un $y 
-$x pouvoir produire un $y 
-$x pouvoir produire de un $y 
-$x pouvoir provoquer un $z 
-$x pouvoir provoquer de un $z 
-$x pouvoir être provoquer par un $y 
-$x provenir de un $y 
-$x provenir un $y 
-$x provienent de un $y 
-$x provienent un $y 
-$x provoquer un $y 
-$x provoquer de un $y 
+$x est un cause un $y --> $x:[Nom]
+$x cause un $y --> $x:[Nom],$y:[Nom]  
+$x pouvoir causer un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir causer un bon_nombre_de $y --> $x:[Nom],$y:[Nom] 
+$x affecter $y --> $x:[Nom],$y:[Nom] 
+$x affecter un $y --> $x:[Nom],$y:[Nom] 
+$x causer un $y --> $x:[Nom],$y:[Nom] 
+$x déclenche un $y --> $x:[Nom],$y:[Nom] 
+$x déclencher un $y --> $x:[Nom],$y:[Nom] 
+$x déclenchant un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir entraîner un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir entraîner un $y , $z --> $x:[Nom],$y:[Nom] 
+$x pouvoir entraîner un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x entraîner un $y --> $x:[Nom],$y:[Nom] 
+$x entraîner un $y , $z --> $x:[Nom],$y:[Nom] 
+$x entraîner un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x générer un $y --> $x:[Nom],$y:[Nom] 
+$x générer un $y , un $z --> $x:[Nom],$y:[Nom] 
+$x générer un $y et un $z --> $x:[Nom],$y:[Nom] 
+$x mener au $y --> $x:[Nom],$y:[Nom] 
+$x mener aux $y --> $x:[Nom],$y:[Nom] 
+$x mener à un $y --> $x:[Nom],$y:[Nom] 
+$x n'affecte que un $y --> $x:[Nom],$y:[Nom] 
+$x n'affectent que un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir produire un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir produire de un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir provoquer un $z --> $x:[Nom],$y:[Nom] 
+$x pouvoir provoquer de un $z --> $x:[Nom],$y:[Nom] 
+$x pouvoir être provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x provenir de un $y --> $x:[Nom],$y:[Nom] 
+$x provenir un $y --> $x:[Nom],$y:[Nom] 
+$x provienent de un $y --> $x:[Nom],$y:[Nom] 
+$x provienent un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer de un $y --> $x:[Nom],$y:[Nom]
 
-Causalité/Effet : 
-$x dû au $y 
-$x dû aux $y 
-$x dû à $y 
-$x dû à un $y 
-$x dûe au $y 
-$x dûe aux $y 
-$x dûe à $y 
-$x dûe à un $y 
-$x dûs au $y 
-$x dûs aux $y 
-$x dûs à $y 
-$x dûs à un $y 
-$x est dûe au $y 
-$x est dûe aux $y 
-$x est dûe à $y 
-$x est dûe à un $y 
-$x est dû au $y 
-$x est dû aux $y 
-$x est dû à $y 
-$x est dû à un $y 
-$x être dûs au $y 
-$x être dûs aux $y 
-$x être dûs à $y 
-$x être dûs à un $y 
-$x est causer par $y 
-$x est causer par un $y 
-$x être causer par $y 
-$x être causer par un $y 
-$x causer par $y 
-$x causer par un $y 
-$x pouvoir être causer par $y 
-$x pouvoir être causer par un $y 
-$x est provoquer par $y 
-$x est provoquer par un $y 
-$x être provoquer par $y 
-$x être provoquer par un $y 
-$x provoquer par $y 
-$x provoquer par un $y 
+
+
+Effet :
+$x accroître un $y --> $x:[Nom],$y:[Nom]
+$x accroître un $y accroître un $z --> $x:[Nom],$y:[Nom]
+$x qui accroître un $y --> $x:[Nom],$y:[Nom] 
+$x réduire $y --> $x:[Nom],$y:[Nom]
+$x qui réduire $y --> $x:[Nom],$y:[Nom]
+$x réduire par $y --> $x:[Nom],$y:[Nom]
+$x réduire par $y réduire par $z --> $x:[Nom],$y:[Nom]
+$x augmenter un $y --> $x:[Nom],$y:[Nom]
+$x augmenter un $y augmenter un $z --> $x:[Nom],$y:[Nom]
+$x qui augmenter un $y --> $x:[Nom],$y:[Nom]
+$x stimuler un $y --> $x:[Nom],$y:[Nom]
+$x stimuler un $y stimuler un $z --> $x:[Nom],$y:[Nom]
+$x qui stimuler un $y --> $x:[Nom],$y:[Nom]
+
+Causalité/Conséquence : 
+$x dû au $y --> $x:[Nom],$y:[Nom]  
+$x dû aux $y --> $x:[Nom],$y:[Nom] 
+$x dû à $y --> $x:[Nom],$y:[Nom] 
+$x dû à un $y --> $x:[Nom],$y:[Nom] 
+$x dûe au $y --> $x:[Nom],$y:[Nom] 
+$x dûe aux $y --> $x:[Nom],$y:[Nom] 
+$x dûe à $y --> $x:[Nom],$y:[Nom] 
+$x dûe à un $y --> $x:[Nom],$y:[Nom] 
+$x dûs au $y --> $x:[Nom],$y:[Nom] 
+$x dûs aux $y --> $x:[Nom],$y:[Nom] 
+$x dûs à $y --> $x:[Nom],$y:[Nom] 
+$x dûs à un $y --> $x:[Nom],$y:[Nom] 
+$x est dûe au $y --> $x:[Nom],$y:[Nom] 
+$x est dûe aux $y --> $x:[Nom],$y:[Nom] 
+$x est dûe à $y --> $x:[Nom],$y:[Nom] 
+$x est dûe à un $y --> $x:[Nom],$y:[Nom] 
+$x est dû au $y --> $x:[Nom],$y:[Nom] 
+$x est dû aux $y --> $x:[Nom],$y:[Nom] 
+$x est dû à $y --> $x:[Nom],$y:[Nom] 
+$x est dû à un $y --> $x:[Nom],$y:[Nom] 
+$x être dûs au $y --> $x:[Nom],$y:[Nom] 
+$x être dûs aux $y --> $x:[Nom],$y:[Nom] 
+$x être dûs à $y --> $x:[Nom],$y:[Nom] 
+$x être dûs à un $y --> $x:[Nom],$y:[Nom] 
+$x est causer par $y --> $x:[Nom],$y:[Nom] 
+$x est causer par un $y --> $x:[Nom],$y:[Nom] 
+$x être causer par $y --> $x:[Nom],$y:[Nom] 
+$x être causer par un $y --> $x:[Nom],$y:[Nom] 
+$x causer par $y --> $x:[Nom],$y:[Nom] 
+$x causer par un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être causer par $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être causer par un $y --> $x:[Nom],$y:[Nom] 
+$x est provoquer par $y --> $x:[Nom],$y:[Nom] 
+$x est provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x être provoquer par $y --> $x:[Nom],$y:[Nom] 
+$x être provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer par $y --> $x:[Nom],$y:[Nom] 
+$x provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x provoquer par un $y --> $x:[Nom],$y:[Nom] 
+$x causer par un $y --> $x:[Nom],$y:[Nom] 
+
 
 Possession : 
 $x a un $y -*-> $x:[Personne] 
@@ -326,232 +348,292 @@ $x de type $y --> $y:[Nom]
 $x est de type $y --> $y:[Nom] 
 $x pouvoir être un $y --> $x:[Nom] 
 $x est caractérisé par $y -->$y:[Nom] 
-$x est caractérisé par un $y 
+$x est caractérisé par un $y --> $x:[Nom],$y:[Nom] 
 $x est caractérisée par $y -->$y:[Nom] 
-$x est caractérisée par un $y 
+$x est caractérisée par un $y --> $x:[Nom],$y:[Nom] 
 $x être caractérisés par $y -->$y:[Nom] 
-$x être caractérisés par un $y 
+$x être caractérisés par un $y --> $x:[Nom],$y:[Nom] 
 $x être caractérisées par $y -->$y:[Nom] 
-$x être caractérisées par un $y 
+$x être caractérisées par un $y --> $x:[Nom],$y:[Nom]  
 $x caractérisé par $y -->$y:[Nom] 
-$x caractérisé par un $y 
+$x caractérisé par un $y --> $x:[Nom],$y:[Nom] 
 $x caractérisée par $y -->$y:[Nom] 
-$x caractérisée par un $y 
+$x caractérisée par un $y --> $x:[Nom],$y:[Nom] 
 $x caractérisés par $y -->$y:[Nom] 
-$x caractérisés par un $y 
+$x caractérisés par un $y --> $x:[Nom],$y:[Nom] 
 $x caractérisées par $y -->$y:[Nom] 
-$x caractérisées par un $y 
+$x caractérisées par un $y --> $x:[Nom],$y:[Nom] 
 $x se caractériser par $y -->$y:[Nom] 
-$x se caractériser par un $y 
-$x à base de $y 
-$x à base de un $y 
-$x à base un $y 
-$x à base d'un $y 
-$x à base d'une $y 
+$x se caractériser par un $y --> $x:[Nom],$y:[Nom] 
+$x à base de $y --> $x:[Nom],$y:[Nom] 
+$x à base de un $y --> $x:[Nom],$y:[Nom] 
+$x à base un $y --> $x:[Nom],$y:[Nom] 
+$x à base d'un $y --> $x:[Nom],$y:[Nom] 
+$x à base d'une $y --> $x:[Nom],$y:[Nom] 
 
 Opposition :
-$x est l'inverse de $y 
-$x est l'opposé de $y 
-$x est l'opposée de $y 
-$x à est l'opposée de $y 
+$x est l'inverse de $y --> $x:[Nom],$y:[Nom] 
+$x est l'opposé de $y --> $x:[Nom],$y:[Nom] 
+$x est l'opposée de $y --> $x:[Nom],$y:[Nom] 
+$x à est l'opposée de $y --> $x:[Nom],$y:[Nom] 
 
 Localisation :
-$x au_niveau_de $y 
-$x au_niveau_de un $y 
-$x au niveau un $y 
-$x au niveau d'un $y 
-$x au niveau d'une $y 
-$x se trouver dans $y 
-$x se trouver dans un $y 
-$x se localisé au_niveau_de $y 
-$x se localisé au_niveau_de un $y 
-$x se localisé au niveau un $y 
-$x se localisé au niveau d'un $y 
-$x se localisé au niveau d'une $y 
-$x se localisée au_niveau_de $y 
-$x se localisée au_niveau_de un $y 
-$x se localisée au niveau un $y 
-$x se localisée au niveau d'un $y 
-$x se localisée au niveau d'une $y 
-$x se localisés au_niveau_de $y 
-$x se localisés au_niveau_de un $y 
-$x se localisés au niveau un $y 
-$x se localisés au niveau d'un $y 
-$x se localisés au niveau d'une $y 
-$x se localisées au_niveau_de $y 
-$x se localisées au_niveau_de un $y 
-$x se localisées au niveau un $y 
-$x se localisées au niveau d'un $y 
-$x se localisées au niveau d'une $y 
-$x se trouver localisé au_niveau_de $y 
-$x se trouver localisé au_niveau_de un $y 
-$x se trouver localisé au niveau un $y 
-$x se trouver localisé au niveau d'un $y 
-$x se trouver localisé au niveau d'une $y 
-$x se trouver localisée au_niveau_de $y 
-$x se trouver localisée au_niveau_de un $y 
-$x se trouver localisée au niveau un $y 
-$x se trouver localisée au niveau d'un $y 
-$x se trouver localisée au niveau d'une $y 
-$x se trouver localisés au_niveau_de $y 
-$x se trouver localisés au_niveau_de un $y 
-$x se trouver localisés au niveau un $y 
-$x se trouver localisés au niveau d'un $y 
-$x se trouver localisés au niveau d'une $y 
-$x se trouver localisées au_niveau_de $y 
-$x se trouver localisées au_niveau_de un $y 
-$x se trouver localisées au niveau un $y 
-$x se trouver localisées au niveau d'un $y 
-$x se trouver localisées au niveau d'une $y 
-$x se trouver localisées au_niveau_de un $y , de un $z 
+$x au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver dans $y --> $x:[Nom],$y:[Nom] 
+$x se trouver dans un $y --> $x:[Nom],$y:[Nom] 
+$x se localisé au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se localisé au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se localisé au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se localisé au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se localisé au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se localisée au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se localisée au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se localisée au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se localisée au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se localisée au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se localisés au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se localisés au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se localisés au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se localisés au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se localisés au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se localisées au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se localisées au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se localisées au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se localisées au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se localisées au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisé au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisé au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisé au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisé au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisé au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisée au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisée au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisée au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisée au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisée au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisés au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisés au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisés au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisés au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisés au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au_niveau_de $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au_niveau_de un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au niveau un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au niveau d'un $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au niveau d'une $y --> $x:[Nom],$y:[Nom] 
+$x se trouver localisées au_niveau_de un $y , de un $z --> $x:[Nom],$y:[Nom] 
 
 Accompagnement :
-$x accompagné de $y --> $x:[Nom] 
-$x accompagné de un $y --> $x:[Nom] 
-$x accompagné d'un $y --> $x:[Nom] 
-$x accompagné d'une $y --> $x:[Nom] 
-$x accompagné un $y --> $x:[Nom] 
-$x accompagner de $y --> $x:[Nom] 
-$x accompagner de un $y --> $x:[Nom] 
-$x accompagner d'un $y --> $x:[Nom] 
-$x accompagner d'une $y --> $x:[Nom] 
-$x accompagner d'une $y et d'une $z --> $x:[Nom] 
-$x accompagner un $y --> $x:[Nom] 
-$x accompagnées de $y --> $x:[Nom] 
-$x accompagnées de un $y --> $x:[Nom] 
-$x accompagnées d'un $y --> $x:[Nom] 
-$x accompagnées d'une $y --> $x:[Nom] 
-$x accompagnées un $y --> $x:[Nom] 
-$x accompagné par $y --> $x:[Nom] 
-$x accompagné par un $y --> $x:[Nom] 
-$x accompagner par $y --> $x:[Nom] 
-$x accompagner par un $y --> $x:[Nom] 
-$x accompagnées par $y --> $x:[Nom] 
-$x accompagnées par un $y --> $x:[Nom] 
-$x associé à un $y --> $x:[Nom] 
-$x associé au $y --> $x:[Nom] 
-$x associé aux $y --> $x:[Nom] 
-$x associée à un $y --> $x:[Nom] 
-$x associée au $y --> $x:[Nom] 
-$x associée aux $y --> $x:[Nom] 
-$x associés à un $y --> $x:[Nom] 
-$x associés au $y --> $x:[Nom] 
-$x associés aux $y --> $x:[Nom] 
-$x associées à un $y --> $x:[Nom] 
-$x associées au $y --> $x:[Nom] 
-$x associées aux $y --> $x:[Nom] 
-$x est associé à un $y --> $x:[Nom] 
-$x est associé au $y --> $x:[Nom] 
-$x est associé aux $y --> $x:[Nom] 
-$x est associée à un $y --> $x:[Nom] 
-$x est associée au $y --> $x:[Nom] 
-$x est associée aux $y --> $x:[Nom] 
-$x être associés à un $y --> $x:[Nom] 
-$x être associés au $y --> $x:[Nom] 
-$x être associés aux $y --> $x:[Nom] 
-$x être associées à un $y --> $x:[Nom] 
-$x être associées au $y --> $x:[Nom] 
-$x être associées aux $y --> $x:[Nom] 
-$x est lié_à $y --> $x:[Nom] 
-$x est lié_à un $y --> $x:[Nom] 
-$x est lié au $y --> $x:[Nom] 
-$x est lié aux $y --> $x:[Nom] 
-$x est liée à un $y --> $x:[Nom] 
-$x est liée au $y --> $x:[Nom] 
-$x est liée aux $y --> $x:[Nom] 
-$x être liés à $y --> $x:[Nom] 
-$x être liés à un $y --> $x:[Nom] 
-$x être liés au $y --> $x:[Nom] 
-$x être liés aux $y --> $x:[Nom] 
-$x être liées à $y --> $x:[Nom] 
-$x être liées à un $y --> $x:[Nom] 
-$x être liées au $y --> $x:[Nom] 
-$x être liées aux $y --> $x:[Nom] 
-$x est accompagné de $y --> $x:[Nom] 
-$x est accompagné de un $y --> $x:[Nom] 
-$x est accompagné un $y --> $x:[Nom] 
-$x est accompagné d'un $y --> $x:[Nom] 
-$x est accompagné d'une $y --> $x:[Nom] 
-$x est accompagner de $y --> $x:[Nom] 
-$x est accompagner de un $y --> $x:[Nom] 
-$x est accompagner un $y --> $x:[Nom] 
-$x est accompagner d'un $y --> $x:[Nom] 
-$x est accompagner d'une $y --> $x:[Nom] 
-$x être accompagner de $y --> $x:[Nom] 
-$x être accompagner de un $y --> $x:[Nom] 
-$x être accompagner un $y --> $x:[Nom] 
-$x être accompagner d'un $y --> $x:[Nom] 
-$x être accompagner d'une $y --> $x:[Nom] 
-$x être accompagnées de $y --> $x:[Nom] 
-$x être accompagnées de un $y --> $x:[Nom] 
-$x être accompagnées un $y --> $x:[Nom] 
-$x être accompagnées d'un $y --> $x:[Nom] 
-$x être accompagnées d'une $y --> $x:[Nom] 
-$x est accompagné par $y --> $x:[Nom] 
-$x est accompagné par un $y --> $x:[Nom] 
-$x est accompagner par $y --> $x:[Nom] 
-$x est accompagner par un $y --> $x:[Nom] 
-$x être accompagner par $y --> $x:[Nom] 
-$x être accompagner par un $y --> $x:[Nom] 
-$x être accompagnées par $y --> $x:[Nom] 
-$x être accompagnées par un $y --> $x:[Nom] 
-$x s'accompagne de $y --> $x:[Nom] 
-$x s'accompagne de un $y --> $x:[Nom] 
-$x s'accompagne de la$y --> $x:[Nom] 
-$x s'accompagne un $y --> $x:[Nom] 
-$x s'accompagne d'un $y --> $x:[Nom] 
-$x s'accompagne d'une $y --> $x:[Nom] 
-$x s'accompagnent de $y --> $x:[Nom] 
-$x s'accompagnent de un $y --> $x:[Nom] 
-$x s'accompagnent de la$y --> $x:[Nom] 
-$x s'accompagnent un $y --> $x:[Nom] 
-$x s'accompagnent d'un $y --> $x:[Nom] 
-$x s'accompagnent d'une $y --> $x:[Nom] 
-$x est lié de manière significative à $y --> $x:[Nom] 
-$x est lié de manière significative à un $y --> $x:[Nom] 
-$x est lié de manière significative au $y --> $x:[Nom] 
-$x est lié de manière significative aux $y --> $x:[Nom] 
-$x est liée de manière significative à un $y --> $x:[Nom] 
-$x est liée de manière significative au $y --> $x:[Nom] 
-$x est liée de manière significative aux $y --> $x:[Nom] 
-$x être liés de manière significative à $y --> $x:[Nom] 
-$x être liés de manière significative à un $y --> $x:[Nom] 
-$x être liés de manière significative au $y --> $x:[Nom] 
-$x être liés de manière significative aux $y --> $x:[Nom] 
-$x être liées de manière significative à $y --> $x:[Nom] 
-$x être liées de manière significative à un $y --> $x:[Nom] 
-$x être liées de manière significative au $y --> $x:[Nom] 
-$x être liées de manière significative aux $y --> $x:[Nom] 
-$x lié de manière significative à $y --> $x:[Nom] 
-$x lié de manière significative à un $y --> $x:[Nom] 
-$x lié de manière significative au $y --> $x:[Nom] 
-$x lié de manière significative aux $y --> $x:[Nom] 
-$x liée de manière significative à un $y --> $x:[Nom] 
-$x liée de manière significative au $y --> $x:[Nom] 
-$x liée de manière significative aux $y --> $x:[Nom] 
-$x liés de manière significative à $y --> $x:[Nom] 
-$x liés de manière significative à un $y --> $x:[Nom] 
-$x liés de manière significative au $y --> $x:[Nom] 
-$x liés de manière significative aux $y --> $x:[Nom] 
-$x liées de manière significative à $y --> $x:[Nom] 
-$x liées de manière significative à un $y --> $x:[Nom] 
-$x liées de manière significative au $y --> $x:[Nom] 
-$x liées de manière significative aux $y --> $x:[Nom] 
-$x lié_à $y --> $x:[Nom] 
-$x lié_à un $y --> $x:[Nom] 
-$x lié au $y --> $x:[Nom] 
-$x lié aux $y --> $x:[Nom] 
-$x liée à un $y --> $x:[Nom] 
-$x liée au $y --> $x:[Nom] 
-$x liée aux $y --> $x:[Nom] 
-$x liés à $y --> $x:[Nom] 
-$x liés à un $y --> $x:[Nom] 
-$x liés au $y --> $x:[Nom] 
-$x liés aux $y --> $x:[Nom] 
-$x liées à $y --> $x:[Nom] 
-$x liées à un $y --> $x:[Nom] 
-$x liées au $y --> $x:[Nom] 
-$x liées aux $y --> $x:[Nom] 
+$x accompagné de $y --> $x:[Nom],$y:[Nom] 
+$x accompagné de un $y --> $x:[Nom],$y:[Nom] 
+$x accompagné d'un $y --> $x:[Nom],$y:[Nom] 
+$x accompagné d'une $y --> $x:[Nom],$y:[Nom] 
+$x accompagné un $y --> $x:[Nom],$y:[Nom] 
+$x accompagner de $y --> $x:[Nom],$y:[Nom] 
+$x accompagner de un $y --> $x:[Nom],$y:[Nom] 
+$x accompagner d'un $y --> $x:[Nom],$y:[Nom] 
+$x accompagner d'une $y --> $x:[Nom],$y:[Nom] 
+$x accompagner d'une $y et d'une $z --> $x:[Nom],$y:[Nom] 
+$x accompagner un $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées de $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées de un $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées d'un $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées d'une $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées un $y --> $x:[Nom],$y:[Nom] 
+$x accompagné par $y --> $x:[Nom],$y:[Nom] 
+$x accompagné par un $y --> $x:[Nom],$y:[Nom] 
+$x accompagner par $y --> $x:[Nom],$y:[Nom] 
+$x accompagner par un $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées par $y --> $x:[Nom],$y:[Nom] 
+$x accompagnées par un $y --> $x:[Nom],$y:[Nom] 
+$x associé à un $y --> $x:[Nom],$y:[Nom] 
+$x associé au $y --> $x:[Nom],$y:[Nom] 
+$x associé aux $y --> $x:[Nom],$y:[Nom] 
+$x associée à un $y --> $x:[Nom],$y:[Nom] 
+$x associée au $y --> $x:[Nom],$y:[Nom] 
+$x associée aux $y --> $x:[Nom],$y:[Nom] 
+$x associés à un $y --> $x:[Nom],$y:[Nom] 
+$x associés au $y --> $x:[Nom],$y:[Nom] 
+$x associés aux $y --> $x:[Nom],$y:[Nom] 
+$x associées à un $y --> $x:[Nom],$y:[Nom] 
+$x associées au $y --> $x:[Nom],$y:[Nom] 
+$x associées aux $y --> $x:[Nom],$y:[Nom] 
+$x est associé à un $y --> $x:[Nom],$y:[Nom] 
+$x est associé au $y --> $x:[Nom],$y:[Nom] 
+$x est associé aux $y --> $x:[Nom],$y:[Nom] 
+$x est associée à un $y --> $x:[Nom],$y:[Nom] 
+$x est associée au $y --> $x:[Nom],$y:[Nom] 
+$x est associée aux $y --> $x:[Nom],$y:[Nom] 
+$x être associés à un $y --> $x:[Nom],$y:[Nom] 
+$x être associés au $y --> $x:[Nom],$y:[Nom] 
+$x être associés aux $y --> $x:[Nom],$y:[Nom] 
+$x être associées à un $y --> $x:[Nom],$y:[Nom] 
+$x être associées au $y --> $x:[Nom],$y:[Nom] 
+$x être associées aux $y --> $x:[Nom],$y:[Nom] 
+$x est lié_à $y --> $x:[Nom],$y:[Nom] 
+$x est lié_à un $y --> $x:[Nom],$y:[Nom] 
+$x est lié au $y --> $x:[Nom],$y:[Nom] 
+$x est lié aux $y --> $x:[Nom],$y:[Nom] 
+$x est liée à un $y --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telles un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telle un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liés à un $y tels un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liés à un $y tel un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liés à un $y comme un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telles un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telle un $z un $w  --> $x:[Nom],$y:[Nom] 
+$x liés à un $y tels un $z un $w  --> $x:[Nom],$y:[Nom] 
+$x liés à un $y tel un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liés à un $y comme un $z un $w --> $x:[Nom],$y:[Nom] 
+$x lié à un $y telles un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x lié à un $y telle un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x lié à un $y tels un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x lié à un $y tel un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x lié à un $y comme un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x lié à un $y telles un $z un $w --> $x:[Nom],$y:[Nom]  
+$x lié à un $y telle un $z un $w --> $x:[Nom],$y:[Nom]  
+$x lié à un $y tels un $z un $w  --> $x:[Nom],$y:[Nom] 
+$x lié à un $y tel un $z un $w --> $x:[Nom],$y:[Nom] 
+$x lié à un $y comme un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telles un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telle un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liées à un $y tels un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liées à un $y tel un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liées à un $y comme un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telles un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telle un $z un $w  --> $x:[Nom],$y:[Nom] 
+$x liées à un $y tels un $z un $w  --> $x:[Nom],$y:[Nom] 
+$x liées à un $y tel un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liées à un $y comme un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y telles un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liée à un $y telle un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liée à un $y tels un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liée à un $y tel un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liée à un $y comme un $z un $w ou un $t --> $x:[Nom],$y:[Nom] 
+$x liée à un $y telles un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y telle un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y tels un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y tel un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y comme un $z un $w --> $x:[Nom],$y:[Nom] 
+$x liée à un $y telles un $z --> $x:[Nom],$y:[Nom]
+$x liée à un $y telle un $z --> $x:[Nom],$y:[Nom] 
+$x liée à un $y tels un $z --> $x:[Nom],$y:[Nom]  
+$x liée à un $y tel un $z --> $x:[Nom],$y:[Nom] 
+$x liée à un $y comme un $z --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telles un $z --> $x:[Nom],$y:[Nom] 
+$x liées à un $y telle un $z --> $x:[Nom],$y:[Nom]  
+$x liées à un $y tels un $z --> $x:[Nom],$y:[Nom]  
+$x liées à un $y tel un $z --> $x:[Nom],$y:[Nom] 
+$x liées à un $y comme un $z --> $x:[Nom],$y:[Nom] 
+$x lié à un $y telles un $z --> $x:[Nom],$y:[Nom] 
+$x lié à un $y telle un $z --> $x:[Nom],$y:[Nom]  
+$x lié à un $y tels un $z --> $x:[Nom],$y:[Nom]  
+$x lié à un $y tel un $z --> $x:[Nom],$y:[Nom] 
+$x lié à un $y comme un $z --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telles un $z --> $x:[Nom],$y:[Nom] 
+$x liés à un $y telle un $z --> $x:[Nom],$y:[Nom]  
+$x liés à un $y tels un $z --> $x:[Nom],$y:[Nom] 
+$x liés à un $y tel un $z --> $x:[Nom],$y:[Nom] 
+$x liés à un $y comme un $z --> $x:[Nom],$y:[Nom] 
+$x est liée au $y --> $x:[Nom],$y:[Nom] 
+$x est liée aux $y --> $x:[Nom],$y:[Nom] 
+$x être liés à $y --> $x:[Nom],$y:[Nom] 
+$x être liés à un $y --> $x:[Nom],$y:[Nom] 
+$x être liés au $y --> $x:[Nom],$y:[Nom] 
+$x être liés aux $y --> $x:[Nom],$y:[Nom] 
+$x être liées à $y --> $x:[Nom],$y:[Nom] 
+$x être liées à un $y --> $x:[Nom],$y:[Nom] 
+$x être liées au $y --> $x:[Nom],$y:[Nom] 
+$x être liées aux $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné de $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné de un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné d'un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné d'une $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner de $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner de un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner d'un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner d'une $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner de $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner de un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner d'un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner d'une $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées de $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées de un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées d'un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées d'une $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné par $y --> $x:[Nom],$y:[Nom] 
+$x est accompagné par un $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner par $y --> $x:[Nom],$y:[Nom] 
+$x est accompagner par un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner par $y --> $x:[Nom],$y:[Nom] 
+$x être accompagner par un $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées par $y --> $x:[Nom],$y:[Nom] 
+$x être accompagnées par un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne de $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne de un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne de la$y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne d'un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagne d'une $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent de $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent de un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent de la$y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent d'un $y --> $x:[Nom],$y:[Nom] 
+$x s'accompagnent d'une $y --> $x:[Nom],$y:[Nom] 
+$x est lié de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x est lié de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x est lié de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x est lié de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x est liée de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x est liée de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x est liée de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x être liés de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x être liés de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x être liés de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x être liés de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x être liées de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x être liées de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x être liées de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x être liées de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x lié de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x lié de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x lié de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x lié de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x liée de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x liée de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x liée de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x liés de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x liés de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x liés de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x liés de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x liées de manière significative à $y --> $x:[Nom],$y:[Nom] 
+$x liées de manière significative à un $y --> $x:[Nom],$y:[Nom] 
+$x liées de manière significative au $y --> $x:[Nom],$y:[Nom] 
+$x liées de manière significative aux $y --> $x:[Nom],$y:[Nom] 
+$x lié_à $y --> $x:[Nom],$y:[Nom] 
+$x lié_à un $y --> $x:[Nom],$y:[Nom] 
+$x lié au $y --> $x:[Nom],$y:[Nom]
+$x lié aux $y --> $x:[Nom],$y:[Nom] 
+$x liée à un $y --> $x:[Nom],$y:[Nom]
+$x liée au $y --> $x:[Nom],$y:[Nom]
+$x liée aux $y --> $x:[Nom],$y:[Nom]
+$x liés à $y --> $x:[Nom],$y:[Nom]
+$x liés à un $y --> $x:[Nom],$y:[Nom]
+$x liés au $y --> $x:[Nom],$y:[Nom]
+$x liés aux $y --> $x:[Nom],$y:[Nom] 
+$x liées à $y --> $x:[Nom],$y:[Nom] 
+$x liées à un $y --> $x:[Nom],$y:[Nom] 
+$x liées au $y --> $x:[Nom],$y:[Nom] 
+$x liées aux $y --> $x:[Nom],$y:[Nom] 
 
 Traitement :
 $x a un $y comme traitement_médical $Post 
@@ -562,31 +644,31 @@ $x a un $y traitement_médical $Post
 $x a un $y traitements médicaux $Post 
 $x avoir un $y traitement_médical $Post 
 $x avoir un $y traitements médicaux $Post 
-$x traité par un $y 
-$x traiter par un $y 
-$x est traité par un $y 
-$x est traiter par un $y 
-$x être traités par un $y 
-$x être traiter par un $y 
+$x traité par un $y --> $x:[Nom],$y:[Nom] 
+$x traiter par un $y --> $x:[Nom],$y:[Nom] 
+$x est traité par un $y --> $x:[Nom],$y:[Nom] 
+$x est traiter par un $y --> $x:[Nom],$y:[Nom] 
+$x être traités par un $y --> $x:[Nom],$y:[Nom] 
+$x être traiter par un $y --> $x:[Nom],$y:[Nom] 
 $x traités par un $y 
-$x devoir être traités par un $y 
-$x devoir être traiter par un $y 
-$x devoir être traité par un $y 
-$x devoir être corrigés par un $y 
-$x devoir être corrigées par un $y 
-$x devoir être corrigé par un $y 
-$x devoir être corrigée par un $y 
-$x pouvoir être corrigée par un $y 
-$x pouvoir être corrigé par un $y 
-$x pouvoir être corrigés par un $y 
-$x pouvoir être corrigées par un $y 
-$x soigné par un $y 
-$x soignée par un $y 
-$x est soigné par un $y 
-$x est soignée par un $y 
-$x être soignés par un $y 
-$x être soignées par un $y 
-$x soulager un $y 
+$x devoir être traités par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être traiter par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être traité par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être corrigés par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être corrigées par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être corrigé par un $y --> $x:[Nom],$y:[Nom] 
+$x devoir être corrigée par un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être corrigée par un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être corrigé par un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être corrigés par un $y --> $x:[Nom],$y:[Nom] 
+$x pouvoir être corrigées par un $y --> $x:[Nom],$y:[Nom] 
+$x soigné par un $y --> $x:[Nom],$y:[Nom] 
+$x soignée par un $y --> $x:[Nom],$y:[Nom] 
+$x est soigné par un $y --> $x:[Nom],$y:[Nom] 
+$x est soignée par un $y --> $x:[Nom],$y:[Nom] 
+$x être soignés par un $y --> $x:[Nom],$y:[Nom] 
+$x être soignées par un $y --> $x:[Nom],$y:[Nom] 
+$x soulager un $y --> $x:[Nom],$y:[Nom] 
 
 Signe :
 $x a un $y pour signe $Post 
@@ -597,22 +679,22 @@ $x avoir un $y pour signe $Post
 $x avoir un $y pour signes $Post 
 $x avoir un $y pour symptôme $Post 
 $x avoir un $y pour symptômes $Post 
-$x qui se manifeste par un $y 
-$x qui se manifester par un $y 
-$x se manifeste par un $y 
-$x se manifester par un $y 
+$x qui se manifeste par un $y --> $x:[Nom],$y:[Nom] 
+$x qui se manifester par un $y --> $x:[Nom],$y:[Nom] 
+$x se manifeste par un $y --> $x:[Nom],$y:[Nom] 
+$x se manifester par un $y --> $x:[Nom],$y:[Nom] 
 
 Synonymie :
-$x appelé $y 
-$x appelé $y ou $z 
-$x appelé $y , $z ou $w 
-$x appelée $y 
-$x appelée $y ou $z 
-$x appelée $y , $z ou $w 
-$x appelés $y 
-$x appelés $y ou $z 
-$x appelés $y , $z ou $w 
-$x appelées $y 
-$x appelées $y ou $z 
-$x appelées $y , $z ou $w 
+$x appelé $y --> $x:[Nom],$y:[Nom] 
+$x appelé $y ou $z --> $x:[Nom],$y:[Nom] 
+$x appelé $y , $z ou $w --> $x:[Nom],$y:[Nom] 
+$x appelée $y --> $x:[Nom],$y:[Nom] 
+$x appelée $y ou $z --> $x:[Nom],$y:[Nom] 
+$x appelée $y , $z ou $w --> $x:[Nom],$y:[Nom] 
+$x appelés $y --> $x:[Nom],$y:[Nom] 
+$x appelés $y ou $z --> $x:[Nom],$y:[Nom] 
+$x appelés $y , $z ou $w --> $x:[Nom],$y:[Nom] 
+$x appelées $y --> $x:[Nom],$y:[Nom] 
+$x appelées $y ou $z --> $x:[Nom],$y:[Nom] 
+$x appelées $y , $z ou $w --> $x:[Nom],$y:[Nom] 
 

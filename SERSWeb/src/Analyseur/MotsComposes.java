@@ -401,7 +401,7 @@ public class MotsComposes extends TextClass {
 				
 		
 			}
-		//System.out.println("TEST quantif_adj: "+quantifAdj);
+		System.out.println("TEST quantif_adj: "+quantifAdj);
 		for (String mot : quantifAdj) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -419,7 +419,7 @@ public class MotsComposes extends TextClass {
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
-			if (abu.isPosComp(s[i].trim().toLowerCase(),"Nom")||/*!s[i].equals("est")||*/(abu.isPos(s[i].toLowerCase(),"Nom") && !s[i].equals("est")/*abu.howManyLemmes(s[i].toLowerCase()) == 1)*/)) {		
+			if (abu.isPosComp(s[i].trim().toLowerCase(),"Nom")||/*!s[i].equals("est")||*/(abu.isPos(s[i].toLowerCase(),"Nom") && !s[i].toLowerCase().equals("est") && !abu.isPos(s[i].toLowerCase(),"Det")/*abu.howManyLemmes(s[i].toLowerCase()) == 1)*/)) {		
 				mot +=s[i]+" ";
 //				if (s[i].equals("radiographies")) {
 //					//System.out.println("XXXXXXXXX"+s[i+1]);
@@ -430,7 +430,7 @@ public class MotsComposes extends TextClass {
 						&&(!s[i+j].toLowerCase().equals(new String("telle")))
 						&&(!s[i+j].toLowerCase().equals(new String("tels")))
 						&&(!s[i+j].toLowerCase().equals(new String("tel")))
-						&&	(!abu.isPos(s[i+j].toLowerCase(),"PP") || (Arrays.asList(PPas).contains(s[i+j])) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ie")) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && (abu.isPos((s[i+j+1].trim().toLowerCase()),"Ver")))) && (s[i+j].trim().toLowerCase().endsWith("ique") || s[i+j].trim().toLowerCase().endsWith("iques") || abu.isPosComp((s[i+j].trim().toLowerCase()),"Adj") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
+						&&	(!abu.isPos(s[i+j].toLowerCase(),"PP") || (Arrays.asList(PPas).contains(s[i+j])) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ie")) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && (abu.isPos((s[i+j+1].trim().toLowerCase()),"Ver")))) && (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ique") || abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("iques") || abu.isPosComp((s[i+j].trim().toLowerCase()),"Adj") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
 						mot=mot+s[i+j]+" ";
 					}
 					
@@ -470,7 +470,7 @@ public class MotsComposes extends TextClass {
 							if (Arrays.asList(new String[] {"les","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette"}).contains(s[i+k+1].trim().toLowerCase())) {
 								k=k+2;
 							}
-							if (j==k && Arrays.asList(new String[] {"les","leur","presque","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette"}).contains(s[i+j].trim().toLowerCase()))  {
+							if (j==k && Arrays.asList(new String[] {"les","leur","presque","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette","ces"}).contains(s[i+j].trim().toLowerCase()))  {
 								k++;
 							}
 						}
@@ -577,7 +577,7 @@ public class MotsComposes extends TextClass {
 					}
 					//System.out.println("-------------------------here 2"+s[i]);
 					if(s[i].toLowerCase().equals(new String("risque"))){
-						System.out.println("le risque "+abu.howManyLemmes(s[i].toLowerCase()));
+						//System.out.println("le risque "+abu.howManyLemmes(s[i].toLowerCase()));
 					}
 					
 					Boolean v = true;
@@ -593,14 +593,14 @@ public class MotsComposes extends TextClass {
 							)
 							&&!(abu.iscON(s[i].toLowerCase()))
 							){
-								System.out.println(" le mot dans la boucle "+mot);
+								//System.out.println(" le mot dans la boucle "+mot);
 								mot = mot + s[i] + " " +s[i+1]+ " ";
 								i =i +2;
 								k = k+2;
 						}
 					
 					mot = mot.trim();
-					System.out.println("the word ="+mot);
+					//System.out.println("the word ="+mot);
 
 					String[] l = mot.split(" ");
 					if(l.length>1 ){
@@ -610,7 +610,7 @@ public class MotsComposes extends TextClass {
 						}
 						else if(Arrays.asList(new String[] {"un","une","du","de","dans","la","d'une","d'un","en"}).contains(l[k-1].toLowerCase())
 								 ) {
-							System.out.println("inside d' ="+mot);
+							//System.out.println("inside d' ="+mot);
 
 							if(isNumeric(s[i])){
 								mot = null;
@@ -670,7 +670,7 @@ public class MotsComposes extends TextClass {
 									if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-meme","quelques","eux"
 											,"janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"}).contains(s[i].toLowerCase())
 											){
-										System.out.println("inside en condition after the word  delete="+mot);
+										//System.out.println("inside en condition after the word  delete="+mot);
 
 										mot =null;
 									}							
@@ -680,27 +680,27 @@ public class MotsComposes extends TextClass {
 									}
 								}
 								else{
-									System.out.println("inside en after the word  delete="+mot);
+									//System.out.println("inside en after the word  delete="+mot);
 
 									mot = null;
 								}
 							}
 							else { 
-								System.out.println("inside null ="+mot);
+								//System.out.println("inside null ="+mot);
 								if(l[k-1].startsWith("d'") || l[k-1].startsWith("l'")){
 									//System.out.println("inside null ici="+mot);
 
 								}
 								else {
 									if(mot.endsWith("le") || mot.endsWith("la")){
-										System.out.println("not ending correctly  ="+mot);
+										//System.out.println("not ending correctly  ="+mot);
 									}
-									System.out.println("after the word  delete="+mot);
+									//System.out.println("after the word  delete="+mot);
 									mot =null;
 								}
 							}
 						
-						System.out.println("after the word ="+mot);
+						//System.out.println("after the word ="+mot);
 
 							if(mot!=null){
 								if(mot.endsWith(new String("d' au"))){
@@ -740,12 +740,12 @@ public class MotsComposes extends TextClass {
 									newMot = newMot + " "+ tableau[h];
 								}
 								newMot = newMot.trim();
-								System.out.println(" newmot "+newMot);
+								//System.out.println(" newmot "+newMot);
 								mot = null;
 								}
 							}
 							
-							System.out.println("after the word delete ="+mot);
+							//System.out.println("after the word delete ="+mot);
 
 							////System.out.println("mot3 ="+mot);
 
