@@ -240,7 +240,7 @@ $x faire partie un $y --> $x:[Nom],$y:[Nom]
 $x forme un $y --> $x:[Nom],$y:[Nom] 
 $x former un $y --> $x:[Nom],$y:[Nom] 
 
-Causalité/Cause : 
+Causalite/Cause : 
 $x est un cause un $y --> $x:[Nom]
 $x cause un $y --> $x:[Nom],$y:[Nom]  
 $x pouvoir causer un $y --> $x:[Nom],$y:[Nom] 
@@ -294,7 +294,7 @@ $x stimuler un $y --> $x:[Nom],$y:[Nom]
 $x stimuler un $y stimuler un $z --> $x:[Nom],$y:[Nom]
 $x qui stimuler un $y --> $x:[Nom],$y:[Nom]
 
-Causalité/Conséquence : 
+Causalite/Consequence : 
 $x dû au $y --> $x:[Nom],$y:[Nom]  
 $x dû aux $y --> $x:[Nom],$y:[Nom] 
 $x dû à $y --> $x:[Nom],$y:[Nom] 

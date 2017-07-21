@@ -249,10 +249,8 @@ public class Analyseur {
 											underSemanticConstraint	=	0;
 										
 										Integer nbLemmaTerm1,nbLemmaTerm2;
-										nbLemmaTerm1 = Math.max(this.abu.howManyLemmes(matcher.group(1)),this.abu.howManyLemmesComp(matcher.group(1)));
-										nbLemmaTerm1 = Math.max(nbLemmaTerm1, 1);
-										nbLemmaTerm2 = Math.max(this.abu.howManyLemmes(matcher.group(i)),this.abu.howManyLemmesComp(matcher.group(i)));
-										nbLemmaTerm2 = Math.max(nbLemmaTerm2, 1);
+										nbLemmaTerm1 = Math.max(this.abu.howManyLemmes(matcher.group(1)), 1);
+										nbLemmaTerm2 = Math.max(this.abu.howManyLemmes(matcher.group(i)), 1);
 
 										Relation R = new Relation(type, matcher.group(1), matcher.group(i), matcher.group(),patron,nbOfTermsUnderGrammaticalConstraint,underSemanticConstraint,
 																	term1Exists,term2Exists,nbLemmaTerm1,nbLemmaTerm2);

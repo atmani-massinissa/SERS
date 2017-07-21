@@ -66,10 +66,36 @@ public class Relation {
 		}
 
 		setValueOfPattern();
-		//System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]");
+		setScore(this.evaluate());
 
-		//System.out.println("evaluatePattern equals "+this.evaluatePattern());
-		//System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
+		System.out.println("*************************************************************");
+
+		System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]( "+this.getTerm1()+", "+this.getTerm2()+") ("+this.getScore()+")");
+
+		System.out.println("evaluatePattern equals "+this.evaluatePattern());
+		System.out.println("getValueOfPattern equals "+this.getValueOfPattern());
+		System.out.println("getNbOfTermsUnderGrammaticalConstraint equals "+this.getNbOfTermsUnderGrammaticalConstraint());
+		System.out.println("getUnderSemanticConstraint equals "+this.getUnderSemanticConstraint());
+
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++ ");
+
+		System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
+		System.out.println("getTerm1IsCompound equals "+this.getTerm1IsCompound());
+		System.out.println("getTerm1Exists equals "+this.getTerm1Exists());
+		System.out.println("getNbLemmaTerm1 equals "+this.getNbLemmaTerm1());
+		
+		System.out.println("------------------------------------------ ");
+
+		System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
+		System.out.println("getTerm2IsCompound equals "+this.getTerm2IsCompound());
+		System.out.println("getTerm2Exists equals "+this.getTerm2Exists());
+		System.out.println("getNbLemmaTerm2 equals "+this.getNbLemmaTerm2());
+		
+		System.out.println("*************************************************************");
+
+
+
+
 		//System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
 		//System.out.println("evaluateHowManyTerm1 equals "+this.getNbLemmaTerm1());
 		//System.out.println("evaluateHowManyTerm2 equals "+this.getNbLemmaTerm2());
@@ -257,6 +283,11 @@ public class Relation {
 		this.score = score;
 	}
 	
+/**
+* E(R) = (ValueOfPattern(R.getPattern())*getNbOfTermUndeGrammaticalConstraint()*getSemanticConstraint())*Evaluate(R.t1)*Evalute(R.t2)
+Evaluate(t) = 1 + termIsCompound(t)+ termIsExist(t)
+**/
+	
 	public void setValueOfPattern(){
 		String relation;
 		relation = getType();
@@ -290,7 +321,7 @@ public class Relation {
       			setValueOfPattern(5);
 
 	    	}		
-	    case "Causalité/Cause":
+	    case "Causalite/Cause":
     		{
     		if(patron.contains(new String("entraîner")) ||patron.contains(new String("mener"))){
       			setValueOfPattern(7);
@@ -314,7 +345,7 @@ public class Relation {
 		      		}
 		      		break;
 		    }
-	    case "Causalité/Conséquance":
+	    case "Causalite/Consequence":
 	    	{
 		    	  if(patron.contains(new String(" par "))){
 		    		  setValueOfPattern(7);
@@ -332,8 +363,15 @@ public class Relation {
 	    	}
 	    case "Caractérisation":
 	    	{
-	    			setValueOfPattern(2);
-	    			break;
+		    	  if(patron.contains(new String("carac"))){
+		    		  setValueOfPattern(4);
+		    			break;
+		    	  }
+		    	  else{
+		    		  setValueOfPattern(2);
+		    		  break;
+		    	  }
+	    			
 	    	}
 	    case "Opposition":
 			{
