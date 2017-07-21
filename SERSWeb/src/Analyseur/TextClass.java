@@ -31,15 +31,22 @@ public abstract class TextClass {
 		newText = newText.replace("d' ", "d'");
 	}
 	
-	public void apostrEs(){
+	public void apostrEsNew(){
 		newText = newText.replace("L ' ", "L'");
 		newText = newText.replace("S ' ", "S'");
 		newText = newText.replace("D ' ", "D'");
 		newText = newText.replace("l ' ", "l'");
 		newText = newText.replace("s ' ", "s'");
 		newText = newText.replace("d ' ", "d'");
-
-		
+	}
+	
+	public void apostrEsOld(){
+		oldText = oldText.replace("L ' ", "L'");
+		oldText = oldText.replace("S ' ", "S'");
+		oldText = oldText.replace("D ' ", "D'");
+		oldText = oldText.replace("l ' ", "l'");
+		oldText = oldText.replace("s ' ", "s'");
+		oldText = oldText.replace("d ' ", "d'");
 	}
 
 }

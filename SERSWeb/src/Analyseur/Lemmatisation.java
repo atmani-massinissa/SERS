@@ -171,7 +171,8 @@ public class Lemmatisation extends TextClass {
 		String str = new String(oldText);
 		str = str.replace(" peut ", " ");
 		str = str.replace(" peuvent ", " ");
-		str = str.replace(" d'autres ", " ");
+		str = str.replace(" d 'autres ", " d'autres  ");
+		str = str.replace(" d' autres ", " d'autres ");
 		//str = str.replace(" par ", " ");
 		str = str.replace(" qu'", " ");
 		str = str.replace(" que ", " ");

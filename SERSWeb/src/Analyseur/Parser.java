@@ -225,6 +225,7 @@ public class Parser extends TextClass {
 		str = str.replace("l ' ", "l'");
 		str = str.replace("s ' ", "s'");
 		str = str.replace("d ' ", "d'");
+		str = str.toLowerCase();
 		str = str.trim();
 		System.out.println("article "+str);
 		return str;

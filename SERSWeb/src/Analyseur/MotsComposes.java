@@ -78,7 +78,7 @@ public class MotsComposes extends TextClass {
 			}
 							
 		}
-		
+		apostrEsOld();
 		this.newText = findMC();
 		//Cr�ation de nouveaux mots compos�s
 		//apostrFs();
@@ -109,6 +109,8 @@ public class MotsComposes extends TextClass {
 
 		this.newText =  new String(replace_article(nonExistingWords, this.newText));
 		this.newText =  new String(incomplete_words(this.newText));
+		this.newText = new String(complete_sur(this.newText));
+
 
 		
 		//System.out.println("le text3 est "+this.newText);
@@ -131,7 +133,7 @@ public class MotsComposes extends TextClass {
 		 new FileOutputStream(our_jdm_mcPath.toString(),true), "UTF-8"));
 		String outS = new String();
 		for (String s : nonExistingWords){
-			//s = s.replace("_", " ");
+			s = s.trim().toLowerCase().replace("_", " ");
 			if(!lookUp(s)){
 							outS = outS +s.replace("_", " ")+ ";"+wordListMap.get(s)+";  Source :  "+analyseur.getTitle()+ ";\n";
 			}
@@ -323,7 +325,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : adj_nom_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
 			}
 		}
 		
@@ -366,7 +368,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : NumericPhrase) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," quantif:Ajouté ");
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," quantif:Ajouté ");
 			}
 		}
 		
@@ -398,7 +400,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : quantifAdj) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," Adj:Ajouté ");
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Adj:Ajouté ");
 			}
 		}
 		
@@ -429,7 +431,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : quantifNom) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
 			}
 		}
 		
@@ -469,7 +471,7 @@ public class MotsComposes extends TextClass {
 		for (String mot : noms_adj_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
-				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
 			}
 		}
 		
@@ -911,6 +913,34 @@ public class MotsComposes extends TextClass {
 					}
 					 
 				}
+		}
+		return str;	
+	}
+	
+	public String complete_sur(String str) throws Exception{
+		String[] s = str.split(" ");
+		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);    
+		for (int i=0;i+3<s.length;i++) {
+			String word = new String(s[i].toString());
+			if(!s[i].toLowerCase().equals(new String("aux")) && !s[i].toLowerCase().equals(new String("base"))
+					&& !s[i].toLowerCase().startsWith(new String("ainsi")) && !s[i].toLowerCase().startsWith(new String("aux_"))){
+				if (abu.isNom(word.toLowerCase()) || abu.isPosComp(word, "Nom") 
+						|| nonExistingWords.contains(new String(s[i].trim().replace("_", " ")))) {
+					if(s[i+1].toString().equals(new String("sur"))){
+						if( s[i+2].toString().equals(new String("la")) ||s[i+2].toString().equals(new String("les"))
+						|| s[i+2].toString().equals(new String("le"))|| s[i+2].toString().equals(new String("des")) ){
+							 String compound_word = new String("");
+							 compound_word = s[i].toString() + " "+ s[i+1].toString()+ " "+s[i+2].toString()+" "+s[i+3].toString();
+							 this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
+							 nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+							 String newcompound_word = new String(compound_word.replace(" ", "_").trim());
+							 str = str.replace(compound_word, newcompound_word);
+						}
+					}
+					 
+				}
+			}
+				
 		}
 		return str;	
 	}
