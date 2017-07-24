@@ -297,7 +297,8 @@ public class MotsComposes extends TextClass {
 		HashSet<String> adj_nom_composes = new HashSet<String>();
 		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
-		
+		Boolean relationFlag = false;
+		String terme2="";
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
 			int j =0;
@@ -312,16 +313,29 @@ public class MotsComposes extends TextClass {
 					 ,"petits", "vieux", "vilains","premiers","premieres", "nouveaux"}).contains(s[i+j]) || abu.isPosComp(s[i+j], "Adj:Ajouté"))
 					 || s[i+j].endsWith("ième"); j++) {
 				mot=mot+s[i+j]+" ";
+				terme2=new String(mot.trim());
 			}
+			
 			if (abu.isPosComp(s[i+j].trim().toLowerCase(),"Nom")||(abu.isNom(s[i+j].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {		
 				mot +=s[i+j]+" ";
+				if ((wordList.contains(mot.trim().replace(terme2, "").replace("_", " ")) || Lemmatisation.map.containsKey(mot.trim().replace(terme2, "").replace("_", " ")))) {
+					relationFlag=true;
+					
+				}
+				
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
+					if (relationFlag) {
+						if (!analyseur.foundRelationcomposee(new Relation("Caractérisation",mot.replace(terme2, ""),terme2,mot,"NonE"))) {
+							analyseur.getRelations_composes_trouvees().add(new Relation("Caractérisation",mot.replace(terme2, ""),terme2,mot,"NonE"));
+						}
+						
+					}
 					adj_nom_composes.add(mot.trim());
 				}
 			}
 		}
-		//System.out.println("TEST adj_noms: "+adj_nom_composes);
+		System.out.println("TEST adj_noms: "+adj_nom_composes);
 		for (String mot : adj_nom_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -442,8 +456,11 @@ public class MotsComposes extends TextClass {
 		String[] PPas = new String[] {"élevé","sacré"};
 		HashSet<String> noms_adj_composes = new HashSet<String>();
 		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
+		boolean relationFlag;
+		String terme1 ="";
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i = 0; i < s.length; i++) {
+			relationFlag=false;
 			String mot="";
 			if (abu.isPosComp(s[i].trim().toLowerCase(),"Nom")||/*!s[i].equals("est")||*/(abu.isPos(s[i].toLowerCase(),"Nom") && !s[i].toLowerCase().equals("est") && !abu.isPos(s[i].toLowerCase(),"Det")/*abu.howManyLemmes(s[i].toLowerCase()) == 1)*/)) {		
 				mot +=s[i]+" ";
@@ -451,6 +468,10 @@ public class MotsComposes extends TextClass {
 //					//System.out.println("XXXXXXXXX"+s[i+1]);
 //					//System.out.println("XXXXXXXXX"+s[i+2]+(abu.isPos((s[i+2].trim().toLowerCase()),"Ver")));
 //				}
+				if (mot!="" && (wordList.contains(mot.trim().replace("_", " ")) || Lemmatisation.map.containsKey(mot))) {
+					relationFlag=true;
+					terme1=new String(mot);
+				}
 				for (int j = 1; i+j < s.length-1 
 						&&(!s[i+j].toLowerCase().equals(new String("telles"))) 
 						&&(!s[i+j].toLowerCase().equals(new String("telle")))
@@ -459,10 +480,16 @@ public class MotsComposes extends TextClass {
 						&&	(!abu.isPos(s[i+j].toLowerCase(),"PP") || (Arrays.asList(PPas).contains(s[i+j])) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ie")) || (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && (abu.isPos((s[i+j+1].trim().toLowerCase()),"Ver")))) && (abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("ique") || abu.isPos((s[i+j].trim().toLowerCase()),"Adj") && s[i+j].trim().toLowerCase().endsWith("iques") || abu.isPosComp((s[i+j].trim().toLowerCase()),"Adj") || abu.isAdj(s[i+j].trim().toLowerCase())) ; j++) {
 						mot=mot+s[i+j]+" ";
 					}
-					
+				
 				
 				if (mot.matches(".+\\s.+")) {
 					mot = apostrFj(mot);
+					if (relationFlag) {
+						if (!analyseur.foundRelationcomposee(new Relation("Caractérisation",terme1,mot.replace(terme1, ""),mot,"None"))) {
+							analyseur.getRelations_composes_trouvees().add(new Relation("Caractérisation",terme1,mot.replace(terme1, ""),mot,"None"));
+						}
+						
+					}
 					noms_adj_composes.add(mot.trim());
 				}
 			}
@@ -858,7 +885,7 @@ public class MotsComposes extends TextClass {
 					compound_word.replace("_", " ").endsWith(" sur") || 
 					compound_word.replace("_", " ").endsWith(" aucun") || 
 					compound_word.replace("_", " ").endsWith(" aucune")) {
-				System.out.println("compound word "+compound_word);
+				//System.out.println("compound word "+compound_word);
 				String regexp = compound_word+"(\\s)(.{3})"; 
 				Pattern ExpReg = Pattern.compile(regexp);
 				Matcher matcher = ExpReg.matcher(str);

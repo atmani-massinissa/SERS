@@ -64,7 +64,12 @@ import = "java.net.URLDecoder"
 					//out.print(""Texte en wikiCode"+" +text);
 					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
  					analyseurDeTest.displayResults(out);
- 					%> <br><br>------------------------------------------------Texte-----------------------------------------------<br><br>
+ 					%> <br><br>---------------------------------Relations tirées des mots composés-------------------------------<br><br>
+ 					<%
+ 					analyseurDeTest.displayResultsComposes(out);
+ 					%>
+ 					<br><br>-----------------------------------------------------------------------------------------------------<br><br>
+ 					<br><br>------------------------------------------------Texte-----------------------------------------------<br><br>
  					<%out.print("Texte prétraité"+analyseurDeTest.getText());
  					%><br><br>-----------------------------------------------------------------------------------------------------<br><br>
  					<%analyseurDeTest.writeResults();

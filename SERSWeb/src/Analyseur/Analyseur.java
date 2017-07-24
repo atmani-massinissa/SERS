@@ -25,6 +25,7 @@ public class Analyseur {
 	String filePath;
 	private String text;
 	private ArrayList<Relation> Relations_trouvees = new ArrayList<Relation>();
+	private ArrayList<Relation> Relations_composes_trouvees = new ArrayList<Relation>();
 	String ressourcePath;
 	Parser p;
 	Lemmatisation lm;
@@ -721,6 +722,10 @@ public class Analyseur {
 	public ArrayList<Relation> getRelations_trouvees() {
 		return Relations_trouvees;
 	}
+	
+	public ArrayList<Relation> getRelations_composes_trouvees() {
+		return Relations_composes_trouvees;
+	}
 
 	// Setters
 	public void setText(String text) {
@@ -730,6 +735,20 @@ public class Analyseur {
 	public void setTitle(Object title) {
 		this.title = title;
 	}
+	
+	public boolean foundRelationcomposee(Relation relation) {
+		/*
+		 * VÃ©rifie si une relation a dÃ©jÃ Ã©tÃ© trouvÃ©e.
+		 */
+		for (Relation relation_trouvee : Relations_composes_trouvees) {
+			if (relation_trouvee.equals(relation)) {
+				return true;
+			}
+		}
+		return false;
+
+	}
+
 	
 	public boolean foundRelation(Relation relation) {
 		/*
@@ -773,6 +792,21 @@ public class Analyseur {
 		
 	return false;
 		
+	}
+	
+	public void displayResultsComposes(JspWriter out) throws IOException {
+		/*
+		 * Affiche la liste des relations trouvées.
+		 */
+		
+		out.println("relation tirées des mots composés trouvés:");
+		for (Relation relation : this.getRelations_composes_trouvees()) {
+			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() +") ("+relation.getScore()+")");//// Contexte
+																														//// :
+																														//// "+relation.getContexte()+"<br><br>");
+			// //System.out.println(" contexte d e la phrase
+			// "+relation.getContexte());
+		}
 	}
 	
 	public void displayResults(JspWriter out) throws IOException {
