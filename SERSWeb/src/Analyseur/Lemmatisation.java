@@ -208,7 +208,9 @@ public class Lemmatisation extends TextClass {
 			}
 		}*/
 		String res = new String();
+		str = succVerbWithPar(str);
 		str = remSuccVerbs (str); // remove successive verbs
+
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		for (int i=0; i<s.length;i++) {
 				res=res+lemmatize(s[i])+" ";
@@ -427,6 +429,9 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 
+	public boolean isOnlyVerb(String mot) throws Exception {
+		return (isVerb(mot)&&(howManyLemmes(mot)==1));
+	}
 	public boolean isMasculin(String mot) throws Exception {
 		if (!map.keySet().contains(mot))
 			return false;
@@ -629,6 +634,37 @@ public class Lemmatisation extends TextClass {
 			}
 		}
 		return false;
+	}
+	
+	public String succVerbWithPar(String str) throws Exception{
+		String[] s = str.split("\\s|[.?!;\\(\\)]+");
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(s));
+		list.removeAll(Arrays.asList("", null," "));
+		String res = new String();
+		int i=0;
+		while(i+2<list.size()){
+			String v = new String(list.get(i));
+			v = v.replace("_", " ").trim();
+			int k=0;
+			if(isVerb(v) && list.get(i+1).equals(new String("par")) && isOnlyVerb(list.get(i+2))){
+				System.out.println(" par remove "+list.get(i)+" "+list.get(i+1));
+				k=1;
+			}
+			int h = i;
+			int l = i+1;
+			if(k==1){
+				i = i+3;
+				System.out.println(" par remove supp "+list.get(h)+"-----"+list.get(l));
+				System.out.println(list.remove(h));
+				System.out.println(list.remove(h));
+			}
+			else{
+				i++;
+			}
+		}
+		
+		res = String.join(" ", list);	
+	 	return res;
 	}
 	
 	public String remSuccVerbs(String str) throws Exception{

@@ -541,7 +541,7 @@ public class MotsComposes extends TextClass {
 				}
 				else{
 				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
-				nonExistingWords.add(mot.trim().toLowerCase().replace("_", " "));
+				nonExistingWords.add(mot.trim().toLowerCase());
 				}
 			}
 		}
@@ -844,8 +844,8 @@ public class MotsComposes extends TextClass {
 					String neww = mot.trim().replace("_", " "); 
 					neww = neww.replaceAll("_", " ");
 
-				this.wordListMap.put(neww," Nom:Ajouté ");
-				nonExistingWords.add(neww);
+				this.wordListMap.put(mot.trim().replace("_", " ")," Nom:Ajouté ");
+				nonExistingWords.add(mot.trim());
 				}
 			}
 		}
@@ -932,7 +932,7 @@ public class MotsComposes extends TextClass {
 							&& !s[i+1].toString().equals(new String("ces"))){
 					  compound_word = compound_word + " "+ s[i+1].toString();
 					  this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
-					  nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+					  nonExistingWords.add(compound_word.trim().toLowerCase());
 					  String newcompound_word = new String(compound_word.replace(" ", "_").trim());
 					  str = str.replace(compound_word, newcompound_word);
 					}
@@ -957,7 +957,7 @@ public class MotsComposes extends TextClass {
 							 String compound_word = new String("");
 							 compound_word = s[i].toString() + " "+ s[i+1].toString()+ " "+s[i+2].toString()+" "+s[i+3].toString();
 							 this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
-							 nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+							 nonExistingWords.add(compound_word.trim().toLowerCase());
 							 String newcompound_word = new String(compound_word.replace(" ", "_").trim());
 							 str = str.replace(compound_word, newcompound_word);
 						}
@@ -1000,7 +1000,7 @@ public class MotsComposes extends TextClass {
 							String compound_word = new String("");
 							 compound_word = s[i].toString() + " "+ s[i+1].toString()+ " "+s[i+2].toString();
 							 this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
-							 nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+							 nonExistingWords.add(compound_word.trim().toLowerCase());
 							 String newcompound_word = new String(compound_word.replace(" ", "_").trim());
 							 str = str.replace(compound_word, newcompound_word);
 						}
