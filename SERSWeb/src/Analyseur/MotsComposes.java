@@ -106,10 +106,13 @@ public class MotsComposes extends TextClass {
 
 		
 		//this.newText = replace_article2(this.newText);
+		
+
 
 		this.newText =  new String(replace_article(nonExistingWords, this.newText));
 		this.newText =  new String(incomplete_words(this.newText));
 		this.newText = new String(complete_sur(this.newText));
+		this.newText = new String(complete_et(this.newText));
 
 
 		
@@ -117,6 +120,9 @@ public class MotsComposes extends TextClass {
 
 		if (pr != null) 
 			addWordsToFile();
+		for (String sf : wordListMap.keySet()){
+			System.out.println(" worListMap<"+sf+"> : "+wordListMap.get(sf));
+		}
 			
 		//System.out.println("mots ajoutés "+nonExistingWords);
 			apostrFs();
@@ -136,6 +142,8 @@ public class MotsComposes extends TextClass {
 			s = s.trim().toLowerCase().replace("_", " ");
 			if(!lookUp(s)){
 							outS = outS +s.replace("_", " ")+ ";"+wordListMap.get(s)+";  Source :  "+analyseur.getTitle()+ ";\n";
+							System.out.println(s.replace("_", " ")+ ";"+wordListMap.get(s)+";  Source :  "+analyseur.getTitle()+ ";\n");
+
 			}
 		}
 		bw.append(outS);
@@ -297,8 +305,7 @@ public class MotsComposes extends TextClass {
 		HashSet<String> adj_nom_composes = new HashSet<String>();
 		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
 		String[] s = this.newText.split("\\s|[,.?!:;\\(\\)]+");
-		Boolean relationFlag = false;
-		String terme2="";
+		
 		for (int i = 0; i < s.length; i++) {
 			String mot="";
 			int j =0;
@@ -313,29 +320,16 @@ public class MotsComposes extends TextClass {
 					 ,"petits", "vieux", "vilains","premiers","premieres", "nouveaux"}).contains(s[i+j]) || abu.isPosComp(s[i+j], "Adj:Ajouté"))
 					 || s[i+j].endsWith("ième"); j++) {
 				mot=mot+s[i+j]+" ";
-				terme2=new String(mot.trim());
 			}
-			
 			if (abu.isPosComp(s[i+j].trim().toLowerCase(),"Nom")||(abu.isNom(s[i+j].toLowerCase()) && abu.howManyLemmes(s[i].toLowerCase()) == 1)) {		
 				mot +=s[i+j]+" ";
-				if ((wordList.contains(mot.trim().replace(terme2, "").replace("_", " ")) || Lemmatisation.map.containsKey(mot.trim().replace(terme2, "").replace("_", " ")))) {
-					relationFlag=true;
-					
-				}
-				
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
-					if (relationFlag) {
-						if (!analyseur.foundRelationcomposee(new Relation("Caractérisation",mot.replace(terme2, ""),terme2,mot,"NonE"))) {
-							analyseur.getRelations_composes_trouvees().add(new Relation("Caractérisation",mot.replace(terme2, ""),terme2,mot,"NonE"));
-						}
-						
-					}
 					adj_nom_composes.add(mot.trim());
 				}
 			}
 		}
-		System.out.println("TEST adj_noms: "+adj_nom_composes);
+		//System.out.println("TEST adj_noms: "+adj_nom_composes);
 		for (String mot : adj_nom_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -452,6 +446,7 @@ public class MotsComposes extends TextClass {
 		this.newText =  new String(replace_article(quantifNom, this.newText));
 		return quantifNom;
 	}
+
 	public HashSet<String> nomAdj() throws Exception {
 		String[] PPas = new String[] {"élevé","sacré"};
 		HashSet<String> noms_adj_composes = new HashSet<String>();
@@ -545,8 +540,8 @@ public class MotsComposes extends TextClass {
 					nonExistingWords.add(mot.trim().toLowerCase().replaceAll("^l'", ""));
 				}
 				else{
-				this.wordListMap.put(mot.trim().toLowerCase()," Nom:Ajouté ");
-				nonExistingWords.add(mot.trim().toLowerCase());
+				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
+				nonExistingWords.add(mot.trim().toLowerCase().replace("_", " "));
 				}
 			}
 		}
@@ -846,8 +841,11 @@ public class MotsComposes extends TextClass {
 				}
 				else{
 					//System.out.println("affich "+mot.trim().toLowerCase().replace("_", " "));
-				this.wordListMap.put(mot.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
-				nonExistingWords.add(mot.trim().toLowerCase().replace("_", " "));
+					String neww = mot.trim().replace("_", " "); 
+					neww = neww.replaceAll("_", " ");
+
+				this.wordListMap.put(neww," Nom:Ajouté ");
+				nonExistingWords.add(neww);
 				}
 			}
 		}
@@ -885,7 +883,7 @@ public class MotsComposes extends TextClass {
 					compound_word.replace("_", " ").endsWith(" sur") || 
 					compound_word.replace("_", " ").endsWith(" aucun") || 
 					compound_word.replace("_", " ").endsWith(" aucune")) {
-				//System.out.println("compound word "+compound_word);
+				System.out.println("compound word "+compound_word);
 				String regexp = compound_word+"(\\s)(.{3})"; 
 				Pattern ExpReg = Pattern.compile(regexp);
 				Matcher matcher = ExpReg.matcher(str);
@@ -969,6 +967,65 @@ public class MotsComposes extends TextClass {
 			}
 				
 		}
+		return str;	
+	}
+	
+	public String complete_et(String str) throws Exception{
+		String[] s = str.split(" ");
+		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);    
+		for (int i=0;i+2<s.length;i++) {
+			String word = new String(s[i].trim().replace("_", " ").toString());
+			String cat = new String("");
+			System.out.println(" word + "+word);
+			if(wordListMap.containsKey(word)){
+				cat = wordListMap.get(word);
+				System.out.println(" word2 + "+word);
+				System.out.println(" cat + "+cat);
+
+				if(cat.contains(new String("Nom"))){
+					if(s[i+1].equals("et")){
+						System.out.println(" word + et "+word);
+						if(
+								(abu.isNom(s[i+2]) 
+								&& !abu.isDet(s[i+2]) 
+								&& !(abu.isVerb(s[i+2])&&!abu.isAdj(s[i+2])) 
+								)
+							||
+								(!abu.isVerb(s[i+2])
+								&& abu.isAdj(s[i+2])  
+								&& !abu.isDet(s[i+2])
+								)
+							){
+							System.out.println(" word + et +"+word+" et "+s[i+2]);
+							String compound_word = new String("");
+							 compound_word = s[i].toString() + " "+ s[i+1].toString()+ " "+s[i+2].toString();
+							 this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
+							 nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+							 String newcompound_word = new String(compound_word.replace(" ", "_").trim());
+							 str = str.replace(compound_word, newcompound_word);
+						}
+					}
+				}
+			}
+		}
+				/*if (abu.isNom(word.toLowerCase()) || abu.isPosComp(word, "Nom") 
+						|| nonExistingWords.contains(new String(s[i].trim().replace("_", " ")))) {
+					if(s[i+1].toString().equals(new String("sur"))){
+						if( s[i+2].toString().equals(new String("la")) ||s[i+2].toString().equals(new String("les"))
+						|| s[i+2].toString().equals(new String("le"))|| s[i+2].toString().equals(new String("des")) ){
+							 String compound_word = new String("");
+							 compound_word = s[i].toString() + " "+ s[i+1].toString()+ " "+s[i+2].toString()+" "+s[i+3].toString();
+							 this.wordListMap.put(compound_word.trim().toLowerCase().replace("_", " ")," Nom:Ajouté ");
+							 nonExistingWords.add(compound_word.trim().toLowerCase().replace("_", " "));
+							 String newcompound_word = new String(compound_word.replace(" ", "_").trim());
+							 str = str.replace(compound_word, newcompound_word);
+						}
+					}
+					 
+				}
+			}
+				
+		}*/
 		return str;	
 	}
 

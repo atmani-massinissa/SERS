@@ -225,6 +225,18 @@ public class Parser extends TextClass {
 		str = str.replace("l ' ", "l'");
 		str = str.replace("s ' ", "s'");
 		str = str.replace("d ' ", "d'");
+		str = str.replace("L '", "L'");
+		str = str.replace("S '", "S'");
+		str = str.replace("D '", "D'");
+		str = str.replace("l '", "l'");
+		str = str.replace("s '", "s'");
+		str = str.replace("d '", "d'");
+		str = str.replace("L' ", "L'");
+		str = str.replace("S' ", "S'");
+		str = str.replace("D' ", "D'");
+		str = str.replace("l' ", "l'");
+		str = str.replace("s' ", "s'");
+		str = str.replace("d' ", "d'");
 		str = str.toLowerCase();
 		str = str.trim();
 		System.out.println("article "+str);

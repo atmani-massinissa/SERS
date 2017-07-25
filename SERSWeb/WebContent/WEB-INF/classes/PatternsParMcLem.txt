@@ -298,6 +298,8 @@ $x stimuler un $y --> $x:[Nom],$y:[Nom]
 $x stimuler un $y stimuler un $z --> $x:[Nom],$y:[Nom]
 $x qui stimuler un $y --> $x:[Nom],$y:[Nom]
 $x agir sur un $y --> $x:[Nom],$y:[Nom]
+$x un cause_de $y --> $x:[Nom],$y:[Nom]
+
 
 
 Causalite/Consequence : 

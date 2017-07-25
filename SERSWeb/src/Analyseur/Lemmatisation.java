@@ -52,6 +52,7 @@ public class Lemmatisation extends TextClass {
 			e.printStackTrace();
 		}
 		newText = lemmatizeText();
+		apostrFj();
 	}
 	
 	public Lemmatisation(TextClass tc, String ressourcePath,TextClass tc2) throws Exception {
@@ -440,6 +441,10 @@ public class Lemmatisation extends TextClass {
 	}
 
 	public boolean isPos(String mot, String pos) {
+		if(mot.startsWith("l'") ){
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
@@ -507,7 +512,7 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	public boolean isNom(String mot) {
-		if(mot.startsWith("l'")){
+		if(mot.startsWith("l'") ){
 			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
 			mot = mot.substring(2, mot.length());
 		}
@@ -525,8 +530,12 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	
+	public boolean isOnlyNom(String mot){
+		return (isNom(mot)&&(howManyLemmes(mot)==1));
+	}
+	
 	public int isNomBis(String mot) {
-		if(mot.startsWith("l'")){
+		if(mot.startsWith("l'") ){
 			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
 			mot = mot.substring(2, mot.length());
 		}
@@ -543,6 +552,10 @@ public class Lemmatisation extends TextClass {
 	}
 	
 	public boolean isDet(String mot) {
+		if(mot.startsWith("l'") ){
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
@@ -556,6 +569,10 @@ public class Lemmatisation extends TextClass {
 	}
 	
 	public boolean iscON(String mot) throws Exception{
+		if(mot.startsWith("l'") ){
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot)) 
 			return false/*//System.out.println("")*/;
 		else {
@@ -569,6 +586,10 @@ public class Lemmatisation extends TextClass {
 }
 	
 	public boolean isPre(String mot) {
+		if(mot.startsWith("l'") ){
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
@@ -581,6 +602,10 @@ public class Lemmatisation extends TextClass {
 		return false;
 	}
 	public boolean isPro(String mot) {
+		if(mot.startsWith("l'") ){
+			//System.out.println("s[i] = "+mot.substring(2, mot.length()));
+			mot = mot.substring(2, mot.length());
+		}
 		if (!map.keySet().contains(mot))
 			return false;
 		else {
