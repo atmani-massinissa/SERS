@@ -58,7 +58,7 @@ import = "java.net.URLDecoder"
 				String text= frWiki.getPageText(""+matcher.group(2));
 				if (text != null) {
 					analyseurDeTest.setText(text);
-					analyseurDeTest.setTitle(matcher.group(2));
+					analyseurDeTest.setTitle(matcher.group(2).toString());
 					//analyseurDeTest.setText(text);
 					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
 					//out.print(""Texte en wikiCode"+" +text);

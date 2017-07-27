@@ -68,30 +68,30 @@ public class Relation {
 		setValueOfPattern();
 		setScore(this.evaluate());
 
-		System.out.println("*************************************************************");
-
-		System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]( "+this.getTerm1()+", "+this.getTerm2()+") ("+this.getScore()+")");
-
-		System.out.println("evaluatePattern equals "+this.evaluatePattern());
-		System.out.println("getValueOfPattern equals "+this.getValueOfPattern());
-		System.out.println("getNbOfTermsUnderGrammaticalConstraint equals "+this.getNbOfTermsUnderGrammaticalConstraint());
-		System.out.println("getUnderSemanticConstraint equals "+this.getUnderSemanticConstraint());
-
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++ ");
-
-		System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
-		System.out.println("getTerm1IsCompound equals "+this.getTerm1IsCompound());
-		System.out.println("getTerm1Exists equals "+this.getTerm1Exists());
-		System.out.println("getNbLemmaTerm1 equals "+this.getNbLemmaTerm1());
-		
-		System.out.println("------------------------------------------ ");
-
-		System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
-		System.out.println("getTerm2IsCompound equals "+this.getTerm2IsCompound());
-		System.out.println("getTerm2Exists equals "+this.getTerm2Exists());
-		System.out.println("getNbLemmaTerm2 equals "+this.getNbLemmaTerm2());
-		
-		System.out.println("*************************************************************");
+//		System.out.println("*************************************************************");
+//
+//		System.out.println("Relation [Pattern] "+this.getType()+"["+this.getPatron()+"]( "+this.getTerm1()+", "+this.getTerm2()+") ("+this.getScore()+")");
+//
+//		System.out.println("evaluatePattern equals "+this.evaluatePattern());
+//		System.out.println("getValueOfPattern equals "+this.getValueOfPattern());
+//		System.out.println("getNbOfTermsUnderGrammaticalConstraint equals "+this.getNbOfTermsUnderGrammaticalConstraint());
+//		System.out.println("getUnderSemanticConstraint equals "+this.getUnderSemanticConstraint());
+//
+//		System.out.println("+++++++++++++++++++++++++++++++++++++++++++ ");
+//
+//		System.out.println("evaluateTerm1 equals "+this.evaluateTerm1());
+//		System.out.println("getTerm1IsCompound equals "+this.getTerm1IsCompound());
+//		System.out.println("getTerm1Exists equals "+this.getTerm1Exists());
+//		System.out.println("getNbLemmaTerm1 equals "+this.getNbLemmaTerm1());
+//		
+//		System.out.println("------------------------------------------ ");
+//
+//		System.out.println("evaluateTerm2 equals "+this.evaluateTerm2());
+//		System.out.println("getTerm2IsCompound equals "+this.getTerm2IsCompound());
+//		System.out.println("getTerm2Exists equals "+this.getTerm2Exists());
+//		System.out.println("getNbLemmaTerm2 equals "+this.getNbLemmaTerm2());
+//		
+//		System.out.println("*************************************************************");
 
 
 
@@ -441,5 +441,11 @@ Evaluate(t) = 1 + termIsCompound(t)+ termIsExist(t)
 
 	public void setNbLemmaTerm2(Integer nbLemmaTerm2) {
 		this.nbLemmaTerm2 = nbLemmaTerm2;
+	}
+	
+	public String toString() {
+		
+		return this.type+"("+this.term1+", "+this.term2+")";
+		
 	}
 }

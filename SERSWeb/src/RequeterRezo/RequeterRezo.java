@@ -206,7 +206,7 @@ public class RequeterRezo {
                 break;
             }
             default: {
-            	System.out.println("avisCache : "+avisCache);
+            	//System.out.println("avisCache : "+avisCache);
                 return Mot.lire(avisCache);
             }
         }
@@ -317,7 +317,7 @@ public class RequeterRezo {
             while ((ligne = lecteur.readLine()) != null && !(ligne.startsWith("<def>"))) {
                 if (ligne.contains("poids=")) {
                     pdivisions = ligne.split("\\\"");
-                    System.out.println(ligne);
+                   // System.out.println(ligne);
                     mot.setPoids_general(Double.parseDouble(pdivisions[1]));
                 } else if (ligne.startsWith("<mot-formate>:")) {
                     mot.setMotFormate(ligne.substring(13, ligne.length() - 14));

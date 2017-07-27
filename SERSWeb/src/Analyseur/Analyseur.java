@@ -31,7 +31,7 @@ public class Analyseur {
 	Lemmatisation lm;
 	Lemmatisation abu;
 	MotsComposes mc;
-	private Object title;
+	private String title;
 	Path titlePath;
 	HashMap<String,Integer> nbOfTermsUnderConstraintByPattern;
 
@@ -732,7 +732,7 @@ public class Analyseur {
 		this.text = text;
 	}
 
-	public void setTitle(Object title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 	
@@ -823,7 +823,7 @@ public class Analyseur {
 			// "+relation.getContexte());
 		}
 	}
-	public Object getTitle() {
-		return title;
+	public String getTitle() {
+		return this.title;
 	}
 }
