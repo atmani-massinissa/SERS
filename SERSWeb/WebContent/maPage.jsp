@@ -31,6 +31,7 @@ import = "java.net.URLDecoder"
   <br><br><br>
   <input type="submit" style="border:gray; color:black;" value="Extraire relations sémantiques">
   <br><br>
+  <a href="download.jsp?filename=OurJdm-mc.txt">New JDM File</a>
  <br><br>-------------------------------------------------------------------------------------------------------------<br><br>
 
 
@@ -63,15 +64,18 @@ import = "java.net.URLDecoder"
 					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
 					//out.print(""Texte en wikiCode"+" +text);
 					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
-					<br><br>										
-					<a href="<%=analyseurDeTest.MakePath(session.getServletContext().getRealPath("/WEB-INF/classes/OurJdm-mc.txt"))%>" download="OurJdm-mc.txt">New JDM File</a>
+					%>
 					<br><br>
-					<a href="<%=analyseurDeTest.MakePath(session.getServletContext().getRealPath("/WEB-INF/classes/results/"+analyseurDeTest.getTitle().toString()+".txt"))%>" download="Extracted Relations File">Extracted Relations File</a>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">New JDM File</a>
 					<br><br>
- 					analyseurDeTest.displayResults(out);
- 					%> <br><br>---------------------------------Relations tirées des mots composés-------------------------------<br><br>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=<%=analyseurDeTest.getTitle()+".txt" %>">Extracted Relations File</a>
+					<br><br>
  					<%
- 					analyseurDeTest.displayResultsComposes(out);
+ 					analyseurDeTest.displayResults(out);
+ 					%>
+ 					<br><br>---------------------------------Relations tirées des mots composés-------------------------------<br><br>
+ 					<%
+ 					//analyseurDeTest.displayResultsComposes(out);
  					%>
  					<br><br>-----------------------------------------------------------------------------------------------------<br><br>
  					<br><br>------------------------------------------------Texte-----------------------------------------------<br><br>

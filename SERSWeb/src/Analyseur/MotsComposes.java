@@ -354,7 +354,7 @@ public class MotsComposes extends TextClass {
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",mot.replace(terme2, "").trim(),terme2.trim(),mot,"NonE");
+						Relation rel = new Relation("Caractérisation",mot.replace(terme2, "").trim(),terme2.trim(),mot,"None");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
@@ -842,19 +842,19 @@ public class MotsComposes extends TextClass {
 								if (Arrays.asList(new String[] {"des","d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
 								contains(l[2].toLowerCase()))
 								{
-									System.out.println("unknown "+l[0]+" "+l[3]);
+									//System.out.println("unknown "+l[0]+" "+l[3]);
 									if((abu.map.containsKey(l[0])||wordListMap.containsKey(l[0])) && (abu.map.containsKey(l[3])||wordListMap.containsKey(l[3]))){
-										System.out.println("==unknown "+l[0]+" "+l[3]);
-										String rel = new String("SCHEMA2 ("+l[0].trim()+","+l[3].trim()+")");
+										//System.out.println("==unknown "+l[0]+" "+l[3]);
+										String rel = new String("Schéma1("+l[0].trim()+","+l[3].trim()+")");
 										RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
 
 									}
 								}
 								else{
-									System.out.println("unknown2 "+l[0]+" "+l[2]);
+									//System.out.println("unknown2 "+l[0]+" "+l[2]);
 									if((abu.map.containsKey(l[0])||wordListMap.containsKey(l[0])) && (abu.map.containsKey(l[2])||wordListMap.containsKey(l[2]))){
-										System.out.println("==unknown2 "+l[0]+" "+l[2]);
-										String rel = new String("SCHEMA2 ("+l[0].trim()+","+l[2].trim()+")");
+										//System.out.println("==unknown2 "+l[0]+" "+l[2]);
+										String rel = new String("Schéma1("+l[0].trim()+","+l[2].trim()+")");
 										RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
 
 									}
