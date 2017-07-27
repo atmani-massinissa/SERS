@@ -826,4 +826,8 @@ public class Analyseur {
 	public String getTitle() {
 		return this.title;
 	}
+	
+	 public String MakePath(String path){
+    	return(new String((path.replace("\"", ""))));
+    }
 }
