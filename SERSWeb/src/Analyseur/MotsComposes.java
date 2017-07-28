@@ -851,7 +851,7 @@ public class MotsComposes extends TextClass {
 								//System.out.println(" newmot "+newMot);
 								mot = null;
 								}
-								
+								//ajout dernière version
 								String moT = mot.replace("_", " ");
 							l = mot.replace("_", " ").split(" ");
 							if(l.length>3){
