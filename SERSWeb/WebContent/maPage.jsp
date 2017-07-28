@@ -24,7 +24,9 @@ import = "java.net.URLEncoder"
    		{
 	   		out.println(request.getParameter("inputText"));
    		}
-%></textarea>
+%></textarea><br>
+<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=Documentation.docx">DOC</a>
+<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=Installation du projet sous Eclipse.docx">Installation</a>
  <br><br>------------------------------------------------Paramétrage-----------------------------------------------<br><br>
  <br><br>Saisir le seuil confiance minimal :<br><br>
 <input name="threshold" value="0.2">
