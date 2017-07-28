@@ -27,6 +27,11 @@ import = "java.net.URLEncoder"
 %></textarea><br>
 <a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=Documentation.docx">DOC</a>
 <a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=Installation du projet sous Eclipse.docx">Installation</a>
+<br><br>
+<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=PatternsParMcLem.txt">Fichier des patterns lémmatisé</a>
+<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=jdm-mc.txt">Fichier de JeuxDeMots</a>
+<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=dico.txt">Fichier de ABU</a>
+
  <br><br>------------------------------------------------Paramétrage-----------------------------------------------<br><br>
  <br><br>Saisir le seuil confiance minimal :<br><br>
 <input name="threshold" value="0.2">
