@@ -407,7 +407,10 @@ public class MotsComposes extends TextClass {
 				mot+=s[j+i];
 			}
 			j=j+mot.length();
-			NumericPhrase.add(mot.trim());
+			if (mot != "" && mot != null) {
+				NumericPhrase.add(mot.trim());
+			}
+			
 		}
 		System.out.println("TEST NumericSentence: "+NumericPhrase);
 		for (String mot : NumericPhrase) {		

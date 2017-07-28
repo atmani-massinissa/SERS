@@ -31,8 +31,6 @@ import = "java.net.URLEncoder"
   <br><br><br>
   <br><br><br>
   <input type="submit" style="border:gray; color:black;" value="Extraire relations sémantiques">
-  <br><br>
-  <a href="download.jsp?filename=OurJdm-mc.txt">New JDM File</a>
  <br><br>-------------------------------------------------------------------------------------------------------------<br><br>
 
 
@@ -91,12 +89,6 @@ import = "java.net.URLEncoder"
 					<%
 					
 				}
-			}
-			else 
-			{
-				%>Le nom de l'article n'a pas été séparé du lien : <%out.print(request.getParameter("inputText"));%> 
-				<%
-				
 			}
 			
 		}

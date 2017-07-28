@@ -25,10 +25,10 @@ public class MesTests {
 		//System.out.println(" howma "+abu.howManyLemmes("risque"));
 		//essaiSupp();
 		//essaiCntrntSemantic();
-		String s = new String("Dépression_(psychiatrie)_Results");
-		URI t = URLEncoder.encode(s, "UTF-8").
-		//System.out.println(" encode "+t);
-		System.out.println(t);
+//		String s = new String("Dépression_(psychiatrie)_Results");
+//		URI t = URLEncoder.encode(s, "UTF-8").
+//		System.out.println(" encode "+t);
+//		System.out.println(t);
 		
 	}
 	public static void essaiCntrntSemantic() throws MalformedURLException, IOException, InterruptedException{
