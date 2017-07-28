@@ -713,8 +713,8 @@ public class Lemmatisation extends TextClass {
 
 	public static void main(String[] args) throws Exception {
 
-		Lemmatisation lm = new Lemmatisation("D:\\apache-tomcat-8.0.32\\wtpwebapps\\SERSWeb\\WEB-INF\\classes\\");
-		System.out.println(" lm "+lm.howManyLemmes("risque"));
+		//Lemmatisation lm = new Lemmatisation("D:\\apache-tomcat-8.0.32\\wtpwebapps\\SERSWeb\\WEB-INF\\classes\\");
+		//System.out.println(" lm "+lm.howManyLemmes("risque"));
 
 		/*File file = new File("Text.txt");
 		FileInputStream fis = new FileInputStream(file);

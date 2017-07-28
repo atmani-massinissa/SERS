@@ -3,6 +3,7 @@ import = "org.wikipedia.Wiki"
 import = "java.util.regex.Matcher"
 import = "java.util.regex.Pattern"
 import = "java.net.URLDecoder"
+import = "java.net.URLEncoder"
 %>
 <%@page contentType="text/html; charset=iso-8859-1" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -68,7 +69,8 @@ import = "java.net.URLDecoder"
 					<br><br>
 					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">New JDM File</a>
 					<br><br>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=<%=analyseurDeTest.getTitle()+".txt" %>">Extracted Relations File</a>
+					<%%>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/results/")%>&filename=<%=URLEncoder.encode(analyseurDeTest.getTitle()+"_Results.txt","UTF-8")%>">Extracted Relations File</a>
 					<br><br>
  					<%
  					analyseurDeTest.displayResults(out);

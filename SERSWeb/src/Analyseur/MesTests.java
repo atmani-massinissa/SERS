@@ -1,22 +1,34 @@
 package Analyseur;
 
 import java.io.BufferedReader;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 
 import RequeterRezo.RequeterRezo;
 import RequeterRezo.Terme;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.io.*;
+import java.util.*;
+
 public class MesTests {
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args){
 		
-		Lemmatisation abu = new Lemmatisation("");
-		System.out.println(" howma "+abu.howManyLemmes("risque"));
+		//Lemmatisation abu = new Lemmatisation("");
+		//System.out.println(" howma "+abu.howManyLemmes("risque"));
 		//essaiSupp();
 		//essaiCntrntSemantic();
+		String s = new String("Dépression_(psychiatrie)_Results");
+		URI t = URLEncoder.encode(s, "UTF-8").
+		//System.out.println(" encode "+t);
+		System.out.println(t);
 		
 	}
 	public static void essaiCntrntSemantic() throws MalformedURLException, IOException, InterruptedException{

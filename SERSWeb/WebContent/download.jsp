@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import = "java.net.URLDecoder"
+import = "java.net.URLEncoder"
+%>
 <%    
   String filename = request.getParameter("filename");   
   String filepath = request.getParameter("filepath");
+  filename = URLDecoder.decode(filename, "UTF-8");
    response.setContentType("APPLICATION/OCTET-STREAM");   
    response.setHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");   
   

@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.regex.*;
 
@@ -801,7 +802,6 @@ public class MotsComposes extends TextClass {
 							}
 							
 							}
-							
 							////System.out.println("mot2 ="+mot);
 							if(	l[1].toLowerCase().equals(new String("dans") )
 								||l[1].toLowerCase().equals(new String("le") )
