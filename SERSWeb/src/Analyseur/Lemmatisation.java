@@ -647,16 +647,16 @@ public class Lemmatisation extends TextClass {
 			v = v.replace("_", " ").trim();
 			int k=0;
 			if(isVerb(v) && list.get(i+1).equals(new String("par")) && isOnlyVerb(list.get(i+2))){
-				System.out.println(" par remove "+list.get(i)+" "+list.get(i+1));
+				//System.out.println(" par remove "+list.get(i)+" "+list.get(i+1));
 				k=1;
 			}
 			int h = i;
 			int l = i+1;
 			if(k==1){
 				i = i+3;
-				System.out.println(" par remove supp "+list.get(h)+"-----"+list.get(l));
-				System.out.println(list.remove(h));
-				System.out.println(list.remove(h));
+			//	System.out.println(" par remove supp "+list.get(h)+"-----"+list.get(l));
+			//	System.out.println(list.remove(h));
+				//System.out.println(list.remove(h));
 			}
 			else{
 				i++;

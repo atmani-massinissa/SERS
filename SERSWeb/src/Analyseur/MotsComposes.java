@@ -150,7 +150,7 @@ public class MotsComposes extends TextClass {
 		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(
 		 new FileOutputStream(our_jdm_mcPath.toString(),true), "UTF-8"));
 		String outS = new String();
-		System.out.println("*************"+RelCompMap);
+		//System.out.println("*************"+RelCompMap);
 		for (String s : nonExistingWords){
 			s = s.trim().toLowerCase().replace("_", " ");
 			if(!lookUp(s)){
@@ -160,7 +160,7 @@ public class MotsComposes extends TextClass {
 
 							}
 							else{
-								System.out.println("WAAAAAAA "+s);
+								//System.out.println("WAAAAAAA "+s);
 								outS = outS +s.replace("_", " ")+ ";Nom:Ajouté;"+RelCompMap.get(s)+"; Source :  "+analyseur.getTitle()+ ";\n";
 								//System.out.println(s.replace("_", " ")+ ";Nom:Ajouté;"+RelCompMap.get(s)+";  Source :  "+analyseur.getTitle()+ ";\n");
 							}
@@ -366,7 +366,7 @@ public class MotsComposes extends TextClass {
 				}
 			}
 		}
-		System.out.println("TEST adj_noms: "+adj_nom_composes);
+		//System.out.println("TEST adj_noms: "+adj_nom_composes);
 		for (String mot : adj_nom_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -412,7 +412,7 @@ public class MotsComposes extends TextClass {
 			}
 			
 		}
-		System.out.println("TEST NumericSentence: "+NumericPhrase);
+		//System.out.println("TEST NumericSentence: "+NumericPhrase);
 		for (String mot : NumericPhrase) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				//nonExistingWords.add(mot.trim().toLowerCase());
@@ -447,7 +447,7 @@ public class MotsComposes extends TextClass {
 				
 		
 			}
-		System.out.println("TEST quantif_adj: "+quantifAdj);
+		//System.out.println("TEST quantif_adj: "+quantifAdj);
 		for (String mot : quantifAdj) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -481,7 +481,7 @@ public class MotsComposes extends TextClass {
 				
 		
 			}
-		System.out.println("TEST quantif_nom: "+quantifNom);
+		//System.out.println("TEST quantif_nom: "+quantifNom);
 		for (String mot : quantifNom) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -538,7 +538,7 @@ public class MotsComposes extends TextClass {
 				}
 			}
 		}
-		System.out.println("TEST noms_adj: "+noms_adj_composes);
+		//System.out.println("TEST noms_adj: "+noms_adj_composes);
 		for (String mot : noms_adj_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				nonExistingWords.add(mot.trim().toLowerCase());
@@ -581,7 +581,7 @@ public class MotsComposes extends TextClass {
 				
 			}
 		
-		System.out.println("TEST mots particuliers : "+mots_composes);
+		//System.out.println("TEST mots particuliers : "+mots_composes);
 		for (String mot : mots_composes) {		
 			if (!lookUp(mot.replace("_", " ").trim().toLowerCase())) {
 				if (mot.toLowerCase().startsWith("l'")) {
@@ -610,7 +610,7 @@ public class MotsComposes extends TextClass {
 				"la_","les_","le_","un_","une_","en_","pour_","si_","plus_","avoir_","fois_","celui_","type","même","cas","autre",
 				"celle_","celui-ci_","celle-ci_","terme_","travers_","sein_","celui_","celle_","leur_","moins_","lors","synonyme",
 				"pas_","être_","but_","quelque_","quelques_","par_","dans_","soit_","autres_","sur_","a_","autres_","particulier_",
-				"d'_","l'_","du_","en_","de_","dans_","le_","la_","une_","un_","leurs_","cette_","ce_","sa_","au_","à","lors"});
+				"d'_","l'_","du_","en_","de_","dans_","le_","la_","une_","un_","leurs_","cette_","ce_","sa_","au_","à","lors","une_des"});
 		str = str.trim();
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
 		Lemmatisation abu = new Lemmatisation(this,this.ressourcePath);
@@ -761,7 +761,7 @@ public class MotsComposes extends TextClass {
 	
 							}						
 							else if(l[k-1].toLowerCase().equals(new String("en"))){
-								System.out.println("inside en "+ mot);
+								//System.out.println("inside en "+ mot);
 								if(abu.isPosComp(s[i].toLowerCase(), "Nom")
 									|| abu.isNomBis(s[i].toLowerCase())!=0){									
 									if(Arrays.asList(new String[] {"_qui","eux","_que","quelque","lui-meme","quelques","eux"

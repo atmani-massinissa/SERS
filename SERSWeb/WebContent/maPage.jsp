@@ -43,7 +43,7 @@ import = "java.net.URLEncoder"
 			
 			if (Relation.types_de_relations.isEmpty()){
 				
-				Principale.fetchPatrons (session.getServletContext().getRealPath("/WEB-INF/PatternsParMcLem.txt"));
+				Principale.fetchPatrons (session.getServletContext().getRealPath("/WEB-INF/classes/PatternsParMcLem.txt"));
 			
 			}
 			Wiki frWiki = new Wiki("fr.wikipedia.org");
@@ -65,10 +65,11 @@ import = "java.net.URLEncoder"
 					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
 					%>
 					<br><br>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">New JDM File</a>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=PatternsParMcLem.txt">Fichier des patterns lémmatisé</a>
 					<br><br>
-					<%%>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/results/")%>&filename=<%=URLEncoder.encode(analyseurDeTest.getTitle()+"_Results.txt","UTF-8")%>">Extracted Relations File</a>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">Fichier des mot composés extraits de l'article Wikipédia</a>
+					<br><br>
+					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/results/")%>&filename=<%=URLEncoder.encode(analyseurDeTest.getTitle()+"_Results.txt","UTF-8")%>">Fichier des relations extraites</a>
 					<br><br>
  					<%
  					analyseurDeTest.displayResults(out);

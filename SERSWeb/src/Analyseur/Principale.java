@@ -66,7 +66,7 @@ public class Principale {
 				tmc = tmpComp.split("-->")[1].trim();
 			} else if (tmpComp.contains("-*->")) {
 				ConstraintNature = "Semantic";
-				System.out.println("La ligne qui pose problème : "+tmpComp.split("-*->").toString());
+				//System.out.println("La ligne qui pose problème : "+tmpComp.split("-*->").toString());
 				tmp = tmpComp.split("-*->")[0].trim();
 				tmc = tmpComp.split("-*->")[1].trim();
 			}else {
