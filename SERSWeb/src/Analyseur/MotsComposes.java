@@ -553,6 +553,8 @@ public class MotsComposes extends TextClass {
 		HashSet<String> mots_composes = new HashSet<String>();
 		String str = new String(this.newText);
 		String[] s = str.split("\\s|[,.?!:;\\(\\)]+");
+		Boolean relationFlag=null;
+		String terme1="";
 		for (int i = 0; i < s.length; i++) {
 			
 				if (Arrays.asList(new String[] {"traitement","proche","somme","mesure","abus","risque","présence","père","mère","sœur","soeur"
@@ -563,7 +565,11 @@ public class MotsComposes extends TextClass {
 						int k = 2;
 						int p = 0;
 						for (int j = 0; j <= k; j++) {
+							if (mot.equals("")) {
+								terme1=new String(s[i+j]);
+							}
 							mot = mot+s[i+j]+" ";
+							relationFlag=true;
 							if (Arrays.asList(new String[] {"les","d'","l'","du","en","de","des","dans","le","la","une","un","leurs","cette"}).contains(s[i+k+1].trim().toLowerCase())) {
 								k=k+2;
 							}
@@ -573,6 +579,12 @@ public class MotsComposes extends TextClass {
 						}
 						if (mot != null) {
 							mot = apostrFj(mot);
+							if (relationFlag) {
+								String moT = mot.replace("_", " ");
+								//Relation rel = new Relation("Schéma1",mot.replace(terme1, "").trim(),terme1,mot,"None");
+								String rel = new String("Schéma1("+moT.replace(terme1, "").replace(" de", "").trim()+","+terme1+")");
+								RelCompMap.put(moT.trim().replace("_", " "), rel.toString());		
+							}
 							mots_composes.add(mot.trim().toLowerCase());
 						}
 		
@@ -840,7 +852,8 @@ public class MotsComposes extends TextClass {
 								mot = null;
 								}
 								
-								l = mot.split(" ");
+								String moT = mot.replace("_", " ");
+							l = mot.replace("_", " ").split(" ");
 							if(l.length>3){
 								if (Arrays.asList(new String[] {"des","d'une","d'un","les","d'","du","de","dans","l'","la","le","en","une","un"}).
 								contains(l[2].toLowerCase()))
@@ -848,7 +861,7 @@ public class MotsComposes extends TextClass {
 									//System.out.println("unknown "+l[0]+" "+l[3]);
 									if((abu.map.containsKey(l[0])||wordListMap.containsKey(l[0])) && (abu.map.containsKey(l[3])||wordListMap.containsKey(l[3]))){
 										//System.out.println("==unknown "+l[0]+" "+l[3]);
-										String rel = new String("Schéma1("+l[0].trim()+","+l[3].trim()+")");
+										String rel = new String("Schéma2("+moT.replace(l[l.length-1],"").replaceAll(l[l.length-2], "").trim()+","+l[l.length-1].trim()+")");
 										RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
 
 									}
@@ -857,9 +870,8 @@ public class MotsComposes extends TextClass {
 									//System.out.println("unknown2 "+l[0]+" "+l[2]);
 									if((abu.map.containsKey(l[0])||wordListMap.containsKey(l[0])) && (abu.map.containsKey(l[2])||wordListMap.containsKey(l[2]))){
 										//System.out.println("==unknown2 "+l[0]+" "+l[2]);
-										String rel = new String("Schéma1("+l[0].trim()+","+l[2].trim()+")");
+										String rel = new String("Schéma2("+moT.replace(l[2],"").trim()+","+l[2].trim().replace("d'", "").trim()+")");
 										RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
-
 									}
 
 								}
