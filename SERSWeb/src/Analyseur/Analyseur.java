@@ -578,14 +578,16 @@ public class Analyseur {
 								"qu'un", "qu'une", "que", "ce", "au", "aux", "sur", "le", "en", "qu'il", "qu'elle",
 								"ceci", "plus", "sous", "très", "lui", "de", "un", "être", "est", "qui", "elle",
 								"celle-ci", "il", "ils", "elles", "celui-ci", "la", "qu'il", "y", "et", "autre", ",",
-								"s'", "l'", "ce_qui", "au_moins", "être","n'a" })
+								"s'", "l'", "ce_qui", "au_moins", "être","n'a","n'est_pas","on","tel","quelque",
+								"quelques","par","dans","soit","autres","sur","a","autres" })
 						.contains(term1.toLowerCase())
 						|| Arrays
 								.asList(new String[] { "ne", "celui", "ceux", "pour", "se", "ou", "qu'elles", "à",
 										"moins", "qu'un", "qu'une", "que", "ce", "au", "aux", "sur", "le", "en",
 										"qu'il", "qu'elle", "ceci", "plus", "sous", "très", "lui", "de", "un", "être",
 										"est", "qui", "elle", "celle-ci", "il", "ils", "elles", "celui-ci", "la",
-										"qu'il", "y", "et", "autre", ",", "s'", "l'", "ce_qui", "au_moins", "être" })
+										"qu'il", "y", "et", "autre", ",", "s'", "l'", "ce_qui", "au_moins", "être","n'est_pas","on","tel","quelque",
+										"quelques","par","dans","soit","autres","sur","a","autres" })
 								.contains(term2.toLowerCase())) {
 					return false;
 				}

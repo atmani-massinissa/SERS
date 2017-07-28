@@ -657,6 +657,9 @@ public class Lemmatisation extends TextClass {
 			//	System.out.println(" par remove supp "+list.get(h)+"-----"+list.get(l));
 			//	System.out.println(list.remove(h));
 				//System.out.println(list.remove(h));
+				list.remove(h);
+				list.remove(h);
+
 			}
 			else{
 				i++;

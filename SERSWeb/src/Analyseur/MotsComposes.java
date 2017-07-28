@@ -905,8 +905,16 @@ public class MotsComposes extends TextClass {
 								|| mot.endsWith(new String(" les"))){
 									if(last!=0){
 										mot = mot + " "+ s[last];
+										last++;
 									}
 								}
+						
+						if(mot.endsWith(new String("toue_les")) || mot.endsWith(new String("toutes_les")) || mot.endsWith(new String("dans_les"))){
+							if(last!=0){
+								mot = mot + " "+ s[last];
+								last++;
+							}
+						}
 						////System.out.println("mot5 ="+mot);
 						//apostrFj(mot);
 					//	mot = mot.replace("_", " ");
