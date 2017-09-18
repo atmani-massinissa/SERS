@@ -4,6 +4,12 @@ import = "java.util.regex.Matcher"
 import = "java.util.regex.Pattern"
 import = "java.net.URLDecoder"
 import = "java.net.URLEncoder"
+import = "java.io.BufferedReader"
+import = "java.nio.file.Path"
+import = "java.nio.file.Paths"
+import = "java.nio.charset.StandardCharsets"
+import = "java.nio.file.Files"
+
 %>
 <%@page contentType="text/html; charset=iso-8859-1" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -53,51 +59,57 @@ import = "java.net.URLEncoder"
 				Principale.fetchPatrons (session.getServletContext().getRealPath("/WEB-INF/classes/PatternsParMcLem.txt"));
 			
 			}
-			Wiki frWiki = new Wiki("fr.wikipedia.org");
-			frWiki.setMaxLag(-1);
-			frWiki.getPageText("");
-			String regexp="(.+)[/](.+)$";
-			Pattern ExpReg = Pattern.compile(regexp);
-			Matcher matcher = ExpReg.matcher(request.getParameter("inputText"));
-			if (matcher.find()) {
-				Analyseur analyseurDeTest=new Analyseur(session.getServletContext().getRealPath("/WEB-INF/"));
-				//out.print("1" +matcher.group(2));
-				String text= frWiki.getPageText(""+matcher.group(2));
-				if (text != null) {
-					analyseurDeTest.setText(text);
-					analyseurDeTest.setTitle(matcher.group(2).toString());
-					//analyseurDeTest.setText(text);
-					//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
-					//out.print(""Texte en wikiCode"+" +text);
-					analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
-					%>
-					<br><br>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=PatternsParMcLem.txt">Fichier des patterns lémmatisé</a>
-					<br><br>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">Fichier des mot composés extraits de l'article Wikipédia</a>
-					<br><br>
-					<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/results/")%>&filename=<%=URLEncoder.encode(analyseurDeTest.getTitle()+"_Results.txt","UTF-8")%>">Fichier des relations extraites</a>
-					<br><br>
- 					<%
- 					analyseurDeTest.displayResults(out);
- 					%>
- 					<br><br>---------------------------------Relations tirées des mots composés-------------------------------<br><br>
- 					<%
- 					//analyseurDeTest.displayResultsComposes(out);
- 					%>
- 					<br><br>-----------------------------------------------------------------------------------------------------<br><br>
- 					<br><br>------------------------------------------------Texte-----------------------------------------------<br><br>
- 					<%out.print("Texte prétraité"+analyseurDeTest.getText());
- 					%><br><br>-----------------------------------------------------------------------------------------------------<br><br>
- 					<%analyseurDeTest.writeResults();
-				}
-				else 
-				{
-					%>La page <%out.print(request.getParameter("inputText"));%> est introuvable sur Wikipédia Fr!
-					<%
-					
-				}
-			}
+// 			Wiki frWiki = new Wiki("fr.wikipedia.org");
+// 			frWiki.setMaxLag(-1);
+// 			frWiki.getPageText("");
+// 			String regexp="(.+)[/](.+)$";
+// 			Pattern ExpReg = Pattern.compile(regexp);
+// 			Matcher matcher = ExpReg.matcher(request.getParameter("inputText"));
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/classes/testText.txt");
+		BufferedReader buffer = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
+		String tmp;
+		String text = new String();
+		while ((tmp = buffer.readLine()) != null) {
+			text = text + "\n" + tmp;
+		}
+
+		Analyseur analyseurDeTest=new Analyseur(session.getServletContext().getRealPath("/WEB-INF/"));
+		//out.print("1" +matcher.group(2));
+		if (text != null) {
+			analyseurDeTest.setText(text);
+			analyseurDeTest.setTitle("TEST");
+			//analyseurDeTest.setText(text);
+			//analyseurDeTest.setText(frWiki.getPageText("Dépression_(psychiatrie)"));
+			//out.print(""Texte en wikiCode"+" +text);
+			analyseurDeTest.analyserParMcLem(Double.parseDouble(request.getParameter("threshold")));
+			%>
+			<br><br>
+			<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=PatternsParMcLem.txt">Fichier des patterns lémmatisé</a>
+			<br><br>
+			<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/")%>&filename=OurJdm-mc.txt">Fichier des mot composés extraits de l'article Wikipédia</a>
+			<br><br>
+			<a href="download.jsp?filepath=<%=session.getServletContext().getRealPath("/WEB-INF/classes/results/")%>&filename=<%=URLEncoder.encode(analyseurDeTest.getTitle()+"_Results.txt","UTF-8")%>">Fichier des relations extraites</a>
+			<br><br>
+				<%
+				analyseurDeTest.displayResults(out);
+				
+				%>
+				<br><br>---------------------------------Relations tirées des mots composés-------------------------------<br><br>
+				<%
+				analyseurDeTest.displayResultsComposes(out);
+				%>
+				<br><br>-----------------------------------------------------------------------------------------------------<br><br>
+				<br><br>------------------------------------------------Texte-----------------------------------------------<br><br>
+				<%out.print("Texte prétraité"+analyseurDeTest.getText());
+				%><br><br>-----------------------------------------------------------------------------------------------------<br><br>
+				<%analyseurDeTest.writeResults();
+		}
+		else 
+		{
+			%>La page <%out.print(request.getParameter("inputText"));%> est introuvable sur Wikipédia Fr!
+			<%
+			
+		}
 			
 		}
 %>  

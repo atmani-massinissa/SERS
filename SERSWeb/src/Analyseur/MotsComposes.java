@@ -119,7 +119,7 @@ public class MotsComposes extends TextClass {
 		
 		//this.newText = replace_article2(this.newText);
 		
-
+		System.out.println("Test2");
 
 		this.newText =  new String(replace_article(nonExistingWords, this.newText));
 		this.newText =  new String(incomplete_words(this.newText));
@@ -529,6 +529,7 @@ public class MotsComposes extends TextClass {
 						Relation rel = new Relation("Caractérisation",terme1,mot.replace(terme1, "").trim(),mot,"None");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
+							System.out.println("TEST");
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
 						}
 						

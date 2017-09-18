@@ -1,10 +1,14 @@
 eclipse.preferences.version=1
 encoding//WebContent/Doc.jsp=UTF-8
+encoding//WebContent/WEB-INF/PatternsParMcLem.txt=UTF-8
 encoding//WebContent/WEB-INF/classes/OurJdm-mc.txt=UTF-8
 encoding//WebContent/WEB-INF/classes/Patterns.txt=UTF-8
 encoding//WebContent/WEB-INF/classes/PatternsParMcLem.txt=UTF-8
 encoding//WebContent/WEB-INF/classes/dico.txt=UTF-8
 encoding//WebContent/WEB-INF/classes/jdm-mc.txt=UTF-8
+encoding//WebContent/WEB-INF/classes/testText.txt=UTF-8
+encoding//WebContent/WEB-INF/dico.txt=UTF-8
+encoding//WebContent/WEB-INF/jdm-mc.txt=UTF-8
 encoding//src/Analyseur/Analyseur.java=UTF-8
 encoding//src/Analyseur/Lemmatisation.java=UTF-8
 encoding//src/Analyseur/MotsComposes.java=UTF-8

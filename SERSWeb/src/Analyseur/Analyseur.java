@@ -1,15 +1,15 @@
 package Analyseur;
 import java.io.BufferedReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap; 
@@ -779,7 +779,7 @@ public class Analyseur {
 		out.println("// Résultats de l'analyse de l'article : "+this.title+"\n");
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("\n- " + relation.getType()+"["+relation.getPatron()+"] "+"(" + relation.getTerm1() + "," + relation.getTerm2() + ") ("+relation.getScore()+")");//// Contexte 	
+			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+";CONTEXTE"+ "("+relation.getScore()+")");//// Contexte 	
 		}
 		out.flush();
 		out.close();
@@ -801,9 +801,9 @@ public class Analyseur {
 		 * Affiche la liste des relations trouvées.
 		 */
 		
-		out.println("relation tirées des mots composés trouvés:");
+		out.println("<br> Relations tirées des mots composés trouvés:");
 		for (Relation relation : this.getRelations_composes_trouvees()) {
-			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() +") ("+relation.getScore()+")");//// Contexte
+			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+";CONTEXTE"+ "("+relation.getScore()+")");//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
@@ -818,7 +818,7 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br>" + relation.getType()+"("+relation.getPatron()+") "+"(" + relation.getTerm1() + "," + relation.getTerm2() +") ("+relation.getScore()+")");//// Contexte
+			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+";CONTEXTE"+ "("+relation.getScore()+")");//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
