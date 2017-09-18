@@ -9,6 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import RequeterRezo.RequeterRezo;
 import RequeterRezo.Terme;
@@ -20,7 +22,8 @@ import java.util.*;
 
 public class MesTests {
 	public static void main(String[] args){
-		
+		System.out.println("avoir un".split(" ").length);
+		expReg();
 		//Lemmatisation abu = new Lemmatisation("");
 		//System.out.println(" howma "+abu.howManyLemmes("risque"));
 		//essaiSupp();
@@ -70,5 +73,21 @@ public class MesTests {
 		}
 		System.out.println("COUNT : "+motsSupprimes.size());
 
+	}
+
+	public static void expReg(){
+		String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
+		String motFr = "[A-Za-z0-9_" + carAccentues + "']";
+		String strExpReg ="(([A-Za-z0-9_œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-'])+[\\s\\.,]+){1,4}petite\\s([A-Za-z0-9_œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-'’]+\\s?){1,5}pièce[\\s\\.,]+(([A-Za-z0-9_œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-'])+[\\s\\.,]){1,4}";
+		Pattern ExpReg = Pattern.compile(strExpReg);
+		Matcher matcher = ExpReg.matcher("Le vieux mineur et le jeune avaient l’air d’attendre encore ; puis, ils partirent, les épaules cassées.");
+		if (matcher.find()) {
+			System.out.println("TEST expression reg");
+			System.out.println(matcher.group());
+		}
+		
+		else {
+			System.out.println("ERREUR !!!!!!");
+		}
 	}
 }

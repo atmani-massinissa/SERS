@@ -21,8 +21,9 @@ import RequeterRezo.RequeterRezo;
 
 public class Analyseur {
 	String carAccentues = "œ,àâäçèéêëîïôöùûüœÀÂÄÇÈÉÊËÎÏÔÖÙÛÜ\\-";
-	String motFr = "[A-Za-z0-9_" + carAccentues + "']";
+	String motFr = "[A-Za-z0-9_" + carAccentues + "’']";
 	String filePath;
+	private String context;
 	private String text;
 	private ArrayList<Relation> Relations_trouvees = new ArrayList<Relation>();
 	private ArrayList<Relation> Relations_composes_trouvees = new ArrayList<Relation>();
@@ -803,7 +804,7 @@ public class Analyseur {
 		
 		out.println("<br> Relations tirées des mots composés trouvés:");
 		for (Relation relation : this.getRelations_composes_trouvees()) {
-			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+";CONTEXTE"+ "("+relation.getScore()+")");//// Contexte
+			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
@@ -818,7 +819,7 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+";CONTEXTE"+ "("+relation.getScore()+")");//// Contexte
+			out.println("<br>" +relation.getPatron()+": " + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
@@ -828,7 +829,23 @@ public class Analyseur {
 	public String getTitle() {
 		return this.title;
 	}
-	
+	public String getContext(Relation relation) {
+		String strExpReg ="((([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]+){1,4}"+relation.getTerm1().replace("_", " ")+"[\\s\\.,]+("+motFr+"+\\s?){"+(relation.getPatron().split(" ").length)+","+(relation.getPatron().split(" ").length+2)+"}"+relation.getTerm2().replace("_", " ")+"[\\s\\.,]+(([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]){1,4})";
+		Pattern ExpReg = Pattern.compile(strExpReg,Pattern.CASE_INSENSITIVE);
+		p.oldText = p.oldText.replace("’", "'");
+		Matcher matcher = ExpReg.matcher(p.oldText);
+		if (matcher.find()) {
+			System.out.println("TEST expression reg");
+			return matcher.group();
+		}
+		
+		System.out.println(strExpReg);
+		System.out.println(relation.getTerm1());
+		System.out.println(relation.getTerm2());
+		System.out.println(relation.getPatron());
+		//System.out.println(p.oldText);
+		return "Context introuvable";
+	}
 	 public String MakePath(String path){
     	return(new String((path.replace("\"", ""))));
     }

@@ -119,7 +119,7 @@ public class MotsComposes extends TextClass {
 		
 		//this.newText = replace_article2(this.newText);
 		
-		System.out.println("Test2");
+
 
 		this.newText =  new String(replace_article(nonExistingWords, this.newText));
 		this.newText =  new String(incomplete_words(this.newText));
@@ -355,7 +355,7 @@ public class MotsComposes extends TextClass {
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",mot.replace(terme2, "").trim(),terme2.trim(),mot,"None");
+						Relation rel = new Relation("Caractérisation",mot.replace(terme2, "").trim(),terme2.trim(),mot," ");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
@@ -526,10 +526,9 @@ public class MotsComposes extends TextClass {
 				if (mot.matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",terme1,mot.replace(terme1, "").trim(),mot,"None");
+						Relation rel = new Relation("Caractérisation",terme1,mot.replace(terme1, "").trim(),mot," ");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
-							System.out.println("TEST");
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
 						}
 						
@@ -582,7 +581,7 @@ public class MotsComposes extends TextClass {
 							mot = apostrFj(mot);
 							if (relationFlag) {
 								String moT = mot.replace("_", " ");
-								//Relation rel = new Relation("Schéma1",mot.replace(terme1, "").trim(),terme1,mot,"None");
+								//Relation rel = new Relation("Schéma1",mot.replace(terme1, "").trim(),terme1,mot," ");
 								String rel = new String("Schéma1("+moT.replace(terme1, "").replace(" de", "").trim()+","+terme1+")");
 								RelCompMap.put(moT.trim().replace("_", " "), rel.toString());		
 							}
