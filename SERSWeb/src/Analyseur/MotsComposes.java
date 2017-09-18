@@ -349,13 +349,12 @@ public class MotsComposes extends TextClass {
 				if ((wordList.contains(mot.trim().replace(terme2, "").replace("_", " ")) || Lemmatisation.map.containsKey(mot.trim().replace(terme2, "").replace("_", " ")))) {
 					relationFlag=true;
 					//System.out.println("MOT à ajouter terme 2 : "+mot.replace(terme2, "")+".");
-					
 				}
 				
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",mot.replace(terme2, "").trim(),terme2.trim(),mot," ");
+						Relation rel = new Relation("Caractérisation",terme2.trim(),mot.replace(terme2, "").trim(),mot," ");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());

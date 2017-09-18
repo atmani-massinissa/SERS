@@ -804,7 +804,7 @@ public class Analyseur {
 		
 		out.println("<br> Relations tirées des mots composés trouvés:");
 		for (Relation relation : this.getRelations_composes_trouvees()) {
-			out.println("<br>" +relation.getPatron()+": "+"(" + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
+			out.println("<br><br> *-" +relation.getPatron()+":    " + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
@@ -819,7 +819,7 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br>" +relation.getPatron()+": " + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
+			out.println("<br><br> *-" +relation.getPatron()+":    " + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
 																														//// :
 																														//// "+relation.getContexte()+"<br><br>");
 			// //System.out.println(" contexte d e la phrase
@@ -830,7 +830,7 @@ public class Analyseur {
 		return this.title;
 	}
 	public String getContext(Relation relation) {
-		String strExpReg ="((([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]+){1,4}"+relation.getTerm1().replace("_", " ")+"[\\s\\.,]+("+motFr+"+\\s?){"+(relation.getPatron().split(" ").length)+","+(relation.getPatron().split(" ").length+2)+"}"+relation.getTerm2().replace("_", " ")+"[\\s\\.,]+(([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]){1,4})";
+		String strExpReg ="((([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]+){1,4}"+relation.getTerm1().replace("_", " ")+"[\\s\\.,]+("+motFr+"+\\s?){"+(relation.getPatron().split(" ").length)+","+(relation.getPatron().split(" ").length+2)+"}"+relation.getTerm2().replace("_", " ")+"[\\s\\.,]+(([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.$,]){0,4})";
 		Pattern ExpReg = Pattern.compile(strExpReg,Pattern.CASE_INSENSITIVE);
 		p.oldText = p.oldText.replace("’", "'");
 		Matcher matcher = ExpReg.matcher(p.oldText);

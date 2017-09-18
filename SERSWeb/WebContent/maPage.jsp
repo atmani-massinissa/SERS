@@ -40,7 +40,7 @@ import = "java.nio.file.Files"
 
  <br><br>------------------------------------------------Paramétrage-----------------------------------------------<br><br>
  <br><br>Saisir le seuil confiance minimal :<br><br>
-<input name="threshold" value="0.2">
+<input name="threshold" value="0.0">
   <br><br><br>
   <br><br><br>
   <input type="submit" style="border:gray; color:black;" value="Extraire relations sémantiques">
