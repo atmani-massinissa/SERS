@@ -191,6 +191,7 @@ public class Analyseur {
 		// //System.out.println(this.text);
 		for (String type : Relation.types_de_relations) {
 			long startTimeP = System.currentTimeMillis();
+			System.out.println("BAAAAAA"+Relation.typePatrons.keySet());
 			for (String patron : Relation.typePatrons.get(type)) {
 				// Construction de la Regex pour l'extraction des termes
 				String strExpReg = "";
@@ -819,18 +820,17 @@ public class Analyseur {
 		
 		out.println("Relations extraites :");
 		for (Relation relation : this.getRelations_trouvees()) {
-			out.println("<br><br> *-" +relation.getPatron()+":    " + relation.getTerm1() + ":" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
-																														//// :
-																														//// "+relation.getContexte()+"<br><br>");
-			// //System.out.println(" contexte d e la phrase
-			// "+relation.getContexte());
+			if (relation.getType().equals("r_Cause"))
+				out.println("<br><br> *-" +relation.getPatron()+":    " + relation.getTerm2() + ";r_has_consequence;"+ relation.getTerm1() +";"+this.getContext(relation));//// Contexte
+			else
+				out.println("<br><br> *-" +relation.getPatron()+":    " + relation.getTerm1() + ";" +relation.getType()+";"+ relation.getTerm2() +";"+this.getContext(relation));//// Contexte
 		}
 	}
 	public String getTitle() {
 		return this.title;
 	}
 	public String getContext(Relation relation) {
-		String strExpReg ="((([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.,]+){1,4}"+relation.getTerm1().replace("_", " ")+"[\\s\\.,]+("+motFr+"+\\s?){"+(relation.getPatron().split(" ").length)+","+(relation.getPatron().split(" ").length+2)+"}"+relation.getTerm2().replace("_", " ")+"[\\s\\.,]+(([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.$,]){0,4})";
+		String strExpReg ="((([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.\\)\\(,«»!?;:—]+){0,6}"+relation.getTerm1().replace("_", " ")+"[\\s\\.,]+("+motFr+"+\\s?){"+(relation.getPatron().split(" ").length)+","+(relation.getPatron().split(" ").length+2)+"}"+relation.getTerm2().replace("_", " ")+"[\\s\\.\\)\\(,«»!?;:—]+(([A-Za-z0-9_" + carAccentues + "’'])+[\\s\\.\\)\\(,«»!?;:—]){0,6})";
 		Pattern ExpReg = Pattern.compile(strExpReg,Pattern.CASE_INSENSITIVE);
 		p.oldText = p.oldText.replace("’", "'");
 		Matcher matcher = ExpReg.matcher(p.oldText);
@@ -844,7 +844,7 @@ public class Analyseur {
 		System.out.println(relation.getTerm2());
 		System.out.println(relation.getPatron());
 		//System.out.println(p.oldText);
-		return "Context introuvable";
+		return "***Context introuvable***";
 	}
 	 public String MakePath(String path){
     	return(new String((path.replace("\"", ""))));

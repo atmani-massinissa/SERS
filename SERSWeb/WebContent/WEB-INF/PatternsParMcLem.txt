@@ -70,10 +70,8 @@ $x appelée $y , ou $z --> $x:[Nom],$y:[Nom]
 
 r_has_part :
 $x a comme partie un $y --> $x:[Nom],$y:[Nom] 
-$x a un $y --> $x:[Nom] --> $x:[Nom],$y:[Nom] 
 $x avoir comme partie un $y --> $x:[Nom],$y:[Nom] 
 $x avoir partie un $y --> $x:[Nom],$y:[Nom] 
-$x avoir un $y --> $x:[Nom],$y:[Nom] 
 $x pouvoir avoir un $y --> $x:[Nom],$y:[Nom] 
 $x composé d'un $y --> $x:[Nom],$y:[Nom] 
 $x composé un $y --> $x:[Nom],$y:[Nom] 
