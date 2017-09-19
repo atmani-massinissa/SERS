@@ -354,7 +354,7 @@ public class MotsComposes extends TextClass {
 				if (mot.trim().matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",terme2.trim(),mot.replace(terme2, "").trim(),mot," ");
+						Relation rel = new Relation("r_has_carac",terme2.trim(),mot.replace(terme2, "").trim(),mot," ");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
@@ -525,7 +525,7 @@ public class MotsComposes extends TextClass {
 				if (mot.matches(".+\\s.+")) {
 					mot = apostrFj(mot);
 					if (relationFlag) {
-						Relation rel = new Relation("Caractérisation",terme1,mot.replace(terme1, "").trim(),mot," ");
+						Relation rel = new Relation("r_has_carac",terme1,mot.replace(terme1, "").trim(),mot," ");
 						if (!analyseur.foundRelationcomposee(rel)) {
 							analyseur.getRelations_composes_trouvees().add(rel);
 							RelCompMap.put(mot.trim().replace("_", " "), rel.toString());
